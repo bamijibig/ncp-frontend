@@ -1,0 +1,221 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block" rel="stylesheet">
+<div class="modalHeader">
+
+    <button mat-icon-button (click)="dialogRef.close()" aria-label="Close dialog">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<div mat-dialog-content class="mat-typography">
+
+    <form class="m-4" [formGroup]="portform" (ngSubmit)="submitSupplier()">
+        <div class="container-fluid">
+        <div class="row">
+            <div class=" col-6">
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Name of Company</mat-label>
+                    <input matInput formControlName="company_name" required>
+                    <mat-icon matSuffix>face</mat-icon>
+                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
+                        Name is required
+                    </mat-error> -->
+                </mat-form-field>
+            </div>
+            <div class="col-6">
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Connection type</mat-label>
+                    <mat-select formControlName="connectiontype" required>
+                     
+                        <mat-option [value]="'transformer installation'">
+                            transformer installation
+                        </mat-option>
+                        <mat-option [value]="'transformer uprating'">
+                            transformer uprating
+                        </mat-option>
+                        <mat-option [value]="'relocation'">
+                            relocation
+                        </mat-option>
+                        <mat-option [value]="'change of transformer source'">
+                            change of transformer source
+                        </mat-option>
+                        <mat-option [value]="'others'">
+                            others
+                        </mat-option>
+                    </mat-select>
+                    <!-- <mat-error *ngIf="proForm.get('status').hasError('required')">
+                        Status is required
+                    </mat-error> -->
+                </mat-form-field>
+            </div>
+           
+        </div>
+        <div class="row">
+            <div class=" col-6">
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>capacity</mat-label>
+                    <input matInput formControlName="capacity" required>
+                    <mat-icon matSuffix>transformer</mat-icon>
+                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
+                        Name is required
+                    </mat-error> -->
+                </mat-form-field>
+            </div>
+            <div class="col-6">
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Volatge Ratio</mat-label>
+                    <input matInput formControlName="voltage_ratio" required>
+                    <mat-icon matSuffix>transformer</mat-icon>
+                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
+                        Name is required
+                    </mat-error> -->
+                </mat-form-field>
+            </div>
+
+
+
+
+            
+            <div class="row">
+            <div class="col-6">
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>route length</mat-label>
+                    <input matInput formControlName="route_length_km" required>
+                    <mat-icon matSuffix>route</mat-icon>
+                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
+                        Name is required
+                    </mat-error> -->
+                </mat-form-field>
+            </div>
+            <div class="col-6">
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>load of premises</mat-label>
+                    <input matInput formControlName="est_load_of_premises" required>
+                    <mat-icon matSuffix>transformer</mat-icon>
+                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
+                        Name is required
+                    </mat-error> -->
+                </mat-form-field>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-6">
+            <mat-form-field class="example-full-width mb-3" appearance="outline">
+                <mat-label>use of premises</mat-label>
+                <mat-select formControlName="useofpremises" required>
+                 
+                    <mat-option [value]="'residential'">
+                        residential
+                    </mat-option>
+                    <mat-option [value]="'commercial'">
+                        commercial
+                    </mat-option>
+                    <mat-option [value]="'industrial'">
+                        industrial
+                    </mat-option>
+                </mat-select>
+                <!-- <mat-error *ngIf="proForm.get('status').hasError('required')">
+                    Status is required
+                </mat-error> -->
+            </mat-form-field>
+            </div>
+       
+            <div class="col-6">
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>House No</mat-label>
+                    <input matInput formControlName="add_house_no" required>
+                    <mat-icon matSuffix>house</mat-icon>
+                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
+                        Name is required
+                    </mat-error> -->
+                </mat-form-field>
+            </div>
+            
+            </div>
+
+
+           
+            <div class="row">
+            <div class="col-6">
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>City/Town</mat-label>
+                    <input matInput formControlName="add_town_or_city" required>
+                    <mat-icon matSuffix>location_on</mat-icon>
+                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
+                        Name is required
+                    </mat-error> -->
+                </mat-form-field>
+            </div>
+            <div class="col-6">
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Local Government Area</mat-label>
+                    <input matInput formControlName="add_lga" required>
+                    <mat-icon matSuffix>location_on</mat-icon>
+                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
+                        Name is required
+                    </mat-error> -->
+                </mat-form-field>
+            </div>
+            </div>
+              
+            <div class="row">
+            <div class="col-6">
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>State</mat-label>
+                    <input matInput formControlName="add_state">
+                    <mat-icon matSuffix>location_on</mat-icon>
+                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
+                        Name is required
+                    </mat-error> -->
+                </mat-form-field>
+            </div>
+            
+            
+                <div class="col-6">
+            <mat-form-field>
+                <mat-label>Upload pdf of Letter of Donation</mat-label>
+                <ngx-mat-file-input formControlName="letter_of_donation_dss" (change) = DssImageProcessing($event)>
+                   <mat-icon ngxMatFileInputIcon>backup</mat-icon>
+                </ngx-mat-file-input>
+             </mat-form-field>
+             </div>
+             </div>
+             <div class="row">
+             <div class="col-6">
+             <mat-form-field>
+                <mat-label>Upload pdf NEMSA Test Certificate</mat-label>
+                <ngx-mat-file-input formControlName="nemsa_test_cert" (change) = NemsaImageProcessing($event)>
+                   <mat-icon ngxMatFileInputIcon>backup</mat-icon>
+                </ngx-mat-file-input>
+             </mat-form-field>
+             </div>
+             
+             <div class="col-6">
+             <mat-form-field>
+                <mat-label>Upload pdf of transformer waranty</mat-label>
+                <ngx-mat-file-input formControlName="transformer_waranty" (change) = WarrantyImageProcessing($event)>
+                   <mat-icon ngxMatFileInputIcon>backup</mat-icon>
+                </ngx-mat-file-input>
+             </mat-form-field>.
+             </div>
+             </div>
+             </div>
+             <mat-form-field>
+                <mat-label>Upload pdf of Transformer Test Cert</mat-label>
+                <ngx-mat-file-input formControlName = "transformer_test_cert" (change) = TestImageProcessing($event) >
+                   <mat-icon ngxMatFileInputIcon>backup</mat-icon>
+                </ngx-mat-file-input>
+             </mat-form-field>
+            
+        
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                <div class="example-button-row">
+                    <button mat-raised-button color="primary" type="submit"
+                       (click)="confirmAdd()" [mat-dialog-close]="1">Save</button>
+                        &nbsp; &nbsp; &nbsp;
+                    <button mat-raised-button color="warn" (click)="dialogRef.close()" tabindex="-1">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        </form>
+</div>

@@ -1,0 +1,174 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block" rel="stylesheet">
+<div class="">
+
+    <button mat-icon-button  aria-label="Close dialog">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<div  class="mat-typography">
+
+    <form class="m-4" [formGroup]="portform" (ngSubmit)="submitReg()">
+        <div class="container-fluid">
+        <div class="row">
+            <div class=" col-6">
+
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Name of Contractor</mat-label>
+                    <input matInput formControlName="contractor_name" required>
+                    <mat-icon matSuffix>face</mat-icon>
+                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
+                        Name is required
+                    </mat-error> -->
+                </mat-form-field>
+            </div>
+            <div class=" col-6">
+
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>username</mat-label>
+                    <input matInput formControlName="username" required>
+                    <mat-icon matSuffix>face</mat-icon>
+                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
+                        Name is required
+                    </mat-error> -->
+                </mat-form-field>
+            </div>
+           
+           
+        </div>
+
+        <div class="row">
+            <div class=" col-6">
+
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput formControlName="password" required>
+                    <mat-icon matSuffix>face</mat-icon>
+                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
+                        Name is required
+                    </mat-error> -->
+                </mat-form-field>
+            </div>
+            <div class=" col-6">
+
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>FirstName</mat-label>
+                    <input matInput formControlName="firstname" required>
+                    <mat-icon matSuffix>face</mat-icon>
+                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
+                        Name is required
+                    </mat-error> -->
+                </mat-form-field>
+            </div>
+           
+           
+        </div>
+
+        <div class="row">
+            <div class=" col-6">
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>connection address</mat-label>
+                    <input matInput formControlName="con_address" required>
+                    <mat-icon matSuffix>transformer</mat-icon>
+                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
+                        Name is required
+                    </mat-error> -->
+                </mat-form-field>
+            </div>
+            <div class="col-6">
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Licensed no</mat-label>
+                    <input matInput formControlName="licensed_no" required>
+                    <mat-icon matSuffix>transformer</mat-icon>
+                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
+                        Name is required
+                    </mat-error> -->
+                </mat-form-field>
+            </div>
+
+
+
+
+            
+            
+            <div class="col-6">
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Telephone</mat-label>
+                    <input matInput formControlName="tel_no" required>
+                    <mat-icon matSuffix>route</mat-icon>
+                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
+                        Name is required
+                    </mat-error> -->
+                </mat-form-field>
+            </div>
+            <div class="col-6">
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>email</mat-label>
+                    <input matInput formControlName="email" required>
+                    <mat-icon matSuffix>transformer</mat-icon>
+                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
+                        Name is required
+                    </mat-error> -->
+                </mat-form-field>
+            </div>
+            
+        
+          
+       
+            <div class="col-6">
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Date</mat-label>
+                    <input matInput formControlName="reg_date" required>
+                    <mat-icon matSuffix>house</mat-icon>
+                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
+                        Name is required
+                    </mat-error> -->
+                </mat-form-field>
+            </div>
+            
+            
+
+
+           
+           
+              
+           
+             
+             <div class="col-6">
+             <mat-form-field>
+                <mat-label>Upload pdf NEMSA Test Certificate</mat-label>
+                <ngx-mat-file-input formControlName="nemsa_test_cert" (change) = NemsaImageProcessing($event)>
+                   <mat-icon ngxMatFileInputIcon>backup</mat-icon>
+                </ngx-mat-file-input>
+             </mat-form-field>
+             </div>
+             
+             
+                <div class=" col-6">
+
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>lastName</mat-label>
+                        <input matInput formControlName="lastname" required>
+                        <mat-icon matSuffix>face</mat-icon>
+                        <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
+                            Name is required
+                        </mat-error> -->
+                    </mat-form-field>
+                </div>
+            
+             </div>
+             
+             
+            
+        
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                <div class="example-button-row">
+                    <button mat-raised-button color="primary" type="submit"
+                       (click)="confirmAdd()" >Save</button>
+                        &nbsp; &nbsp; &nbsp;
+                    <!-- <button mat-raised-button color="warn" tabindex="-1">Cancel</button> -->
+                </div>
+            </div>
+        
+    </div>
+        </form>
+</div>

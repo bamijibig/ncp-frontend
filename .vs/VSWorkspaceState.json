@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\.angular",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\dashboard"
+  ],
+  "SelectedNode": "\\src\\app\\app-routing.module.ts",
+  "PreviewInSolutionExplorer": false
+}

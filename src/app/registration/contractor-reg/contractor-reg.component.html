@@ -1,10 +1,25 @@
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block" rel="stylesheet">
-<div class="">
+<div class="page-wrapper">
+    <div class="page-breadcrumb">
+        <div class="row align-items-center">
+            <div class="col-6">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0 d-flex align-items-center">
+                      <li class="breadcrumb-item"><a  routerLink="/contractor_reg" class="link"><i class="mdi mdi-home-outline fs-4"></i></a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Registration</li>
+                    </ol>
+                  </nav>
+                <h1 class="mb-0 fw-bold">My Registration Profile</h1> 
+            </div>
+            <div class="col-6">
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                
 
-    <button mat-icon-button  aria-label="Close dialog">
-        <mat-icon>close</mat-icon>
-    </button>
-</div>
+
 <div  class="mat-typography">
 
     <form class="m-4" [formGroup]="portform" (ngSubmit)="submitReg()">
@@ -172,3 +187,12 @@
     </div>
         </form>
 </div>
+            </div>
+
+        </div>
+        
+      
+    </div>
+  
+</div>
+

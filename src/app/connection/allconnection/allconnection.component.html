@@ -1,70 +1,100 @@
-<div class="col-12 d-flex justify-content-right text-right">
-    <button mat-raised-button color='primary'  (click)="addNew()" >Add new connection</button>
+
+
+
+  <div class="page-wrapper">
+    <div class="page-breadcrumb">
+        <div class="row align-items-center">
+            <div class="col-6">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0 d-flex align-items-center">
+                      <li class="breadcrumb-item"><a routerLink="/allconnection" class="link"><i class="mdi mdi-home-outline fs-4"></i></a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Connections</li>
+                    </ol>
+                  </nav>
+                <h1 class="mb-0 fw-bold">Connections</h1> 
+            </div>
+            <div class="col-6">
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+              <div class="col-12 text-right">
+                <button mat-raised-button color='primary'  (click)="addNew()" >Add new connection</button>
+            </div>
+            <div class="example-container mat-elevation-z8">
+                <mat-table #table [dataSource]="dataSource">
+              
+                  <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+                  <!-- id Column -->
+                  <ng-container matColumnDef="id">
+                    <mat-header-cell *matHeaderCellDef>id </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="contractor">
+                    <mat-header-cell *matHeaderCellDef>contractor id</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.contractor?.contractor_name}} </mat-cell>
+                  </ng-container>
+              
+                  <!--businesstype Column -->
+                  <ng-container matColumnDef="businesstype">
+                    <mat-header-cell *matHeaderCellDef> business type </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.businesstype}} </mat-cell>
+                  </ng-container>
+              
+              
+                  <!-- value_contract column -->
+                  <ng-container matColumnDef="company_name">
+                    <mat-header-cell *matHeaderCellDef> company name </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.company_name}} </mat-cell>
+                  </ng-container>
+              
+                  <!-- company_category Column -->
+                  <ng-container matColumnDef="connectiontype">
+                    <mat-header-cell *matHeaderCellDef> connection type </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.connectiontype}} </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="capacity">
+                    <mat-header-cell *matHeaderCellDef> capacity </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.capacity}} </mat-cell>
+                  </ng-container>
+            
+                  <ng-container matColumnDef="est_load_of_premises">
+                    <mat-header-cell *matHeaderCellDef>Estimated load </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.est_load_of_premises}} </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="useofpremises">
+                    <mat-header-cell *matHeaderCellDef> Use of Premise </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.useofpremises}} </mat-cell>
+                  </ng-container>
+                 
+                  <ng-container matColumnDef="date_of_application">
+                    <mat-header-cell *matHeaderCellDef> date </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.date_of_application}} </mat-cell>
+                  </ng-container>
+            
+                  <ng-container matColumnDef="edit">
+                    <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                    <mat-cell *matCellDef="let element"><button mat-raised-button color="secondary" (click)="edit(element)">Edit</button> </mat-cell>
+                  </ng-container>
+                
+              
+                  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                </mat-table>
+                <mat-paginator #paginator
+                               [pageSize]="10"
+                               [pageSizeOptions]="[5, 10, 20]"
+                               [showFirstLastButtons]="true">
+                </mat-paginator>
+              </div>
+            </div>
+
+        </div>
+        
+      
+    </div>
+  
 </div>
-<div class="example-container mat-elevation-z8">
-    <mat-table #table [dataSource]="dataSource">
-  
-      <!--- Note that these columns can be defined in any order.
-    The actual rendered columns are set as a property on the row definition" -->
-      <!-- id Column -->
-      <ng-container matColumnDef="id">
-        <mat-header-cell *matHeaderCellDef>id </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="contractor">
-        <mat-header-cell *matHeaderCellDef>contractor id</mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.contractor?.contractor_name}} </mat-cell>
-      </ng-container>
-  
-      <!--businesstype Column -->
-      <ng-container matColumnDef="businesstype">
-        <mat-header-cell *matHeaderCellDef> business type </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.businesstype}} </mat-cell>
-      </ng-container>
-  
-  
-      <!-- value_contract column -->
-      <ng-container matColumnDef="company_name">
-        <mat-header-cell *matHeaderCellDef> company name </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.company_name}} </mat-cell>
-      </ng-container>
-  
-      <!-- company_category Column -->
-      <ng-container matColumnDef="connectiontype">
-        <mat-header-cell *matHeaderCellDef> connection type </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.connectiontype}} </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="capacity">
-        <mat-header-cell *matHeaderCellDef> capacity </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.capacity}} </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="est_load_of_premises">
-        <mat-header-cell *matHeaderCellDef>Estimated load </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.est_load_of_premises}} </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="useofpremises">
-        <mat-header-cell *matHeaderCellDef> Use of Premise </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.useofpremises}} </mat-cell>
-      </ng-container>
-     
-      <ng-container matColumnDef="date_of_application">
-        <mat-header-cell *matHeaderCellDef> date </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.date_of_application}} </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="edit">
-        <mat-header-cell *matHeaderCellDef> </mat-header-cell>
-        <mat-cell *matCellDef="let element"><button mat-raised-button color="secondary" (click)="edit(element)">Edit</button> </mat-cell>
-      </ng-container>
-    
-  
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </mat-table>
-    <mat-paginator #paginator
-                   [pageSize]="10"
-                   [pageSizeOptions]="[5, 10, 20]"
-                   [showFirstLastButtons]="true">
-    </mat-paginator>
-  </div>

@@ -31,15 +31,11 @@
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "./node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.css",
-              "src/assets/css/font-awesome.min.css",
-              "src/assets/css/themify-icons.css",
-              "src/assets/css/metisMenu.css",
-              "src/assets/css/owl.carousel.min.css",
-              "src/assets/css/slicknav.min.css",
-              "src/assets/css/typography.css",
-              "src/assets/css/default-css.css",
-              "src/assets/css/styles.css",
-              "src/assets/css/responsive.css"
+              "src/assets/libs/chartist/dist/chartist.min.css",
+              "src/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css",
+
+              "src/assets/dist/css/style.min.css"
+
 
 
 
@@ -49,7 +45,16 @@
             ],
             "scripts": [
               "./node_modules/bootstrap/dist/js/bootstrap.js",
-              "src/assets/js/vendor/modernizr-2.8.3.min.js"
+              "src/assets/libs/jquery/dist/jquery.min.js",
+              "src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "src/assets/dist/js/app-style-switcher.js",
+              "src/assets/dist/js/waves.js",
+              "src/assets/dist/js/sidebarmenu.js",
+              "src/assets/dist/js/custom.js",
+              "src/assets/libs/chartist/dist/chartist.min.js",
+              "src/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js",
+              "src/assets/dist/js/pages/dashboards/dashboard1.js"
+              
 
             ]
           },

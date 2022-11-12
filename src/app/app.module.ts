@@ -30,7 +30,7 @@ import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { AllregistrationComponent } from './registration/allregistration/allregistration.component';
 import { ContractorRegComponent } from './registration/contractor-reg/contractor-reg.component';
 import { ConnectionLoginComponent } from './connection-login/connection-login.component';
-
+import { MatTabsModule } from '@angular/material/tabs';
 
 
 @NgModule({
@@ -65,6 +65,7 @@ import { ConnectionLoginComponent } from './connection-login/connection-login.co
     MatSnackBarModule,
     MatButtonModule,
     MatIconModule,
+    MatTabsModule,
     MatDialogModule,
     MatSortModule,
     MatToolbarModule,

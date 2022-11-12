@@ -13,14 +13,7 @@
                 <h2>Login</h2>
                 <p class="hint-text">Login to Your Account</p>
                 
-                <!-- <div class="form-group">
-                    <input type="email" class="form-control" name="email" placeholder="Email" required="required">
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" name="password" placeholder="Password" required="required">
-                </div> -->
-      
-                    <div class=" col-12">
+                  <div class=" col-12">
             
                         <mat-form-field class="example-full-width" appearance="outline">
                             <mat-label>Username</mat-label>
@@ -60,6 +53,7 @@
     <form action="/examples/actions/confirmation.php" method="post">
 		<h2>Register</h2>
 		<p class="hint-text">Start by creating an account</p>
+       
         <div class="form-group">
 			<div class="row">
 				<div class="col"><input type="text" class="form-control" name="first_name" placeholder="Rep. First Name" required="required"></div>
@@ -237,10 +231,12 @@
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                             routerLink="/allconnection" aria-expanded="false"><i class="mdi mdi-border-all"></i><span
                                     class="hide-menu">Connections</span></a></li>
-                        <!-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="icon-material.html" aria-expanded="false"><i class="mdi mdi-face"></i><span
-                                    class="hide-menu">Icon</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                 aria-expanded="false"><i class="ti-wallet m-r-5 m-l-5"></i><span
+                                    class="hide-menu">
+                                    <button class="dropdown-item" (click)="logout()">
+                                        Logout</button></span></a></li>
+                        <!-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="starter-kit.html" aria-expanded="false"><i class="mdi mdi-file"></i><span
                                     class="hide-menu">Blank</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"

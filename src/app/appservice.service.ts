@@ -182,6 +182,22 @@ export class AppserviceService {
     this.cookieService.delete('ATN','/');
     this.cookieService.deleteAll();
   }
+
+  logOut(): Observable<any> {
+    const url = this.masterdomain + 'logout/';
+    const reqtoken = this.getToken();
+    const headers = { 'Authorization': 'Token ' + reqtoken};
+    return this.http.post(url, null, { headers }).pipe(
+      finalize(() => 
+      this.keysToRemoveOnLogout()
+    ));
+  }
+
+  keysToRemoveOnLogout(){
+    localStorage.removeItem('master.user');
+    this.deleteToken();
+  }
+  
   // editloginapi(formvalue:any, id:any):Observable<any>{
   //   const url=this.masterdomain + 'login/'+ id +'/';
   //   const formData = new FormData();

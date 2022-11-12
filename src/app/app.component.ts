@@ -39,16 +39,19 @@ export class AppComponent implements OnInit {
         this._router.navigateByUrl('/dashboard');
       }
     )
-
-    
-
-  }
+    }
+  
+    logout(){
+      this.appService.logOut().subscribe(()=>{
+        this._router.navigateByUrl('/')
+      });
+    }
 
   register(){
     this._router.navigateByUrl('/dashboard')
   }
 
-  logout(){
-    this._router.navigateByUrl('/')
-  }
+  // logout(){
+  //   this._router.navigateByUrl('/')
+  // }
 }

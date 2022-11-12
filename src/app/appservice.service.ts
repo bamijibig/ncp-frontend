@@ -86,33 +86,33 @@ export class AppserviceService {
   //   return this.http.get(url)
   // }
 
-  postregapi( formvalue:any
+  signUp( formvalue:any
   ): Observable<any> {
-    const url = this.masterdomain + 'signup';
+    const url = this.masterdomain + 'signup/';
     const formData = new FormData();
     formData.append('username', formvalue.username);
+    formData.append('email', formvalue.username);
+    formData.append('password1', formvalue.password);
+    formData.append('password2', formvalue.password2);
     formData.append('password', formvalue.password);
-    formData.append('firstname', formvalue.firstname);
-    formData.append('lastname', formvalue.lastname);
-    formData.append('contractor_name', formvalue.contractor_name);
-    formData.append('con_address', formvalue.con_address);
-    formData.append('licensed_no', formvalue.licensed_no);
-    formData.append('tel_no', formvalue.tel_no);
-    formData.append('coren_or_nemsa_competency', formvalue.coren_or_nemsa_competency);
-    formData.append('reg_date', formvalue.reg_date);
+    // formData.append('group', formvalue.group);
+   
     
-    
-    // formData.append('coren_or_nemsa_competency', formvalue.coren_or_nemsa_competency);
-    // formData.append('nemsa_test_cert', formvalue.nemsaFileSource);
-    // formData.append('transformer_waranty', formvalue.warrantyFileSource);
-    // formData.append('letter_of_donation_dss', formvalue.dssFileSource);
-    // formData.append('transformer_test_cert', formvalue.testFileSource);
+
     return this.http.post(url,formData)
   }
   // editregapi(formvalue:any, id:any):Observable<any>{
   //   const url=this.masterdomain + 'signup/'+ id +'/';
   //   const formData = new FormData();
   //   formData.append('username', formvalue.username);
+  // formData.append('firstname', formvalue.firstname);
+  // formData.append('lastname', formvalue.lastname);
+  // formData.append('contractor_name', formvalue.contractor_name);
+  // formData.append('con_address', formvalue.con_address);
+  // formData.append('licensed_no', formvalue.licensed_no);
+  // formData.append('tel_no', formvalue.tel_no);
+  // formData.append('coren_or_nemsa_competency', formvalue.coren_or_nemsa_competency);
+  // formData.append('reg_date', formvalue.reg_date);
   //   formData.append('password', formvalue.password);
   //   formData.append('firstname', formvalue.firstname);
   //   formData.append('lastname', formvalue.lastname);

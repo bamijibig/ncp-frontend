@@ -78,7 +78,7 @@ export class ContractorRegComponent implements OnInit {
     }
     else {
       //Add new connections code below
-      this.portadd.postregapi(
+      this.portadd.signUp(
         this.portform.getRawValue()
         ).subscribe(
           (result) => {

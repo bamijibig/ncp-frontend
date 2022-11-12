@@ -19,7 +19,9 @@ export class AppComponent implements OnInit {
     ) { 
     this.loginForm= new FormGroup({
       username: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required)
+      password: new FormControl('', Validators.required),
+      password2: new FormControl(''),
+      group: new FormControl('CONTRACTOR')
   })
   }
   
@@ -48,10 +50,9 @@ export class AppComponent implements OnInit {
     }
 
   register(){
-    this._router.navigateByUrl('/dashboard')
+    this.appService.signUp(this.loginForm.getRawValue()).subscribe(()=>{
+      this.login();
+    })
   }
 
-  // logout(){
-  //   this._router.navigateByUrl('/')
-  // }
 }

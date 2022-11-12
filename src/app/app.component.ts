@@ -1,5 +1,6 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { AppserviceService } from './appservice.service';
@@ -11,13 +12,36 @@ import { port } from './port';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(public _router: Router,) { }
+  loginForm: FormGroup
+  constructor(
+    public _router: Router,
+    private appService:AppserviceService
+    ) { 
+    this.loginForm= new FormGroup({
+      username: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required)
+  })
+  }
+  
+  submit(){}
 
   ngOnInit(): void {
   }
 
+  
   login(){
-    this._router.navigateByUrl('/dashboard')
+    this.appService.loginService(
+      this.loginForm.get('username')?.value,
+      this.loginForm.get('password')?.value,
+    ).subscribe(
+      (res)=>{
+        this.appService.setToken(res['token']);
+        this._router.navigateByUrl('/dashboard');
+      }
+    )
+
+    
+
   }
 
   register(){

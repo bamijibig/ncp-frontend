@@ -9,15 +9,40 @@
 <mat-tab-group mat-align-tabs="center">
     <mat-tab label="Login">
         <div class="signup-form">
-            <form action="/examples/actions/confirmation.php" method="post">
+            <form class="m-4" [formGroup]="loginForm" (ngSubmit)="submit()">
                 <h2>Login</h2>
                 <p class="hint-text">Login to Your Account</p>
                 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <input type="email" class="form-control" name="email" placeholder="Email" required="required">
                 </div>
                 <div class="form-group">
                     <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+                </div> -->
+      
+                    <div class=" col-12">
+            
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Username</mat-label>
+                            <input matInput formControlName="username" required>
+                            <mat-icon matSuffix>face</mat-icon>
+                            <!-- <mat-error *ngIf="loginForm.get('username').hasError('required')">
+                                Username is required
+                            </mat-error> -->
+                        </mat-form-field>
+                    </div>
+              
+                    <div class=" col-12">
+            
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input type="password" matInput formControlName="password"required>
+                            <mat-icon matSuffix>vpn_key</mat-icon>
+                            <!-- <mat-error *ngIf="loginForm.get('password').hasError('required')">
+                                Password is required
+                            </mat-error> -->
+                        </mat-form-field>
+                 
                 </div>
                   
                 <div class="form-group">
@@ -37,9 +62,12 @@
 		<p class="hint-text">Start by creating an account</p>
         <div class="form-group">
 			<div class="row">
-				<div class="col"><input type="text" class="form-control" name="first_name" placeholder="First Name" required="required"></div>
-				<div class="col"><input type="text" class="form-control" name="last_name" placeholder="Last Name" required="required"></div>
+				<div class="col"><input type="text" class="form-control" name="first_name" placeholder="Rep. First Name" required="required"></div>
+				<div class="col"><input type="text" class="form-control" name="last_name" placeholder="Rep. Last Name" required="required"></div>
 			</div>        	
+        </div>
+        <div class="form-group">
+        	<input type="text" class="form-control" name="contractor_company" placeholder="Contractor Company" required="required">
         </div>
         <div class="form-group">
         	<input type="email" class="form-control" name="email" placeholder="Email" required="required">

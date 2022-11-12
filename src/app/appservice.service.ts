@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment';
+import { CookieService } from 'ngx-cookie-service';
+import { finalize, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,9 @@ export class AppserviceService {
   masterdomain = environment.hosturl;
 
   constructor(
-    private http: HttpClient) { }
+    private http: HttpClient,
+    private cookieService: CookieService
+    ) { }
   getapi(): Observable<any> {
     const url = this.masterdomain + 'list_contractors/';
     return this.http.get(url)
@@ -137,21 +141,46 @@ export class AppserviceService {
   //   return this.http.get(url)
   // }
 
-  postloginapi( formvalue:any
-  ): Observable<any> {
-    const url = this.masterdomain + 'login';
-    const formData = new FormData();
-    formData.append('username', formvalue.username);
-    formData.append('password', formvalue.password);
+  // loginService( formvalue:any
+  // ): Observable<any> {
+  //   const url = this.masterdomain + 'login';
+  //   const formData = new FormData();
+  //   formData.append('username', formvalue.username);
+  //   formData.append('password', formvalue.password);
+  
+  //   return this.http.post(url,formData)
+  // }
+
+  loginService(
+    username: string, 
+    password: string): Observable<any> {
+    const url = this.masterdomain + 'login/';
+    return this.http.post<any>(url, {username, password}).pipe(
+      tap((user: { data: any; }) => localStorage.setItem('master.user', JSON.stringify(user.data)))
+    );
+  }
+
+  
+  setToken(token: string) {
+    if(this.getToken()){
+      this.cookieService.delete('ATN')
+    }
+    this.cookieService.set('ATN', token);
+  }
+
+  isAuthenticated() {
+    const token = this.getToken();
+    return token === '' ? false : true;
+  }
+
+  getToken() {
+    return this.cookieService.get('ATN');
+  }
+
+  deleteToken(){
     
-    
-    
-    // formData.append('coren_or_nemsa_competency', formvalue.coren_or_nemsa_competency);
-    // formData.append('nemsa_test_cert', formvalue.nemsaFileSource);
-    // formData.append('transformer_waranty', formvalue.warrantyFileSource);
-    // formData.append('letter_of_donation_dss', formvalue.dssFileSource);
-    // formData.append('transformer_test_cert', formvalue.testFileSource);
-    return this.http.post(url,formData)
+    this.cookieService.delete('ATN','/');
+    this.cookieService.deleteAll();
   }
   // editloginapi(formvalue:any, id:any):Observable<any>{
   //   const url=this.masterdomain + 'login/'+ id +'/';

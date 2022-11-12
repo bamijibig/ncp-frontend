@@ -19,11 +19,12 @@ export class ConnectionLoginComponent implements OnInit {
 
   }
   submitlog(){
-    this.postadd.postloginapi(
-      this.portform.getRawValue()
-    ).subscribe(
-      ()=>{}
-    )}
+    // this.postadd.loginService(
+    //   this.portform.getRawValue()
+    // ).subscribe(
+    //   ()=>{}
+    // )
+  }
   
     confirmAdd(){}
  

@@ -95,10 +95,10 @@ export class AppserviceService {
     formData.append('password1', formvalue.password);
     formData.append('password2', formvalue.password2);
     formData.append('password', formvalue.password);
+    formData.append('is_contractor', 'True');
     // formData.append('group', formvalue.group);
    
-    
-
+  
     return this.http.post(url,formData)
   }
   // editregapi(formvalue:any, id:any):Observable<any>{

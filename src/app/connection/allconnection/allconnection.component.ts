@@ -29,7 +29,6 @@ export class AllconnectionComponent implements OnInit {
   consumeapi() {
     this.api.getapi().subscribe(
       (resp) => {
-       / *this.portals = resp;*/
         this.dataSource.data = resp;
         console.log(resp);
 

@@ -35,15 +35,15 @@ export class AppComponent implements OnInit {
   })
 
   console.log(User.getUser())
-  this.is_contractor = User.getUser().is_contractor;
-  this.is_admin = User.getUser().is_admin;
-  this.is_tm = User.getUser().is_tm;
-  this.is_te = User.getUser().is_te;
-  this.is_npd = User.getUser().is_npd;
-  this.is_cto = User.getUser().is_cto;
-  this.is_md = User.getUser().is_md;
-  this.is_hsch = User.getUser().is_hsch;
-  this.is_superuser = User.getUser().is_superuser;
+  this.is_contractor = User.getUser()?.is_contractor;
+  this.is_admin = User.getUser()?.is_admin;
+  this.is_tm = User.getUser()?.is_tm;
+  this.is_te = User.getUser()?.is_te;
+  this.is_npd = User.getUser()?.is_npd;
+  this.is_cto = User.getUser()?.is_cto;
+  this.is_md = User.getUser()?.is_md;
+  this.is_hsch = User.getUser()?.is_hsch;
+  this.is_superuser = User.getUser()?.is_superuser;
 
   }
   

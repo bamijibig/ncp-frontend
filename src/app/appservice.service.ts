@@ -224,6 +224,15 @@ export class AppserviceService {
   //   return this.http.delete(url)
   // }
 
+  getOtherUsers(): Observable<any> {
+    const url = this.masterdomain + 'list/user/staff';
+    return this.http.get(url)
+  }
+
+  getContractorUsers(): Observable<any> {
+    const url = this.masterdomain + 'list/user/contractors';
+    return this.http.get(url)
+  }
 
 }
 

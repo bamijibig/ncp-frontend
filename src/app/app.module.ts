@@ -40,6 +40,12 @@ import { RegionComponent } from './region/region.component';
 import { BusinessHubComponent } from './business-hub/business-hub.component';
 import { AllContractorsComponent } from './all-contractors/all-contractors.component';
 import { AllConnectionsComponent } from './all-connections/all-connections.component';
+import { RegionFormDialogComponent } from './region/dialog/region-form-dialog/region-form-dialog.component';
+import { RegionDeleteDialogComponent } from './region/dialog/region-delete-dialog/region-delete-dialog.component';
+import { HubFormDialogComponent } from './business-hub/dialog/hub-form-dialog/hub-form-dialog.component';
+import { HubDeleteDialogComponent } from './business-hub/dialog/hub-delete-dialog/hub-delete-dialog.component';
+import { AllContractorFormDialogComponent } from './all-contractors/dialog/all-contractor-form-dialog/all-contractor-form-dialog.component';
+import { StaffFormDialogComponent } from './user-manager/dialog/staff-form-dialog/staff-form-dialog.component';
 
 
 @NgModule({
@@ -62,6 +68,12 @@ import { AllConnectionsComponent } from './all-connections/all-connections.compo
     BusinessHubComponent,
     AllContractorsComponent,
     AllConnectionsComponent,
+    RegionFormDialogComponent,
+    RegionDeleteDialogComponent,
+    HubFormDialogComponent,
+    HubDeleteDialogComponent,
+    AllContractorFormDialogComponent,
+    StaffFormDialogComponent,
     
   ],
   imports: [

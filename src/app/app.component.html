@@ -4,7 +4,13 @@
 
 <div *ngIf="(!_router.url.includes('/dashboard')
 && !_router.url.includes('/allconnection')
-&& !_router.url.includes('/contractor_reg'))
+&& !_router.url.includes('/contractor_reg')
+&& !_router.url.includes('/region')
+&& !_router.url.includes('/hub')
+&& !_router.url.includes('/all_users')
+&& !_router.url.includes('/all-contractors')
+&& !_router.url.includes('/manage-staff')
+)
 ">
 <mat-tab-group mat-align-tabs="center">
     <mat-tab label="Login">

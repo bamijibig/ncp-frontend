@@ -31,6 +31,15 @@ import { AllregistrationComponent } from './registration/allregistration/allregi
 import { ContractorRegComponent } from './registration/contractor-reg/contractor-reg.component';
 import { ConnectionLoginComponent } from './connection-login/connection-login.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { ContractorDashboardComponent } from './dashboard/contractor-dashboard/contractor-dashboard.component';
+import { AdminDashboardComponent } from './dashboard/admin-dashboard/admin-dashboard.component';
+import { ContractorLayoutComponent } from './layout/contractor-layout/contractor-layout.component';
+import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
+import { UserManagerComponent } from './user-manager/user-manager.component';
+import { RegionComponent } from './region/region.component';
+import { BusinessHubComponent } from './business-hub/business-hub.component';
+import { AllContractorsComponent } from './all-contractors/all-contractors.component';
+import { AllConnectionsComponent } from './all-connections/all-connections.component';
 
 
 @NgModule({
@@ -44,6 +53,15 @@ import { MatTabsModule } from '@angular/material/tabs';
     AllregistrationComponent,
     ContractorRegComponent,
     ConnectionLoginComponent,
+    ContractorDashboardComponent,
+    AdminDashboardComponent,
+    ContractorLayoutComponent,
+    AdminLayoutComponent,
+    UserManagerComponent,
+    RegionComponent,
+    BusinessHubComponent,
+    AllContractorsComponent,
+    AllConnectionsComponent,
     
   ],
   imports: [

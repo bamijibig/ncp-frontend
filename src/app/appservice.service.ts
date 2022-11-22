@@ -234,6 +234,69 @@ export class AppserviceService {
     return this.http.get(url)
   }
 
+  postRegion(formvalue:any):Observable<any>{
+    const url = this.masterdomain + 'rh/';
+    const formData= new FormData
+    formData.append('region', formvalue.region);
+    formData.append('location', formvalue.location);
+    formData.append('regionManager', formvalue.regionManager);
+    formData.append('email', formvalue.email);
+    formData.append('phoneNumber', formvalue.phoneNumber);
+    return this.http.post(url, formData)
+  }
+
+  editRegion(formvalue:any,id:any):Observable<any>{
+    const url = this.masterdomain + 'rh/' + id + '/';
+    const formData= new FormData
+    formData.append('region', formvalue.region);
+    formData.append('location', formvalue.location);
+    formData.append('regionManager', formvalue.regionManager);
+    formData.append('email', formvalue.email);
+    formData.append('phoneNumber', formvalue.phoneNumber);
+    return this.http.put(url, formData)
+  }
+getRegion():Observable<any>{
+  const url = this.masterdomain + 'rh/';
+  return this.http.get(url)
+}
+deleteRegion(id:any):Observable<any>{
+  const url = this.masterdomain + 'rh/' + id + '/';
+  return this.http.delete(url)
+
+}
+postBhub(formvalue:any):Observable<any>{
+  const url = this.masterdomain + 'bh/';
+  const formData= new FormData
+  formData.append('region', formvalue.region);
+  formData.append('businesshub', formvalue.businesshub);
+  formData.append('location', formvalue.location);
+  formData.append('hubManager', formvalue.hubManager);
+  formData.append('email', formvalue.email);
+  formData.append('phoneNumber', formvalue.phoneNumber);
+  return this.http.post(url, formData)
+}
+
+editBhub(formvalue:any,id:any):Observable<any>{
+  const url = this.masterdomain + 'bh/' + id + '/';
+  const formData= new FormData
+  formData.append('region', formvalue.region);
+  formData.append('businesshub', formvalue.businesshub);
+  formData.append('location', formvalue.location);
+  formData.append('hubManager', formvalue.hubManager);
+  formData.append('email', formvalue.email);
+  formData.append('phoneNumber', formvalue.phoneNumber);
+  return this.http.put(url, formData)
+}
+getBhub():Observable<any>{
+const url = this.masterdomain + 'bh/';
+return this.http.get(url)
+}
+deleteBhub(id:any):Observable<any>{
+const url = this.masterdomain + 'bh/' + id + '/';
+return this.http.delete(url)
+
+}
+
 }
 
 

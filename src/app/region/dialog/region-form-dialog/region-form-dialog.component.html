@@ -1,1 +1,80 @@
-<p>region-form-dialog works!</p>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block" rel="stylesheet">
+<div class="modalHeader">
+
+    <button mat-icon-button (click)="dialogRef.close()" aria-label="Close dialog">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<div mat-dialog-content class="mat-typography">
+
+    <form class="m-4" [formGroup]="portform" (ngSubmit)="submitRegion()">
+        <div class="container-fluid">
+
+-
+
+            <div class=" col-6">
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Region</mat-label>
+                    <input matInput formControlName="region" required>
+                    <mat-icon matSuffix>face</mat-icon>
+                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
+                        Name is required
+                    </mat-error> -->
+                </mat-form-field>
+            </div>
+            <div class=" col-6">
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>location</mat-label>
+                    <input matInput formControlName="location" required>
+                    <mat-icon matSuffix>transformer</mat-icon>
+                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
+                        Name is required
+                    </mat-error> -->
+                </mat-form-field>
+            </div>
+            <div class=" col-6">
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Region Manager</mat-label>
+                    <input matInput formControlName="regionManager" required>
+                    <mat-icon matSuffix>transformer</mat-icon>
+                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
+                        Name is required
+                    </mat-error> -->
+                </mat-form-field>
+            </div>
+            <div class=" col-6">
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" required>
+                    <mat-icon matSuffix>transformer</mat-icon>
+                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
+                        Name is required
+                    </mat-error> -->
+                </mat-form-field>
+            </div>
+            <div class=" col-6">
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>phoneNumber</mat-label>
+                    <input matInput formControlName="phoneNumber" required>
+                    <mat-icon matSuffix>route</mat-icon>
+                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
+                        Name is required
+                    </mat-error> -->
+                </mat-form-field>
+         
+            </div>
+            
+        
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                <div class="example-button-row">
+                    <button mat-raised-button color="primary" type="submit"
+                       (click)="confirmAdd()" [mat-dialog-close]="1">Save</button>
+                        &nbsp; &nbsp; &nbsp;
+                    <button mat-raised-button color="warn" (click)="dialogRef.close()" tabindex="-1">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        </form>
+</div>

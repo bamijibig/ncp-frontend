@@ -118,9 +118,9 @@ export class ContractorRegComponent implements OnInit {
   }
 
 
-  // editSupplier(){
+  editSupplier(){
     
-  // }
+  }
    
 
 

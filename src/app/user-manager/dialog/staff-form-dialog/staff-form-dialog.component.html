@@ -1,216 +1,109 @@
-<!-- <div class="page-wrapper">
-    <div class="page-breadcrumb">
-        <div class="row align-items-center">
-            <div class="col-6">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb mb-0 d-flex align-items-center">
-                      <li class="breadcrumb-item"><a  routerLink="/contractor_reg" class="link"><i class="mdi mdi-home-outline fs-4"></i></a></li>
-                      <li class="breadcrumb-item active" aria-current="page">Registration</li>
-                    </ol>
-                  </nav>
-                <h1 class="mb-0 fw-bold">Staff</h1> 
-            </div>
-            <div class="col-6">
-            </div>
-        </div>
+<div>
+    <div class="modalHeader">
+        <button mat-icon-button (click)="dialogRef.close()" aria-label="Close dialog">
+            <mat-icon>close</mat-icon>
+        </button>
     </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                
-
-
-<div  class="mat-typography">
-
-    <form class="m-4" [formGroup]="portform" (ngSubmit)="submitReg()">
-        <div class="container-fluid">
-        <div class="row">
-            <div class=" col-6">
-
-                <mat-form-field class="example-full-width mb-3" appearance="outline">
-                    <mat-label>Name of Contractor</mat-label>
-                    <input matInput formControlName="contractor_name" required>
-                    <mat-icon matSuffix>face</mat-icon> -->
-                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
-                        Name is required
-                    </mat-error> -->
-
-    
-
-
-
-                <!-- </mat-form-field>
-            </div>
-            <div class=" col-6">
-
-                <mat-form-field class="example-full-width mb-3" appearance="outline">
-                    <mat-label>username</mat-label>
-                    <input matInput formControlName="username" required>
-                    <mat-icon matSuffix>face</mat-icon> -->
-                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
-                        Name is required
-                    </mat-error> -->
-                <!-- </mat-form-field>
-            </div>
-           
-           
-        </div>
-
-        <div class="row">
-            <div class=" col-6">
-
-                <mat-form-field class="example-full-width mb-3" appearance="outline">
-                    <mat-label>Password</mat-label>
-                    <input matInput formControlName="password" required>
-                    <mat-icon matSuffix>face</mat-icon> -->
-                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
-                        Name is required
-                    </mat-error> -->
-                <!-- </mat-form-field>
-            </div>
-
-            <div class=" col-6">
-
-                <mat-form-field class="example-full-width mb-3" appearance="outline">
-                    <mat-label>confirm password</mat-label>
-                    <input matInput formControlName="confirmpassword" required>
-                    <mat-icon matSuffix>face</mat-icon> -->
-                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
-                        Name is required
-                    </mat-error> -->
-                <!-- </mat-form-field>
-            </div>
-            <div class=" col-6">
-
-                <mat-form-field class="example-full-width mb-3" appearance="outline">
-                    <mat-label>First Name</mat-label>
-                    <input matInput formControlName="firstname" required>
-                    <mat-icon matSuffix>face</mat-icon> -->
-                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
-                        Name is required
-                    </mat-error> -->
-                <!-- </mat-form-field>
-            </div>
-           
-           
-        </div>
-
-        <div class="row">
-            <div class=" col-6">
-                <mat-form-field class="example-full-width mb-3" appearance="outline">
-                    <mat-label>last name</mat-label>
-                    <input matInput formControlName="lastname" required>
-                    <mat-icon matSuffix>transformer</mat-icon> -->
-                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
-                        Name is required
-                    </mat-error> -->
-                <!-- </mat-form-field>
-            </div>
-            <div class="col-6">
-                <mat-form-field class="example-full-width mb-3" appearance="outline">
-                    <mat-label>staffID</mat-label>
-                    <input matInput formControlName="staffID" required>
-                    <mat-icon matSuffix>transformer</mat-icon> -->
-                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
-                        Name is required
-                    </mat-error> -->
-                <!-- </mat-form-field>
-            </div>
-
-
-
-
-            
-            
-            <div class="col-6">
-                <mat-form-field class="example-full-width mb-3" appearance="outline">
-                    <mat-label>Telephone</mat-label>
-                    <input matInput formControlName="tel_no" required>
-                    <mat-icon matSuffix>route</mat-icon> -->
-                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
-                        Name is required
-                    </mat-error> -->
-                <!-- </mat-form-field>
-            </div>
-            <div class="col-6">
-                <mat-form-field class="example-full-width mb-3" appearance="outline">
-                    <mat-label>email</mat-label>
-                    <input matInput formControlName="email" required>
-                    <mat-icon matSuffix>transformer</mat-icon> -->
-                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
-                        Name is required
-                    </mat-error> -->
-                <!-- </mat-form-field>
-            </div>
-            
+    <div mat-dialog-content class="mat-typography">
         
-          
        
-            <div class="col-6">
-                <mat-form-field class="example-full-width mb-3" appearance="outline">
-                    <mat-label>division</mat-label>
-                    <input matInput formControlName="division" required>
-                    <mat-icon matSuffix>house</mat-icon> -->
-                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
-                        Name is required
-                    </mat-error> -->
-                <!-- </mat-form-field>
-            </div>
-            <div class="col-6">
-                <mat-form-field class="example-full-width mb-3" appearance="outline">
-                    <mat-label>accounttype</mat-label>
-                    <input matInput formControlName="accounttype" required>
-                    <mat-icon matSuffix>house</mat-icon> -->
-                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
-                        Name is required
-                    </mat-error> -->
-                <!-- </mat-form-field>
-            </div>
-            <div class="col-6">
-                <mat-form-field class="example-full-width mb-3" appearance="outline">
-                    <mat-label>employment Type</mat-label>
-                    <input matInput formControlName="employmentType" required>
-                    <mat-icon matSuffix>house</mat-icon> -->
-                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
-                        Name is required
-                    </mat-error> -->
-                <!-- </mat-form-field>
-            </div>   
-                <div class=" col-6">
-
-                    <mat-form-field class="example-full-width mb-3" appearance="outline">
-                        <mat-label>middle name</mat-label>
-                        <input matInput formControlName="middlename" required>
-                        <mat-icon matSuffix>face</mat-icon> -->
-                        <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
-                            Name is required
-                        </mat-error> -->
-                    <!-- </mat-form-field>
+        
+        <hr>
+        <h3 *ngIf="action=='add'"><strong>Add New Staff</strong></h3>
+        <h3 *ngIf="action=='edit'"><strong>Edit Staff Record</strong></h3>
+        <div >
+        <form class="register-form m-4" [formGroup]="staffForm" (ngSubmit)="StaffSignup()">
+           
+                <div class="row">
+                    
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input matInput formControlName="email" required>
+                            
+                        </mat-form-field>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                          <mat-label>Phone Number</mat-label>
+                          <input matInput formControlName="phone_number">
+                        </mat-form-field>
+                      </div>
                 </div>
+               
+                <div class="row">
+                   
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                          <mat-label>Job Title</mat-label>
+                          <input matInput formControlName="jobtitle">
+                        </mat-form-field>
+                      </div>
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Select System Role</mat-label>
+                            <mat-select formControlName="role" required>
+                                <!-- <mat-option *ngFor="let section of sectionavailable" [value]="section.id"> {{section.title}} </mat-option> -->
+                           <mat-option [value]="'is_tm'">TM</mat-option>
+                           <mat-option [value]="'is_te'">TE</mat-option>
+                           <mat-option [value]="'is_npd'">NPD</mat-option>
+                           <mat-option [value]="'is_md'">MD</mat-option>
+                           <mat-option [value]="'is_hsch'">HSCH</mat-option>
+                            
+                        
+
+                            </mat-select>
+                           
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                          <mat-label>First Name</mat-label>
+                          <input matInput formControlName="first_name">
+                        </mat-form-field>
+                      </div>
+                      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                          <mat-label>Last Name</mat-label>
+                          <input matInput formControlName="last_name">
+                        </mat-form-field>
+                      </div>
+                </div>
+                <div class="row" *ngIf="action=='add'">
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                          <mat-label>Default Password</mat-label>
+                          <input matInput type="password" formControlName = "password" required>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                          <mat-label>Confirm Password</mat-label>
+                          <input matInput type="password" formControlName = "confirm_pass" required>
+                        </mat-form-field>
+                      </div>
+                </div>
+              
             
-             </div>
-             
-             
-            
-        
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
-                <div class="example-button-row">
-                    <button mat-raised-button color="primary" type="submit"
-                       (click)="confirmAdd()" >Save</button>
-                        &nbsp; &nbsp; &nbsp; -->
-                    <!-- <button mat-raised-button color="warn" tabindex="-1">Cancel</button> -->
-                <!-- </div>
-            </div>
-        
-    </div>
-        </form>
-</div>
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <div class="example-button-row">
+                        <button mat-raised-button color="primary" type="'submit'" [disabled]="!staffForm.valid">Proceed</button>
+                        <button mat-raised-button color="warn" (click)="onNoClick()" type="button" tabindex="-1">Cancel</button>
+                    </div>
+                    
+                  
+                </div>
             </div>
 
-        </div>
-        
-      
+
+        </form>
+
+
+
     </div>
-  
-</div> -->
+    </div>
+</div>
 

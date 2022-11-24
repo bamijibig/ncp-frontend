@@ -23,11 +23,11 @@ export class RegionFormDialogComponent implements OnInit {
 
       this.portform= new FormGroup(
         {
-          region: new FormControl(null),
-          location:new FormControl(null),
-          regionManager:new FormControl(null),
-          email:new FormControl(null),
-          phoneNumber:new FormControl(null),
+          region: new FormControl(''),
+          location:new FormControl(''),
+          regionManager:new FormControl(''),
+          email:new FormControl(''),
+          phoneNumber:new FormControl(''),
         }
       )
       if(this.action == 'edit'){
@@ -41,12 +41,14 @@ export class RegionFormDialogComponent implements OnInit {
 
 
         })
+        this.portform.get('email')?.disable()
+        this.portform.get('phoneNumber')?.disable()
      }
     }
     submitRegion(){
       if (this.action=='edit'){
         this.appservice.editRegion(
-          this.portform.getRawValue,
+          this.portform.getRawValue(),
           this.connection.id
         ).subscribe(
           (result)=>{
@@ -58,7 +60,7 @@ export class RegionFormDialogComponent implements OnInit {
       }
       else{
         this.appservice.postRegion(
-          this.portform.getRawValue
+          this.portform.getRawValue()
         ).subscribe(
           (result)=>{
             console.log(result)

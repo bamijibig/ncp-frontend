@@ -239,9 +239,9 @@ export class AppserviceService {
     const formData= new FormData
     formData.append('region', formvalue.region);
     formData.append('location', formvalue.location);
-    formData.append('regionManager', formvalue.regionManager);
-    formData.append('email', formvalue.email);
-    formData.append('phoneNumber', formvalue.phoneNumber);
+    // formData.append('regionManager', formvalue.regionManager);
+    // formData.append('email', formvalue.email);
+    // formData.append('phoneNumber', formvalue.phoneNumber);
     return this.http.post(url, formData)
   }
 
@@ -250,9 +250,9 @@ export class AppserviceService {
     const formData= new FormData
     formData.append('region', formvalue.region);
     formData.append('location', formvalue.location);
-    formData.append('regionManager', formvalue.regionManager);
-    formData.append('email', formvalue.email);
-    formData.append('phoneNumber', formvalue.phoneNumber);
+    // formData.append('regionManager', formvalue.regionManager);
+    // formData.append('email', formvalue.email);
+    // formData.append('phoneNumber', formvalue.phoneNumber);
     return this.http.put(url, formData)
   }
 getRegion():Observable<any>{
@@ -270,9 +270,9 @@ postBhub(formvalue:any):Observable<any>{
   formData.append('region', formvalue.region);
   formData.append('businesshub', formvalue.businesshub);
   formData.append('location', formvalue.location);
-  formData.append('hubManager', formvalue.hubManager);
-  formData.append('email', formvalue.email);
-  formData.append('phoneNumber', formvalue.phoneNumber);
+  // formData.append('hubManager', formvalue.hubManager);
+  // formData.append('email', formvalue.email);
+  // formData.append('phoneNumber', formvalue.phoneNumber);
   return this.http.post(url, formData)
 }
 
@@ -282,9 +282,9 @@ editBhub(formvalue:any,id:any):Observable<any>{
   formData.append('region', formvalue.region);
   formData.append('businesshub', formvalue.businesshub);
   formData.append('location', formvalue.location);
-  formData.append('hubManager', formvalue.hubManager);
-  formData.append('email', formvalue.email);
-  formData.append('phoneNumber', formvalue.phoneNumber);
+  // formData.append('hubManager', formvalue.hubManager);
+  // formData.append('email', formvalue.email);
+  // formData.append('phoneNumber', formvalue.phoneNumber);
   return this.http.put(url, formData)
 }
 getBhub():Observable<any>{
@@ -297,7 +297,97 @@ return this.http.delete(url)
 
 }
 
-}
+addNewUser( formvalue:any
+  ): Observable<any> {
+    const url = this.masterdomain + 'signup/';
+    const formData = new FormData();
+    formData.append('username', formvalue.email);
+    formData.append('email', formvalue.email);
+    formData.append('tel_no', formvalue.phone_number);
+    formData.append('password1', formvalue.password);
+    formData.append('password2', formvalue.confirm_pass);
+    formData.append('password', formvalue.password);
+    formData.append('first_name',formvalue.first_name);
+    formData.append('last_name', formvalue.last_name);
+    formData.append('job_title', formvalue.jobtitle);
+    formData.append('role', formvalue.role);
+    if(formvalue.role =='is_tm'){
+      formData.append('is_tm', 'True');
+    };
+    if(formvalue.role =='is_te'){
+      formData.append('is_te', 'True');
+    };
+    if(formvalue.role =='is_npd'){
+      formData.append('is_npd', 'True');
+    };
+    if(formvalue.role =='is_cto'){
+      formData.append('is_cto', 'True');
+    };
+    if(formvalue.role =='is_md'){
+      formData.append('is_md', 'True');
+    };
+    if(formvalue.role =='is_hsch'){
+      formData.append('is_hsch', 'True');
+    };
+   
+    return this.http.post(url,formData)
+  }
+
+    editStaffUser(staffid:any, formvalue:any
+      ): Observable<any> {
+        const url = this.masterdomain + 'contractors/' + staffid + '/';
+        const formData = new FormData();
+        formData.append('username', formvalue.email);
+        formData.append('email', formvalue.email);
+        formData.append('tel_no', formvalue.phone_number);
+       
+        formData.append('first_name',formvalue.first_name);
+        formData.append('last_name', formvalue.last_name);
+        formData.append('job_title', formvalue.jobtitle);
+        formData.append('role', formvalue.role);
+        if(formvalue.role =='is_tm'){
+          formData.append('is_tm', 'True');
+        };
+        if(formvalue.role =='is_te'){
+          formData.append('is_te', 'True');
+          formData.append('is_npd', 'False');
+          formData.append('is_cto', 'False');
+          formData.append('is_md', 'False');
+          formData.append('is_hsch', 'False');
+        };
+        if(formvalue.role =='is_npd'){
+          formData.append('is_te', 'False');
+          formData.append('is_npd', 'True');
+          formData.append('is_cto', 'False');
+          formData.append('is_md', 'False');
+          formData.append('is_hsch', 'False');
+        };
+        if(formvalue.role =='is_cto'){
+          formData.append('is_te', 'False');
+          formData.append('is_npd', 'False');
+          formData.append('is_cto', 'True');
+          formData.append('is_md', 'False');
+          formData.append('is_hsch', 'False');
+        };
+        if(formvalue.role =='is_md'){
+          formData.append('is_te', 'False');
+          formData.append('is_npd', 'False');
+          formData.append('is_cto', 'False');
+          formData.append('is_md', 'True');
+          formData.append('is_hsch', 'False');
+        };
+        if(formvalue.role =='is_hsch'){
+          formData.append('is_te', 'False');
+          formData.append('is_npd', 'False');
+          formData.append('is_cto', 'False');
+          formData.append('is_md', 'False');
+          formData.append('is_hsch', 'True');
+        };
+       
+        return this.http.patch(url,formData)
+      }
+  }
+
 
 
    

@@ -133,7 +133,7 @@
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                         routerLink="/allconnection" aria-expanded="false"><i class="mdi mdi-border-all"></i><span
                                 class="hide-menu">Connections</span></a></li>
-                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                    <li class="sidebar-item" *ngIf="is_admin || is_superuser"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                         routerLink="/manage-staff" aria-expanded="false"><i class="mdi mdi-border-all"></i><span
                                 class="hide-menu">Manage Staff</span></a></li>
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"

@@ -96,8 +96,12 @@ export class AppserviceService {
     formData.append('password2', formvalue.password2);
     formData.append('password', formvalue.password);
     formData.append('is_contractor', 'True');
-    // formData.append('group', formvalue.group);
-   
+
+    formData.append('first_name', 'NA');
+    formData.append('last_name', 'NA');
+    formData.append('job_title', 'NA');
+    formData.append('role', 'Contractor');
+    formData.append('tel_no', '');
   
     return this.http.post(url,formData)
   }

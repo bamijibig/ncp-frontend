@@ -45,7 +45,7 @@
                   <!-- value_contract column -->
                   <ng-container matColumnDef="manager">
                     <mat-header-cell *matHeaderCellDef> Region Manager </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element?.regionManager}} </mat-cell>
+                    <mat-cell *matCellDef="let element"> {{element?.regionManager?.first_name}} {{element?.regionManager?.last_name}} ({{element?.regionManager?.job_title}})  </mat-cell>
                   </ng-container>
               
                   <!-- company_category Column -->

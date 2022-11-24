@@ -49,7 +49,7 @@
                   <!-- value_contract column -->
                   <ng-container matColumnDef="manager">
                     <mat-header-cell *matHeaderCellDef> Hub Manager </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.hubManager}} </mat-cell>
+                    <mat-cell *matCellDef="let element"> {{element.hubManager?.first_name}} {{element.hubManager?.last_name}} ({{element.hubManager?.job_title}}) </mat-cell>
                   </ng-container>
               
                   <!-- company_category Column -->

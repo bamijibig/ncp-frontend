@@ -12,14 +12,14 @@ export class RegionFormDialogComponent implements OnInit {
   action: any;
   portform: FormGroup;
   connection: any;
-
+  stafflist: any;
   constructor(
     public dialogRef: MatDialogRef<RegionFormDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     
     private appservice: AppserviceService) {
       this.action = data.action;
-
+      this.getStaff();
 
       this.portform= new FormGroup(
         {
@@ -35,9 +35,9 @@ export class RegionFormDialogComponent implements OnInit {
         this.portform.patchValue({
           region: this.connection.region,
           location:this.connection.location,
-          regionManager:this.connection.regionManager,
-          email:this.connection.email,
-          phoneNumber:this.connection.phoneNumber,
+          regionManager: this.connection.regionManager?.id,
+          email:this.connection.regionManager?.email,
+          phoneNumber:this.connection.regionManager?.tel_no,
 
 
         })
@@ -45,6 +45,18 @@ export class RegionFormDialogComponent implements OnInit {
         this.portform.get('phoneNumber')?.disable()
      }
     }
+
+    getStaff() {
+      this.appservice.getOtherUsers().subscribe(
+        (resp) => {
+          this.stafflist = resp;
+  
+        },
+        (error) => { console.error(error); }
+      );
+    }
+  
+
     submitRegion(){
       if (this.action=='edit'){
         this.appservice.editRegion(

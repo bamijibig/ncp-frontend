@@ -239,7 +239,7 @@ export class AppserviceService {
     const formData= new FormData
     formData.append('region', formvalue.region);
     formData.append('location', formvalue.location);
-    // formData.append('regionManager', formvalue.regionManager);
+    formData.append('regionManager', formvalue.regionManager);
     // formData.append('email', formvalue.email);
     // formData.append('phoneNumber', formvalue.phoneNumber);
     return this.http.post(url, formData)
@@ -250,13 +250,13 @@ export class AppserviceService {
     const formData= new FormData
     formData.append('region', formvalue.region);
     formData.append('location', formvalue.location);
-    // formData.append('regionManager', formvalue.regionManager);
+    formData.append('regionManager', formvalue.regionManager);
     // formData.append('email', formvalue.email);
     // formData.append('phoneNumber', formvalue.phoneNumber);
     return this.http.put(url, formData)
   }
 getRegion():Observable<any>{
-  const url = this.masterdomain + 'rh/';
+  const url = this.masterdomain + 'rhlist/';
   return this.http.get(url)
 }
 deleteRegion(id:any):Observable<any>{
@@ -270,7 +270,7 @@ postBhub(formvalue:any):Observable<any>{
   formData.append('region', formvalue.region);
   formData.append('businesshub', formvalue.businesshub);
   formData.append('location', formvalue.location);
-  // formData.append('hubManager', formvalue.hubManager);
+  formData.append('hubManager', formvalue.hubManager);
   // formData.append('email', formvalue.email);
   // formData.append('phoneNumber', formvalue.phoneNumber);
   return this.http.post(url, formData)
@@ -282,7 +282,7 @@ editBhub(formvalue:any,id:any):Observable<any>{
   formData.append('region', formvalue.region);
   formData.append('businesshub', formvalue.businesshub);
   formData.append('location', formvalue.location);
-  // formData.append('hubManager', formvalue.hubManager);
+  formData.append('hubManager', formvalue.hubManager);
   // formData.append('email', formvalue.email);
   // formData.append('phoneNumber', formvalue.phoneNumber);
   return this.http.put(url, formData)

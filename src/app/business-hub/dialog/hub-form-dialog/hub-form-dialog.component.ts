@@ -13,6 +13,7 @@ export class HubFormDialogComponent implements OnInit {
   portform:FormGroup;
   connection:any;
   regions: any;
+  stafflist: any;
   constructor(
     public dialogRef: MatDialogRef<HubFormDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -20,6 +21,7 @@ export class HubFormDialogComponent implements OnInit {
   ) { 
     this.action = data.action;
     this.getRegion();
+    this.getStaff();
     
       this.portform= new FormGroup(
         {
@@ -37,14 +39,16 @@ export class HubFormDialogComponent implements OnInit {
           region: this.connection.region.id,
           businesshub: this.connection.businesshub,
           location:this.connection.location,
-          hubManager:this.connection.hubManager,
-          email:this.connection.email,
-          phoneNumber:this.connection.phoneNumber,
+          hubManager:this.connection.hubManager?.id,
+          email:this.connection.hubManager?.email,
+          phoneNumber:this.connection.hubManager?.tel_no,
         })
         this.portform.get('email')?.disable()
         this.portform.get('phoneNumber')?.disable()
      }
     }
+
+    
     submithub(){
       if (this.action=='edit'){
         this.hubservice.editBhub(
@@ -87,6 +91,18 @@ export class HubFormDialogComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  getStaff() {
+    this.hubservice.getOtherUsers().subscribe(
+      (resp: any) => {
+        this.stafflist = resp;
+
+      },
+      (error:any) => { console.error(error); }
+    );
+  }
+
+
 
 }
 

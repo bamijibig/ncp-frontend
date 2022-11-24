@@ -288,7 +288,7 @@ editBhub(formvalue:any,id:any):Observable<any>{
   return this.http.put(url, formData)
 }
 getBhub():Observable<any>{
-const url = this.masterdomain + 'bh/';
+const url = this.masterdomain + 'bhlist/';
 return this.http.get(url)
 }
 deleteBhub(id:any):Observable<any>{

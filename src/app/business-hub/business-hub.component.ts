@@ -27,7 +27,7 @@ export class BusinessHubComponent implements OnInit {
     this.consumeapi();
 }
   consumeapi() {
-    this.api.getapi().subscribe(
+    this.api.getBhub().subscribe(
       (resp) => {
         this.dataSource.data = resp;
         console.log(resp);

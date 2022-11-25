@@ -60,7 +60,12 @@ export class AppComponent implements OnInit {
     ).subscribe(
       (res)=>{
         this.appService.setToken(res['token']);
+        if(res.data.is_contractor){
+          this._router.navigateByUrl('/contractor_reg');
+        }
+        else {
         this._router.navigateByUrl('/dashboard');
+        }
       }
     )
     }

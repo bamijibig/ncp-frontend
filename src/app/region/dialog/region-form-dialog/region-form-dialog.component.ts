@@ -28,6 +28,7 @@ export class RegionFormDialogComponent implements OnInit {
           regionManager:new FormControl(''),
           email:new FormControl(''),
           phoneNumber:new FormControl(''),
+          technicalManager:new FormControl(''),
         }
       )
       if(this.action == 'edit'){
@@ -38,6 +39,7 @@ export class RegionFormDialogComponent implements OnInit {
           regionManager: this.connection.regionManager?.id,
           email:this.connection.regionManager?.email,
           phoneNumber:this.connection.regionManager?.tel_no,
+          technicalManager: this.connection.technicalManager?.id
 
 
         })

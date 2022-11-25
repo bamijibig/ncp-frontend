@@ -22,33 +22,21 @@ export class AppserviceService {
 
   postapi( formvalue:any
   ): Observable<any> {
-    const url = this.masterdomain + 'supplier/';
+    const url = this.masterdomain + 'contractor/';
     const formData = new FormData();
-    formData.append('company_name', formvalue.company_name);
-    formData.append('connectiontype', formvalue.connectiontype);
-    formData.append('capacity', formvalue.capacity);
-    formData.append('voltage_ratio', formvalue.voltage_ratio);
-    formData.append('route_length_km', formvalue.route_length_km);
-    formData.append('est_load_of_premises', formvalue.est_load_of_premises);
-    formData.append('useofpremises', formvalue.useofpremises);
-    formData.append('add_house_no', formvalue.add_house_no);
-    formData.append('add_town_or_city', formvalue.add_town_or_city);
-    formData.append('add_lga', formvalue.add_lga);
-    formData.append('add_state', formvalue.add_state);
-    formData.append('name_of_lincensed_elect_contractor', formvalue.name_of_lincensed_elect_contractor);
+    formData.append('contractor_name', formvalue.company_name);
     formData.append('con_address', formvalue.con_address);
     formData.append('licensed_no', formvalue.licensed_no);
     formData.append('tel_no', formvalue.tel_no);
     formData.append('email', formvalue.email);
-    // formData.append('coren_or_nemsa_competency', formvalue.coren_or_nemsa_competency);
-    // formData.append('nemsa_test_cert', formvalue.nemsaFileSource);
-    // formData.append('transformer_waranty', formvalue.warrantyFileSource);
-    // formData.append('letter_of_donation_dss', formvalue.dssFileSource);
-    // formData.append('transformer_test_cert', formvalue.testFileSource);
+    formData.append('businesshub', formvalue.hub);
+    
+    formData.append('coren_or_nemsa_competency', formvalue.nemsaFileSource);
+
     return this.http.post(url,formData)
   }
   editContractor(formvalue:any, id:any):Observable<any>{
-    const url=this.masterdomain + 'supplier/'+ id +'/';
+    const url=this.masterdomain + 'contractors/'+ id +'/';
     const formData = new FormData();
     formData.append('company_name', formvalue.company_name);
     formData.append('connectiontype', formvalue.connectiontype);
@@ -238,12 +226,18 @@ export class AppserviceService {
     return this.http.get(url)
   }
 
+  getContractorDetails(id: any): Observable<any> {
+    const url = this.masterdomain + 'contractors/' + id + '/';
+    return this.http.get(url)
+  }
+
   postRegion(formvalue:any):Observable<any>{
     const url = this.masterdomain + 'rh/';
     const formData= new FormData
     formData.append('region', formvalue.region);
     formData.append('location', formvalue.location);
     formData.append('regionManager', formvalue.regionManager);
+    formData.append('technicalManager', formvalue.technicalManager);
     // formData.append('email', formvalue.email);
     // formData.append('phoneNumber', formvalue.phoneNumber);
     return this.http.post(url, formData)
@@ -255,6 +249,7 @@ export class AppserviceService {
     formData.append('region', formvalue.region);
     formData.append('location', formvalue.location);
     formData.append('regionManager', formvalue.regionManager);
+    formData.append('technicalManager', formvalue.technicalManager);
     // formData.append('email', formvalue.email);
     // formData.append('phoneNumber', formvalue.phoneNumber);
     return this.http.put(url, formData)
@@ -275,6 +270,7 @@ postBhub(formvalue:any):Observable<any>{
   formData.append('businesshub', formvalue.businesshub);
   formData.append('location', formvalue.location);
   formData.append('hubManager', formvalue.hubManager);
+  formData.append('technicalManager', formvalue.technicalManager);
   // formData.append('email', formvalue.email);
   // formData.append('phoneNumber', formvalue.phoneNumber);
   return this.http.post(url, formData)
@@ -287,6 +283,7 @@ editBhub(formvalue:any,id:any):Observable<any>{
   formData.append('businesshub', formvalue.businesshub);
   formData.append('location', formvalue.location);
   formData.append('hubManager', formvalue.hubManager);
+  formData.append('technicalManager', formvalue.technicalManager);
   // formData.append('email', formvalue.email);
   // formData.append('phoneNumber', formvalue.phoneNumber);
   return this.http.put(url, formData)
@@ -295,6 +292,11 @@ getBhub():Observable<any>{
 const url = this.masterdomain + 'bhlist/';
 return this.http.get(url)
 }
+
+getBhubFiltered(region:any):Observable<any>{
+  const url = this.masterdomain + 'bhlist/?region='+ region;
+  return this.http.get(url)
+  }
 deleteBhub(id:any):Observable<any>{
 const url = this.masterdomain + 'bh/' + id + '/';
 return this.http.delete(url)
@@ -390,8 +392,24 @@ addNewUser( formvalue:any
        
         return this.http.patch(url,formData)
       }
-  }
+  
 
-
+  updateContractorRegistration( formvalue:any, id: any
+    ): Observable<any> {
+      const url = this.masterdomain + 'contractors/' + id + '/';
+      const formData = new FormData();
+      formData.append('contractor_name', formvalue.contractor_name);
+      formData.append('con_address', formvalue.con_address);
+      formData.append('licensed_no', formvalue.licensed_no);
+      formData.append('tel_no', formvalue.tel_no);
+      formData.append('email', formvalue.email);
+      formData.append('businesshub', formvalue.businesshub);
+      formData.append('region', formvalue.region);
+      if(formvalue.nemsaFileSource){
+      formData.append('coren_or_nemsa_competency', formvalue.nemsaFileSource);
+      }
+      return this.http.patch(url,formData)
+    }
 
    
+  }

@@ -31,6 +31,7 @@ export class HubFormDialogComponent implements OnInit {
           hubManager: new FormControl(null),
           email:new FormControl(null),
           phoneNumber:new FormControl(null),
+          technicalManager:new FormControl(''),
         }
       )
       if(this.action == 'edit'){
@@ -42,6 +43,7 @@ export class HubFormDialogComponent implements OnInit {
           hubManager:this.connection.hubManager?.id,
           email:this.connection.hubManager?.email,
           phoneNumber:this.connection.hubManager?.tel_no,
+          technicalManager: this.connection.technicalManager?.id
         })
         this.portform.get('email')?.disable()
         this.portform.get('phoneNumber')?.disable()

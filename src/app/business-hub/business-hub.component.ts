@@ -13,7 +13,7 @@ import { HubFormDialogComponent } from './dialog/hub-form-dialog/hub-form-dialog
 })
 export class BusinessHubComponent implements OnInit {
 
- displayedColumns = ['name', 'region', 'location', 'manager', 'email', 'phone','edit']
+ displayedColumns = ['name', 'region', 'location', 'manager', 'tmanager', 'email', 'phone','edit']
   dataSource= new MatTableDataSource<any>([])
   selection = new SelectionModel<any>(true, [])
 

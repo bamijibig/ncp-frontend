@@ -22,7 +22,7 @@ export class ContractorRegComponent implements OnInit {
     this.portform = new FormGroup({
       // contractor:new FormControl(null),
       username: new FormControl(''),
-      password: new FormControl(''),
+      // password: new FormControl(''),
       firstname: new FormControl(''),
       lastname: new FormControl(''),
       contractor_name: new FormControl(''),
@@ -43,8 +43,8 @@ export class ContractorRegComponent implements OnInit {
       this.portform.patchValue({
       // contractor:this.connection.contractor,
 
-      username: this.connection.username,
-      password: this.connection.password,
+      // username: this.connection.username,
+      // password: this.connection.password,
       firstname: this.connection.firstname,
       lastname: this.connection.lastname,
       contractor_name:this.connection.contractor_name,

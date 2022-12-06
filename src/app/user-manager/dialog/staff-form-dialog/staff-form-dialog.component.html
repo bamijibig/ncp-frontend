@@ -1,1 +1,109 @@
-<p>staff-form-dialog works!</p>
+<div>
+    <div class="modalHeader">
+        <button mat-icon-button (click)="dialogRef.close()" aria-label="Close dialog">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <div mat-dialog-content class="mat-typography">
+        
+       
+        
+        <hr>
+        <h3 *ngIf="action=='add'"><strong>Add New Staff</strong></h3>
+        <h3 *ngIf="action=='edit'"><strong>Edit Staff Record</strong></h3>
+        <div >
+        <form class="register-form m-4" [formGroup]="staffForm" (ngSubmit)="StaffSignup()">
+           
+                <div class="row">
+                    
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input matInput formControlName="email" required>
+                            
+                        </mat-form-field>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                          <mat-label>Phone Number</mat-label>
+                          <input matInput formControlName="phone_number">
+                        </mat-form-field>
+                      </div>
+                </div>
+               
+                <div class="row">
+                   
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                          <mat-label>Job Title</mat-label>
+                          <input matInput formControlName="jobtitle">
+                        </mat-form-field>
+                      </div>
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Select System Role</mat-label>
+                            <mat-select formControlName="role" required>
+                                <!-- <mat-option *ngFor="let section of sectionavailable" [value]="section.id"> {{section.title}} </mat-option> -->
+                           <mat-option [value]="'is_tm'">TM</mat-option>
+                           <mat-option [value]="'is_te'">TE</mat-option>
+                           <mat-option [value]="'is_npd'">NPD</mat-option>
+                           <mat-option [value]="'is_md'">MD</mat-option>
+                           <mat-option [value]="'is_hsch'">HSCH</mat-option>
+                            
+                        
+
+                            </mat-select>
+                           
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                          <mat-label>First Name</mat-label>
+                          <input matInput formControlName="first_name">
+                        </mat-form-field>
+                      </div>
+                      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                          <mat-label>Last Name</mat-label>
+                          <input matInput formControlName="last_name">
+                        </mat-form-field>
+                      </div>
+                </div>
+                <div class="row" *ngIf="action=='add'">
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                          <mat-label>Default Password</mat-label>
+                          <input matInput type="password" formControlName = "password" required>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                          <mat-label>Confirm Password</mat-label>
+                          <input matInput type="password" formControlName = "confirm_pass" required>
+                        </mat-form-field>
+                      </div>
+                </div>
+              
+            
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <div class="example-button-row">
+                        <button mat-raised-button color="primary" type="'submit'" [disabled]="!staffForm.valid">Proceed</button>
+                        <button mat-raised-button color="warn" (click)="onNoClick()" type="button" tabindex="-1">Cancel</button>
+                    </div>
+                    
+                  
+                </div>
+            </div>
+
+
+        </form>
+
+
+
+    </div>
+    </div>
+</div>
+

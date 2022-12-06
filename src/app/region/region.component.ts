@@ -27,7 +27,7 @@ export class RegionComponent implements OnInit {
     this.consumeapi();
 }
   consumeapi() {
-    this.api.getapi().subscribe(
+    this.api.getRegion().subscribe(
       (resp) => {
         this.dataSource.data = resp;
         console.log(resp);

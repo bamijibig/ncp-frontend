@@ -32,30 +32,30 @@
        
                   <ng-container matColumnDef="name">
                     <mat-header-cell *matHeaderCellDef>Region Name</mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.contractor?.contractor_name}} </mat-cell>
+                    <mat-cell *matCellDef="let element"> {{element.region}} </mat-cell>
                   </ng-container>
               
                   <!--businesstype Column -->
                   <ng-container matColumnDef="location">
                     <mat-header-cell *matHeaderCellDef> Location </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.businesstype}} </mat-cell>
+                    <mat-cell *matCellDef="let element"> {{element.location}} </mat-cell>
                   </ng-container>
               
               
                   <!-- value_contract column -->
                   <ng-container matColumnDef="manager">
                     <mat-header-cell *matHeaderCellDef> Region Manager </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.company_name}} </mat-cell>
+                    <mat-cell *matCellDef="let element"> {{element?.regionManager?.first_name}} {{element?.regionManager?.last_name}} ({{element?.regionManager?.job_title}})  </mat-cell>
                   </ng-container>
               
                   <!-- company_category Column -->
                   <ng-container matColumnDef="email">
                     <mat-header-cell *matHeaderCellDef> Email</mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.connectiontype}} </mat-cell>
+                    <mat-cell *matCellDef="let element"> {{element?.regionManager?.email}} </mat-cell>
                   </ng-container>
                   <ng-container matColumnDef="phone">
                     <mat-header-cell *matHeaderCellDef> Phone Number </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.capacity}} </mat-cell>
+                    <mat-cell *matCellDef="let element"> {{element?.regionManager?.tel_no}} </mat-cell>
                   </ng-container>
             
                 

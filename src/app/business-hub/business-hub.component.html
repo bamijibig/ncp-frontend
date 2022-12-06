@@ -32,34 +32,34 @@
        
                   <ng-container matColumnDef="name">
                     <mat-header-cell *matHeaderCellDef>Hub Name</mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.contractor?.contractor_name}} </mat-cell>
+                    <mat-cell *matCellDef="let element"> {{element.businesshub}} </mat-cell>
                   </ng-container>
                   <ng-container matColumnDef="region">
                     <mat-header-cell *matHeaderCellDef>Region</mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.contractor?.contractor_name}} </mat-cell>
+                    <mat-cell *matCellDef="let element"> {{element.region?.region}} </mat-cell>
                   </ng-container>
               
                   <!--businesstype Column -->
                   <ng-container matColumnDef="location">
                     <mat-header-cell *matHeaderCellDef> Location </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.businesstype}} </mat-cell>
+                    <mat-cell *matCellDef="let element"> {{element.location}} </mat-cell>
                   </ng-container>
               
               
                   <!-- value_contract column -->
                   <ng-container matColumnDef="manager">
                     <mat-header-cell *matHeaderCellDef> Hub Manager </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.company_name}} </mat-cell>
+                    <mat-cell *matCellDef="let element"> {{element.hubManager?.first_name}} {{element.hubManager?.last_name}} ({{element.hubManager?.job_title}}) </mat-cell>
                   </ng-container>
               
                   <!-- company_category Column -->
                   <ng-container matColumnDef="email">
                     <mat-header-cell *matHeaderCellDef> Email</mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.connectiontype}} </mat-cell>
+                    <mat-cell *matCellDef="let element"> {{element?.hubManager?.email}} </mat-cell>
                   </ng-container>
                   <ng-container matColumnDef="phone">
                     <mat-header-cell *matHeaderCellDef> Phone Number </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.capacity}} </mat-cell>
+                    <mat-cell *matCellDef="let element"> {{element?.hubManager?.tel_no}} </mat-cell>
                   </ng-container>
             
                 

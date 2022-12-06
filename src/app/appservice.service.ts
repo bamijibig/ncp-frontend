@@ -96,8 +96,12 @@ export class AppserviceService {
     formData.append('password2', formvalue.password2);
     formData.append('password', formvalue.password);
     formData.append('is_contractor', 'True');
-    // formData.append('group', formvalue.group);
-   
+
+    formData.append('first_name', 'NA');
+    formData.append('last_name', 'NA');
+    formData.append('job_title', 'NA');
+    formData.append('role', 'Contractor');
+    formData.append('tel_no', '');
   
     return this.http.post(url,formData)
   }
@@ -198,27 +202,24 @@ export class AppserviceService {
     this.deleteToken();
   }
   
-  // editloginapi(formvalue:any, id:any):Observable<any>{
-  //   const url=this.masterdomain + 'login/'+ id +'/';
-  //   const formData = new FormData();
-  //   formData.append('username', formvalue.username);
-  //   formData.append('password', formvalue.password);
-  //   formData.append('firstname', formvalue.firstname);
-  //   formData.append('lastname', formvalue.lastname);
-  //   formData.append('contractor_name', formvalue.contractor_name);
-  //   formData.append('con_address', formvalue.con_address);
-  //   formData.append('licensed_no', formvalue.licensed_no);
-  //   formData.append('tel_no', formvalue.tel_no);
-  //   formData.append('coren_or_nemsa_competency', formvalue.coren_or_nemsa_competency);
-  //   formData.append('reg_date', formvalue.reg_date);
+  editregister(formvalue:any, id:any):Observable<any>{
+    const url=this.masterdomain + 'contractors/'+ id +'/';
+    const formData = new FormData();
+    // formData.append('username', formvalue.username);
+    formData.append('region', formvalue.region);
+    formData.append('businesshub', formvalue.businesshub);
+    formData.append('firstname', formvalue.firstname);
+    formData.append('lastname', formvalue.lastname);
+    formData.append('contractor_name', formvalue.contractor_name);
+    formData.append('con_address', formvalue.con_address);
+    formData.append('licensed_no', formvalue.licensed_no);
+    formData.append('tel_no', formvalue.tel_no);
+    formData.append('coren_or_nemsa_competency', formvalue.coren_or_nemsa_competency);
+    formData.append('reg_date', formvalue.reg_date);
     
-    // formData.append('coren_or_nemsa_competency', formvalue.coren_or_nemsa_competency);
-    // formData.append('nemsa_test_cert', formvalue.nemsaFileSource);
-    // formData.append('transformer_waranty', formvalue.warrantyFileSource);
-    // formData.append('letter_of_donation_dss', formvalue.dssFileSource);
-    // formData.append('transformer_test_cert', formvalue.testFileSource);
-  //   return this.http.put(url,formData)
-  // }
+    
+    return this.http.put(url,formData)
+   }
   // deleteloginapi(id:any):Observable<any>{
   //   const url=this.masterdomain + 'login/'+ id +'/';
   //   return this.http.delete(url)
@@ -234,7 +235,160 @@ export class AppserviceService {
     return this.http.get(url)
   }
 
+  postRegion(formvalue:any):Observable<any>{
+    const url = this.masterdomain + 'rh/';
+    const formData= new FormData
+    formData.append('region', formvalue.region);
+    formData.append('location', formvalue.location);
+    formData.append('regionManager', formvalue.regionManager);
+    // formData.append('email', formvalue.email);
+    // formData.append('phoneNumber', formvalue.phoneNumber);
+    return this.http.post(url, formData)
+  }
+
+  editRegion(formvalue:any,id:any):Observable<any>{
+    const url = this.masterdomain + 'rh/' + id + '/';
+    const formData= new FormData
+    formData.append('region', formvalue.region);
+    formData.append('location', formvalue.location);
+    formData.append('regionManager', formvalue.regionManager);
+    // formData.append('email', formvalue.email);
+    // formData.append('phoneNumber', formvalue.phoneNumber);
+    return this.http.put(url, formData)
+  }
+getRegion():Observable<any>{
+  const url = this.masterdomain + 'rhlist/';
+  return this.http.get(url)
 }
+deleteRegion(id:any):Observable<any>{
+  const url = this.masterdomain + 'rh/' + id + '/';
+  return this.http.delete(url)
+
+}
+postBhub(formvalue:any):Observable<any>{
+  const url = this.masterdomain + 'bh/';
+  const formData= new FormData
+  formData.append('region', formvalue.region);
+  formData.append('businesshub', formvalue.businesshub);
+  formData.append('location', formvalue.location);
+  formData.append('hubManager', formvalue.hubManager);
+  // formData.append('email', formvalue.email);
+  // formData.append('phoneNumber', formvalue.phoneNumber);
+  return this.http.post(url, formData)
+}
+
+editBhub(formvalue:any,id:any):Observable<any>{
+  const url = this.masterdomain + 'bh/' + id + '/';
+  const formData= new FormData
+  formData.append('region', formvalue.region);
+  formData.append('businesshub', formvalue.businesshub);
+  formData.append('location', formvalue.location);
+  formData.append('hubManager', formvalue.hubManager);
+  // formData.append('email', formvalue.email);
+  // formData.append('phoneNumber', formvalue.phoneNumber);
+  return this.http.put(url, formData)
+}
+getBhub():Observable<any>{
+const url = this.masterdomain + 'bhlist/';
+return this.http.get(url)
+}
+deleteBhub(id:any):Observable<any>{
+const url = this.masterdomain + 'bh/' + id + '/';
+return this.http.delete(url)
+
+}
+
+addNewUser( formvalue:any
+  ): Observable<any> {
+    const url = this.masterdomain + 'signup/';
+    const formData = new FormData();
+    formData.append('username', formvalue.email);
+    formData.append('email', formvalue.email);
+    formData.append('tel_no', formvalue.phone_number);
+    formData.append('password1', formvalue.password);
+    formData.append('password2', formvalue.confirm_pass);
+    formData.append('password', formvalue.password);
+    formData.append('first_name',formvalue.first_name);
+    formData.append('last_name', formvalue.last_name);
+    formData.append('job_title', formvalue.jobtitle);
+    formData.append('role', formvalue.role);
+    if(formvalue.role =='is_tm'){
+      formData.append('is_tm', 'True');
+    };
+    if(formvalue.role =='is_te'){
+      formData.append('is_te', 'True');
+    };
+    if(formvalue.role =='is_npd'){
+      formData.append('is_npd', 'True');
+    };
+    if(formvalue.role =='is_cto'){
+      formData.append('is_cto', 'True');
+    };
+    if(formvalue.role =='is_md'){
+      formData.append('is_md', 'True');
+    };
+    if(formvalue.role =='is_hsch'){
+      formData.append('is_hsch', 'True');
+    };
+   
+    return this.http.post(url,formData)
+  }
+
+    editStaffUser(staffid:any, formvalue:any
+      ): Observable<any> {
+        const url = this.masterdomain + 'contractors/' + staffid + '/';
+        const formData = new FormData();
+        formData.append('username', formvalue.email);
+        formData.append('email', formvalue.email);
+        formData.append('tel_no', formvalue.phone_number);
+       
+        formData.append('first_name',formvalue.first_name);
+        formData.append('last_name', formvalue.last_name);
+        formData.append('job_title', formvalue.jobtitle);
+        formData.append('role', formvalue.role);
+        if(formvalue.role =='is_tm'){
+          formData.append('is_tm', 'True');
+        };
+        if(formvalue.role =='is_te'){
+          formData.append('is_te', 'True');
+          formData.append('is_npd', 'False');
+          formData.append('is_cto', 'False');
+          formData.append('is_md', 'False');
+          formData.append('is_hsch', 'False');
+        };
+        if(formvalue.role =='is_npd'){
+          formData.append('is_te', 'False');
+          formData.append('is_npd', 'True');
+          formData.append('is_cto', 'False');
+          formData.append('is_md', 'False');
+          formData.append('is_hsch', 'False');
+        };
+        if(formvalue.role =='is_cto'){
+          formData.append('is_te', 'False');
+          formData.append('is_npd', 'False');
+          formData.append('is_cto', 'True');
+          formData.append('is_md', 'False');
+          formData.append('is_hsch', 'False');
+        };
+        if(formvalue.role =='is_md'){
+          formData.append('is_te', 'False');
+          formData.append('is_npd', 'False');
+          formData.append('is_cto', 'False');
+          formData.append('is_md', 'True');
+          formData.append('is_hsch', 'False');
+        };
+        if(formvalue.role =='is_hsch'){
+          formData.append('is_te', 'False');
+          formData.append('is_npd', 'False');
+          formData.append('is_cto', 'False');
+          formData.append('is_md', 'False');
+          formData.append('is_hsch', 'True');
+        };
+       
+        return this.http.patch(url,formData)
+      }
+  }
+
 
 
    

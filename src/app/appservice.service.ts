@@ -190,27 +190,24 @@ export class AppserviceService {
     this.deleteToken();
   }
   
-  // editloginapi(formvalue:any, id:any):Observable<any>{
-  //   const url=this.masterdomain + 'login/'+ id +'/';
-  //   const formData = new FormData();
-  //   formData.append('username', formvalue.username);
-  //   formData.append('password', formvalue.password);
-  //   formData.append('firstname', formvalue.firstname);
-  //   formData.append('lastname', formvalue.lastname);
-  //   formData.append('contractor_name', formvalue.contractor_name);
-  //   formData.append('con_address', formvalue.con_address);
-  //   formData.append('licensed_no', formvalue.licensed_no);
-  //   formData.append('tel_no', formvalue.tel_no);
-  //   formData.append('coren_or_nemsa_competency', formvalue.coren_or_nemsa_competency);
-  //   formData.append('reg_date', formvalue.reg_date);
+  editregister(formvalue:any, id:any):Observable<any>{
+    const url=this.masterdomain + 'contractors/'+ id +'/';
+    const formData = new FormData();
+    // formData.append('username', formvalue.username);
+    formData.append('region', formvalue.region);
+    formData.append('businesshub', formvalue.businesshub);
+    formData.append('firstname', formvalue.firstname);
+    formData.append('lastname', formvalue.lastname);
+    formData.append('contractor_name', formvalue.contractor_name);
+    formData.append('con_address', formvalue.con_address);
+    formData.append('licensed_no', formvalue.licensed_no);
+    formData.append('tel_no', formvalue.tel_no);
+    formData.append('coren_or_nemsa_competency', formvalue.coren_or_nemsa_competency);
+    formData.append('reg_date', formvalue.reg_date);
     
-    // formData.append('coren_or_nemsa_competency', formvalue.coren_or_nemsa_competency);
-    // formData.append('nemsa_test_cert', formvalue.nemsaFileSource);
-    // formData.append('transformer_waranty', formvalue.warrantyFileSource);
-    // formData.append('letter_of_donation_dss', formvalue.dssFileSource);
-    // formData.append('transformer_test_cert', formvalue.testFileSource);
-  //   return this.http.put(url,formData)
-  // }
+    
+    return this.http.put(url,formData)
+   }
   // deleteloginapi(id:any):Observable<any>{
   //   const url=this.masterdomain + 'login/'+ id +'/';
   //   return this.http.delete(url)

@@ -24,6 +24,9 @@ export class ContractorRegComponent implements OnInit {
      
     this.portform = new FormGroup({
       username: new FormControl(''),
+      password: new FormControl(''),
+      firstname: new FormControl(''),
+      lastname: new FormControl(''),
       contractor_name: new FormControl(''),
       con_address: new FormControl(''),
       licensed_no: new FormControl(''),
@@ -35,8 +38,26 @@ export class ContractorRegComponent implements OnInit {
      
       nemsaFileSource: new FormControl(null),      
     })
-   
-  this.getContractorDetails();
+    if(this.action == 'edit'){
+      // this.connection = data.row;
+      this.portform.patchValue({
+      // contractor:this.connection.contractor,
+
+      username: this.connection.username,
+      password: this.connection.password,
+      firstname: this.connection.firstname,
+      lastname: this.connection.lastname,
+      contractor_name:this.connection.contractor_name,
+      con_address: this.connection.con_address,
+      licensed_no: this.connection.licensed_no,
+      tel_no: this.connection.tel_no,
+      email: this.connection.email,
+      reg_date: this.connection.reg_date,
+      nemsa_test_cert: this.connection.nemsa_test_cert,
+     
+
+    })
+  }
     }
   
     showNotification(colorName:any, text:any, placementFrom:any, placementAlign:any) {

@@ -108,7 +108,7 @@ export class AppserviceService {
   //   formData.append('password', formvalue.password);
   //   formData.append('firstname', formvalue.firstname);
   //   formData.append('lastname', formvalue.lastname);
-  //   formData.append('contractor_name', formvalue.contractor_name);
+  //   formData.append('contractfgetor_name', formvalue.contractor_name);
   //   formData.append('con_address', formvalue.con_address);
   //   formData.append('licensed_no', formvalue.licensed_no);
   //   formData.append('tel_no', formvalue.tel_no);
@@ -400,8 +400,9 @@ addNewUser( formvalue:any
       formData.append('licensed_no', formvalue.licensed_no);
       formData.append('tel_no', formvalue.tel_no);
       formData.append('email', formvalue.email);
-      formData.append('businesshub', formvalue.businesshub);
-      formData.append('region', formvalue.region);
+      formData.append('in_approval_workflow', 'True');
+      formData.append('registration_status', 'Submitted and Awaiting Approval (HSCH & CTO)');
+      // formData.append('region', formvalue.region);
       if(formvalue.nemsaFileSource){
       formData.append('coren_or_nemsa_competency', formvalue.nemsaFileSource);
       }

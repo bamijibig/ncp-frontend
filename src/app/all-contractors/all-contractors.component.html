@@ -18,75 +18,184 @@
         </div>
     </div>
     <div class="container-fluid">
+
+      <mat-tab-group>
+        <mat-tab label="All Contractors"> 
+          <div class="container">
+
+         
         <div class="row">
-            <div class="col-lg-12">
-              <!-- <div class="col-12 text-right">
-                <button mat-raised-button color='primary'  (click)="addNew()" >Add new Contractor</button>
-            </div> -->
-            <div class="example-container mat-elevation-z8 table table-responsive">
-                <mat-table #table [dataSource]="dataSource">
-              
-                  <!--- Note that these columns can be defined in any order.
-                The actual rendered columns are set as a property on the row definition" -->
-                  <!-- id Column -->
-       
-                  <ng-container matColumnDef="name">
-                    <mat-header-cell *matHeaderCellDef>Contractor Name</mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.contractor_name}} </mat-cell>
-                  </ng-container>
-                  <ng-container matColumnDef="region">
-                    <mat-header-cell *matHeaderCellDef>Region</mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element?.region.name}} </mat-cell>
-                  </ng-container>
-              
-                  <!--businesstype Column -->
-                  <ng-container matColumnDef="hub">
-                    <mat-header-cell *matHeaderCellDef> Business Hub </mat-header-cell>
-                    <mat-cell *matCellDef="let element">{{element?.region.name}}  </mat-cell>
-                  </ng-container>
-              
-              
-                  <!-- value_contract column -->
-                  <ng-container matColumnDef="address">
-                    <mat-header-cell *matHeaderCellDef> Address </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element?.address}} </mat-cell>
-                  </ng-container>
-              
-                  <!-- company_category Column -->
-                  <ng-container matColumnDef="email">
-                    <mat-header-cell *matHeaderCellDef> Email</mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element?.email}} </mat-cell>
-                  </ng-container>
-                  <ng-container matColumnDef="phone">
-                    <mat-header-cell *matHeaderCellDef> Phone Number </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element?.phone_number}} </mat-cell>
-                  </ng-container>
+          <div class="col-lg-12">
+            <!-- <div class="col-12 text-right">
+              <button mat-raised-button color='primary'  (click)="addNew()" >Add new Contractor</button>
+          </div> -->
+          <div class="example-container mat-elevation-z8 table table-responsive">
+              <mat-table #table [dataSource]="dataSource">
+            
+                <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+                <!-- id Column -->
+     
+                <ng-container matColumnDef="name">
+                  <mat-header-cell *matHeaderCellDef>Contractor Name</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.contractor_name}} </mat-cell>
+                </ng-container>
+                <!-- <ng-container matColumnDef="region">
+                  <mat-header-cell *matHeaderCellDef>Region</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element?.region.name}} </mat-cell>
+                </ng-container> -->
+            
+                <!--businesstype Column -->
+                <!-- <ng-container matColumnDef="hub">
+                  <mat-header-cell *matHeaderCellDef> Business Hub </mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element?.region.name}}  </mat-cell>
+                </ng-container> -->
+            
+            
+                <!-- value_contract column -->
+                <ng-container matColumnDef="address">
+                  <mat-header-cell *matHeaderCellDef> Address </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element?.con_address}} </mat-cell>
+                </ng-container>
+            
+                <!-- company_category Column -->
+                <ng-container matColumnDef="email">
+                  <mat-header-cell *matHeaderCellDef> Email</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element?.email}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="phone">
+                  <mat-header-cell *matHeaderCellDef> Phone Number </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element?.tel_no}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="license">
+                  <mat-header-cell *matHeaderCellDef> License Number </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element?.licensed_no}} </mat-cell>
+                </ng-container>
 
-                  <ng-container matColumnDef="status">
-                    <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
-                  </ng-container>
-            
-                
-            
-                  <ng-container matColumnDef="edit">
-                    <mat-header-cell *matHeaderCellDef> </mat-header-cell>
-                    <mat-cell *matCellDef="let element"><button mat-raised-button color="secondary" (click)="edit(element)">Edit</button> </mat-cell>
-                  </ng-container>
-                
+                <ng-container matColumnDef="status">
+                  <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> 
+                    <span *ngIf="element.registration_status">{{element.registration_status}} </span>
+                    
+                    <span *ngIf="!element.registration_status">Unsubmitted </span>
+                  </mat-cell>
+                </ng-container>
+          
               
-                  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-                </mat-table>
-                <mat-paginator #paginator
-                               [pageSize]="10"
-                               [pageSizeOptions]="[5, 10, 20]"
-                               [showFirstLastButtons]="true">
-                </mat-paginator>
-              </div>
+          
+               
+            
+
+                <mat-header-row *matHeaderRowDef="displayedColumnsList"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumnsList;"></mat-row>
+              </mat-table>
+              <mat-paginator #paginator
+                             [pageSize]="10"
+                             [pageSizeOptions]="[5, 10, 20]"
+                             [showFirstLastButtons]="true">
+              </mat-paginator>
             </div>
+          </div>
 
-        </div>
+      </div>
+    </div>
+        </mat-tab>
+        <mat-tab label="My Approvals">
+          <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <!-- <div class="col-12 text-right">
+              <button mat-raised-button color='primary'  (click)="addNew()" >Add new Contractor</button>
+          </div> -->
+          <div class="example-container mat-elevation-z8 table table-responsive">
+              <mat-table #table [dataSource]="dataSource">
+            
+                <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+                <!-- id Column -->
+     
+                <ng-container matColumnDef="name">
+                  <mat-header-cell *matHeaderCellDef>Contractor Name</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.contractor_name}} </mat-cell>
+                </ng-container>
+                <!-- <ng-container matColumnDef="region">
+                  <mat-header-cell *matHeaderCellDef>Region</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element?.region.name}} </mat-cell>
+                </ng-container> -->
+            
+                <!--businesstype Column -->
+                <!-- <ng-container matColumnDef="hub">
+                  <mat-header-cell *matHeaderCellDef> Business Hub </mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element?.region.name}}  </mat-cell>
+                </ng-container> -->
+            
+            
+                <!-- value_contract column -->
+                <ng-container matColumnDef="address">
+                  <mat-header-cell *matHeaderCellDef> Address </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element?.con_address}} </mat-cell>
+                </ng-container>
+            
+                <!-- company_category Column -->
+                <ng-container matColumnDef="email">
+                  <mat-header-cell *matHeaderCellDef> Email</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element?.email}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="phone">
+                  <mat-header-cell *matHeaderCellDef> Phone Number </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element?.tel_no}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="license">
+                  <mat-header-cell *matHeaderCellDef> License Number </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element?.licensed_no}} </mat-cell>
+                </ng-container>
+
+                <!-- <ng-container matColumnDef="status">
+                  <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> 
+                    <span *ngIf="element.registration_status">{{element.registration_status}} </span>
+                    
+                    <span *ngIf="!element.registration_status">Unsubmitted </span>
+                  </mat-cell>
+                </ng-container> -->
+          
+              
+          
+                <ng-container matColumnDef="action">
+                  <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                  <mat-cell *matCellDef="let element">
+                     
+                    <div>
+                      <button mat-raised-button color="secondary" >Approve</button> 
+                    </div><br/>
+                    <div>
+                      <button mat-raised-button color="warn" >Decline</button>
+                    </div>
+                  </mat-cell>
+                </ng-container>
+              
+            
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              </mat-table>
+              <mat-paginator #paginator
+                             [pageSize]="10"
+                             [pageSizeOptions]="[5, 10, 20]"
+                             [showFirstLastButtons]="true">
+              </mat-paginator>
+            </div>
+          </div>
+
+      </div>
+    </div>
+        </mat-tab>
+      </mat-tab-group>
+
+
+
+
+
         
       
     </div>

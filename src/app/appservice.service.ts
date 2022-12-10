@@ -463,6 +463,8 @@ addNewUser( formvalue:any
           formData.append('md_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
           formData.append('md_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
           formData.append('registration_status', 'Registration Approval Completed');
+          formData.append('registration_approved', 'True');
+          
 
         }
         

@@ -166,7 +166,8 @@
             <div class="col-12 my-5" *ngIf="status">
 
             
-                <h3><strong>STATUS:</strong> {{status}}</h3> 
+                <h3><strong>STATUS:</strong> {{status}} </h3> 
+                <h3 *ngIf="declined">{{declined_comment}}</h3>
                </div>
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2" *ngIf="!in_approval_workflow">
                 <div class="example-button-row">

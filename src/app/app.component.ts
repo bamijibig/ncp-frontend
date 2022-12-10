@@ -73,6 +73,9 @@ export class AppComponent implements OnInit {
     logout(){
       this.appService.logOut().subscribe(()=>{
         this._router.navigateByUrl('/')
+      },
+      (error)=>{
+        this._router.navigateByUrl('/')
       });
     }
 

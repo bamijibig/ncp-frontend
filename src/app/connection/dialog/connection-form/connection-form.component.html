@@ -1,11 +1,25 @@
+
+
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block" rel="stylesheet">
+
+
+
 <div class="modalHeader">
 
     <button mat-icon-button (click)="dialogRef.close()" aria-label="Close dialog">
         <mat-icon>close</mat-icon>
     </button>
 </div>
-<div mat-dialog-content class="mat-typography">
+
+<div class="text-center" *ngIf="!status">
+    <h2><strong>
+        You cannot create an application for new connection because your registration as a contractor is not yet approved. Kindly update your profile and submit
+        for approval
+    </strong>
+    </h2>
+</div>
+
+<div mat-dialog-content class="mat-typography" *ngIf="status">
 
     <form class="m-4" [formGroup]="portform" (ngSubmit)="submitSupplier()">
         <div class="container-fluid">

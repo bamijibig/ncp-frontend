@@ -2,6 +2,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { TitleStrategy } from '@angular/router';
+import { User } from 'src/app/globalservice/global-service.service';
 import { AppserviceService } from '../../../appservice.service';
 
 @Component({
@@ -19,7 +21,7 @@ export class ConnectionFormComponent implements OnInit {
     private portadd: AppserviceService
     ) {
       this.action = data.action;
-     
+      this.getApprovalStatus();
     this.portform = new FormGroup({
       // contractor:new FormControl(null),
       company_name: new FormControl(''),
@@ -211,8 +213,12 @@ export class ConnectionFormComponent implements OnInit {
   confirmAdd(){
 
   }
-
-
+  status: Boolean = true;
+getApprovalStatus(){
+  this.portadd.getApprovalStatusReg(User.getUser().id).subscribe((result)=>{
+    this.status = result.registration_approved;
+  })
+}
 
 }
 

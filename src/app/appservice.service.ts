@@ -4,6 +4,9 @@ import { Observable } from 'rxjs';
 import { environment } from '../environments/environment';
 import { CookieService } from 'ngx-cookie-service';
 import { finalize, tap } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { User } from './globalservice/global-service.service';
+import {formatDate} from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +16,7 @@ export class AppserviceService {
 
   constructor(
     private http: HttpClient,
+    private snackBar: MatSnackBar,
     private cookieService: CookieService
     ) { }
   getapi(): Observable<any> {
@@ -223,6 +227,7 @@ export class AppserviceService {
     return this.http.get(url)
   }
 
+
   getContractorDetails(id: any): Observable<any> {
     const url = this.masterdomain + 'contractors/' + id + '/';
     return this.http.get(url)
@@ -350,12 +355,18 @@ addNewUser( formvalue:any
         formData.append('role', formvalue.role);
         if(formvalue.role =='is_tm'){
           formData.append('is_tm', 'True');
+          formData.append('is_te', 'False');
+          formData.append('is_npd', 'False');
+          formData.append('is_cto', 'False');
+          formData.append('is_md', 'False');
+          formData.append('is_hsch', 'False');
         };
         if(formvalue.role =='is_te'){
           formData.append('is_te', 'True');
           formData.append('is_npd', 'False');
           formData.append('is_cto', 'False');
           formData.append('is_md', 'False');
+          formData.append('is_tm', 'False');
           formData.append('is_hsch', 'False');
         };
         if(formvalue.role =='is_npd'){
@@ -363,17 +374,20 @@ addNewUser( formvalue:any
           formData.append('is_npd', 'True');
           formData.append('is_cto', 'False');
           formData.append('is_md', 'False');
+          formData.append('is_tm', 'False');
           formData.append('is_hsch', 'False');
         };
         if(formvalue.role =='is_cto'){
           formData.append('is_te', 'False');
           formData.append('is_npd', 'False');
           formData.append('is_cto', 'True');
+          formData.append('is_tm', 'False');
           formData.append('is_md', 'False');
           formData.append('is_hsch', 'False');
         };
         if(formvalue.role =='is_md'){
           formData.append('is_te', 'False');
+          formData.append('is_tm', 'False');
           formData.append('is_npd', 'False');
           formData.append('is_cto', 'False');
           formData.append('is_md', 'True');
@@ -382,6 +396,7 @@ addNewUser( formvalue:any
         if(formvalue.role =='is_hsch'){
           formData.append('is_te', 'False');
           formData.append('is_npd', 'False');
+          formData.append('is_tm', 'False');
           formData.append('is_cto', 'False');
           formData.append('is_md', 'False');
           formData.append('is_hsch', 'True');
@@ -401,13 +416,83 @@ addNewUser( formvalue:any
       formData.append('tel_no', formvalue.tel_no);
       formData.append('email', formvalue.email);
       formData.append('in_approval_workflow', 'True');
-      formData.append('registration_status', 'Submitted and Awaiting Approval (HSCH & CTO)');
-      // formData.append('region', formvalue.region);
+      formData.append('registration_status', 'Submitted and Awaiting HSCH Approval');
+      formData.append('declined', "False");
       if(formvalue.nemsaFileSource){
       formData.append('coren_or_nemsa_competency', formvalue.nemsaFileSource);
+      
       }
       return this.http.patch(url,formData)
     }
 
-   
+    getMyApprovaList(): Observable<any> {
+      const url = this.masterdomain + 'list/myapprovals';
+      const reqtoken = this.getToken();
+      const headers = { 'Authorization': 'Token ' + reqtoken};
+      return this.http.get(url, {headers:headers})
+    }
+    
+
+    
+  action( action:any, id: any, declinedcomment: any
+    ): Observable<any> {
+      const url = this.masterdomain + 'approveordecline/' + id + '/';
+      const formData = new FormData();
+      if(action == 'Approve'){
+        if(User.getUser().is_hsch == true){
+ 
+          formData.append('hsch_is_contractor_approved', 'True');
+          formData.append('hsch_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+          formData.append('hsch_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+          formData.append('registration_status', 'Approved By HSCH. Awaiting CTO Approval');
+
+        }
+
+        if(User.getUser().is_cto == true){
+       
+          formData.append('cto_is_contractor_approved', 'True');
+          formData.append('cto_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+          formData.append('cto_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+          formData.append('registration_status', 'Approved By CTO. Awaiting MD Approval');
+
+        }
+
+        if(User.getUser().is_md == true){
+ 
+          formData.append('md_is_contractor_approved', 'True');
+          formData.append('md_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+          formData.append('md_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+          formData.append('registration_status', 'Registration Approval Completed');
+
+        }
+        
+        
+      }
+      if(action == 'Decline'){
+        formData.append('declined', 'True');
+        formData.append('in_approval_workflow', 'False');
+        formData.append('declined_comment', declinedcomment);
+        formData.append('registration_status', 'Registration Declined.');
+      }
+      
+      const reqtoken = this.getToken();
+      const headers = { 'Authorization': 'Token ' + reqtoken};
+      return this.http.patch(url,formData,{headers:headers})
+    }
+
+    showNotification(colorName:any, text:any, placementFrom:any, placementAlign:any) {
+      this.snackBar.open(text, '', {
+        duration: 2000,
+        verticalPosition: placementFrom,
+        horizontalPosition: placementAlign,
+        panelClass: colorName,
+      });
+    }
+
+
+    getApprovalStatusReg(id:any): Observable<any> {
+      const url = this.masterdomain + 'approvalstatus/'+ id + '/';
+      return this.http.get(url)
+    }
+    
   }

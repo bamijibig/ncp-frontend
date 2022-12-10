@@ -108,7 +108,7 @@
               <button mat-raised-button color='primary'  (click)="addNew()" >Add new Contractor</button>
           </div> -->
           <div class="example-container mat-elevation-z8 table table-responsive">
-              <mat-table #table [dataSource]="dataSource">
+              <mat-table #table [dataSource]="dataSourceApproval">
             
                 <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
@@ -150,14 +150,14 @@
                   <mat-cell *matCellDef="let element"> {{element?.licensed_no}} </mat-cell>
                 </ng-container>
 
-                <!-- <ng-container matColumnDef="status">
+                <ng-container matColumnDef="status">
                   <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
                   <mat-cell *matCellDef="let element"> 
                     <span *ngIf="element.registration_status">{{element.registration_status}} </span>
                     
                     <span *ngIf="!element.registration_status">Unsubmitted </span>
                   </mat-cell>
-                </ng-container> -->
+                </ng-container>
           
               
           
@@ -166,10 +166,10 @@
                   <mat-cell *matCellDef="let element">
                      
                     <div>
-                      <button mat-raised-button color="secondary" >Approve</button> 
+                      <button mat-raised-button color="secondary" (click)="action('Approve', element.id)">Approve</button> 
                     </div><br/>
                     <div>
-                      <button mat-raised-button color="warn" >Decline</button>
+                      <button mat-raised-button color="warn" (click)="action('Decline', element.id)">Decline</button>
                     </div>
                   </mat-cell>
                 </ng-container>

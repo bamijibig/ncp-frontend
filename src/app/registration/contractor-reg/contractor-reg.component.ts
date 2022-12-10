@@ -162,12 +162,17 @@ export class ContractorRegComponent implements OnInit {
   }
   in_approval_workflow: Boolean = true;
   status: any;
+  declined_comment: any;
+  declined: Boolean = false;
+
 getContractorDetails(){
     this.portadd.getContractorDetails(User.getUser().id).subscribe((result)=>{
       console.log(result);
       // this.getHubwithRegion(result.region);
       this.in_approval_workflow = result.in_approval_workflow;
       this.status = result.registration_status;
+      this.declined_comment = result.declined_comment;
+      this.declined = result.declined;
       if(result.in_approval_workflow == false){
         this.portform.enable()
       }

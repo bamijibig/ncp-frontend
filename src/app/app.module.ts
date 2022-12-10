@@ -27,9 +27,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatMenuModule } from '@angular/material/menu';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
-import { AllregistrationComponent } from './registration/allregistration/allregistration.component';
 import { ContractorRegComponent } from './registration/contractor-reg/contractor-reg.component';
-import { ConnectionLoginComponent } from './connection-login/connection-login.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ContractorDashboardComponent } from './dashboard/contractor-dashboard/contractor-dashboard.component';
 import { AdminDashboardComponent } from './dashboard/admin-dashboard/admin-dashboard.component';
@@ -39,7 +37,6 @@ import { UserManagerComponent } from './user-manager/user-manager.component';
 import { RegionComponent } from './region/region.component';
 import { BusinessHubComponent } from './business-hub/business-hub.component';
 import { AllContractorsComponent } from './all-contractors/all-contractors.component';
-import { AllConnectionsComponent } from './all-connections/all-connections.component';
 import { RegionFormDialogComponent } from './region/dialog/region-form-dialog/region-form-dialog.component';
 import { RegionDeleteDialogComponent } from './region/dialog/region-delete-dialog/region-delete-dialog.component';
 import { HubFormDialogComponent } from './business-hub/dialog/hub-form-dialog/hub-form-dialog.component';
@@ -57,9 +54,7 @@ import { ActionDialogComponent } from './all-contractors/dialog/action-dialog/ac
     AllconnectionComponent,
     ConnectionFormComponent,
     ConnectionDeleteComponent,
-    AllregistrationComponent,
     ContractorRegComponent,
-    ConnectionLoginComponent,
     ContractorDashboardComponent,
     AdminDashboardComponent,
     ContractorLayoutComponent,
@@ -68,7 +63,6 @@ import { ActionDialogComponent } from './all-contractors/dialog/action-dialog/ac
     RegionComponent,
     BusinessHubComponent,
     AllContractorsComponent,
-    AllConnectionsComponent,
     RegionFormDialogComponent,
     RegionDeleteDialogComponent,
     HubFormDialogComponent,

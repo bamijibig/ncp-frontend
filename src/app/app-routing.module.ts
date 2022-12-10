@@ -2,7 +2,6 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AllContractorsComponent } from './all-contractors/all-contractors.component';
 import { BusinessHubComponent } from './business-hub/business-hub.component';
-import { ConnectionLoginComponent } from './connection-login/connection-login.component';
 import { AllconnectionComponent } from './connection/allconnection/allconnection.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegionComponent } from './region/region.component';
@@ -45,10 +44,7 @@ const routes: Routes = [
     component: UserManagerComponent
   },
   
-  {
-    path: 'login',
-    component: ConnectionLoginComponent
-  },
+
  
 ];
 

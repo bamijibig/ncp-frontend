@@ -194,24 +194,24 @@ export class AppserviceService {
     this.deleteToken();
   }
   
-  editregister(formvalue:any, id:any):Observable<any>{
-    const url=this.masterdomain + 'contractors/'+ id +'/';
-    const formData = new FormData();
-    // formData.append('username', formvalue.username);
-    formData.append('region', formvalue.region);
-    formData.append('businesshub', formvalue.businesshub);
-    formData.append('firstname', formvalue.firstname);
-    formData.append('lastname', formvalue.lastname);
-    formData.append('contractor_name', formvalue.contractor_name);
-    formData.append('con_address', formvalue.con_address);
-    formData.append('licensed_no', formvalue.licensed_no);
-    formData.append('tel_no', formvalue.tel_no);
-    formData.append('coren_or_nemsa_competency', formvalue.coren_or_nemsa_competency);
-    formData.append('reg_date', formvalue.reg_date);
+  // editregister(formvalue:any, id:any):Observable<any>{
+  //   const url=this.masterdomain + 'contractors/'+ id +'/';
+  //   const formData = new FormData();
+  //   // formData.append('username', formvalue.username);
+  //   formData.append('region', formvalue.region);
+  //   formData.append('businesshub', formvalue.businesshub);
+  //   formData.append('firstname', formvalue.firstname);
+  //   formData.append('lastname', formvalue.lastname);
+  //   formData.append('contractor_name', formvalue.contractor_name);
+  //   formData.append('con_address', formvalue.con_address);
+  //   formData.append('licensed_no', formvalue.licensed_no);
+  //   formData.append('tel_no', formvalue.tel_no);
+  //   formData.append('coren_or_nemsa_competency', formvalue.coren_or_nemsa_competency);
+  //   formData.append('reg_date', formvalue.reg_date);
     
     
-    return this.http.put(url,formData)
-   }
+  //   return this.http.put(url,formData)
+  //  }
   // deleteloginapi(id:any):Observable<any>{
   //   const url=this.masterdomain + 'login/'+ id +'/';
   //   return this.http.delete(url)
@@ -418,6 +418,7 @@ addNewUser( formvalue:any
       formData.append('in_approval_workflow', 'True');
       formData.append('registration_status', 'Submitted and Awaiting HSCH Approval');
       formData.append('declined', "False");
+      formData.append('hsch_is_contractor_approved', 'False');
       if(formvalue.nemsaFileSource){
       formData.append('coren_or_nemsa_competency', formvalue.nemsaFileSource);
       
@@ -442,6 +443,8 @@ addNewUser( formvalue:any
         if(User.getUser().is_hsch == true){
  
           formData.append('hsch_is_contractor_approved', 'True');
+          formData.append('cto_is_contractor_approved', 'False');
+          formData.append('md_is_contractor_approved', 'False');
           formData.append('hsch_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
           formData.append('hsch_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
           formData.append('registration_status', 'Approved By HSCH. Awaiting CTO Approval');
@@ -463,6 +466,7 @@ addNewUser( formvalue:any
           formData.append('md_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
           formData.append('md_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
           formData.append('registration_status', 'Registration Approval Completed');
+          formData.append('in_approval_workflow', 'False');
           formData.append('registration_approved', 'True');
           
 

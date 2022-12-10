@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { AppserviceService } from 'src/app/appservice.service';
+import { User } from 'src/app/globalservice/global-service.service';
 import { port } from 'src/app/port';
 import { ConnectionFormComponent } from '../dialog/connection-form/connection-form.component';
 
@@ -16,7 +17,7 @@ export class AllconnectionComponent implements OnInit {
  displayedColumns = ['id','contractor', 'company_name', 'connectiontype', 'capacity', 'est_load_of_premises', 'useofpremises','date_of_application','edit']
   dataSource= new MatTableDataSource<any>([])
   selection = new SelectionModel<any>(true, [])
-
+  is_contractor = User.getUser().is_contractor
   portals:any;
   title = 'eportal';
   constructor(

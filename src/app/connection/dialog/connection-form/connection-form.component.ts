@@ -1,6 +1,6 @@
 
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TitleStrategy } from '@angular/router';
 import { User } from 'src/app/globalservice/global-service.service';
@@ -22,6 +22,7 @@ export class ConnectionFormComponent implements OnInit {
     ) {
       this.action = data.action;
       this.getApprovalStatus();
+      this.getRegion();
     this.portform = new FormGroup({
       // contractor:new FormControl(null),
       company_name: new FormControl(''),
@@ -43,7 +44,15 @@ export class ConnectionFormComponent implements OnInit {
       dssFileSource: new FormControl(null),
       nemsaFileSource: new FormControl(null),
       warrantyFileSource: new FormControl(null),
-      testFileSource: new FormControl(null)
+      testFileSource: new FormControl(null),
+
+      contractor_name: new FormControl({value: User.getUser().contractor_name, disabled: true}, Validators.required),
+      con_address: new FormControl({value: User.getUser().con_address, disabled: true}, Validators.required),
+      licensed_no: new FormControl({value: User.getUser().licensed_no, disabled: true}, Validators.required),
+      tel_no: new FormControl({value: User.getUser().tel_no, disabled: true}, Validators.required),
+      email: new FormControl({value: User.getUser().email, disabled: true}, Validators.required),
+      businesshub: new FormControl(''),
+      region : new FormControl(''),
       
     })
     if(this.action == 'edit'){
@@ -218,6 +227,43 @@ getApprovalStatus(){
   this.portadd.getApprovalStatusReg(User.getUser().id).subscribe((result)=>{
     this.status = result.registration_approved;
   })
+}
+
+
+
+
+
+regions: any = [];
+hub: any = [];
+getRegion() {
+  this.portadd.getRegion().subscribe(
+    (resp: any) => {
+      this.regions = resp;
+
+    },
+    (error: any) => { console.error(error); }
+  );
+}
+
+getHub(event: any) {
+  this.portadd.getBhubFiltered(event.value).subscribe(
+    (resp: any) => {
+      this.hub = resp;
+
+    },
+    (error: any) => { console.error(error); }
+  );
+}
+
+getHubwithRegion(region: any) {
+  this.portadd.getBhubFiltered(region).subscribe(
+    (resp: any) => {
+      this.hub = resp;
+      
+
+    },
+    (error: any) => { console.error(error); }
+  );
 }
 
 }

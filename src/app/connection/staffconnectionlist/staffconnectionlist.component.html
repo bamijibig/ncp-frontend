@@ -154,29 +154,41 @@
                 <mat-cell *matCellDef="let element"> {{element.capacity}} </mat-cell>
               </ng-container>
         
-              <ng-container matColumnDef="est_load_of_premises">
+              <!-- <ng-container matColumnDef="est_load_of_premises">
                 <mat-header-cell *matHeaderCellDef>Estimated load </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.est_load_of_premises}} </mat-cell>
               </ng-container>
               <ng-container matColumnDef="useofpremises">
                 <mat-header-cell *matHeaderCellDef> Use of Premise </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.useofpremises}} </mat-cell>
-              </ng-container>
+              </ng-container> -->
              
               <ng-container matColumnDef="date_of_application">
                 <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.date_of_application | date: "mediumDate"}} </mat-cell>
               </ng-container>
-        
+
+              <ng-container matColumnDef="status">
+                <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+                <mat-cell *matCellDef="let element"> Awaiting Approvals </mat-cell>
+              </ng-container> 
+
               <ng-container matColumnDef="view">
                 <mat-header-cell *matHeaderCellDef> </mat-header-cell>
                 <mat-cell *matCellDef="let element">
-                  <button mat-raised-button color="secondary" (click)="view(element)">View</button> </mat-cell>
+                  <button mat-raised-button color="secondary" (click)="view(element)">View</button>
+               
+                 </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="approve">
+                <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                <button mat-raised-button color="secondary" (click)="view(element)">Approve</button> </mat-cell>
               </ng-container>
             
           
-              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              <mat-header-row *matHeaderRowDef="displayedColumnsList"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumnsList;"></mat-row>
             </mat-table>
             <mat-paginator #paginator
                            [pageSize]="10"

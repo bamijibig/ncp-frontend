@@ -18,7 +18,7 @@ export class StaffconnectionlistComponent implements OnInit {
  
  displayedColumns = ['contractor_name','region','hub', 'company_name', 'connectiontype', 'capacity', 'est_load_of_premises', 'useofpremises','date_of_application', 'view']
   
- displayedColumnsList = ['name', 'address', 'email', 'phone', 'license','status']
+ displayedColumnsList = ['contractor_name','region','hub', 'company_name', 'connectiontype', 'capacity', 'date_of_application','status', 'view','approve']
   dataSource= new MatTableDataSource<any>([])
   dataSourceApproval= new MatTableDataSource<any>([])
   selection = new SelectionModel<any>(true, [])

@@ -44,6 +44,7 @@ import { HubDeleteDialogComponent } from './business-hub/dialog/hub-delete-dialo
 import { AllContractorFormDialogComponent } from './all-contractors/dialog/all-contractor-form-dialog/all-contractor-form-dialog.component';
 import { StaffFormDialogComponent } from './user-manager/dialog/staff-form-dialog/staff-form-dialog.component';
 import { ActionDialogComponent } from './all-contractors/dialog/action-dialog/action-dialog.component';
+import { StaffconnectionlistComponent } from './connection/staffconnectionlist/staffconnectionlist.component';
 
 
 @NgModule({
@@ -70,6 +71,7 @@ import { ActionDialogComponent } from './all-contractors/dialog/action-dialog/ac
     AllContractorFormDialogComponent,
     StaffFormDialogComponent,
     ActionDialogComponent,
+    StaffconnectionlistComponent,
     
   ],
   imports: [

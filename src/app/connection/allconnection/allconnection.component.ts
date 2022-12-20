@@ -14,7 +14,7 @@ import { ConnectionFormComponent } from '../dialog/connection-form/connection-fo
 })
 export class AllconnectionComponent implements OnInit {
 
- displayedColumns = ['id','contractor', 'company_name', 'connectiontype', 'capacity', 'est_load_of_premises', 'useofpremises','date_of_application','edit']
+ displayedColumns = ['region','hub', 'company_name', 'connectiontype', 'capacity', 'est_load_of_premises', 'useofpremises','date_of_application','edit']
   dataSource= new MatTableDataSource<any>([])
   selection = new SelectionModel<any>(true, [])
   is_contractor = User.getUser().is_contractor
@@ -28,7 +28,7 @@ export class AllconnectionComponent implements OnInit {
     this.consumeapi();
 }
   consumeapi() {
-    this.api.getapi().subscribe(
+    this.api.getContractorConnections().subscribe(
       (resp) => {
         this.dataSource.data = resp;
         console.log(resp);
@@ -45,6 +45,20 @@ export class AllconnectionComponent implements OnInit {
       height: '90%',
       data: {
         action: 'add'
+      }
+    });
+    dialogRef.afterClosed().subscribe((result)=>{
+      this.consumeapi()
+    })
+  }
+
+  view(rowedited: any){
+    const dialogRef = this.dialog.open(ConnectionFormComponent, {
+      width: '100%',
+      height: '90%',
+      data: {
+        action: 'view',
+        row: rowedited
       }
     });
     dialogRef.afterClosed().subscribe((result)=>{

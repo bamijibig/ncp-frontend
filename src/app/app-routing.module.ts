@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AllContractorsComponent } from './all-contractors/all-contractors.component';
 import { BusinessHubComponent } from './business-hub/business-hub.component';
 import { AllconnectionComponent } from './connection/allconnection/allconnection.component';
+import { StaffconnectionlistComponent } from './connection/staffconnectionlist/staffconnectionlist.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegionComponent } from './region/region.component';
 import { ContractorRegComponent } from './registration/contractor-reg/contractor-reg.component';
@@ -21,6 +22,12 @@ const routes: Routes = [
     path: 'allconnection',
     component: AllconnectionComponent
   },
+  {
+    
+    path: 'allconnection/staff',
+    component: StaffconnectionlistComponent
+  },
+  
   {
     
     path: 'contractor_reg',

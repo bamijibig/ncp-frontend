@@ -19,28 +19,56 @@ export class AppserviceService {
     private snackBar: MatSnackBar,
     private cookieService: CookieService
     ) { }
-  getapi(): Observable<any> {
-    const url = this.masterdomain + 'list_contractors/';
+
+  getContractorConnections(): Observable<any> {
+    const url = this.masterdomain + 'contractor_connections/';
+    const reqtoken = this.getToken();
+    const headers = { 'Authorization': 'Token ' + reqtoken};
+    return this.http.get(url, {headers:headers})
+  }
+
+  getAllStaffConnections(): Observable<any> {
+    const url = this.masterdomain + 'staff_connections/';
+    const reqtoken = this.getToken();
+    const headers = { 'Authorization': 'Token ' + reqtoken};
+    return this.http.get(url, {headers:headers})
+  }
+
+  getConnectionDetail(id:any): Observable<any> {
+    const url = this.masterdomain + 'connections/' + id + "/";
+    // const reqtoken = this.getToken();
+    // const headers = { 'Authorization': 'Token ' + reqtoken};
     return this.http.get(url)
   }
 
-  postapi( formvalue:any
+  CreateConnection( formvalue:any
   ): Observable<any> {
-    const url = this.masterdomain + 'contractor/';
+    const url = this.masterdomain + 'connections/';
     const formData = new FormData();
-    formData.append('contractor_name', formvalue.company_name);
-    formData.append('con_address', formvalue.con_address);
-    formData.append('licensed_no', formvalue.licensed_no);
-    formData.append('tel_no', formvalue.tel_no);
-    formData.append('email', formvalue.email);
-    formData.append('businesshub', formvalue.hub);
-    
-    formData.append('coren_or_nemsa_competency', formvalue.nemsaFileSource);
+    formData.append('contractor', User.getUser().id);
+    formData.append('company_name', formvalue.company_name);
+    formData.append('connectiontype', formvalue.connectiontype);
+    formData.append('capacity', formvalue.capacity);
+    formData.append('voltage_ratio', formvalue.voltage_ratio);
+    formData.append('route_length_km', formvalue.route_length_km);
+    formData.append('est_load_of_premises', formvalue.est_load_of_premises);
+    formData.append('useofpremises', formvalue.useofpremises);
+    formData.append('add_house_no', formvalue.add_house_no);
+    formData.append('add_town_or_city', formvalue.add_town_or_city);
+    formData.append('add_lga', formvalue.add_lga);
+    formData.append('add_state', formvalue.add_state);
+    // formData.append('letter_of_donation_dss', formvalue.letter_of_donation_dss);
+    // formData.append('nemsa_test_cert', formvalue.nemsaFileSource);
+    // formData.append('transformer_waranty', formvalue.warrantyFileSource);
+    // formData.append('transformer_test_cert', formvalue.testFileSource);
+    formData.append('bh', formvalue.businesshub);
 
     return this.http.post(url,formData)
   }
-  editContractor(formvalue:any, id:any):Observable<any>{
-    const url=this.masterdomain + 'contractors/'+ id +'/';
+
+
+  editConnections(formvalue:any, id:any):Observable<any>{
+    const url=this.masterdomain + 'connections/'+ id +'/';
     const formData = new FormData();
     formData.append('company_name', formvalue.company_name);
     formData.append('connectiontype', formvalue.connectiontype);
@@ -53,16 +81,11 @@ export class AppserviceService {
     formData.append('add_town_or_city', formvalue.add_town_or_city);
     formData.append('add_lga', formvalue.add_lga);
     formData.append('add_state', formvalue.add_state);
-    formData.append('name_of_lincensed_elect_contractor', formvalue.name_of_lincensed_elect_contractor);
-    formData.append('con_address', formvalue.con_address);
-    formData.append('licensed_no', formvalue.licensed_no);
-    formData.append('tel_no', formvalue.tel_no);
-    formData.append('email', formvalue.email);
-    // formData.append('coren_or_nemsa_competency', formvalue.coren_or_nemsa_competency);
+    // formData.append('letter_of_donation_dss', formvalue.letter_of_donation_dss);
     // formData.append('nemsa_test_cert', formvalue.nemsaFileSource);
     // formData.append('transformer_waranty', formvalue.warrantyFileSource);
-    // formData.append('letter_of_donation_dss', formvalue.dssFileSource);
     // formData.append('transformer_test_cert', formvalue.testFileSource);
+    formData.append('bh', formvalue.businesshub);
     return this.http.put(url,formData)
   }
   deleteContractor(id:any):Observable<any>{

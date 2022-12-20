@@ -11,7 +11,7 @@
     </button>
 </div>
 
-<div class="text-center" *ngIf="!status">
+<div class="text-center" *ngIf="!status && is_contractor">
     <h2><strong>
         You cannot create an application for new connection because your registration as a contractor is not yet approved. Kindly update your profile and submit
         for approval
@@ -19,9 +19,9 @@
     </h2>
 </div>
 
-<div mat-dialog-content class="mat-typography" *ngIf="status">
+<div mat-dialog-content class="mat-typography" *ngIf="status || !is_contractor">
 
-    <form class="m-4" [formGroup]="portform" (ngSubmit)="submitSupplier()">
+    <form class="m-4" [formGroup]="portform" (ngSubmit)="submitConnections()">
         <div class="container-fluid">
             
             <div class="row">
@@ -310,7 +310,7 @@
              </mat-form-field>
             
         
-        <div class="row">
+        <div class="row" *ngIf="action=='edit' || action == 'add'">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
                 <div class="example-button-row">
                     <button mat-raised-button color="primary" type="submit"

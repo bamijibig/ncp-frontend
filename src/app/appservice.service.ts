@@ -27,6 +27,13 @@ export class AppserviceService {
     return this.http.get(url, {headers:headers})
   }
 
+  getPrecomList(): Observable<any> {
+    const url = this.masterdomain + 'connection/precommision/list/';
+    const reqtoken = this.getToken();
+    const headers = { 'Authorization': 'Token ' + reqtoken};
+    return this.http.get(url, {headers:headers})
+  }
+
   getAllStaffConnections(): Observable<any> {
     const url = this.masterdomain + 'staff_connections/';
     const reqtoken = this.getToken();
@@ -63,6 +70,12 @@ export class AppserviceService {
     // formData.append('transformer_test_cert', formvalue.testFileSource);
     formData.append('bh', formvalue.businesshub);
 
+
+    formData.append('in_approval_workflow', 'True');
+    formData.append('connection_status', 'Submitted and Awaiting TM Review/Approval');
+    formData.append('declined', "False");
+    formData.append('tm_is_connection_approved', 'False');
+
     return this.http.post(url,formData)
   }
 
@@ -86,6 +99,11 @@ export class AppserviceService {
     // formData.append('transformer_waranty', formvalue.warrantyFileSource);
     // formData.append('transformer_test_cert', formvalue.testFileSource);
     formData.append('bh', formvalue.businesshub);
+
+    formData.append('in_approval_workflow', 'True');
+    formData.append('connection_status', 'Submitted and Awaiting TM Review/Approval');
+    formData.append('declined', "False");
+    formData.append('tm_is_connection_approved', 'False');
     return this.http.put(url,formData)
   }
   deleteContractor(id:any):Observable<any>{
@@ -357,6 +375,9 @@ addNewUser( formvalue:any
     if(formvalue.role =='is_md'){
       formData.append('is_md', 'True');
     };
+    if(formvalue.role =='is_hm'){
+      formData.append('is_hm', 'True');
+    };
     if(formvalue.role =='is_hsch'){
       formData.append('is_hsch', 'True');
     };
@@ -383,6 +404,7 @@ addNewUser( formvalue:any
           formData.append('is_cto', 'False');
           formData.append('is_md', 'False');
           formData.append('is_hsch', 'False');
+          formData.append('is_hm', 'False');
         };
         if(formvalue.role =='is_te'){
           formData.append('is_te', 'True');
@@ -391,6 +413,7 @@ addNewUser( formvalue:any
           formData.append('is_md', 'False');
           formData.append('is_tm', 'False');
           formData.append('is_hsch', 'False');
+          formData.append('is_hm', 'False');
         };
         if(formvalue.role =='is_npd'){
           formData.append('is_te', 'False');
@@ -399,6 +422,7 @@ addNewUser( formvalue:any
           formData.append('is_md', 'False');
           formData.append('is_tm', 'False');
           formData.append('is_hsch', 'False');
+          formData.append('is_hm', 'False');
         };
         if(formvalue.role =='is_cto'){
           formData.append('is_te', 'False');
@@ -407,6 +431,7 @@ addNewUser( formvalue:any
           formData.append('is_tm', 'False');
           formData.append('is_md', 'False');
           formData.append('is_hsch', 'False');
+          formData.append('is_hm', 'False');
         };
         if(formvalue.role =='is_md'){
           formData.append('is_te', 'False');
@@ -414,6 +439,7 @@ addNewUser( formvalue:any
           formData.append('is_npd', 'False');
           formData.append('is_cto', 'False');
           formData.append('is_md', 'True');
+          formData.append('is_hm', 'False');
           formData.append('is_hsch', 'False');
         };
         if(formvalue.role =='is_hsch'){
@@ -423,6 +449,16 @@ addNewUser( formvalue:any
           formData.append('is_cto', 'False');
           formData.append('is_md', 'False');
           formData.append('is_hsch', 'True');
+          formData.append('is_hm', 'False');
+        };
+        if(formvalue.role =='is_hm'){
+          formData.append('is_te', 'False');
+          formData.append('is_npd', 'False');
+          formData.append('is_tm', 'False');
+          formData.append('is_cto', 'False');
+          formData.append('is_md', 'False');
+          formData.append('is_hsch', 'False');
+          formData.append('is_hm', 'True');
         };
        
         return this.http.patch(url,formData)
@@ -456,7 +492,13 @@ addNewUser( formvalue:any
       return this.http.get(url, {headers:headers})
     }
     
-
+    getMyConnectionApprovaList(): Observable<any> {
+      const url = this.masterdomain + '/list/connections/myapprovals';
+      const reqtoken = this.getToken();
+      const headers = { 'Authorization': 'Token ' + reqtoken};
+      return this.http.get(url, {headers:headers})
+    }
+    
     
   action( action:any, id: any, declinedcomment: any
     ): Observable<any> {
@@ -523,5 +565,112 @@ addNewUser( formvalue:any
       const url = this.masterdomain + 'approvalstatus/'+ id + '/';
       return this.http.get(url)
     }
+    
+
+    evaluate_connection(id: any
+      ): Observable<any> {
+        const url = this.masterdomain + 'connection/approveordecline/' + id + '/';
+        const formData = new FormData();
+        formData.append('te_is_connection_approved', 'True');
+        formData.append('te_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+        formData.append('te_is_connection_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+        formData.append('connection_status', 'Evaluation Completed. Awaiting NP & D Approval');
+        const reqtoken = this.getToken();
+        const headers = { 'Authorization': 'Token ' + reqtoken};
+        return this.http.patch(url,formData,{headers:headers})
+      }
+    
+
+      request_precommissioning(id: any
+        ): Observable<any> {
+          const url = this.masterdomain + 'connections/' + id + '/';
+          const formData = new FormData();
+          formData.append('ct_is_pre_requested', 'True');
+          formData.append('ct_is_pre_requested_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+          formData.append('connection_status', 'Pre-commissiong Requested by Contractor. Awaiting Pre-commissioning Test');
+          const reqtoken = this.getToken();
+          const headers = { 'Authorization': 'Token ' + reqtoken};
+          return this.http.patch(url,formData,{headers:headers})
+        }
+    
+        submit_precom_test(id: any
+          ): Observable<any> {
+            const url = this.masterdomain + 'connection/approveordecline/' + id + '/';
+            const formData = new FormData();
+            formData.append('tept_is_connection_approved', 'True');
+            formData.append('tept_is_connection_approved', 'True');
+            formData.append('tept_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+            formData.append('tept_is_connection_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+            formData.append('connection_status', 'Precommissioning Test Completed. Awaiting Head Metering Approval');
+            const reqtoken = this.getToken();
+            const headers = { 'Authorization': 'Token ' + reqtoken};
+            return this.http.patch(url,formData,{headers:headers})
+          }
+        
+  action_connection( action:any, id: any, declinedcomment: any
+    ): Observable<any> {
+      const url = this.masterdomain + 'connection/approveordecline/' + id + '/';
+      const formData = new FormData();
+      if(action == 'Approve'){
+        if(User.getUser().is_tm == true){
+ 
+          formData.append('tm_is_connection_approved', 'True');
+          formData.append('npd_is_connection_approved', 'False');
+          formData.append('te_is_connection_approved', 'False');
+          formData.append('cto_is_connection_approved', 'False');
+          formData.append('ct_is_pre_requested', 'False');
+          formData.append('tept_is_connection_approved', 'False');
+          formData.append('hm_is_connection_approved', 'False');
+          formData.append('tm_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+          formData.append('tm_is_connection_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+          formData.append('connection_status', 'Approved By TM. Awaiting TE Evaluation');
+
+        }
+
+
+        if(User.getUser().is_npd == true){
+ 
+          formData.append('npd_is_connection_approved', 'True');
+          formData.append('npd_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+          formData.append('npd_is_connection_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+          formData.append('connection_status', 'Approved By NP & D. Awaiting Induction & CTO Approval');
+
+        }
+
+        if(User.getUser().is_cto == true){
+       
+          formData.append('cto_is_connection_approved', 'True');
+          formData.append('cto_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+          formData.append('cto_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+          formData.append('connection_status', 'Approved By CTO. Kindly request pre-commissioning');
+
+        }
+
+        if(User.getUser().is_hm == true){
+ 
+          formData.append('hm_is_connection_approved', 'True');
+          formData.append('hm_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+          formData.append('hm_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+          formData.append('connection_status', 'Connection Approval Completed');
+          formData.append('in_approval_workflow', 'False');
+          formData.append('connection_approved', 'True');
+          
+
+        }
+        
+        
+      }
+      if(action == 'Decline'){
+        formData.append('declined', 'True');
+        formData.append('in_approval_workflow', 'False');
+        formData.append('declined_comment', declinedcomment);
+        formData.append('connection_status', 'Connection Application Declined.');
+      }
+      
+      const reqtoken = this.getToken();
+      const headers = { 'Authorization': 'Token ' + reqtoken};
+      return this.http.patch(url,formData,{headers:headers})
+    }
+
     
   }

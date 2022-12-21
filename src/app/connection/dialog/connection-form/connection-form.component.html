@@ -314,9 +314,20 @@
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
                 <div class="example-button-row">
                     <button mat-raised-button color="primary" type="submit"
-                       (click)="confirmAdd()" [mat-dialog-close]="1">Save</button>
+                       (click)="confirmAdd()" [mat-dialog-close]="1">Submit for Approval</button>
+                        <!-- &nbsp; &nbsp; &nbsp;
+                    <button mat-raised-button color="warn" (click)="dialogRef.close()" tabindex="-1">Cancel</button> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="row" *ngIf="action=='approve'">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                <div class="example-button-row">
+                    <button mat-raised-button color="primary" type="submit"
+                       (click)="approve()" [mat-dialog-close]="1">Approve</button>
                         &nbsp; &nbsp; &nbsp;
-                    <button mat-raised-button color="warn" (click)="dialogRef.close()" tabindex="-1">Cancel</button>
+                    <button mat-raised-button color="warn" (click)="decline()">Decline</button>
                 </div>
             </div>
         </div>

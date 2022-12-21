@@ -6,6 +6,7 @@ import { AppserviceService } from 'src/app/appservice.service';
 import { User } from 'src/app/globalservice/global-service.service';
 import { port } from 'src/app/port';
 import { ConnectionFormComponent } from '../dialog/connection-form/connection-form.component';
+import { ConnectionReqPrecomComponent } from '../dialog/connection-req-precom/connection-req-precom.component';
 
 @Component({
   selector: 'app-allconnection',
@@ -14,8 +15,9 @@ import { ConnectionFormComponent } from '../dialog/connection-form/connection-fo
 })
 export class AllconnectionComponent implements OnInit {
 
- displayedColumns = ['region','hub', 'company_name', 'connectiontype', 'capacity', 'est_load_of_premises', 'useofpremises','date_of_application','edit']
+ displayedColumns = ['region','hub', 'company_name', 'connectiontype','useofpremises','date_of_application','status','edit']
   dataSource= new MatTableDataSource<any>([])
+  dataSourcePrecom= new MatTableDataSource<any>([])
   selection = new SelectionModel<any>(true, [])
   is_contractor = User.getUser().is_contractor
   portals:any;
@@ -26,11 +28,23 @@ export class AllconnectionComponent implements OnInit {
     }
   ngOnInit(): void {
     this.consumeapi();
+    this.getPrecommissioningList();
 }
   consumeapi() {
     this.api.getContractorConnections().subscribe(
       (resp) => {
         this.dataSource.data = resp;
+        console.log(resp);
+
+      },
+      (error) => { console.error(error); }
+    );
+  }
+
+  getPrecommissioningList() {
+    this.api.getPrecomList().subscribe(
+      (resp) => {
+        this.dataSourcePrecom.data = resp;
         console.log(resp);
 
       },
@@ -48,7 +62,8 @@ export class AllconnectionComponent implements OnInit {
       }
     });
     dialogRef.afterClosed().subscribe((result)=>{
-      this.consumeapi()
+      this.consumeapi();
+      this.getPrecommissioningList();
     })
   }
 
@@ -62,7 +77,8 @@ export class AllconnectionComponent implements OnInit {
       }
     });
     dialogRef.afterClosed().subscribe((result)=>{
-      this.consumeapi()
+      this.consumeapi();
+      this.getPrecommissioningList();
     })
   }
 
@@ -76,7 +92,22 @@ export class AllconnectionComponent implements OnInit {
       }
     });
     dialogRef.afterClosed().subscribe((result)=>{
-      this.consumeapi()
+      this.consumeapi();
+      this.getPrecommissioningList();
+    })
+  }
+
+  request(row:any){
+    const dialogRef = this.dialog.open(ConnectionReqPrecomComponent, {
+      width: '100%',
+      height: '90%',
+      data: {
+        row: row
+      }
+    });
+    dialogRef.afterClosed().subscribe((result)=>{
+      this.consumeapi();
+      this.getPrecommissioningList();
     })
   }
 }

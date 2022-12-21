@@ -1,0 +1,36 @@
+
+<div class="modalHeader">
+
+    <button mat-icon-button (click)="dialogRef.close()" aria-label="Close dialog">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<h3 class="m-4">Are you sure you want to {{action}}</h3>
+
+
+<div *ngIf="action=='Decline'">
+    <form class="register-form m-4" [formGroup]="declineForm" (ngSubmit)="Execute()">
+
+        <div class="row">
+            <div class="col-12 mb-2">
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                  <mat-label>Reasons for Decline</mat-label>
+                  <textarea matInput formControlName="comment" rows="3"></textarea>
+                </mat-form-field>
+              </div>
+        </div>
+
+    </form>
+           
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="example-button-row">
+            <button mat-raised-button color="primary" type="submit"
+               (click)="Execute()" [mat-dialog-close]="1">Yes</button>
+                &nbsp; &nbsp; &nbsp;
+            <!-- <button mat-raised-button type="button" color="warn" (click)="dialogRef.close()" tabindex="-1">Cancel</button> -->
+        </div>
+    </div>
+</div>

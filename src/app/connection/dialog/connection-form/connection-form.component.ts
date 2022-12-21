@@ -102,7 +102,7 @@ export class ConnectionFormComponent implements OnInit {
   }
 
 
-  if(this.action == 'view'){
+  if(this.action == 'view' || this.action == 'approve'){
     this.connection = data.row;
     this.portform.disable();
     this.getHubwithRegion(data.row.bh?.region.id);
@@ -330,6 +330,13 @@ getHubwithRegion(region: any) {
     (error: any) => { console.error(error); }
   );
 }
+
+
+
+approve(){}
+
+
+decline(){}
 
 }
 

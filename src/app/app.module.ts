@@ -45,6 +45,10 @@ import { AllContractorFormDialogComponent } from './all-contractors/dialog/all-c
 import { StaffFormDialogComponent } from './user-manager/dialog/staff-form-dialog/staff-form-dialog.component';
 import { ActionDialogComponent } from './all-contractors/dialog/action-dialog/action-dialog.component';
 import { StaffconnectionlistComponent } from './connection/staffconnectionlist/staffconnectionlist.component';
+import { ConnectionActionComponent } from './connection/dialog/connection-action/connection-action.component';
+import { ConnectionEvaluateComponent } from './connection/dialog/connection-evaluate/connection-evaluate.component';
+import { ConnectionReqPrecomComponent } from './connection/dialog/connection-req-precom/connection-req-precom.component';
+import { ConnectionPrecomTestComponent } from './connection/dialog/connection-precom-test/connection-precom-test.component';
 
 
 @NgModule({
@@ -72,6 +76,10 @@ import { StaffconnectionlistComponent } from './connection/staffconnectionlist/s
     StaffFormDialogComponent,
     ActionDialogComponent,
     StaffconnectionlistComponent,
+    ConnectionActionComponent,
+    ConnectionEvaluateComponent,
+    ConnectionReqPrecomComponent,
+    ConnectionPrecomTestComponent,
     
   ],
   imports: [

@@ -21,5 +21,6 @@ export class ContractorLayoutComponent implements OnInit {
     this.appService.logOut().subscribe(()=>{
       this._router.navigateByUrl('/')
     });
+    this._router.navigateByUrl('/');
   }
 }

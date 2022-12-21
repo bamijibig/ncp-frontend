@@ -3,7 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { AppserviceService } from 'src/app/appservice.service';
+import { User } from 'src/app/globalservice/global-service.service';
+import { ConnectionActionComponent } from '../dialog/connection-action/connection-action.component';
+import { ConnectionEvaluateComponent } from '../dialog/connection-evaluate/connection-evaluate.component';
 import { ConnectionFormComponent } from '../dialog/connection-form/connection-form.component';
+import { ConnectionPrecomTestComponent } from '../dialog/connection-precom-test/connection-precom-test.component';
 // import { ActionDialogComponent } from './dialog/action-dialog/action-dialog.component';
 // import { AllContractorFormDialogComponent } from './dialog/all-contractor-form-dialog/all-contractor-form-dialog.component';
 
@@ -16,13 +20,13 @@ export class StaffconnectionlistComponent implements OnInit {
 
 //  displayedColumns = ['name', 'address', 'email', 'phone', 'license','status','action']
  
- displayedColumns = ['contractor_name','region','hub', 'company_name', 'connectiontype', 'capacity', 'est_load_of_premises', 'useofpremises','date_of_application', 'view']
+ displayedColumns = ['contractor_name','region','hub', 'company_name', 'connectiontype', 'capacity', 'useofpremises','date_of_application', 'status', 'view']
   
- displayedColumnsList = ['contractor_name','region','hub', 'company_name', 'connectiontype', 'capacity', 'date_of_application','status', 'view','approve']
+ displayedColumnsList = ['contractor_name','region','hub', 'company_name', 'connectiontype', 'date_of_application','status', 'view','approve', 'decline']
   dataSource= new MatTableDataSource<any>([])
   dataSourceApproval= new MatTableDataSource<any>([])
   selection = new SelectionModel<any>(true, [])
-
+  user: any = User.getUser()
   portals:any;
   title = 'eportal';
   constructor(
@@ -44,6 +48,17 @@ consumeapi() {
   );
 }
 
+getMyApprovals() {
+  this.api.getMyConnectionApprovaList().subscribe(
+    (resp) => {
+      this.dataSourceApproval.data = resp;
+      console.log(resp);
+
+    },
+    (error) => { console.error(error); }
+  );
+}
+
 
 view(rowedited: any){
   const dialogRef = this.dialog.open(ConnectionFormComponent, {
@@ -54,36 +69,70 @@ view(rowedited: any){
       row: rowedited
     }
   });
+  // dialogRef.afterClosed().subscribe((result)=>{
+  //   this.consumeapi()
+  // })
+}
+
+
+approve(rowedited: any){
+  const dialogRef = this.dialog.open(ConnectionActionComponent, {
+    width: '100%',
+    // height: '90%',
+    data: {
+      action: 'Approve',
+      row: rowedited
+    }
+  });
   dialogRef.afterClosed().subscribe((result)=>{
-    this.consumeapi()
+    this.consumeapi();
+    this.getMyApprovals();
   })
 }
 
-  getMyApprovals() {
-    this.api.getMyApprovaList().subscribe(
-      (resp) => {
-        this.dataSourceApproval.data = resp;
-        console.log(resp);
+decline(rowedited: any){
+  const dialogRef = this.dialog.open(ConnectionActionComponent, {
+    width: '100%',
+    // height: '90%',
+    data: {
+      action: 'Decline',
+      row: rowedited
+    }
+  });
+  dialogRef.afterClosed().subscribe((result)=>{
+    this.consumeapi();
+    this.getMyApprovals();
+  })
+}
 
-      },
-      (error) => { console.error(error); }
-    );
-  }
+evaluate(rowedited: any){
+  const dialogRef = this.dialog.open(ConnectionEvaluateComponent, {
+    width: '100%',
+    // height: '90%',
+    data: {
+      action: 'evaluate',
+      row: rowedited
+    }
+  });
+  dialogRef.afterClosed().subscribe((result)=>{
+    this.consumeapi();
+    this.getMyApprovals();
+  })
+}
 
+submitprecom(rowedited: any){
+  const dialogRef = this.dialog.open(ConnectionPrecomTestComponent, {
+    width: '100%',
+    height: '90%',
+    data: {
+      row: rowedited
+    }
+  });
+  dialogRef.afterClosed().subscribe((result)=>{
+    this.consumeapi();
+    this.getMyApprovals();
+  })
+}
 
-  action(action:any, userid: any){
-    // const dialogRef = this.dialog.open(ActionDialogComponent, {
-    //   // width: '100%',
-    //   // height: '90%',
-    //   data: {
-    //     action: action,
-    //     userid: userid
-    //   }
-    // });
-    // dialogRef.afterClosed().subscribe((result)=>{
-    //   this.consumeapi();
-    //   this.getMyApprovals();
-    // })
-  }
 
 }

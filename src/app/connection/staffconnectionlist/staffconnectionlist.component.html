@@ -84,7 +84,10 @@
                 <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.date_of_application | date: "mediumDate"}} </mat-cell>
               </ng-container>
-        
+              <ng-container matColumnDef="status">
+                <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.connection_status}}  </mat-cell>
+              </ng-container> 
               <ng-container matColumnDef="view">
                 <mat-header-cell *matHeaderCellDef> </mat-header-cell>
                 <mat-cell *matCellDef="let element">
@@ -113,7 +116,7 @@
               <button mat-raised-button color='primary'  (click)="addNew()" >Add new Contractor</button>
           </div> -->
           <div class="example-container mat-elevation-z8 table table-responsive">
-            <mat-table #table [dataSource]="dataSource">
+            <mat-table #table [dataSource]="dataSourceApproval">
           
               <!--- Note that these columns can be defined in any order.
             The actual rendered columns are set as a property on the row definition" -->
@@ -170,7 +173,7 @@
 
               <ng-container matColumnDef="status">
                 <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
-                <mat-cell *matCellDef="let element"> Awaiting Approvals </mat-cell>
+                <mat-cell *matCellDef="let element"> {{element.connection_status}}  </mat-cell>
               </ng-container> 
 
               <ng-container matColumnDef="view">
@@ -183,7 +186,16 @@
               <ng-container matColumnDef="approve">
                 <mat-header-cell *matHeaderCellDef> </mat-header-cell>
                 <mat-cell *matCellDef="let element">
-                <button mat-raised-button color="secondary" (click)="view(element)">Approve</button> </mat-cell>
+                <button *ngIf="!user.is_te" mat-raised-button color="secondary" (click)="approve(element)">Approve</button> 
+                <button *ngIf="user.is_te && !element.ct_is_pre_requested" mat-raised-button color="secondary" (click)="evaluate(element)">Evaluate</button>
+                <button *ngIf="user.is_te && element.ct_is_pre_requested" mat-raised-button color="secondary" (click)="submitprecom(element)"> Test</button>
+               </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="decline">
+                <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                <button *ngIf="!user.is_te" mat-raised-button color="secondary" (click)="decline(element)">Decline</button> </mat-cell>
               </ng-container>
             
           

@@ -99,8 +99,8 @@ export class AllconnectionComponent implements OnInit {
 
   request(row:any){
     const dialogRef = this.dialog.open(ConnectionReqPrecomComponent, {
-      width: '100%',
-      height: '90%',
+      // width: '100%',
+      // height: '90%',
       data: {
         row: row
       }

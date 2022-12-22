@@ -1,4 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AppserviceService } from 'src/app/appservice.service';
 
@@ -10,18 +11,23 @@ import { AppserviceService } from 'src/app/appservice.service';
 export class ConnectionReqPrecomComponent implements OnInit {
 
   id: any;
+  precomform: FormGroup;
   constructor( public dialogRef: MatDialogRef<ConnectionReqPrecomComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
    
     private appservice:AppserviceService
   ) { 
     this.id = data.row?.id;
-  
+    this.precomform = new FormGroup({
+      receipt: new FormControl(''),
+    });
   }
 
   ngOnInit(): void {
   }
 
+  submitConnections(){};
+  
   Execute(){
     this.appservice.request_precommissioning( this.id).subscribe(()=>{
       this.appservice.showNotification(

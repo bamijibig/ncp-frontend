@@ -77,7 +77,7 @@ view(rowedited: any){
 
 approve(rowedited: any){
   const dialogRef = this.dialog.open(ConnectionActionComponent, {
-    width: '100%',
+    // width: '100%',
     // height: '90%',
     data: {
       action: 'Approve',
@@ -92,7 +92,7 @@ approve(rowedited: any){
 
 decline(rowedited: any){
   const dialogRef = this.dialog.open(ConnectionActionComponent, {
-    width: '100%',
+    // width: '100%',
     // height: '90%',
     data: {
       action: 'Decline',
@@ -123,7 +123,7 @@ evaluate(rowedited: any){
 submitprecom(rowedited: any){
   const dialogRef = this.dialog.open(ConnectionPrecomTestComponent, {
     width: '100%',
-    height: '90%',
+    // height: '90%',
     data: {
       row: rowedited
     }

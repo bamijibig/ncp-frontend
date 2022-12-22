@@ -366,6 +366,9 @@ addNewUser( formvalue:any
     if(formvalue.role =='is_te'){
       formData.append('is_te', 'True');
     };
+    if(formvalue.role =='is_admin'){
+      formData.append('is_admin', 'True');
+    };
     if(formvalue.role =='is_npd'){
       formData.append('is_npd', 'True');
     };
@@ -405,6 +408,17 @@ addNewUser( formvalue:any
           formData.append('is_md', 'False');
           formData.append('is_hsch', 'False');
           formData.append('is_hm', 'False');
+          formData.append('is_admin', 'False');
+        };
+        if(formvalue.role =='is_admin'){
+          formData.append('is_admin', 'True');
+          formData.append('is_te', 'False');
+          formData.append('is_npd', 'False');
+          formData.append('is_tm', 'False');
+          formData.append('is_cto', 'False');
+          formData.append('is_md', 'False');
+          formData.append('is_hsch', 'False');
+          formData.append('is_hm', 'False');
         };
         if(formvalue.role =='is_te'){
           formData.append('is_te', 'True');
@@ -414,6 +428,7 @@ addNewUser( formvalue:any
           formData.append('is_tm', 'False');
           formData.append('is_hsch', 'False');
           formData.append('is_hm', 'False');
+          formData.append('is_admin', 'False');
         };
         if(formvalue.role =='is_npd'){
           formData.append('is_te', 'False');
@@ -423,6 +438,7 @@ addNewUser( formvalue:any
           formData.append('is_tm', 'False');
           formData.append('is_hsch', 'False');
           formData.append('is_hm', 'False');
+          formData.append('is_admin', 'False');
         };
         if(formvalue.role =='is_cto'){
           formData.append('is_te', 'False');
@@ -432,7 +448,9 @@ addNewUser( formvalue:any
           formData.append('is_md', 'False');
           formData.append('is_hsch', 'False');
           formData.append('is_hm', 'False');
+          formData.append('is_admin', 'False');
         };
+        
         if(formvalue.role =='is_md'){
           formData.append('is_te', 'False');
           formData.append('is_tm', 'False');
@@ -441,6 +459,7 @@ addNewUser( formvalue:any
           formData.append('is_md', 'True');
           formData.append('is_hm', 'False');
           formData.append('is_hsch', 'False');
+          formData.append('is_admin', 'False');
         };
         if(formvalue.role =='is_hsch'){
           formData.append('is_te', 'False');
@@ -450,6 +469,7 @@ addNewUser( formvalue:any
           formData.append('is_md', 'False');
           formData.append('is_hsch', 'True');
           formData.append('is_hm', 'False');
+          formData.append('is_admin', 'False');
         };
         if(formvalue.role =='is_hm'){
           formData.append('is_te', 'False');
@@ -459,6 +479,7 @@ addNewUser( formvalue:any
           formData.append('is_md', 'False');
           formData.append('is_hsch', 'False');
           formData.append('is_hm', 'True');
+          formData.append('is_admin', 'False');
         };
        
         return this.http.patch(url,formData)
@@ -493,7 +514,7 @@ addNewUser( formvalue:any
     }
     
     getMyConnectionApprovaList(): Observable<any> {
-      const url = this.masterdomain + '/list/connections/myapprovals';
+      const url = this.masterdomain + 'list/connections/myapprovals';
       const reqtoken = this.getToken();
       const headers = { 'Authorization': 'Token ' + reqtoken};
       return this.http.get(url, {headers:headers})

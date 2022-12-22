@@ -29,7 +29,7 @@ export class ConnectionReqPrecomComponent implements OnInit {
   submitConnections(){};
   
   Execute(){
-    this.appservice.request_precommissioning( this.id).subscribe(()=>{
+    this.appservice.request_precommissioning(this.id, this.precomform.getRawValue()).subscribe(()=>{
       this.appservice.showNotification(
         'snackbar-success',
         'Successfull',

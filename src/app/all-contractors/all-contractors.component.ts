@@ -15,8 +15,8 @@ import { AllContractorFormDialogComponent } from './dialog/all-contractor-form-d
 })
 export class AllContractorsComponent implements OnInit {
 
- displayedColumns = ['name', 'address', 'email', 'phone', 'license','status','action']
- displayedColumnsList = ['name', 'address', 'email', 'phone', 'license','status']
+ displayedColumns = ['name', 'address', 'email', 'phone', 'license','nemsa','status','approve','decline']
+ displayedColumnsList = ['name', 'address', 'email', 'phone', 'license','nemsa','status']
   dataSource= new MatTableDataSource<any>([])
   dataSourceApproval= new MatTableDataSource<any>([])
   selection = new SelectionModel<any>(true, [])

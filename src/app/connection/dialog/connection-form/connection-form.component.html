@@ -276,38 +276,42 @@
                 <div class="col-6">
             <mat-form-field>
                 <mat-label>Upload pdf of Letter of Donation</mat-label>
-                <ngx-mat-file-input formControlName="letter_of_donation_dss" (change) = DssImageProcessing($event)>
+                <ngx-mat-file-input formControlName="letter_of_donation_dss" >
                    <mat-icon ngxMatFileInputIcon>backup</mat-icon>
                 </ngx-mat-file-input>
              </mat-form-field>
+             <a [href]="connection?.letter_of_donation_dss" target="_blank">View Letter of Donation</a>
              </div>
              </div>
              <div class="row">
              <div class="col-6">
              <mat-form-field>
                 <mat-label>Upload pdf NEMSA Test Certificate</mat-label>
-                <ngx-mat-file-input formControlName="nemsa_test_cert" (change) = NemsaImageProcessing($event)>
+                <ngx-mat-file-input formControlName="nemsa_test_cert">
                    <mat-icon ngxMatFileInputIcon>backup</mat-icon>
                 </ngx-mat-file-input>
              </mat-form-field>
+             <a [href]="connection?.nemsa_test_cert" target="_blank">View NEMSA Test Certificate</a>
              </div>
              
              <div class="col-6">
              <mat-form-field>
                 <mat-label>Upload pdf of transformer waranty</mat-label>
-                <ngx-mat-file-input formControlName="transformer_waranty" (change) = WarrantyImageProcessing($event)>
+                <ngx-mat-file-input formControlName="transformer_waranty">
                    <mat-icon ngxMatFileInputIcon>backup</mat-icon>
                 </ngx-mat-file-input>
-             </mat-form-field>.
+             </mat-form-field>
+             <a [href]="connection?.transformer_waranty" target="_blank">View Transformer Waranty</a>
              </div>
              </div>
              </div>
              <mat-form-field>
                 <mat-label>Upload pdf of Transformer Test Cert</mat-label>
-                <ngx-mat-file-input formControlName = "transformer_test_cert" (change) = TestImageProcessing($event) >
+                <ngx-mat-file-input formControlName = "transformer_test_cert">
                    <mat-icon ngxMatFileInputIcon>backup</mat-icon>
                 </ngx-mat-file-input>
              </mat-form-field>
+             <a [href]="connection?.transformer_test_cert" target="_blank">View Transformer Test Cert</a>
             
         
         <div class="row" *ngIf="action=='edit' || action == 'add'">

@@ -36,21 +36,22 @@ export class ContractorRegComponent implements OnInit {
       nemsaFileSource: new FormControl(null),      
     })
     this.portform.disable()
-    if(this.action == 'edit'){
-      // this.connection = data.row;
-      this.portform.patchValue({
+    // if(this.action == 'edit'){
+    //   // this.connection = data.row;
+    //   this.portform.patchValue({
     
-      contractor_name:this.connection.contractor_name,
-      con_address: this.connection.con_address,
-      licensed_no: this.connection.licensed_no,
-      tel_no: this.connection.tel_no,
-      email: this.connection.email,
-      // reg_date: this.connection.reg_date,
-      nemsa_test_cert: this.connection.nemsa_test_cert,
+    //   contractor_name:this.connection.contractor_name,
+    //   con_address: this.connection.con_address,
+    //   licensed_no: this.connection.licensed_no,
+    //   tel_no: this.connection.tel_no,
+    //   email: this.connection.email,
+    //   // reg_date: this.connection.reg_date,
+    //   // nemsa_test_cert: this.connection.nemsa_test_cert,
      
 
-    })
-  }
+    // })
+ 
+  // }
 
   this.getContractorDetails();
     }
@@ -123,10 +124,11 @@ export class ContractorRegComponent implements OnInit {
   status: any;
   declined_comment: any;
   declined: Boolean = false;
-
+  contractordetails: any;
 getContractorDetails(){
     this.portadd.getContractorDetails(User.getUser().id).subscribe((result)=>{
       console.log(result);
+      this.contractordetails = result;
       // this.getHubwithRegion(result.region);
       this.in_approval_workflow = result.in_approval_workflow;
       this.status = result.registration_status;

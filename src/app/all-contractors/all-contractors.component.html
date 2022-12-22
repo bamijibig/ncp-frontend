@@ -72,6 +72,11 @@
                   <mat-cell *matCellDef="let element"> {{element?.licensed_no}} </mat-cell>
                 </ng-container>
 
+                <ng-container matColumnDef="nemsa">
+                  <mat-header-cell *matHeaderCellDef> NEMSA/COREN Certificate </mat-header-cell>
+                  <mat-cell *matCellDef="let element">  <a [href]="element?.coren_or_nemsa_competency" target="_blank">View</a> </mat-cell>
+                </ng-container>
+
                 <ng-container matColumnDef="status">
                   <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
                   <mat-cell *matCellDef="let element"> 
@@ -150,6 +155,11 @@
                   <mat-cell *matCellDef="let element"> {{element?.licensed_no}} </mat-cell>
                 </ng-container>
 
+                <ng-container matColumnDef="nemsa">
+                  <mat-header-cell *matHeaderCellDef> NEMSA/COREN Certificate </mat-header-cell>
+                  <mat-cell *matCellDef="let element">  <a [href]="element?.coren_or_nemsa_competency" target="_blank">View</a> </mat-cell>
+                </ng-container>
+
                 <ng-container matColumnDef="status">
                   <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
                   <mat-cell *matCellDef="let element"> 
@@ -161,20 +171,25 @@
           
               
           
-                <ng-container matColumnDef="action">
+                <ng-container matColumnDef="approve">
                   <mat-header-cell *matHeaderCellDef> </mat-header-cell>
                   <mat-cell *matCellDef="let element">
                      
-                    <div>
+                  
                       <button mat-raised-button color="secondary" (click)="action('Approve', element.id)">Approve</button> 
-                    </div><br/>
-                    <div>
-                      <button mat-raised-button color="warn" (click)="action('Decline', element.id)">Decline</button>
-                    </div>
+                  
                   </mat-cell>
                 </ng-container>
               
-            
+                <ng-container matColumnDef="decline">
+                  <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                  <mat-cell *matCellDef="let element">
+                     
+                   
+                      <button mat-raised-button color="warn" (click)="action('Decline', element.id)">Decline</button>
+                    
+                  </mat-cell>
+                </ng-container>
 
                 <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
                 <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

@@ -1,11 +1,116 @@
-<p>To slot in the evaluation form here! Button already configured to work while necessary data points to be captured will be slot in later
-</p>
+<h3>Evaluation Form</h3>
+
+<div mat-dialog-content class="mat-typography">
+
+    <form class="m-4" [formGroup]="eval_form" (ngSubmit)="Execute()">
+        <div class="container-fluid">
+            
+            <div class="row">
+
+                <col-12>
+                    <hr>
+                </col-12>
+                <col-12 class="text-center">
+                    <h4>Project Details</h4>
+                </col-12>
+                <col-12>
+                <hr>
+                </col-12>
+
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Title</mat-label>
+                        <input matInput formControlName="eval_title" >
+                        <mat-icon matSuffix>face</mat-icon>
+                        
+                    </mat-form-field>
+                </div>
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Applicant</mat-label>
+                        <input matInput formControlName="eval_applicant" >
+                        <mat-icon matSuffix>face</mat-icon>
+                        
+                    </mat-form-field>
+                </div>
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>DT</mat-label>
+                        <input matInput formControlName="eval_dt" >
+                        <mat-icon matSuffix>face</mat-icon>
+                        
+                    </mat-form-field>
+                </div>
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Voltage Level</mat-label>
+                        <input matInput formControlName="eval_voltage_level" >
+                        <mat-icon matSuffix>face</mat-icon>
+                        
+                    </mat-form-field>
+                </div>
+
+                </div>
+
+
+
+
+                <div class="row">
+                    <col-12>
+                    <hr>
+                </col-12>
+                <col-12 class="text-center">
+                    <h4>Finding From the Site Visit</h4>
+                </col-12>
+                <col-12>
+                <hr>
+                </col-12>
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Estimated Load</mat-label>
+                        <input matInput formControlName="eval_estimated_load" >
+                        <mat-icon matSuffix>face</mat-icon>
+                        
+                    </mat-form-field>
+                </div>
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Site Visit Date</mat-label>
+                        <input matInput formControlName="eval_site_visit_date" >
+                        <mat-icon matSuffix>face</mat-icon>
+                        
+                    </mat-form-field>
+                </div>
+              
+             
+               
+            </div>
+
+
+
+
+
+
+
+ 
+        </div>
+       
+
+
 
 <div class="row">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
         <div class="example-button-row">
             <button mat-raised-button color="primary" type="submit"
-               (click)="Execute()" [mat-dialog-close]="1">Submit Evaluation</button>
+                [mat-dialog-close]="1">Submit Evaluation</button>
         </div>
     </div>
+</div>
+</form>
 </div>

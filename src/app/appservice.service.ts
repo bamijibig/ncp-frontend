@@ -588,10 +588,19 @@ addNewUser( formvalue:any
     }
     
 
-    evaluate_connection(id: any
+    evaluate_connection(id: any, form: any
       ): Observable<any> {
         const url = this.masterdomain + 'connection/approveordecline/' + id + '/';
         const formData = new FormData();
+
+        formData.append('eval_title', form.eval_title);
+        formData.append('eval_applicant', form.eval_applicant);
+        formData.append('eval_dt', form.eval_dt);
+        formData.append('eval_voltage_level', form.eval_voltage_level);
+        formData.append('eval_estimated_load', form.eval_estimated_load);
+        formData.append('te_is_connection_approved', form.eval_site_visit_date);
+
+
         formData.append('te_is_connection_approved', 'True');
         formData.append('te_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
         formData.append('te_is_connection_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
@@ -615,10 +624,16 @@ addNewUser( formvalue:any
           return this.http.patch(url,formData,{headers:headers})
         }
     
-        submit_precom_test(id: any
+        submit_precom_test(id: any, form: any
           ): Observable<any> {
             const url = this.masterdomain + 'connection/approveordecline/' + id + '/';
             const formData = new FormData();
+            formData.append('precom_project_title', form.precom_project_title);
+            formData.append('precom_last_inspection_date', form.precom_last_inspection_date);
+            formData.append('precom_project_objectives', form.precom_project_objectives);
+
+
+
             formData.append('tept_is_connection_approved', 'True');
             formData.append('tept_is_connection_approved', 'True');
             formData.append('tept_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));

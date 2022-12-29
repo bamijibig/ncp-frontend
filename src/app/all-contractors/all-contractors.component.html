@@ -87,7 +87,15 @@
                 </ng-container>
           
               
-          
+                <ng-container matColumnDef="trail">
+                  <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                  <mat-cell *matCellDef="let element">
+                     
+                  
+                      <button mat-raised-button color="secondary" (click)="trail(element)">Audit Trail</button> 
+                  
+                  </mat-cell>
+                </ng-container>
                
             
 

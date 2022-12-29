@@ -51,6 +51,7 @@ import { ConnectionReqPrecomComponent } from './connection/dialog/connection-req
 import { ConnectionPrecomTestComponent } from './connection/dialog/connection-precom-test/connection-precom-test.component';
 import { ErrorInterceptor } from './error.interceptor';
 import { SettingsComponent } from './settings/settings.component';
+import { AuditTrailComponent } from './all-contractors/audit-trail/audit-trail.component';
 
 
 @NgModule({
@@ -83,6 +84,7 @@ import { SettingsComponent } from './settings/settings.component';
     ConnectionReqPrecomComponent,
     ConnectionPrecomTestComponent,
     SettingsComponent,
+    AuditTrailComponent,
     
   ],
   imports: [

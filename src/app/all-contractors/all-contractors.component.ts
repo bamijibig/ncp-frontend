@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { AppserviceService } from 'src/app/appservice.service';
+import { AuditTrailComponent } from './audit-trail/audit-trail.component';
 import { ActionDialogComponent } from './dialog/action-dialog/action-dialog.component';
 import { AllContractorFormDialogComponent } from './dialog/all-contractor-form-dialog/all-contractor-form-dialog.component';
 
@@ -16,7 +17,7 @@ import { AllContractorFormDialogComponent } from './dialog/all-contractor-form-d
 export class AllContractorsComponent implements OnInit {
 
  displayedColumns = ['name', 'address', 'email', 'phone', 'license','nemsa','status','approve','decline']
- displayedColumnsList = ['name', 'address', 'email', 'phone', 'license','nemsa','status']
+ displayedColumnsList = ['name', 'address', 'email', 'phone', 'license','nemsa','status','trail']
   dataSource= new MatTableDataSource<any>([])
   dataSourceApproval= new MatTableDataSource<any>([])
   selection = new SelectionModel<any>(true, [])
@@ -67,6 +68,16 @@ export class AllContractorsComponent implements OnInit {
       this.consumeapi();
       this.getMyApprovals();
     })
+  }
+
+  trail(row: any){
+    const dialogRef = this.dialog.open(AuditTrailComponent, {
+      width: '100%',
+      // height: '90%',
+      data: {
+        row: row
+      }
+    });
   }
 
 //   addNew(){

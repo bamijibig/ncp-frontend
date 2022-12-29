@@ -17,6 +17,8 @@ eval_form: FormGroup;
     private appservice:AppserviceService
   ) { 
     this.id = data.row?.id;
+   
+
     this.eval_form = new FormGroup({
       eval_title: new FormControl(data.row?.eval_title),
       eval_applicant: new FormControl(data.row?.eval_applicant),
@@ -92,7 +94,9 @@ eval_form: FormGroup;
       
 
     })
-
+    if(data.action == 'view'){
+      this.eval_form.disable();
+    };
   }
 
   ngOnInit(): void {

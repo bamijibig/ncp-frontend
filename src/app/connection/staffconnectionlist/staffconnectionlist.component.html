@@ -93,6 +93,16 @@
                 <mat-cell *matCellDef="let element">
                   <button mat-raised-button color="secondary" (click)="view(element)">View</button> </mat-cell>
               </ng-container>
+              <ng-container matColumnDef="eval">
+                <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  <button mat-raised-button color="secondary" (click)="viewEvaluate(element)">Eval</button> </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="test">
+                <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  <button mat-raised-button color="secondary" (click)="viewTest(element)">Test</button> </mat-cell>
+              </ng-container>
           
               <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
               <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

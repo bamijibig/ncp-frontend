@@ -20,7 +20,7 @@ export class StaffconnectionlistComponent implements OnInit {
 
 //  displayedColumns = ['name', 'address', 'email', 'phone', 'license','status','action']
  
- displayedColumns = ['contractor_name','region','hub', 'company_name', 'connectiontype', 'capacity', 'useofpremises','date_of_application', 'status', 'view']
+ displayedColumns = ['contractor_name','region','hub', 'company_name', 'connectiontype', 'capacity', 'useofpremises','date_of_application', 'status', 'view','eval','test']
   
  displayedColumnsList = ['contractor_name','region','hub', 'company_name', 'connectiontype', 'date_of_application','status', 'view','approve', 'decline']
   dataSource= new MatTableDataSource<any>([])
@@ -73,6 +73,7 @@ view(rowedited: any){
   //   this.consumeapi()
   // })
 }
+
 
 
 approve(rowedited: any){
@@ -134,5 +135,29 @@ submitprecom(rowedited: any){
   })
 }
 
+
+
+viewEvaluate(rowedited: any){
+  const dialogRef = this.dialog.open(ConnectionEvaluateComponent, {
+    width: '100%',
+    // height: '90%',
+    data: {
+      action: 'view',
+      row: rowedited
+    }
+  });
+
+}
+
+viewTest(rowedited: any){
+  const dialogRef = this.dialog.open(ConnectionPrecomTestComponent, {
+    width: '100%',
+    // height: '90%',
+    data: {
+      action: 'view',
+      row: rowedited
+    }
+  });
+}
 
 }

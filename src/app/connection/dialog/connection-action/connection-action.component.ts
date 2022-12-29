@@ -23,6 +23,7 @@ export class ConnectionActionComponent implements OnInit {
     this.id = data.row?.id;
     this.declineForm = new FormGroup({
       comment: new FormControl(''),
+      memo: new FormControl(''),
     });
   
   }
@@ -32,7 +33,7 @@ export class ConnectionActionComponent implements OnInit {
   }
 
   Execute(){
-    this.appservice.action_connection(this.action, this.id, this.declineForm.get("comment")?.value).subscribe(()=>{
+    this.appservice.action_connection(this.action, this.id, this.declineForm.getRawValue()).subscribe(()=>{
       this.appservice.showNotification(
         'snackbar-success',
         'Successfull',

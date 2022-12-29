@@ -22,6 +22,7 @@ export class ActionDialogComponent implements OnInit {
     this.userid = data.userid;
     this.declineForm = new FormGroup({
       comment: new FormControl(''),
+      memo: new FormControl(''),
     });
   
   }
@@ -31,7 +32,7 @@ export class ActionDialogComponent implements OnInit {
   }
 
   Execute(){
-    this.appservice.action(this.action, this.userid, this.declineForm.get("comment")?.value).subscribe(()=>{
+    this.appservice.action(this.action, this.userid, this.declineForm.getRawValue()).subscribe(()=>{
       this.appservice.showNotification(
         'snackbar-success',
         'Successfull',

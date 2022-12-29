@@ -62,6 +62,10 @@ export class ConnectionPrecomTestComponent implements OnInit {
        
 
     })
+
+    if(data.action == 'view'){
+      this.precom_form.disable();
+    };
   }
 
   ngOnInit(): void {

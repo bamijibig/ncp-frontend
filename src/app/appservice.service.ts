@@ -522,7 +522,7 @@ addNewUser( formvalue:any
     }
     
     
-  action( action:any, id: any, declinedcomment: any
+  action( action:any, id: any, form: any
     ): Observable<any> {
       const url = this.masterdomain + 'approveordecline/' + id + '/';
       const formData = new FormData();
@@ -535,6 +535,7 @@ addNewUser( formvalue:any
           formData.append('hsch_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
           formData.append('hsch_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
           formData.append('registration_status', 'Approved By HSCH. Awaiting CTO Approval');
+          formData.append('hsch_memo', form.memo);
 
         }
 
@@ -544,6 +545,7 @@ addNewUser( formvalue:any
           formData.append('cto_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
           formData.append('cto_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
           formData.append('registration_status', 'Approved By CTO. Awaiting MD Approval');
+          formData.append('cto_memo', form.memo);
 
         }
 
@@ -555,6 +557,7 @@ addNewUser( formvalue:any
           formData.append('registration_status', 'Registration Approval Completed');
           formData.append('in_approval_workflow', 'False');
           formData.append('registration_approved', 'True');
+          formData.append('md_memo', form.memo);
           
 
         }
@@ -564,8 +567,27 @@ addNewUser( formvalue:any
       if(action == 'Decline'){
         formData.append('declined', 'True');
         formData.append('in_approval_workflow', 'False');
-        formData.append('declined_comment', declinedcomment);
+        formData.append('declined_comment', form.comment);
         formData.append('registration_status', 'Registration Declined.');
+
+        if(User.getUser().is_hsch == true){
+
+          formData.append('hsch_memo', form.memo);
+
+        }
+
+        if(User.getUser().is_cto == true){
+
+          formData.append('cto_memo', form.memo);
+
+        }
+
+        if(User.getUser().is_md == true){
+
+          formData.append('md_memo', form.memo);
+          
+
+        }
       }
       
       const reqtoken = this.getToken();
@@ -680,13 +702,6 @@ addNewUser( formvalue:any
 
 
 
-
-
-
-
-
-
-
         formData.append('te_is_connection_approved', 'True');
         formData.append('te_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
         formData.append('te_is_connection_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
@@ -762,7 +777,7 @@ addNewUser( formvalue:any
             return this.http.patch(url,formData,{headers:headers})
           }
         
-  action_connection( action:any, id: any, declinedcomment: any
+  action_connection( action:any, id: any, form: any
     ): Observable<any> {
       const url = this.masterdomain + 'connection/approveordecline/' + id + '/';
       const formData = new FormData();
@@ -779,7 +794,7 @@ addNewUser( formvalue:any
           formData.append('tm_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
           formData.append('tm_is_connection_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
           formData.append('connection_status', 'Approved By TM. Awaiting TE Evaluation');
-
+          formData.append('tm_memo', form.memo);
         }
 
 
@@ -789,6 +804,7 @@ addNewUser( formvalue:any
           formData.append('npd_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
           formData.append('npd_is_connection_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
           formData.append('connection_status', 'Approved By NP & D. Awaiting Induction & CTO Approval');
+          formData.append('npd_memo', form.memo);
 
         }
 
@@ -798,6 +814,7 @@ addNewUser( formvalue:any
           formData.append('cto_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
           formData.append('cto_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
           formData.append('connection_status', 'Approved By CTO. Kindly request pre-commissioning');
+          formData.append('cto_memo', form.memo);
 
         }
 
@@ -809,6 +826,7 @@ addNewUser( formvalue:any
           formData.append('connection_status', 'Connection Approval Completed');
           formData.append('in_approval_workflow', 'False');
           formData.append('connection_approved', 'True');
+          formData.append('hm_memo', form.memo);
           
 
         }
@@ -818,8 +836,29 @@ addNewUser( formvalue:any
       if(action == 'Decline'){
         formData.append('declined', 'True');
         formData.append('in_approval_workflow', 'False');
-        formData.append('declined_comment', declinedcomment);
+        formData.append('declined_comment', form.comment);
         formData.append('connection_status', 'Connection Application Declined.');
+
+        if(User.getUser().is_tm == true){
+          formData.append('tm_memo', form.memo);
+        }
+
+
+        if(User.getUser().is_npd == true){
+          formData.append('npd_memo', form.memo);
+
+        }
+
+        if(User.getUser().is_cto == true){;
+          formData.append('cto_memo', form.memo);
+
+        }
+
+        if(User.getUser().is_hm == true){
+          formData.append('hm_memo', form.memo);
+          
+
+        }
       }
       
       const reqtoken = this.getToken();

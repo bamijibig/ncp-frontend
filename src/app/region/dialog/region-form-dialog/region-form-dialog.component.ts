@@ -52,6 +52,12 @@ export class RegionFormDialogComponent implements OnInit {
       this.appservice.getOtherUsers().subscribe(
         (resp) => {
           this.stafflist = resp;
+          this.portform.patchValue({
+            
+          regionManager: this.connection.regionManager?.id,
+            technicalManager: this.connection.technicalManager?.id
+  
+          })
   
         },
         (error) => { console.error(error); }

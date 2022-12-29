@@ -98,6 +98,11 @@ export class HubFormDialogComponent implements OnInit {
     this.hubservice.getOtherUsers().subscribe(
       (resp: any) => {
         this.stafflist = resp;
+        this.portform.patchValue({
+            
+          hubManager:this.connection.hubManager?.id,
+          technicalManager: this.connection.technicalManager?.id
+          })
 
       },
       (error:any) => { console.error(error); }

@@ -63,10 +63,17 @@ export class AppComponent implements OnInit {
       (res)=>{
         this.appService.setToken(res['token']);
         if(res.data.is_contractor){
-          this._router.navigateByUrl('/contractor_reg');
+          this._router.navigateByUrl('/contractor_reg')
+          .then(() => {
+            window.location.reload();
+          });
+        
         }
         else {
-        this._router.navigateByUrl('/dashboard');
+        this._router.navigateByUrl('/dashboard')
+          .then(() => {
+            window.location.reload();
+          });
         }
       }
     )

@@ -9,7 +9,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPseudoCheckboxModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AllconnectionComponent } from './connection/allconnection/allconnection.component';
@@ -49,6 +49,8 @@ import { ConnectionActionComponent } from './connection/dialog/connection-action
 import { ConnectionEvaluateComponent } from './connection/dialog/connection-evaluate/connection-evaluate.component';
 import { ConnectionReqPrecomComponent } from './connection/dialog/connection-req-precom/connection-req-precom.component';
 import { ConnectionPrecomTestComponent } from './connection/dialog/connection-precom-test/connection-precom-test.component';
+import { ErrorInterceptor } from './error.interceptor';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -80,6 +82,7 @@ import { ConnectionPrecomTestComponent } from './connection/dialog/connection-pr
     ConnectionEvaluateComponent,
     ConnectionReqPrecomComponent,
     ConnectionPrecomTestComponent,
+    SettingsComponent,
     
   ],
   imports: [
@@ -113,7 +116,9 @@ import { ConnectionPrecomTestComponent } from './connection/dialog/connection-pr
 
    
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

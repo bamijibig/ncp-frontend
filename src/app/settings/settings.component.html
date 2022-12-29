@@ -1,0 +1,41 @@
+
+
+
+  <div class="page-wrapper">
+    <div class="page-breadcrumb">
+        <div class="row align-items-center">
+            <div class="col-6">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0 d-flex align-items-center">
+                      <li class="breadcrumb-item"><a routerLink="/settings" class="link"><i class="mdi mdi-home-outline fs-4"></i></a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Settings</li>
+                    </ol>
+                  </nav>
+                <h1 class="mb-0 fw-bold">Settings</h1> 
+            </div>
+            <div class="col-6">
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+           <div class="col-12">
+            <mat-tab-group>
+                <mat-tab label="Region">
+                    <app-region></app-region>
+                </mat-tab>
+                <mat-tab label="Business Hub">
+                    <app-business-hub></app-business-hub>
+                </mat-tab>
+                <mat-tab label="Manage Staff">
+                    <app-user-manager></app-user-manager>
+                </mat-tab>
+            </mat-tab-group>
+           </div>
+
+        </div>
+        
+      
+    </div>
+  
+</div>

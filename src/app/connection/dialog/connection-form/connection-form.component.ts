@@ -284,9 +284,13 @@ export class ConnectionFormComponent implements OnInit {
 
   }
   status: Boolean = true;
+  in_approval: Boolean = true;
 getApprovalStatus(){
   this.portadd.getApprovalStatusReg(User.getUser().id).subscribe((result)=>{
     this.status = result.registration_approved;
+    this.in_approval = result.in_approval_workflow;
+    this.is_contractor = result.is_contractor;
+    console.log(this.status, this.in_approval, this.is_contractor);
   })
 }
 

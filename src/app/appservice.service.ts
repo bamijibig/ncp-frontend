@@ -496,6 +496,7 @@ addNewUser( formvalue:any
       formData.append('tel_no', formvalue.tel_no);
       formData.append('email', formvalue.email);
       formData.append('in_approval_workflow', 'True');
+      formData.append('registration_approved', 'False');
       formData.append('registration_status', 'Submitted and Awaiting HSCH Approval');
       formData.append('declined', "False");
       formData.append('hsch_is_contractor_approved', 'False');

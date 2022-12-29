@@ -7,6 +7,7 @@ import { StaffconnectionlistComponent } from './connection/staffconnectionlist/s
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegionComponent } from './region/region.component';
 import { ContractorRegComponent } from './registration/contractor-reg/contractor-reg.component';
+import { SettingsComponent } from './settings/settings.component';
 import { UserManagerComponent } from './user-manager/user-manager.component';
 
 const routes: Routes = [
@@ -16,7 +17,12 @@ const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent
   },
-
+  {
+    
+    path: 'settings',
+    component: SettingsComponent
+  },
+  
   {
     
     path: 'allconnection',

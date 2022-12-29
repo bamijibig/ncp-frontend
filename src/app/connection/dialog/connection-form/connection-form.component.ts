@@ -132,6 +132,7 @@ export class ConnectionFormComponent implements OnInit {
     email: this.connection.contractor?.email
   })
 }
+console.log(this.connection)
     }
   
 
@@ -171,108 +172,7 @@ export class ConnectionFormComponent implements OnInit {
     }
     
   }
-  // DssImageProcessing(event:any) {
-  //   const reader = new FileReader();
-   
-  //   if (event.target.files[0].size > 25000000) {
-  //      this.portform.patchValue({
-  //       dssFileSource: null
-  //     });
-  //     alert('File is too large. Maximum size should be 2.5MB');
-      
-  //   } 
-  //   else{
-  //         if(event.target.files && event.target.files.length) {
-  //           const [file] = event.target.files;
-  //           reader.readAsDataURL(file);
-  //           reader.onload = () => {
-  //             // this.imagepreview = reader.result as string;
-  //             this.portform.patchValue({
-  //               dssFileSource: reader.result
-  //             });
-  //           };
-  //         }
-  // }
-  // }
-
-  // NemsaImageProcessing(event:any) {
-  //   const reader = new FileReader();
-   
-  //   if (event.target.files[0].size > 25000000) {
-  //      this.portform.patchValue({
-  //       nemsaFileSource: null
-  //     });
-  //     alert('File is too large. Maximum size should be 2.5MB');
-      
-  //   } 
-  //   else{
-  //         if(event.target.files && event.target.files.length) {
-  //           const [file] = event.target.files;
-  //           reader.readAsDataURL(file);
-  //           reader.onload = () => {
-  //             // this.imagepreview = reader.result as string;
-  //             this.portform.patchValue({
-  //               nemsaFileSource: reader.result
-  //             });
-  //           };
-  //         }
-  // }
-  // }
-
-
-  // WarrantyImageProcessing(event:any) {
-  //   const reader = new FileReader();
-   
-  //   if (event.target.files[0].size > 25000000) {
-  //      this.portform.patchValue({
-  //       warrantyFileSource: null
-  //     });
-  //     alert('File is too large. Maximum size should be 2.5MB');
-      
-  //   } 
-  //   else{
-  //         if(event.target.files && event.target.files.length) {
-  //           const [file] = event.target.files;
-  //           reader.readAsDataURL(file);
-  //           reader.onload = () => {
-  //             // this.imagepreview = reader.result as string;
-  //             this.portform.patchValue({
-  //               warrantyFileSource: reader.result
-  //             });
-  //           };
-  //         }
-  // }
-  // }
-
-
-  // TestImageProcessing(event:any) {
-  //   const reader = new FileReader();
-   
-  //   if (event.target.files[0].size > 25000000) {
-  //      this.portform.patchValue({
-  //       testFileSource: null
-  //     });
-  //     alert('File is too large. Maximum size should be 2.5MB');
-      
-  //   } 
-  //   else{
-  //         if(event.target.files && event.target.files.length) {
-  //           const [file] = event.target.files;
-  //           reader.readAsDataURL(file);
-  //           reader.onload = () => {
-  //             // this.imagepreview = reader.result as string;
-  //             this.portform.patchValue({
-  //               testFileSource: reader.result
-  //             });
-  //           };
-  //         }
-  // }
-  // }
-
-  // editSupplier(){
-    
-  // }
-   
+ 
 
 
   ngOnInit(): void {

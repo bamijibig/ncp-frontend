@@ -338,4 +338,51 @@
     </div>
         </form>
 
+<hr class="mt-5">
+<div class="col-12 text-center">
+    <h3><strong>Audit Trail</strong></h3>
+</div>
+       
+        <hr>
+        <p style="line-height: 2.5;" *ngIf="connection?.declined">
+            Connection application was declined for the following reason:<br>
+            {{connection?.declined_comment}}
+        </p>
+
+        <p style="line-height: 2.5;" *ngIf="!connection?.declined">
+        <span *ngIf="connection?.tm_is_connection_approved">
+            <strong>TM Approval:</strong> {{connection?.tm_is_connection_approved_by}} approved connection on 
+            {{connection?.tm_is_connection_approved_date
+            }} 
+            <a [href]="connection?.tm_memo" target="_blank"><button mat-raised-button>view memo</button></a><br>
+        </span>
+        <span *ngIf="connection?.te_is_connection_approved">
+            <strong>TE Evaluation:</strong> {{connection?.te_is_connection_approved_by}} Submitted Evaluation Form on
+             {{connection?.te_is_connection_approved_date}} <br>
+        </span>
+        <span *ngIf="connection?.npd_is_connection_approved">
+            <strong>NP & D Approval:</strong> {{connection?.npd_is_connection_approved_by}} approved connection
+             on {{connection?.npd_is_connection_approved_date}} 
+             <a [href]="connection?.npd_memo" target="_blank"><button mat-raised-button>view memo</button></a><br>
+        </span>
+        <span *ngIf="connection?.cto_is_connection_approved">
+            <strong>CTO Approval:</strong> {{connection?.cto_approved_by}}  approved connection 
+            on {{connection?.cto_is_connection_approved_date}} 
+            <a [href]="connection?.cto_memo" target="_blank"><button mat-raised-button>view memo</button></a><br>
+        </span>
+        <span *ngIf="connection?.ct_is_pre_requested">
+            <strong>Contractor Precommissioning Request Approval:</strong> Contractor 
+            requested precommissioning test on {{connection?.ct_is_pre_requested_date}} <br>
+        </span>
+        <span *ngIf="connection?.tept_is_connection_approved">
+            <strong>TE Precomissioing Test:</strong>  {{connection?.tept_is_connection_approved_by}} Submitted 
+            Precommissioing Test Form on  {{connection?.tept_is_connection_approved_date}} <br>
+        </span>
+        <span *ngIf="connection?.hm_is_connection_approved">
+            <strong>HM Approval:</strong> {{connection?.hm_approved_by}} approved 
+            connection on  {{connection?.hm_is_contractor_approved_date}} 
+            <a [href]="connection?.hm_memo" target="_blank"><button mat-raised-button>view memo</button></a><br>
+        </span>
+    
+        </p>
 </div>

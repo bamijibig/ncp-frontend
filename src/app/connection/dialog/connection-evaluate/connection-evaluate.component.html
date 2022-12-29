@@ -16,7 +16,7 @@
                 <col-12>
                 <hr>
                 </col-12>
-
+                <div class="row">
                 <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
@@ -35,6 +35,8 @@
                         
                     </mat-form-field>
                 </div>
+                </div>
+                <div class="row">
                 <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
@@ -53,18 +55,7 @@
                         
                     </mat-form-field>
                 </div>
-
-
-                eval_estimated_load: new FormControl(data.row?.eval_estimated_load),
-      eval_site_visit_date: new FormControl(data.row?.eval_site_visit_date),
-      eval_new4upgrade: new FormControl(data.row?.eval_new4upgrade),
-      eval_conworkdone: new FormControl(data.row?.eval_conworkdone),
-      
-
-
-                
-
-
+                </div>
 
                 <div class="row">
                     <col-12>
@@ -493,16 +484,7 @@
                    </div>
                    <h2>Substation Analysis</h2>
                    <div class=" col-6">
-                    eval_nameofsub = models.CharField(max_length=100, choices=nameofsubstation, default='existing substation')
-                    eval_rating=models.CharField(max_length=200,null=True,blank=True)
-                    eval_loading=models.CharField(max_length=200,null=True,blank=True)
-                    eval_loadpercent=models.CharField(max_length=200,null=True,blank=True)
-                    eval_2yrsloadproj=models.CharField(max_length=200,null=True,blank=True)
-                    eval_2yrsloadprojpercent=models.CharField(max_length=200,null=True,blank=True)
-                    eval_amtbillkwh=models.CharField(max_length=200,null=True,blank=True)
-                    eval_amtbillnaira=models.CharField(max_length=200,null=True,blank=True)
-                    eval_collection=models.CharField(max_length=200,null=True,blank=True)
-                    eval_collectioneff=models.CharField(max_length=200,null=True,blank=True)
+                    
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>Name of Substation</mat-label>
                         <input matInput formControlName="eval_nameofsub" >
@@ -592,12 +574,7 @@
                         
                     </mat-form-field>
                    </div>
-                   #     # RECOMMENDED FEEDER/ASSETS FOR CONNECTION
-    eval_fdrname2=models.CharField(max_length=200,null=True,blank=True)
-    eval_fdravail=models.CharField(max_length=200,null=True,blank=True)
-    eval_fdrcapacity2=models.CharField(max_length=200,null=True,blank=True)
-    eval_fdrtrendpeak=models.CharField(max_length=200,null=True,blank=True)
-    
+                  
                 <h3>RECOMMENDED FEEDER/ASSETS FOR CONNECTION</h3>
                    <div class=" col-6">
     
@@ -754,11 +731,7 @@
                         
                     </mat-form-field>
                    </div>
-                   eval_custreq=models.CharField(max_length=200,null=True,blank=True)
-    eval_condiag=models.FileField(null=True,blank=True)
-    eval_schdiag=models.FileField(null=True,blank=True)
-    eval_sitevform=models.FileField(null=True,blank=True)
-    eval_projplanby=models.CharField(max_length=200,null=True,blank=True)
+                  
                    <h3>Attachments</h3>
                    <div class=" col-6">
     

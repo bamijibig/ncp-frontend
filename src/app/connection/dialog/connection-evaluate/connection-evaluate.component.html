@@ -12,7 +12,7 @@
     <form class="m-4" [formGroup]="eval_form" (ngSubmit)="Execute()">
         <div class="container-fluid">
             
-            <div class="row">
+            <!-- <div class="row"> -->
 
                 <col-12>
                     <hr>
@@ -63,6 +63,9 @@
                     </mat-form-field>
                 </div>
                 </div>
+
+
+
 
                 <div class="row">
                     <col-12>
@@ -147,79 +150,95 @@
                         
                     </mat-form-field>
                 </div>
-                <div class="row">
+                </div>
 
-                    <col-12>
-                        <hr>
-                    </col-12>
-                    <col-12 class="text-center">
-                        <h4>RECOMMENDED FEEDER/ASSETS FOR CONNECTION</h4>
-                    </col-12>
+
+
+
+                <div class="row">
                     <col-12>
                     <hr>
-                    </col-12>
-    
-                    <div class=" col-6">
-        
-                        <mat-form-field class="example-full-width mb-3" appearance="outline">
-                            <mat-label>Feeder Name</mat-label>
-                            <input matInput formControlName="eval_fdrname" >
-                            <mat-icon matSuffix>face</mat-icon>
-                            
-                        </mat-form-field>
-                    </div>
-                    <div class=" col-6">
+                </col-12>
+                <col-12 class="text-center">
+                    <h4>RECOMMENDED FEEDER/ASSETS FOR CONNECTION</h4>
+                </col-12>
+                <col-12>
+                <hr>
+                </col-12>
+                
+
+
+                <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
-                        <mat-label>Feeder Capacity</mat-label>
+                        <mat-label>Feeder Name</mat-label>
+                        <input matInput formControlName="eval_fdrname" >
+                        <mat-icon matSuffix>face</mat-icon>
+                        
+                    </mat-form-field>
+                </div>
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Feeder peak Load(MW)</mat-label>
+                        <input matInput formControlName="eval_fdrpload" >
+                        <mat-icon matSuffix>face</mat-icon>
+                        
+                    </mat-form-field>
+                </div>
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Feeder Capacity(MW)</mat-label>
                         <input matInput formControlName="eval_fdrcapacity" >
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                    <div class=" col-6">
-        
-                        <mat-form-field class="example-full-width mb-3" appearance="outline">
-                            <mat-label>Feeder Peak Load(MW)</mat-label>
-                            <input matInput formControlName="eval_fdrpload" >
-                            <mat-icon matSuffix>face</mat-icon>
-                            
-                        </mat-form-field>
-                    </div>
-    
-                    <div class=" col-6">
+                </div>
+                <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
-                        <mat-label>Cumulative Load(A)</mat-label>
+                        <mat-label>Load Till Date</mat-label>
+                        <input matInput formControlName="eval_tilldate" >
+                        <mat-icon matSuffix>face</mat-icon>
+                        
+                    </mat-form-field>
+                </div>
+                <div class=" col-6">
+                    
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Cummulative Load(A)</mat-label>
                         <input matInput formControlName="eval_cumloada" >
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                   </div>
                 </div>
-                <div class="row">
-
                
+                </div>
 
-                    <col-12>
-                        <hr>
-                    </col-12>
-                    <col-12 class="text-center">
-                        <h4>DETAIL OF SOURCE SUBSTATION (INJECTION/SUB TRANSMISSION SUBSTATION)</h4>
-                    </col-12>
+
+
+                <div class="row">
                     <col-12>
                     <hr>
-                    </col-12>
+                </col-12>
+                <col-12 class="text-center">
+                    <h4>DETAIL OF SOURCE SUBSTATION(INJECTION/SS)</h4>
+                </col-12>
+                <col-12>
+                <hr>
+                </col-12>
+                <div class=" col-6">
     
-                    <div class=" col-6">
-        
-                        <mat-form-field class="example-full-width mb-3" appearance="outline">
-                            <mat-label>Source to the Feeder</mat-label>
-                            <input matInput formControlName="eval_srcfeeder" >
-                            <mat-icon matSuffix>face</mat-icon>
-                            
-                        </mat-form-field>
-                    </div>
-                    <div class=" col-6">
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Source To the Feeder</mat-label>
+                        <input matInput formControlName="eval_srcfeeder" >
+                        <mat-icon matSuffix>face</mat-icon>
+                        
+                    </mat-form-field>
+                </div>
+                <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>Power Transformer</mat-label>
@@ -227,17 +246,17 @@
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                    <div class=" col-6">
-        
-                        <mat-form-field class="example-full-width mb-3" appearance="outline">
-                            <mat-label>Transformer rating(MVA)</mat-label>
-                            <input matInput formControlName="eval_trsfrating" >
-                            <mat-icon matSuffix>face</mat-icon>
-                            
-                        </mat-form-field>
-                    </div>
+                </div>
+                <div class=" col-6">
     
-                    <div class=" col-6">
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Transformer Rating(MVA)</mat-label>
+                        <input matInput formControlName="eval_trsfrating" >
+                        <mat-icon matSuffix>face</mat-icon>
+                        
+                    </mat-form-field>
+                </div>
+                <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>Trend Peak(MW)</mat-label>
@@ -245,26 +264,29 @@
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                   </div>
-                   <div class=" col-6">
+                </div>
+                <div class=" col-6">
+                    
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
-                        <mat-label>Cumulative till date(MW)</mat-label>
+                        <mat-label>Cummulative Till Date(MW)</mat-label>
                         <input matInput formControlName="eval_cumtilldate" >
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                   </div>
-                   <div class=" col-6">
+                </div>
+                <!-- <div class=" col-6">
+                    
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
-                        <mat-label>Cumm. with this load(MW)</mat-label>
-                        <input matInput formControlName="eval_cummwithload" >
+                        <mat-label>Cummulative with this Load(MW)</mat-label>
+                        <input matInput formControlName="eval_dtsubname" >
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                   </div>
-                   <div class=" col-6">
+                </div> -->
+                <div class=" col-6">
+                    
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>Permissible Load(MW)</mat-label>
@@ -272,8 +294,9 @@
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                   </div>
-                   <div class=" col-6">
+                </div>
+                <div class=" col-6">
+                    
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>Margin Available(MW)</mat-label>
@@ -281,142 +304,135 @@
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                   </div>
-
                 </div>
-
-                <div class="row">
-
+                
                
-
-                    <col-12>
-                        <hr>
-                    </col-12>
-                    <col-12 class="text-center">
-                        <h4>APPROVAL</h4>
-                    </col-12>
+                </div>
+                <div class="row">
                     <col-12>
                     <hr>
-                    </col-12>
-    
-                    <div class=" col-6">
-                       
-        
-                        <mat-form-field class="example-full-width mb-3" appearance="outline">
-                            <mat-label>To be Fully Sponsored</mat-label>
-                            <input matInput formControlName="eval_fulspons" >
-                            <mat-icon matSuffix>face</mat-icon>
-                            
-                        </mat-form-field>
-                    </div>
-                    <div class=" col-6">
+                </col-12>
+                <col-12 class="text-center">
+                    <h4>APPROVAL</h4>
+                </col-12>
+                <col-12>
+                <hr>
+                </col-12>
+                <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
-                        <mat-label>Estimated Project Cost</mat-label>
+                        <mat-label>To be fully Sponsored</mat-label>
+                        <input matInput formControlName="eval_fulspons" >
+                        <mat-icon matSuffix>face</mat-icon>
+                        
+                    </mat-form-field>
+                </div>
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Estimated Project Cost(#)</mat-label>
                         <input matInput formControlName="eval_estpcost" >
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                    <div class=" col-6">
-        
-                        <mat-form-field class="example-full-width mb-3" appearance="outline">
-                            <mat-label>Specific Comment</mat-label>
-                            <input matInput formControlName="eval_specoment" >
-                            <mat-icon matSuffix>face</mat-icon>
-                            
-                        </mat-form-field>
-                    </div>
-
                 </div>
-
-                <div class="row">
-
-               
-
-                    <col-12>
-                        <hr>
-                    </col-12>
-                    <col-12 class="text-center">
-                        <h4>DETAILED PROJECT REPORT(NPG NO)</h4>
-                    </col-12>
-                    <col-12>
-                    <hr>
-                    </col-12>
-    
-                    <div class=" col-6">
-        
-                        <mat-form-field class="example-full-width mb-3" appearance="outline">
-                            <mat-label>Title</mat-label>
-                            <input matInput formControlName="eval_title" >
-                            <mat-icon matSuffix>face</mat-icon>
-                            
-                        </mat-form-field>
-                    </div>
-                    <div class=" col-6">
+                <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
-                        <mat-label>PREAMBLE</mat-label>
+                        <mat-label>Specific Comment</mat-label>
+                        <input matInput formControlName="eval_specoment" >
+                        <mat-icon matSuffix>face</mat-icon>
+                        
+                    </mat-form-field>
+                </div>
+                
+                
+                
+                
+               
+                </div>
+                <div class="row">
+                    <col-12>
+                    <hr>
+                </col-12>
+                <col-12 class="text-center">
+                    <h4>DETAIL PROJECT REPORT(NPG NO)</h4>
+                </col-12>
+                <col-12>
+                <hr>
+                </col-12>
+                <!-- <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Title</mat-label>
+                        <input matInput formControlName="eval_estimated_load" >
+                        <mat-icon matSuffix>face</mat-icon>
+                        
+                    </mat-form-field>
+                </div> -->
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Preamble</mat-label>
                         <input matInput formControlName="eval_preamble" >
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                    <div class=" col-6">
-        
-                        <mat-form-field class="example-full-width mb-3" appearance="outline">
-                            <mat-label>FINDINGS</mat-label>
-                            <input matInput formControlName="eval_findings" >
-                            <mat-icon matSuffix>face</mat-icon>
-                            
-                        </mat-form-field>
-                    </div>
-    
-                    <div class=" col-6">
+                </div>
+                <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
-                        <mat-label>SCOPE OF WORK</mat-label>
+                        <mat-label>Findings</mat-label>
+                        <input matInput formControlName="eval_findings" >
+                        <mat-icon matSuffix>face</mat-icon>
+                        
+                    </mat-form-field>
+                </div>
+
+                
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Scope of Work</mat-label>
                         <input matInput formControlName="eval_scopework" >
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                   </div>
-                   <div class=" col-6">
+                </div>
+                <div class=" col-6">
+                    
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
-                        <mat-label>RECOMMENDATION</mat-label>
+                        <mat-label>Recommendation</mat-label>
                         <input matInput formControlName="eval_recom" >
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                   </div>
-
-                  
-                  
                 </div>
+
+
                 <div class="row">
-
-               
-
-                    <col-12>
-                        <hr>
-                    </col-12>
-                    <col-12 class="text-center">
-                        <h4>SUMMARY REPORT FOR RELIEF DSS</h4>
-                    </col-12>
                     <col-12>
                     <hr>
-                    </col-12>
-                    <h4>Project Details</h4>
-                    <div class=" col-6">
-        
-                        <mat-form-field class="example-full-width mb-3" appearance="outline">
-                            <mat-label>Title</mat-label>
-                            <input matInput formControlName="eval_titlepro" >
-                            <mat-icon matSuffix>face</mat-icon>
-                            
-                        </mat-form-field>
-                    </div>
-
-                    <div class=" col-6">
+                </col-12>
+                <col-12 class="text-center">
+                    <h4>SUMMARY REPORT FOR RELIEF DSS</h4>
+                    
+                </col-12>
+                <col-12>
+                <hr>
+                </col-12>
+                <h3>Project Details</h3>
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Title</mat-label>
+                        <input matInput formControlName="eval_titlepro" >
+                        <mat-icon matSuffix>face</mat-icon>
+                        
+                    </mat-form-field>
+                </div>
+                <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>User Community</mat-label>
@@ -424,17 +440,17 @@
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                    <div class=" col-6">
-        
-                        <mat-form-field class="example-full-width mb-3" appearance="outline">
-                            <mat-label>Project Main Category</mat-label>
-                            <input matInput formControlName="eval_projmaincat" >
-                            <mat-icon matSuffix>face</mat-icon>
-                            
-                        </mat-form-field>
-                    </div>
+                </div>
+                <div class=" col-6">
     
-                    <div class=" col-6">
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Project Main Category</mat-label>
+                        <input matInput formControlName="eval_projmaincat" >
+                        <mat-icon matSuffix>face</mat-icon>
+                        
+                    </mat-form-field>
+                </div>
+                <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>DT Rating(KVA)</mat-label>
@@ -442,36 +458,45 @@
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                   </div>
-                   <div class=" col-6">
+                </div>
+                <div class=" col-6">
+                    
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
-                        <mat-label>Voltage Level(KVA)</mat-label>
+                        <mat-label>Voltage Level</mat-label>
                         <input matInput formControlName="eval_voltlevel" >
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                   </div>
-                   <div class=" col-6">
+                </div>
+                <div class=" col-6">
+                    
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
-                        <mat-label>Sub Head</mat-label>
+                        <mat-label>Sub head</mat-label>
                         <input matInput formControlName="eval_subhead" >
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                   </div>
-                   <h3>Finding from site visit</h3>
-                   <div class=" col-6">
+                </div>
+                <!-- <h3>Findings from site visit</h3> -->
+                <div class=" col-6">
+                    
+                    <div class=" col-6">
     
-                    <mat-form-field class="example-full-width mb-3" appearance="outline">
-                        <mat-label>Date of Site Visit</mat-label>
-                        <input matInput formControlName="eval_datevisit" >
-                        <mat-icon matSuffix>face</mat-icon>
-                        
-                    </mat-form-field>
-                   </div>
-                   <div class=" col-6">
+                        <mat-form-field class="example-full-width mb-3" appearance="outline">
+                            <mat-label>Date of Site Visit</mat-label>
+                            <input matInput formControlName="eval_datevisit" >
+                            <mat-icon matSuffix>face</mat-icon>
+                            
+                        </mat-form-field>
+                       </div>
+                       
+                       
+                    
+                </div>
+                <div class=" col-6">
+                    
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>Specific Location</mat-label>
@@ -479,18 +504,39 @@
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                   </div>
-                   <div class=" col-6">
+                </div>
+                <div class=" col-6">
+                    
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
-                        <mat-label>Major Challenges on ex. ss</mat-label>
+                        <mat-label>Major challenge on existing SS</mat-label>
                         <input matInput formControlName="eval_majchaexidss" >
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                   </div>
-                   <h2>Substation Analysis</h2>
-                   <div class=" col-6">
+                </div>
+                <!-- <div class=" col-6">
+                    
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Region</mat-label>
+                        <input matInput formControlName="eval_dtsubname" >
+                        <mat-icon matSuffix>face</mat-icon>
+                        
+                    </mat-form-field>
+                </div> -->
+                <!-- <div class=" col-6">
+                    
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Business Hub</mat-label>
+                        <input matInput formControlName="eval_dtsubname" >
+                        <mat-icon matSuffix>face</mat-icon>
+                        
+                    </mat-form-field>
+                </div> -->
+               
+                <div class=" col-6">
                     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>Name of Substation</mat-label>
@@ -582,7 +628,6 @@
                     </mat-form-field>
                    </div>
                   
-                <h3>RECOMMENDED FEEDER/ASSETS FOR CONNECTION</h3>
                    <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
@@ -648,9 +693,6 @@
                         
                     </mat-form-field>
                    </div>
-                 
-   
-                <h3>Project cost analysis</h3>
                    <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
@@ -678,11 +720,7 @@
                         
                     </mat-form-field>
                    </div>
-                   #     # APPROVAL
-                   eval_aprovmbgrant=models.CharField(max_length=200,null=True,blank=True)
-                   eval_recmetertyp=models.CharField(max_length=200,null=True,blank=True)
-                   eval_statmeter=models.CharField(max_length=200,null=True,blank=True)
-                   eval_specoment2=models.TextField(null=True,blank=True)
+                  
                    <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
@@ -701,7 +739,6 @@
                         
                     </mat-form-field>
                    </div>
-                   <h3>Approval</h3>
                    <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
@@ -738,8 +775,6 @@
                         
                     </mat-form-field>
                    </div>
-                  
-                   <h3>Attachments</h3>
                    <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
@@ -786,6 +821,142 @@
                     </mat-form-field>
                    </div>
 
+             
+               
+               
+               
+                
+                
+                
+                
+                
+               
+                </div>
+                <div class="row">
+                    <col-12>
+                    <hr>
+                </col-12>
+                
+                
+                
+               
+               
+                
+                
+               
+                
+                
+               
+                </div>
+
+               
+               
+               
+                </div>
+
+
+
+                
+                <div class="row">
+
+                    
+    
+                    
+                    <div class=" col-6">
+    
+                   
+                    <div class="row">
+                    
+                   
+                <!-- </div> -->
+                </div>
+                <!-- <div class="row"> -->
+
+               
+
+                    
+                    
+                    <div class=" col-6">
+    
+                  
+                    
+    
+                    
+                  
+                   
+                 
+                   
+
+                <!-- </div> -->
+
+
+
+                        
+
+
+
+                <div class="row">
+
+               
+
+                    
+    
+                    
+                    <div class=" col-6">
+    
+                    
+                   
+
+                        
+
+                </div>
+
+                <div class="row">
+
+               
+
+                    
+                   
+    
+                    
+                    <div class=" col-6">
+    
+                    
+                   
+                    
+                  
+
+                  
+                  
+                </div>
+                <div class="row">
+
+               
+
+                   
+                    
+                    
+                    
+                   
+
+                    <div class=" col-6">
+    
+                   
+                    
+    
+                   
+                   
+                   
+                   
+                  
+                   
+                   
+                
+                  
+   
+                
+                   
+
                 </div>
 
 
@@ -794,7 +965,7 @@
               
              
                
-            </div>
+            <!-- </div> -->
     
     
 

@@ -22,17 +22,17 @@
         <span *ngIf="connection?.hsch_is_contractor_approved">
             <strong>HSCH Approval:</strong> {{connection?.hsch_approved_by}} approved contractor registration on 
             {{connection?.hsch_is_contractor_approved_date}} 
-            <a [href]="connection?.hsch_memo" target="_blank"><button mat-raised-button>view memo</button></a><br>
+            <a [href]="connection?.hsch_memo" target="_blank"><button mat-raised-button>view additional file</button></a><br>
         </span>
         <span *ngIf="connection?.cto_is_contractor_approved">
             <strong>CTO Approval:</strong> {{connection?.cto_approved_by}} approved contractor registration on 
              {{connection?.cto_is_contractor_approved_date}} 
-             <a [href]="connection?.cto_memo" target="_blank"><button mat-raised-button>view memo</button></a><br>
+             <a [href]="connection?.cto_memo" target="_blank"><button mat-raised-button>view Additional File</button></a><br>
         </span>
         <span *ngIf="connection?.md_is_contractor_approved">
             <strong>MD Approval:</strong> {{connection?.md_approved_by}} approved contractor registration
              on {{connection?.md_is_contractor_approved_date}} 
-             <a [href]="connection?.md_memo" target="_blank"><button mat-raised-button>view memo</button></a><br>
+             <a [href]="connection?.md_memo" target="_blank"><button mat-raised-button>view Additional file</button></a><br>
         </span>
       
         </p>

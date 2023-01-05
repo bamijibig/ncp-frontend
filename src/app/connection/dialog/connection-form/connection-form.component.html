@@ -354,7 +354,7 @@
             <strong>TM Approval:</strong> {{connection?.tm_is_connection_approved_by}} approved connection on 
             {{connection?.tm_is_connection_approved_date
             }} 
-            <a [href]="connection?.tm_memo" target="_blank"><button mat-raised-button>view memo</button></a><br>
+            <a [href]="connection?.tm_memo" target="_blank"><button mat-raised-button>view Additional File</button></a><br>
         </span>
         <span *ngIf="connection?.te_is_connection_approved">
             <strong>TE Evaluation:</strong> {{connection?.te_is_connection_approved_by}} Submitted Evaluation Form on
@@ -363,12 +363,12 @@
         <span *ngIf="connection?.npd_is_connection_approved">
             <strong>NP & D Approval:</strong> {{connection?.npd_is_connection_approved_by}} approved connection
              on {{connection?.npd_is_connection_approved_date}} 
-             <a [href]="connection?.npd_memo" target="_blank"><button mat-raised-button>view memo</button></a><br>
+             <a [href]="connection?.npd_memo" target="_blank"><button mat-raised-button>view Additional File</button></a><br>
         </span>
         <span *ngIf="connection?.cto_is_connection_approved">
             <strong>CTO Approval:</strong> {{connection?.cto_approved_by}}  approved connection 
             on {{connection?.cto_is_connection_approved_date}} 
-            <a [href]="connection?.cto_memo" target="_blank"><button mat-raised-button>view memo</button></a><br>
+            <a [href]="connection?.cto_memo" target="_blank"><button mat-raised-button>view Additional File</button></a><br>
         </span>
         <span *ngIf="connection?.ct_is_pre_requested">
             <strong>Contractor Precommissioning Request Approval:</strong> Contractor 
@@ -381,7 +381,7 @@
         <span *ngIf="connection?.hm_is_connection_approved">
             <strong>HM Approval:</strong> {{connection?.hm_approved_by}} approved 
             connection on  {{connection?.hm_is_contractor_approved_date}} 
-            <a [href]="connection?.hm_memo" target="_blank"><button mat-raised-button>view memo</button></a><br>
+            <a [href]="connection?.hm_memo" target="_blank"><button mat-raised-button>view Additional File</button></a><br>
         </span>
     
         </p>

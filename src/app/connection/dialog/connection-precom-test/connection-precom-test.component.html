@@ -213,7 +213,7 @@
         <div class=" col-6">
 
             <mat-form-field class="example-full-width mb-3" appearance="outline">
-                <mat-label>Project Objectives</mat-label>
+                <mat-label>Transformer Capacity(KVA)</mat-label>
                 <textarea matInput formControlName="precom_trsfcap" ></textarea>
                
                 
@@ -223,7 +223,7 @@
         <div class=" col-6">
 
             <mat-form-field class="example-full-width mb-3" appearance="outline">
-                <mat-label>Supply (Bulk) Source</mat-label>
+                <mat-label>Voltage Ratio(KV)</mat-label>
                 <input matInput formControlName="precom_voltratio" >
                 <mat-icon matSuffix>face</mat-icon>
                 
@@ -234,7 +234,7 @@
         <div class=" col-6">
 
             <mat-form-field class="example-full-width mb-3" appearance="outline">
-                <mat-label>Project Objectives</mat-label>
+                <mat-label>Make</mat-label>
                 <textarea matInput formControlName="precom_make" ></textarea>
                
                 
@@ -244,7 +244,7 @@
         <div class=" col-6">
 
             <mat-form-field class="example-full-width mb-3" appearance="outline">
-                <mat-label>Supply (Bulk) Source</mat-label>
+                <mat-label>Serial No</mat-label>
                 <input matInput formControlName="precom_sn" >
                 <mat-icon matSuffix>face</mat-icon>
                 
@@ -255,7 +255,7 @@
         <div class=" col-6">
 
             <mat-form-field class="example-full-width mb-3" appearance="outline">
-                <mat-label>Project Objectives</mat-label>
+                <mat-label>Current(HV/LV Side)</mat-label>
                 <textarea matInput formControlName="precom_current" ></textarea>
                
                 
@@ -265,7 +265,7 @@
         <div class=" col-6">
 
             <mat-form-field class="example-full-width mb-3" appearance="outline">
-                <mat-label>Supply (Bulk) Source</mat-label>
+                <mat-label>Vector Group</mat-label>
                 <input matInput formControlName="precom_vectorgrp" >
                 <mat-icon matSuffix>face</mat-icon>
                 
@@ -276,7 +276,7 @@
         <div class=" col-6">
 
             <mat-form-field class="example-full-width mb-3" appearance="outline">
-                <mat-label>Project Objectives</mat-label>
+                <mat-label>% Impedance</mat-label>
                 <textarea matInput formControlName="precom_impedance" ></textarea>
                
                 
@@ -286,7 +286,7 @@
         <div class=" col-6">
 
             <mat-form-field class="example-full-width mb-3" appearance="outline">
-                <mat-label>Supply (Bulk) Source</mat-label>
+                <mat-label>Year of Man</mat-label>
                 <input matInput formControlName="precom_yrsofman" >
                 <mat-icon matSuffix>face</mat-icon>
                 
@@ -297,7 +297,7 @@
         <div class=" col-6">
 
             <mat-form-field class="example-full-width mb-3" appearance="outline">
-                <mat-label>Project Objectives</mat-label>
+                <mat-label>Cooling</mat-label>
                 <textarea matInput formControlName="precom_cooling" ></textarea>
                
                 
@@ -307,7 +307,7 @@
         <div class=" col-6">
 
             <mat-form-field class="example-full-width mb-3" appearance="outline">
-                <mat-label>Supply (Bulk) Source</mat-label>
+                <mat-label>Cable Size/Type</mat-label>
                 <input matInput formControlName="precom_cabletypsiz" >
                 <mat-icon matSuffix>face</mat-icon>
                 
@@ -318,7 +318,7 @@
         <div class=" col-6">
 
             <mat-form-field class="example-full-width mb-3" appearance="outline">
-                <mat-label>Project Objectives</mat-label>
+                <mat-label>Current of Feeder Pillar</mat-label>
                 <textarea matInput formControlName="precom_fdrpillarcurr" ></textarea>
                
                 
@@ -328,7 +328,7 @@
         <div class=" col-6">
 
             <mat-form-field class="example-full-width mb-3" appearance="outline">
-                <mat-label>Supply (Bulk) Source</mat-label>
+                <mat-label>Incomer Cable Size</mat-label>
                 <input matInput formControlName="precom_icomcablesiz" >
                 <mat-icon matSuffix>face</mat-icon>
                 
@@ -339,7 +339,7 @@
         <div class=" col-6">
 
             <mat-form-field class="example-full-width mb-3" appearance="outline">
-                <mat-label>Project Objectives</mat-label>
+                <mat-label>Size of Uprizer Cable</mat-label>
                 <textarea matInput formControlName="precom_uprizercable" ></textarea>   
             </mat-form-field>
         </div>
@@ -347,7 +347,7 @@
         <div class=" col-6">
 
             <mat-form-field class="example-full-width mb-3" appearance="outline">
-                <mat-label>Supply (Bulk) Source</mat-label>
+                <mat-label>No. of Uprizer Cable</mat-label>
                 <input matInput formControlName="precom_nouprizercable" >
                 <mat-icon matSuffix>face</mat-icon>
                 
@@ -358,33 +358,34 @@
         <div class=" col-6">
 
             <mat-form-field class="example-full-width mb-3" appearance="outline">
-                <mat-label>Project Objectives</mat-label>
+                <mat-label>Earth Resistance Value</mat-label>
                 <textarea matInput formControlName="precom_earthresv" ></textarea>
                
                 
             </mat-form-field>
         </div>
-
+        
         <div class=" col-6">
-
-            <mat-form-field class="example-full-width mb-3" appearance="outline">
-                <mat-label>Supply (Bulk) Source</mat-label>
-                <input matInput formControlName="precom_pcm" >
-                <mat-icon matSuffix>face</mat-icon>
-                
-            </mat-form-field>
-        </div>
+    
+            <mat-form-field>
+                <mat-label>PC&M(Transformer Test)</mat-label>
+                <ngx-mat-file-input formControlName="precom_pcm">
+                   <mat-icon ngxMatFileInputIcon>backup</mat-icon>
+                </ngx-mat-file-input>
+             </mat-form-field>
+       </div>
     </div>
+    
     <div class="row">
         <div class=" col-6">
-
-            <mat-form-field class="example-full-width mb-3" appearance="outline">
-                <mat-label>Project Objectives</mat-label>
-                <textarea matInput formControlName="precom_others" ></textarea>
-               
-                
-            </mat-form-field>
-        </div>
+    
+            <mat-form-field>
+                <mat-label>Other Relevant Document</mat-label>
+                <ngx-mat-file-input formControlName="precom_others">
+                   <mat-icon ngxMatFileInputIcon>backup</mat-icon>
+                </ngx-mat-file-input>
+             </mat-form-field>
+       </div>
 
         
     </div>

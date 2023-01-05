@@ -784,32 +784,37 @@
                         
                     </mat-form-field>
                    </div>
+                   
+                 
+                 
                    <div class=" col-6">
     
-                    <mat-form-field class="example-full-width mb-3" appearance="outline">
-                        <mat-label>Connection Diagram</mat-label>
-                        <input matInput formControlName="eval_condiag" >
-                        <mat-icon matSuffix>face</mat-icon>
-                        
-                    </mat-form-field>
-                   </div>
-                   <div class=" col-6">
+                    <mat-form-field>
+                        <mat-label>Upload Connection Diagram</mat-label>
+                        <ngx-mat-file-input formControlName="eval_condiag">
+                           <mat-icon ngxMatFileInputIcon>backup</mat-icon>
+                        </ngx-mat-file-input>
+                     </mat-form-field>
+                   </div> 
+                   
+                     <div class=" col-6">
     
-                    <mat-form-field class="example-full-width mb-3" appearance="outline">
-                        <mat-label>Schematic Diagram</mat-label>
-                        <input matInput formControlName="eval_schdiag" >
-                        <mat-icon matSuffix>face</mat-icon>
-                        
-                    </mat-form-field>
-                   </div>
-                   <div class=" col-6">
+                        <mat-form-field>
+                            <mat-label>Upload Schematic Diagram</mat-label>
+                            <ngx-mat-file-input formControlName="eval_schdiag">
+                               <mat-icon ngxMatFileInputIcon>backup</mat-icon>
+                            </ngx-mat-file-input>
+                         </mat-form-field>
+                   </div> 
+                   
+                    <div class=" col-6">
     
-                    <mat-form-field class="example-full-width mb-3" appearance="outline">
-                        <mat-label>Site Visit form</mat-label>
-                        <input matInput formControlName="eval_sitevform" >
-                        <mat-icon matSuffix>face</mat-icon>
-                        
-                    </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Upload Site Visit form</mat-label>
+                            <ngx-mat-file-input formControlName="eval_sitevform">
+                               <mat-icon ngxMatFileInputIcon>backup</mat-icon>
+                            </ngx-mat-file-input>
+                         </mat-form-field>
                    </div>
                    <div class=" col-6">
     
@@ -819,7 +824,7 @@
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                   </div>
+                   </div> 
 
              
                

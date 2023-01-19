@@ -153,26 +153,68 @@
            
         </div>
         <div class="row">
-            <div class=" col-6">
-                <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <!-- <div class=" col-6"> -->
+                <!-- <mat-form-field class="example-full-width mb-3" appearance="outline">
                     <mat-label>capacity</mat-label>
                     <input matInput formControlName="capacity" required>
-                    <mat-icon matSuffix>transformer</mat-icon>
+                    <mat-icon matSuffix>transformer</mat-icon> -->
                     <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
                         Name is required
                     </mat-error> -->
-                </mat-form-field>
-            </div>
+                <!-- </mat-form-field>
+            </div> -->
             <div class="col-6">
+            <mat-form-field class="example-full-width mb-3" appearance="outline">
+                <mat-label>Capacity</mat-label>
+                <mat-select formControlName="capacity" required>
+                 
+                    <mat-option [value]="'catd_50kva'">
+                        Category D(Not exceeding 50KVA, 11/0.400KV)
+                    </mat-option>
+                    <mat-option [value]="'catc_100kva'">
+                        Category C(Not exceeding 100KVA, 11/0.400KV)
+                    </mat-option>
+                    <mat-option [value]="'catb_1000kva'">
+                        Category B(C&D, Not exceeding 1000KVA, 11/0.400KV&300KVA 33/400KV)
+                    </mat-option>
+                    <mat-option [value]="'cata_all'">
+                        Category A(All in B,C&D PLUS 33KV,132KV,330KV & Associate)
+                    </mat-option>
+                    
+                </mat-select>
+                <!-- <mat-error *ngIf="proForm.get('status').hasError('required')">
+                    Status is required
+                </mat-error> -->
+            </mat-form-field>
+        </div>
+
+        <div class="col-6">
+            <mat-form-field class="example-full-width mb-3" appearance="outline">
+                <mat-label>voltage Ratio</mat-label>
+                <mat-select formControlName="voltage_ratio" required>
+                 
+                    <mat-option [value]="'elevenby400'">
+                        11KV/0.400
+                    </mat-option>
+                    <mat-option [value]="'thirtythreeby400'">
+                        33KV/0.400
+                    </mat-option>    
+                </mat-select>
+                <!-- <mat-error *ngIf="proForm.get('status').hasError('required')">
+                    Status is required
+                </mat-error> -->
+            </mat-form-field>
+        </div>
+            <!-- <div class="col-6">
                 <mat-form-field class="example-full-width mb-3" appearance="outline">
                     <mat-label>Volatge Ratio</mat-label>
                     <input matInput formControlName="voltage_ratio" required>
-                    <mat-icon matSuffix>transformer</mat-icon>
+                    <mat-icon matSuffix>transformer</mat-icon> -->
                     <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
                         Name is required
                     </mat-error> -->
-                </mat-form-field>
-            </div>
+                <!-- </mat-form-field>
+            </div> -->
 
 
 
@@ -275,23 +317,23 @@
             
                 <div class="col-6">
             <mat-form-field>
-                <mat-label>Upload Letter of Donation</mat-label>
+                <mat-label>Upload Letter from Client</mat-label>
                 <ngx-mat-file-input formControlName="letter_of_donation_dss" >
                    <mat-icon ngxMatFileInputIcon>backup</mat-icon>
                 </ngx-mat-file-input>
              </mat-form-field>
-             <a [href]="connection?.letter_of_donation_dss" target="_blank">View Letter of Donation</a>
+             <a [href]="connection?.letter_of_donation_dss" target="_blank">View Letter of Client</a>
              </div>
              </div>
              <div class="row">
              <div class="col-6">
              <mat-form-field>
-                <mat-label>Upload NEMSA Test Certificate</mat-label>
+                <mat-label>Upload NEMSA Competency Certificate</mat-label>
                 <ngx-mat-file-input formControlName="nemsa_test_cert">
                    <mat-icon ngxMatFileInputIcon>backup</mat-icon>
                 </ngx-mat-file-input>
              </mat-form-field>
-             <a [href]="connection?.nemsa_test_cert" target="_blank">View NEMSA Test Certificate</a>
+             <a [href]="connection?.nemsa_test_cert" target="_blank">View NEMSA Competency Certificate</a>
              </div>
              
              <div class="col-6">

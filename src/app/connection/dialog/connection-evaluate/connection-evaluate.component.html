@@ -5,7 +5,8 @@
     </button>
 </div>
 
-<h3>Evaluation Form</h3>
+<h3>Inspection and Survey Form</h3>
+<h5>Summary Report for Point Load Project</h5>
 
 <div mat-dialog-content class="mat-typography">
 
@@ -53,7 +54,27 @@
                         
                     </mat-form-field>
                 </div>
-                <div class=" col-6">
+                <div class="col-6">
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>voltage Level</mat-label>
+                        <mat-select formControlName="eval_voltage_level" required>
+                         
+                            <mat-option [value]="'elevenkv'">
+                                11KV
+                            </mat-option>
+                            <mat-option [value]="'thirtythreekv'">
+                                33KV
+                            </mat-option>   
+                            <mat-option [value]="'fourhundred'">
+                                0.400KV
+                            </mat-option>  
+                        </mat-select>
+                        <!-- <mat-error *ngIf="proForm.get('status').hasError('required')">
+                            Status is required
+                        </mat-error> -->
+                    </mat-form-field>
+                </div>
+                <!-- <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>Voltage Level</mat-label>
@@ -61,7 +82,7 @@
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                </div>
+                </div> -->
                 </div>
 
 
@@ -409,20 +430,38 @@
                         
                     </mat-form-field>
                 </div>
+                 <div class=" col-6">
+    
+                        <mat-form-field>
+                            <mat-label>PC&M(Transformer Test)</mat-label>
+                            <ngx-mat-file-input formControlName="eval_pcm">
+                               <mat-icon ngxMatFileInputIcon>backup</mat-icon>
+                            </ngx-mat-file-input>
+                         </mat-form-field>
+                   </div> 
+                   <div class=" col-6">
+    
+                    <mat-form-field>
+                        <mat-label>Other Relevant Documents</mat-label>
+                        <ngx-mat-file-input formControlName="eval_otherdoc">
+                           <mat-icon ngxMatFileInputIcon>backup</mat-icon>
+                        </ngx-mat-file-input>
+                     </mat-form-field>
+               </div> 
 
 
                 <div class="row">
-                    <col-12>
+                    <!-- <col-12>
                     <hr>
-                </col-12>
-                <col-12 class="text-center">
+                </col-12> -->
+                <!-- <col-12 class="text-center">
                     <h4>SUMMARY REPORT FOR RELIEF DSS</h4>
                     
-                </col-12>
-                <col-12>
+                </col-12> -->
+                <!-- <col-12>
                 <hr>
-                </col-12>
-                <h3>Project Details</h3>
+                </col-12> -->
+                <!-- <h3>Project Details</h3>
                 <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
@@ -431,8 +470,8 @@
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                </div>
-                <div class=" col-6">
+                </div> -->
+                <!-- <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>User Community</mat-label>
@@ -458,8 +497,8 @@
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                </div>
-                <div class=" col-6">
+                </div> -->
+                <!-- <div class=" col-6">
                     
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
@@ -478,9 +517,9 @@
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                </div>
+                </div> -->
                 <!-- <h3>Findings from site visit</h3> -->
-                <div class=" col-6">
+                <!-- <div class=" col-6">
                     
                     <div class=" col-6">
     
@@ -494,8 +533,8 @@
                        
                        
                     
-                </div>
-                <div class=" col-6">
+                </div> -->
+                <!-- <div class=" col-6">
                     
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
@@ -514,7 +553,7 @@
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                </div>
+                </div> -->
                 <!-- <div class=" col-6">
                     
     
@@ -536,7 +575,7 @@
                     </mat-form-field>
                 </div> -->
                
-                <div class=" col-6">
+                <!-- <div class=" col-6">
                     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>Name of Substation</mat-label>
@@ -562,8 +601,8 @@
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                   </div>
-                   <div class=" col-6">
+                   </div> -->
+                   <!-- <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>% Loading</mat-label>
@@ -581,8 +620,8 @@
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                   </div>
-                   <div class=" col-6">
+                   </div> -->
+                   <!-- <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>2Years %Loading</mat-label>
@@ -608,8 +647,8 @@
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                   </div>
-                   <div class=" col-6">
+                   </div> -->
+                   <!-- <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>Collection</mat-label>
@@ -626,9 +665,9 @@
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                   </div>
+                   </div> -->
                   
-                   <div class=" col-6">
+                   <!-- <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>Feeder Name</mat-label>
@@ -645,10 +684,10 @@
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                   </div>
+                   </div> -->
 
                    
-                   <div class=" col-6">
+                   <!-- <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>Dss Feeder Capacity</mat-label>
@@ -665,8 +704,8 @@
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                   </div>
-                   <div class=" col-6">
+                   </div> -->
+                   <!-- <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>Feeder Load till date(A)</mat-label>
@@ -683,8 +722,8 @@
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                   </div>
-                   <div class=" col-6">
+                   </div> -->
+                   <!-- <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>Source to the Feeder</mat-label>
@@ -710,8 +749,8 @@
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                   </div>
-                   <div class=" col-6">
+                   </div> -->
+                   <!-- <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>Capital Contribution to the Project</mat-label>
@@ -729,8 +768,8 @@
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                   </div>
-                   <div class=" col-6">
+                   </div> -->
+                   <!-- <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>Ibedc</mat-label>
@@ -756,8 +795,8 @@
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                   </div>
-                   <div class=" col-6">
+                   </div> -->
+                   <!-- <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>Statistical Metering</mat-label>
@@ -774,8 +813,8 @@
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                   </div>
-                   <div class=" col-6">
+                   </div> -->
+                   <!-- <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>Customer Request</mat-label>
@@ -783,11 +822,11 @@
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                   </div>
+                   </div> -->
                    
                  
                  
-                   <div class=" col-6">
+                   <!-- <div class=" col-6">
     
                     <mat-form-field>
                         <mat-label>Upload Connection Diagram</mat-label>
@@ -795,9 +834,9 @@
                            <mat-icon ngxMatFileInputIcon>backup</mat-icon>
                         </ngx-mat-file-input>
                      </mat-form-field>
-                   </div> 
+                   </div>  -->
                    
-                     <div class=" col-6">
+                    <!-- <div class=" col-6">
     
                         <mat-form-field>
                             <mat-label>Upload Schematic Diagram</mat-label>
@@ -805,20 +844,20 @@
                                <mat-icon ngxMatFileInputIcon>backup</mat-icon>
                             </ngx-mat-file-input>
                          </mat-form-field>
-                   </div> 
+                   </div>  -->
                    
-                    <div class=" col-6">
+                    <!-- <div class=" col-6"> -->
     
-                        <mat-form-field>
+                        <!-- <mat-form-field>
                             <mat-label>Upload Site Visit form</mat-label>
                             <ngx-mat-file-input formControlName="eval_sitevform">
                                <mat-icon ngxMatFileInputIcon>backup</mat-icon>
                             </ngx-mat-file-input>
-                        </mat-form-field>
+                        </mat-form-field> -->
                       
                          <!-- <a [href]="connection?.eval_sitevform" target="_blank">View siteform</a> -->
-                   </div>
-                   <div class=" col-6">
+                   <!-- </div> -->
+                   <!-- <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>Project planned by</mat-label>
@@ -826,7 +865,7 @@
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                   </div> 
+                   </div>  -->
 
              
                

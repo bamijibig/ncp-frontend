@@ -406,7 +406,7 @@ addNewUser( formvalue:any
           formData.append('is_npd', 'False');
           formData.append('is_cto', 'False');
           formData.append('is_md', 'False');
-          formData.append('is_hsch', 'False');
+          // formData.append('is_hsch', 'False');
           formData.append('is_hm', 'False');
           formData.append('is_admin', 'False');
         };
@@ -417,7 +417,7 @@ addNewUser( formvalue:any
           formData.append('is_tm', 'False');
           formData.append('is_cto', 'False');
           formData.append('is_md', 'False');
-          formData.append('is_hsch', 'False');
+          // formData.append('is_hsch', 'False');
           formData.append('is_hm', 'False');
         };
         if(formvalue.role =='is_te'){
@@ -426,7 +426,7 @@ addNewUser( formvalue:any
           formData.append('is_cto', 'False');
           formData.append('is_md', 'False');
           formData.append('is_tm', 'False');
-          formData.append('is_hsch', 'False');
+          // formData.append('is_hsch', 'False');
           formData.append('is_hm', 'False');
           formData.append('is_admin', 'False');
         };
@@ -436,7 +436,7 @@ addNewUser( formvalue:any
           formData.append('is_cto', 'False');
           formData.append('is_md', 'False');
           formData.append('is_tm', 'False');
-          formData.append('is_hsch', 'False');
+          // formData.append('is_hsch', 'False');
           formData.append('is_hm', 'False');
           formData.append('is_admin', 'False');
         };
@@ -446,7 +446,7 @@ addNewUser( formvalue:any
           formData.append('is_cto', 'True');
           formData.append('is_tm', 'False');
           formData.append('is_md', 'False');
-          formData.append('is_hsch', 'False');
+          // formData.append('is_hsch', 'False');
           formData.append('is_hm', 'False');
           formData.append('is_admin', 'False');
         };
@@ -458,26 +458,26 @@ addNewUser( formvalue:any
           formData.append('is_cto', 'False');
           formData.append('is_md', 'True');
           formData.append('is_hm', 'False');
-          formData.append('is_hsch', 'False');
+          // formData.append('is_hsch', 'False');
           formData.append('is_admin', 'False');
         };
-        if(formvalue.role =='is_hsch'){
-          formData.append('is_te', 'False');
-          formData.append('is_npd', 'False');
-          formData.append('is_tm', 'False');
-          formData.append('is_cto', 'False');
-          formData.append('is_md', 'False');
-          formData.append('is_hsch', 'True');
-          formData.append('is_hm', 'False');
-          formData.append('is_admin', 'False');
-        };
+        // if(formvalue.role =='is_hsch'){
+        //   formData.append('is_te', 'False');
+        //   formData.append('is_npd', 'False');
+        //   formData.append('is_tm', 'False');
+        //   formData.append('is_cto', 'False');
+        //   formData.append('is_md', 'False');
+        //   // formData.append('is_hsch', 'True');
+        //   formData.append('is_hm', 'False');
+        //   formData.append('is_admin', 'False');
+        // };
         if(formvalue.role =='is_hm'){
           formData.append('is_te', 'False');
           formData.append('is_npd', 'False');
           formData.append('is_tm', 'False');
           formData.append('is_cto', 'False');
           formData.append('is_md', 'False');
-          formData.append('is_hsch', 'False');
+          // formData.append('is_hsch', 'False');
           formData.append('is_hm', 'True');
           formData.append('is_admin', 'False');
         };
@@ -497,9 +497,9 @@ addNewUser( formvalue:any
       formData.append('email', formvalue.email);
       formData.append('in_approval_workflow', 'True');
       formData.append('registration_approved', 'False');
-      formData.append('registration_status', 'Submitted and Awaiting HSCH Approval');
+      formData.append('registration_status', 'Submitted and Awaiting CTO Approval');
       formData.append('declined', "False");
-      formData.append('hsch_is_contractor_approved', 'False');
+      formData.append('cto_is_contractor_approved', 'False');
       if(formvalue.nemsa_test_cert){
       formData.append('coren_or_nemsa_competency', formvalue.nemsa_test_cert);
       
@@ -527,17 +527,17 @@ addNewUser( formvalue:any
       const url = this.masterdomain + 'approveordecline/' + id + '/';
       const formData = new FormData();
       if(action == 'Approve'){
-        if(User.getUser().is_hsch == true){
+        // if(User.getUser().is_hsch == true){
  
-          formData.append('hsch_is_contractor_approved', 'True');
-          formData.append('cto_is_contractor_approved', 'False');
-          formData.append('md_is_contractor_approved', 'False');
-          formData.append('hsch_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
-          formData.append('hsch_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
-          formData.append('registration_status', 'Approved By HSCH. Awaiting CTO Approval');
-          formData.append('hsch_memo', form.memo);
+        //   formData.append('hsch_is_contractor_approved', 'True');
+        //   formData.append('cto_is_contractor_approved', 'False');
+        //   formData.append('md_is_contractor_approved', 'False');
+        //   formData.append('hsch_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+        //   formData.append('hsch_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+        //   formData.append('registration_status', 'Approved By HSCH. Awaiting CTO Approval');
+        //   formData.append('hsch_memo', form.memo);
 
-        }
+        // }
 
         if(User.getUser().is_cto == true){
        
@@ -570,11 +570,7 @@ addNewUser( formvalue:any
         formData.append('declined_comment', form.comment);
         formData.append('registration_status', 'Registration Declined.');
 
-        if(User.getUser().is_hsch == true){
-
-          formData.append('hsch_memo', form.memo);
-
-        }
+       
 
         if(User.getUser().is_cto == true){
 
@@ -653,52 +649,54 @@ addNewUser( formvalue:any
         formData.append('eval_findings', form.eval_findings);
         formData.append('eval_scopework', form.eval_scopework);
         formData.append('eval_recom', form.eval_recom);
-
-
-        formData.append('eval_titlepro', form.eval_titlepro);
-        formData.append('eval_usercom', form.eval_usercom);
-        formData.append('eval_projmaincat', form.eval_projmaincat);
-        formData.append('eval_dtrating', form.eval_dtrating);
-        formData.append('eval_voltlevel', form.eval_voltlevel);
-        formData.append('eval_subhead', form.eval_subhead);
-        formData.append('eval_voltage_level', form.eval_voltage_level);
-        formData.append('eval_datevisit', form.eval_datevisit);
-        formData.append('eval_specloc', form.eval_specloc);
-        formData.append('eval_majchaexidss', form.eval_majchaexidss);
         
-        formData.append('eval_nameofsub', form.eval_nameofsub);
-        formData.append('eval_rating', form.eval_rating);
-        formData.append('eval_loading', form.eval_loading);
-        formData.append('eval_loadpercent', form.eval_loadpercent);
-        formData.append('eval_2yrsloadproj', form.eval_2yrsloadproj);
-        formData.append('eval_2yrsloadprojpercent', form.eval_2yrsloadprojpercent);
-        formData.append('eval_amtbillkwh', form.eval_amtbillkwh);
-        formData.append('eval_amtbillnaira', form.eval_amtbillnaira);
-        formData.append('eval_collection', form.eval_collection);
-        formData.append('eval_collectioneff', form.eval_collectioneff);
+        formData.append('eval_pcm', form.eval_pcm);
+        formData.append('eval_otherdoc', form.eval_otherdoc);
+
+        // formData.append('eval_titlepro', form.eval_titlepro);
+        // formData.append('eval_usercom', form.eval_usercom);
+        // formData.append('eval_projmaincat', form.eval_projmaincat);
+        // formData.append('eval_dtrating', form.eval_dtrating);
+        // formData.append('eval_voltlevel', form.eval_voltlevel);
+        // formData.append('eval_subhead', form.eval_subhead);
+        // formData.append('eval_voltage_level', form.eval_voltage_level);
+        // formData.append('eval_datevisit', form.eval_datevisit);
+        // formData.append('eval_specloc', form.eval_specloc);
+        // formData.append('eval_majchaexidss', form.eval_majchaexidss);
+        
+        // formData.append('eval_nameofsub', form.eval_nameofsub);
+        // formData.append('eval_rating', form.eval_rating);
+        // formData.append('eval_loading', form.eval_loading);
+        // formData.append('eval_loadpercent', form.eval_loadpercent);
+        // formData.append('eval_2yrsloadproj', form.eval_2yrsloadproj);
+        // formData.append('eval_2yrsloadprojpercent', form.eval_2yrsloadprojpercent);
+        // formData.append('eval_amtbillkwh', form.eval_amtbillkwh);
+        // formData.append('eval_amtbillnaira', form.eval_amtbillnaira);
+        // formData.append('eval_collection', form.eval_collection);
+        // formData.append('eval_collectioneff', form.eval_collectioneff);
 
            
-        formData.append('eval_fdrname2', form.eval_fdrname2);
-        formData.append('eval_fdravail', form.eval_fdravail);
-        formData.append('eval_fdrcapacity2', form.eval_fdrcapacity2);
-        formData.append('eval_fdrtrendpeak', form.eval_fdrtrendpeak);
-        formData.append('eval_fdrdate', form.eval_fdrdate);
-        formData.append('eval_cumload2', form.eval_cumload2);
-        formData.append('eval_srcfeeder2', form.eval_srcfeeder2);
-        formData.append('eval_projcost', form.eval_projcost);
-        formData.append('eval_sanctioncost', form.eval_sanctioncost);
-        formData.append('eval_capcontribproj', form.eval_capcontribproj);
-        formData.append('eval_donor', form.eval_donor);
-        formData.append('eval_ibedc', form.eval_ibedc);
-        formData.append('eval_aprovmbgrant', form.eval_aprovmbgrant);
-        formData.append('eval_recmetertyp', form.eval_recmetertyp);
-        formData.append('eval_statmeter', form.eval_statmeter);
-        formData.append('eval_specoment2', form.eval_specoment2);
-        formData.append('eval_custreq', form.eval_custreq);
-        formData.append('eval_condiag', form.eval_condiag);
-        formData.append('eval_schdiag', form.eval_schdiag);
-        formData.append('eval_sitevform', form.eval_sitevform);
-        formData.append('eval_projplanby', form.eval_projplanby);
+        // formData.append('eval_fdrname2', form.eval_fdrname2);
+        // formData.append('eval_fdravail', form.eval_fdravail);
+        // formData.append('eval_fdrcapacity2', form.eval_fdrcapacity2);
+        // formData.append('eval_fdrtrendpeak', form.eval_fdrtrendpeak);
+        // formData.append('eval_fdrdate', form.eval_fdrdate);
+        // formData.append('eval_cumload2', form.eval_cumload2);
+        // formData.append('eval_srcfeeder2', form.eval_srcfeeder2);
+        // formData.append('eval_projcost', form.eval_projcost);
+        // formData.append('eval_sanctioncost', form.eval_sanctioncost);
+        // formData.append('eval_capcontribproj', form.eval_capcontribproj);
+        // formData.append('eval_donor', form.eval_donor);
+        // formData.append('eval_ibedc', form.eval_ibedc);
+        // formData.append('eval_aprovmbgrant', form.eval_aprovmbgrant);
+        // formData.append('eval_recmetertyp', form.eval_recmetertyp);
+        // formData.append('eval_statmeter', form.eval_statmeter);
+        // formData.append('eval_specoment2', form.eval_specoment2);
+        // formData.append('eval_custreq', form.eval_custreq);
+        // formData.append('eval_condiag', form.eval_condiag);
+        // formData.append('eval_schdiag', form.eval_schdiag);
+        // formData.append('eval_sitevform', form.eval_sitevform);
+        // formData.append('eval_projplanby', form.eval_projplanby);
 
 
 

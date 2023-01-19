@@ -19,11 +19,11 @@
         </p>
 
         <p style="line-height: 2.5;" *ngIf="!connection?.declined">
-        <span *ngIf="connection?.hsch_is_contractor_approved">
+        <!-- <span *ngIf="connection?.hsch_is_contractor_approved">
             <strong>HSCH Approval:</strong> {{connection?.hsch_approved_by}} approved contractor registration on 
             {{connection?.hsch_is_contractor_approved_date}} 
             <a [href]="connection?.hsch_memo" target="_blank"><button mat-raised-button>view additional file</button></a><br>
-        </span>
+        </span> -->
         <span *ngIf="connection?.cto_is_contractor_approved">
             <strong>CTO Approval:</strong> {{connection?.cto_approved_by}} approved contractor registration on 
              {{connection?.cto_is_contractor_approved_date}} 

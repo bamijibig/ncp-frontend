@@ -3,6 +3,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
+import { filter } from 'rxjs/internal/operators/filter';
 import { AppserviceService } from 'src/app/appservice.service';
 import { AuditTrailComponent } from './audit-trail/audit-trail.component';
 import { ActionDialogComponent } from './dialog/action-dialog/action-dialog.component';
@@ -15,7 +16,6 @@ import { AllContractorFormDialogComponent } from './dialog/all-contractor-form-d
   styleUrls: ['./all-contractors.component.css']
 })
 export class AllContractorsComponent implements OnInit {
-
  displayedColumns = ['name', 'address', 'email', 'phone', 'license','nemsa','status','approve','decline']
  displayedColumnsList = ['name', 'address', 'email', 'phone', 'license','nemsa','status','trail']
   dataSource= new MatTableDataSource<any>([])
@@ -29,9 +29,12 @@ export class AllContractorsComponent implements OnInit {
     private dialog: MatDialog) { this.consumeapi();
     }
   ngOnInit(): void {
+    
     this.consumeapi();
     this.getMyApprovals();
+     
 }
+
   consumeapi() {
     this.api.getContractorUsers().subscribe(
       (resp) => {
@@ -78,6 +81,14 @@ export class AllContractorsComponent implements OnInit {
         row: row
       }
     });
+  }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
 //   addNew(){

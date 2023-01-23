@@ -30,6 +30,7 @@ export class AllconnectionComponent implements OnInit {
     this.consumeapi();
     this.getPrecommissioningList();
 }
+
   consumeapi() {
     this.api.getContractorConnections().subscribe(
       (resp) => {
@@ -109,5 +110,15 @@ export class AllconnectionComponent implements OnInit {
       this.consumeapi();
       this.getPrecommissioningList();
     })
+  
+
+  }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 }

@@ -268,6 +268,11 @@ export class AppserviceService {
     return this.http.get(url)
   }
 
+  getContractorunsubmitUsers(): Observable<any> {
+    const url = this.masterdomain + 'list/user/unsubmitcontractors';
+    return this.http.get(url)
+  }
+
 
   getContractorDetails(id: any): Observable<any> {
     const url = this.masterdomain + 'contractors/' + id + '/';

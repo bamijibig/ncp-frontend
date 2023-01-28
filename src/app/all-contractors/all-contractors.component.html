@@ -129,7 +129,7 @@
         </mat-tab>
 
 
-        <mat-tab label="Unsubmitted Contractors"> 
+        <mat-tab label="Unsubmitted"> 
           <div class="container">
          
         <div class="row">
@@ -138,7 +138,7 @@
               <button mat-raised-button color='primary'  (click)="addNew()" >Add new Contractor</button>
           </div> -->
           <div class="example-container mat-elevation-z8 table table-responsive">
-              <mat-table #table [dataSource]="dataSource" >
+              <mat-table #table [dataSource]="dataSource">
 
                 
             
@@ -146,9 +146,9 @@
               The actual rendered columns are set as a property on the row definition" -->
                 <!-- id Column -->
      
-                <ng-container matColumnDef="name" >
-                  <mat-header-cell *matHeaderCellDef >Contractor Name</mat-header-cell>
-                  <mat-cell *matCellDef="let element" > {{element.contractor_name}} </mat-cell>
+                <ng-container matColumnDef="name">
+                  <mat-header-cell *matHeaderCellDef>Contractor Name</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.contractor_name}} </mat-cell>
                 </ng-container>
                 <!-- <ng-container matColumnDef="region">
                   <mat-header-cell *matHeaderCellDef>Region</mat-header-cell>
@@ -185,15 +185,14 @@
                 <ng-container matColumnDef="nemsa">
                   <mat-header-cell *matHeaderCellDef> NEMSA/COREN Certificate </mat-header-cell>
                   <mat-cell *matCellDef="let element">  <a [href]="element?.coren_or_nemsa_competency" target="_blank">View</a> </mat-cell>
-                  
                 </ng-container>
 
                 <ng-container matColumnDef="status">
                   <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
                   <mat-cell *matCellDef="let element"> 
-                    <span *ngIf="element.registration_status">{{element.registration_status.Unsubmitted}} </span>
+                    <span *ngIf="element.registration_status">{{element.registration_status}} </span>
                     
-                    <span *ngIf="!element.registration_status">Unsubmitted </span>
+                    <!-- <span *ngIf="!element.registration_status">Unsubmitted </span> -->
                   </mat-cell>
                 </ng-container>
           
@@ -203,15 +202,15 @@
                   <mat-cell *matCellDef="let element">
                      
                   
-                      <button mat-raised-button color="secondary" (click)="trail(element)">Approval Trail</button> 
+                      
                   
                   </mat-cell>
                 </ng-container>
                
             
 
-                <mat-header-row *matHeaderRowDef="displayedColumnsList"></mat-header-row>
-                <mat-row *matRowDef="let row; columns: displayedColumnsList;"></mat-row>
+                <mat-header-row *matHeaderRowDef="displayedcolumnunsubmit"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedcolumnunsubmit;"></mat-row>
 
                 <tr class="mat-row" *matNoDataRow>
                   <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
@@ -228,8 +227,6 @@
       </div>
     </div>
         </mat-tab>
-
-
         <mat-tab label="My Approvals">
           <div class="container">
         <div class="row">

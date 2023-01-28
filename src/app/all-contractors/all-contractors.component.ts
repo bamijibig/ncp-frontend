@@ -18,6 +18,8 @@ import { AllContractorFormDialogComponent } from './dialog/all-contractor-form-d
 export class AllContractorsComponent implements OnInit {
  displayedColumns = ['name', 'address', 'email', 'phone', 'license','nemsa','status','approve','decline']
  displayedColumnsList = ['name', 'address', 'email', 'phone', 'license','nemsa','status','trail']
+ displayedcolumnunsubmit = ['name', 'address', 'email', 'phone', 'license','nemsa','status']
+  dataSourceUnsubmit =new MatTableDataSource<any>([])
   dataSource= new MatTableDataSource<any>([])
   dataSourceApproval= new MatTableDataSource<any>([])
   selection = new SelectionModel<any>(true, [])
@@ -32,6 +34,7 @@ export class AllContractorsComponent implements OnInit {
     
     this.consumeapi();
     this.getMyApprovals();
+    this.consumeunsubmitapi();
      
 }
 
@@ -44,6 +47,13 @@ export class AllContractorsComponent implements OnInit {
       },
       (error) => { console.error(error); }
     );
+  }
+  consumeunsubmitapi(){
+    this.api.getContractorunsubmitUsers().subscribe(
+      (resp) =>{
+        this.dataSourceUnsubmit.data=resp;
+      }
+    )
   }
 
   getMyApprovals() {

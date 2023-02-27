@@ -74,6 +74,43 @@
                         </mat-form-field>
                       </div>
                 </div>
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Select Staff Type</mat-label>
+                      <mat-select formControlName="stafftype" required>
+                          <!-- <mat-option *ngFor="let section of sectionavailable" [value]="section.id"> {{section.title}} </mat-option> -->
+                     <mat-option [value]="'hqstaff'">Headquarters Staff</mat-option>
+                     <mat-option [value]="'regionstaff'">Regional Staff</mat-option>
+                     <mat-option [value]="'businesshubstaff'">Business Hub Staff</mat-option>
+                    
+                      </mat-select>
+                     
+                  </mat-form-field>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2" *ngIf="staffForm.get('stafftype')?.value == 'regionstaff' || staffForm.get('stafftype')?.value == 'businesshubstaff'">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Select Region</mat-label>
+                        <mat-select formControlName="region" (selectionChange)="getHubs($event)" required>
+                            <mat-option *ngFor="let region of allregions" [value]="region.id"> {{region?.region}} </mat-option>
+                  
+                      
+                        </mat-select>
+                       
+                    </mat-form-field>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2" *ngIf="staffForm.get('stafftype')?.value == 'businesshubstaff'">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Select Business Hub</mat-label>
+                        <mat-select formControlName="businesshub" required>
+                            <mat-option *ngFor="let hub of hubs" [value]="hub.id"> {{hub?.businesshub}} </mat-option>
+                  
+                      
+                        </mat-select>
+                       
+                    </mat-form-field>
+                    </div>
+              </div>
                 <div class="row" *ngIf="action=='add'">
                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
                         <mat-form-field class="example-full-width" appearance="outline">

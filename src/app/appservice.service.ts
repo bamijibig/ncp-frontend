@@ -126,6 +126,7 @@ export class AppserviceService {
     formData.append('username', formvalue.username);
     formData.append('email', formvalue.username);
     formData.append('password1', formvalue.password);
+    
     formData.append('password2', formvalue.password2);
     formData.append('password', formvalue.password);
     formData.append('is_contractor', 'True');
@@ -360,6 +361,9 @@ addNewUser( formvalue:any
     formData.append('tel_no', formvalue.phone_number);
     formData.append('password1', formvalue.password);
     formData.append('password2', formvalue.confirm_pass);
+    formData.append('staff_type', formvalue.stafftype);
+    formData.append('region', formvalue.region);
+    formData.append('businesshub', formvalue.businesshub);
     formData.append('password', formvalue.password);
     formData.append('first_name',formvalue.first_name);
     formData.append('last_name', formvalue.last_name);
@@ -403,6 +407,9 @@ addNewUser( formvalue:any
        
         formData.append('first_name',formvalue.first_name);
         formData.append('last_name', formvalue.last_name);
+        formData.append('staff_type', formvalue.stafftype);
+        formData.append('region', formvalue.region);
+        formData.append('businesshub', formvalue.businesshub);
         formData.append('job_title', formvalue.jobtitle);
         formData.append('role', formvalue.role);
         if(formvalue.role =='is_tm'){

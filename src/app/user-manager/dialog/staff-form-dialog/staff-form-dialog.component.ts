@@ -13,6 +13,8 @@ export class StaffFormDialogComponent implements OnInit {
   staffForm: FormGroup;
   action: any;
   staffRecord: any;
+  allregions: any;
+  hubs: any;
   constructor(
     private apiService: AppserviceService,
     private snackBar: MatSnackBar,
@@ -21,6 +23,8 @@ export class StaffFormDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) {
     this.action = data.action;
+    this.getRegions();
+    
     this.staffForm = new FormGroup({
       role: new FormControl(''),
       email: new FormControl(''),
@@ -29,7 +33,9 @@ export class StaffFormDialogComponent implements OnInit {
       first_name: new FormControl(''),
       last_name: new FormControl(''),
       jobtitle: new FormControl(''),
-
+      stafftype: new FormControl(''),
+      region: new FormControl(''),
+      businesshub: new FormControl(''),
       phone_number: new FormControl(''),
  
     });
@@ -43,11 +49,35 @@ export class StaffFormDialogComponent implements OnInit {
         last_name: data.row.last_name,
         jobtitle: data.row.job_title,
         phone_number: data.row.tel_no,
+        stafftype: data.row.staff_type,
+        region: data.row.region,
+        businesshub: data.row.businesshub
    
       });
     };
 
    }
+
+   getRegions() {
+    this.apiService.getRegion().subscribe(
+      (resp) => {
+        this.allregions = resp;
+
+      },
+      (error) => { console.error(error); }
+    );
+  }
+
+  getHubs(region_id: any) {
+    this.apiService.getBhubFiltered(region_id.value).subscribe(
+      (resp) => {
+        this.hubs = resp;
+
+      },
+      (error) => { console.error(error); }
+    );
+  }
+
 
   ngOnInit(): void {
   }

@@ -136,6 +136,8 @@ export class AppserviceService {
     formData.append('job_title', 'NA');
     formData.append('role', 'Contractor');
     formData.append('tel_no', '');
+    formData.append('region', '');
+    formData.append('businesshub', '');
   
     return this.http.post(url,formData)
   }

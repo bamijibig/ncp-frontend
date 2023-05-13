@@ -14,6 +14,7 @@ import { port } from './port';
 })
 export class AppComponent implements OnInit {
   loginForm: FormGroup;
+  resetForm: FormGroup;
   is_contractor: Boolean = false;
   is_admin: Boolean = false;
   is_tm: Boolean = false;
@@ -24,6 +25,12 @@ export class AppComponent implements OnInit {
   is_md: Boolean = false;
   is_hsch: Boolean = false;
   is_superuser: Boolean = false;
+
+  resetpassword: Boolean = false;
+  errorreset: Boolean = false;
+  errorresetemail: Boolean = false;
+  loginerror: Boolean = false;
+
   constructor(
     public _router: Router,
     private appService:AppserviceService
@@ -35,6 +42,14 @@ export class AppComponent implements OnInit {
       group: new FormControl('CONTRACTOR')
   })
 
+  this.resetForm= new FormGroup({
+    email: new FormControl('', Validators.required),
+    resetpassword1: new FormControl('', Validators.required),
+    resetpassword2: new FormControl('', Validators.required),
+    reset_token: new FormControl('', Validators.required),
+})
+
+ 
   console.log(User.getUser())
   this.is_contractor = User.getUser()?.is_contractor;
   this.is_admin = User.getUser()?.is_admin;
@@ -48,8 +63,39 @@ export class AppComponent implements OnInit {
   this.is_superuser = User.getUser()?.is_superuser;
 
   }
-  
+  resetPass(){
+    this.resetpassword = true;
+  }
+
+  clearReset(){
+    this.resetpassword = false;
+  }
   submit(){}
+  submitted = false;
+
+  resetsubmit(){
+    this.appService.resetPassword(this.resetForm.get('email')?.value).subscribe(()=>{
+      this.submitted = true;
+    },
+    (error)=>{
+      console.error(error);
+      this.errorresetemail = true;
+    });
+  }
+
+  finalreset(){
+    const resettoken = this.resetForm.get("reset_token")?.value;
+    const password = this.resetForm.get("resetpassword1")?.value;
+    this.appService.resetPasswordConfirm(resettoken, password).subscribe(()=>{
+      this.clearReset();
+      this.submitted = false;
+    },
+    (error)=>{
+      console.error(error);
+      this.errorreset = true;
+    });
+  }
+
 
   ngOnInit(): void {
   }
@@ -70,11 +116,14 @@ export class AppComponent implements OnInit {
         
         }
         else {
-        this._router.navigateByUrl('/dashboard')
+        this._router.navigateByUrl('/all-contractors')
           .then(() => {
             window.location.reload();
           });
         }
+      },
+      ()=>{
+        this.loginerror = true
       }
     )
     }
@@ -94,4 +143,6 @@ export class AppComponent implements OnInit {
     })
   }
 
+
+  
 }

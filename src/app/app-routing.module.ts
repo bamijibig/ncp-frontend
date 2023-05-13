@@ -9,6 +9,7 @@ import { RegionComponent } from './region/region.component';
 import { ContractorRegComponent } from './registration/contractor-reg/contractor-reg.component';
 import { SettingsComponent } from './settings/settings.component';
 import { UserManagerComponent } from './user-manager/user-manager.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
 
 const routes: Routes = [
 
@@ -16,6 +17,11 @@ const routes: Routes = [
     
     path: 'dashboard',
     component: DashboardComponent
+  },
+  {
+    
+    path: 'reset-password',
+    component: PasswordResetComponent
   },
   {
     

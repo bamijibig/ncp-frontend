@@ -28,6 +28,7 @@ export class User {
     public reg_date?: any,
     public tel_no?: any,
     public user_permissions?: any,
+    public job_title?: any,
 
   ) {}
 
@@ -61,6 +62,7 @@ export class User {
       data.reg_date,
       data.tel_no,
       data.user_permissions,  
+      data.job_title,  
         );
   }
 

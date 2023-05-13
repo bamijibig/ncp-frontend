@@ -878,5 +878,19 @@ addNewUser( formvalue:any
       return this.http.patch(url,formData,{headers:headers})
     }
 
+    resetPassword(email: any){
+      const url = this.masterdomain + 'api/password_reset/';
+      const formData = new FormData();
+      formData.append('email', email );
+      return this.http.post(url, formData);
+    }
+    
+    resetPasswordConfirm(token: any, newpassword: any){
+      const url = this.masterdomain + 'api/password_reset/confirm/';
+      const formData = new FormData();
+      formData.append('token', token );
+      formData.append('password', newpassword);
+      return this.http.post(url, formData);
+    }
     
   }

@@ -11,6 +11,9 @@ import { User } from 'src/app/globalservice/global-service.service';
 export class AdminLayoutComponent implements OnInit {
   is_admin = User.getUser().is_admin;
   is_superuser = User.getUser().is_superuser;
+  loggedinuser = User.getUser().first_name + " " + User.getUser().last_name
+  userrole = User.getUser().role
+  jobtitle = User.getUser().job_title
   constructor(
     public _router: Router,
     private appService:AppserviceService

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppserviceService } from 'src/app/appservice.service';
+import { User } from 'src/app/globalservice/global-service.service';
 
 @Component({
   selector: 'app-contractor-layout',
@@ -8,7 +9,7 @@ import { AppserviceService } from 'src/app/appservice.service';
   styleUrls: ['./contractor-layout.component.css']
 })
 export class ContractorLayoutComponent implements OnInit {
-
+  loggedinuser = User.getUser().contractor_name
   constructor(
     public _router: Router,
     private appService:AppserviceService

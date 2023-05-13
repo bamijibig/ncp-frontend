@@ -25,10 +25,110 @@
 
             <img src="../assets/images/logo2.png" alt="logo" class="dark-logo" style="max-width:100px"/>
         </div>
+        <section *ngIf="resetpassword" class="text-center">
+            <ng-template [ngIf]="!submitted">
+            <div class="signup-form">
+                <form class="m-4" [formGroup]="resetForm" (ngSubmit)="submit()">
+                    
+                    <h2>Reset Password</h2>
+                    <p class="hint-text">Enter your email to reset your password</p>
+                    
+                      <div class=" col-12">
+                
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>Email</mat-label>
+                                <input matInput formControlName="email" required>
+                                <mat-icon matSuffix>face</mat-icon>
+                                <!-- <mat-error *ngIf="loginForm.get('username').hasError('required')">
+                                    Username is required
+                                </mat-error> -->
+                            </mat-form-field>
+                        </div>
+                  
+                       
+                      
+                    <div class="form-group">
+                        <button type="button" (click)="resetsubmit()" class="btn btn-success btn-lg btn-block">Submit</button>
+                    </div>
+                    <div class="text-danger" *ngIf="errorresetemail">
+                        Please enter a valid email that is registered on the platform
+                    </div>
+                  
+                </form>
+               
+                
+            </div>
+            </ng-template>
+            <ng-template [ngIf]="submitted">
+                <div class="signup-form">
+                    <form class="m-4" [formGroup]="resetForm" (ngSubmit)="submit()">
+                        
+                        <h2>Choose New Password</h2>
+                        <!-- <p class="hint-text">Enter your email to reset your password</p> -->
+                        <span class="text-center">
+                            A reset token has been sent to your email. Please enter the token and 
+                            choose a new password below.
+                          </span>
+         <div class="col-12 mt-2">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Enter Reset Token Sent</mat-label>
+                <input matInput type="text" formControlName="reset_token">
+              </mat-form-field>
+         </div>              
+        <div class=" col-12">
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>New Password</mat-label>
+                <input type="password" matInput formControlName="resetpassword1"required>
+                <mat-icon matSuffix>vpn_key</mat-icon>
+                <!-- <mat-error *ngIf="loginForm.get('password').hasError('required')">
+                    Password is required
+                </mat-error> -->
+            </mat-form-field>
+     
+    </div>
+    <!-- <div class=" col-12">
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Confirm New Password</mat-label>
+            <input type="password" matInput formControlName="ressetpassword2"required>
+            <mat-icon matSuffix>vpn_key</mat-icon>
+            <!-- <mat-error *ngIf="loginForm.get('password').hasError('required')">
+                Password is required
+           
+        </mat-form-field>
+ 
+</div> -->
+                      
+                           
+                          
+                        <div class="form-group">
+                            <button type="button" (click)="finalreset()" class="btn btn-success btn-lg btn-block">Submit</button>
+                        </div>
+                        <div class="text-danger" *ngIf="errorreset">
+                            Oops!!! An error occurred. Check to confirm you entered the correct token
+                        </div>
+        
+                      
+                    </form>
+                   
+                    
+                </div>
+            </ng-template>
+            
+    
+            <div class="text-center my-5">
+                <button mat-raised-button (click)="clearReset()">Back to Login/Register</button>
+              </div>
+
+        </section>
+        <section *ngIf="!resetpassword">
 <mat-tab-group mat-align-tabs="center">
+   
     <mat-tab label="Login">
         <div class="signup-form">
             <form class="m-4" [formGroup]="loginForm" (ngSubmit)="submit()">
+                
                 <h2>Login</h2>
                 <p class="hint-text">Login to Your Account</p>
                 
@@ -60,11 +160,22 @@
                 <div class="form-group">
                     <button type="button" (click)="login()" class="btn btn-success btn-lg btn-block">Login</button>
                 </div>
+
+                <div class="text-danger" *ngIf="loginerror">
+                    Oops!!! Please check your login credentials
+                </div>
+
+                <div>
+                    <a (click)="resetPass()">Forgot Password? Click here</a>
+                  </div>
             </form>
+           
             <!-- <div class="text-center">Don't have an account? 
                 <button mat-raised-button>Register</button>
             </div> -->
         </div>
+
+       
     </mat-tab>
     <mat-tab label="Register">
         
@@ -124,6 +235,7 @@
 
     </mat-tab>
   </mat-tab-group>
+  </section>
 </div>
 </div>
 </div>

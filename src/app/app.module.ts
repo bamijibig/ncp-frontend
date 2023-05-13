@@ -52,6 +52,7 @@ import { ConnectionPrecomTestComponent } from './connection/dialog/connection-pr
 import { ErrorInterceptor } from './error.interceptor';
 import { SettingsComponent } from './settings/settings.component';
 import { AuditTrailComponent } from './all-contractors/audit-trail/audit-trail.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
 
 
 @NgModule({
@@ -85,6 +86,7 @@ import { AuditTrailComponent } from './all-contractors/audit-trail/audit-trail.c
     ConnectionPrecomTestComponent,
     SettingsComponent,
     AuditTrailComponent,
+    PasswordResetComponent,
     
   ],
   imports: [

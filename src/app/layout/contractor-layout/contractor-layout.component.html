@@ -91,8 +91,8 @@
                             <img src="../assets/images/users/profile.png" alt="user" class="rounded-circle" width="31">
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i>
-                                My Profile</a>
+                            <!-- <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i>
+                                My Profile</a> -->
                             <button class="dropdown-item" (click)="logout()"><i class="ti-wallet m-r-5 m-l-5"></i>
                                 Logout</button>
                             <!-- <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i>
@@ -118,9 +118,16 @@
             <!-- Sidebar navigation-->
             <nav class="sidebar-nav">
                 <ul id="sidebarnav">
-                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                    <li>
+                        <p class="py-3 text-center">
+                        Welcome<br>
+                        <strong>{{loggedinuser}}</strong><br>
+                        <small>Contractor</small>
+                    </p>
+                    </li>
+                    <!-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                         routerLink="/dashboard" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
-                                class="hide-menu">Dashboard</span></a></li>
+                                class="hide-menu">Dashboard</span></a></li> -->
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                         routerLink="/contractor_reg" aria-expanded="false"><i
                                 class="mdi mdi-account-network"></i><span class="hide-menu">Registration Profile</span></a></li>

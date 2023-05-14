@@ -502,7 +502,7 @@ addNewUser( formvalue:any
 
   updateContractorRegistration( formvalue:any, id: any
     ): Observable<any> {
-      const url = this.masterdomain + 'contractors/' + id + '/';
+      const url = this.masterdomain + 'updatecontractorreg/' + id + '/';
       const formData = new FormData();
       formData.append('contractor_name', formvalue.contractor_name);
       formData.append('con_address', formvalue.con_address);
@@ -586,18 +586,18 @@ addNewUser( formvalue:any
 
        
 
-        if(User.getUser().is_cto == true){
+        // if(User.getUser().is_cto == true){
 
-          formData.append('cto_memo', form.memo);
+        //   formData.append('cto_memo', form.memo);
 
-        }
+        // }
 
-        if(User.getUser().is_md == true){
+        // if(User.getUser().is_md == true){
 
-          formData.append('md_memo', form.memo);
+        //   formData.append('md_memo', form.memo);
           
 
-        }
+        // }
       }
       
       const reqtoken = this.getToken();

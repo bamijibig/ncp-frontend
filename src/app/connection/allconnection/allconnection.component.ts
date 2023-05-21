@@ -16,7 +16,9 @@ import { ConnectionReqPrecomComponent } from '../dialog/connection-req-precom/co
 export class AllconnectionComponent implements OnInit {
 
  displayedColumns = ['region','hub', 'company_name', 'connectiontype','useofpremises','date_of_application','status','edit']
-  dataSource= new MatTableDataSource<any>([])
+ displayedColumnslist = ['region','hub', 'company_name', 'connectiontype','useofpremises','date_of_application','status','view','edit']
+   
+ dataSource= new MatTableDataSource<any>([])
   dataSourcePrecom= new MatTableDataSource<any>([])
   selection = new SelectionModel<any>(true, [])
   is_contractor = User.getUser().is_contractor

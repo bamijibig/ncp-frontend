@@ -89,14 +89,19 @@
                     <ng-container matColumnDef="edit">
                       <mat-header-cell *matHeaderCellDef> </mat-header-cell>
                       <mat-cell *matCellDef="let element">
-                        <!-- <button mat-raised-button color="secondary" (click)="edit(element)" *ngIf="is_contractor">Edit</button> -->
-                      <!-- &nbsp; &nbsp;  -->
+                        <button mat-raised-button color="secondary" (click)="edit(element)" *ngIf="is_contractor && !element.in_approval_workflow">Edit</button> 
+                      </mat-cell>  
+                      </ng-container>
+                    <ng-container matColumnDef="view">
+                      <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                      <mat-cell *matCellDef="let element">
+                        
                       <button mat-raised-button color="secondary" (click)="view(element)" *ngIf="is_contractor">View</button> </mat-cell>
                     </ng-container>
                   
                 
-                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                    <mat-header-row *matHeaderRowDef="displayedColumnslist"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumnslist;"></mat-row>
                   </mat-table>
                   <mat-paginator #paginator
                                  [pageSize]="10"

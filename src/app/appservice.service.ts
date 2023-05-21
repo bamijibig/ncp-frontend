@@ -540,64 +540,41 @@ addNewUser( formvalue:any
     ): Observable<any> {
       const url = this.masterdomain + 'approveordecline/' + id + '/';
       const formData = new FormData();
+      formData.append('action', action);
       if(action == 'Approve'){
-        // if(User.getUser().is_hsch == true){
- 
-        //   formData.append('hsch_is_contractor_approved', 'True');
-        //   formData.append('cto_is_contractor_approved', 'False');
-        //   formData.append('md_is_contractor_approved', 'False');
-        //   formData.append('hsch_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
-        //   formData.append('hsch_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
-        //   formData.append('registration_status', 'Approved By HSCH. Awaiting CTO Approval');
-        //   formData.append('hsch_memo', form.memo);
+      
+              if(User.getUser().is_cto == true){
+                formData.append('approval_role', 'cto');
+                formData.append('cto_is_contractor_approved', 'True');
+                formData.append('cto_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+                formData.append('cto_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+                formData.append('registration_status', 'Approved By CTO. Awaiting MD Approval');
+                formData.append('cto_memo', form.memo);
 
-        // }
+              }
 
-        if(User.getUser().is_cto == true){
-       
-          formData.append('cto_is_contractor_approved', 'True');
-          formData.append('cto_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
-          formData.append('cto_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
-          formData.append('registration_status', 'Approved By CTO. Awaiting MD Approval');
-          formData.append('cto_memo', form.memo);
-
-        }
-
-        if(User.getUser().is_md == true){
- 
-          formData.append('md_is_contractor_approved', 'True');
-          formData.append('md_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
-          formData.append('md_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
-          formData.append('registration_status', 'Registration Approval Completed');
-          formData.append('in_approval_workflow', 'False');
-          formData.append('registration_approved', 'True');
-          formData.append('md_memo', form.memo);
-          
+              if(User.getUser().is_md == true){
+                formData.append('approval_role', 'md');
+                formData.append('md_is_contractor_approved', 'True');
+                formData.append('md_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+                formData.append('md_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+                formData.append('registration_status', 'Registration Approval Completed');
+                formData.append('in_approval_workflow', 'False');
+                formData.append('registration_approved', 'True');
+                formData.append('md_memo', form.memo);
+                
 
         }
         
         
       }
       if(action == 'Decline'){
+        
         formData.append('declined', 'True');
         formData.append('in_approval_workflow', 'False');
         formData.append('declined_comment', form.comment);
         formData.append('registration_status', 'Registration Declined.');
 
-       
-
-        // if(User.getUser().is_cto == true){
-
-        //   formData.append('cto_memo', form.memo);
-
-        // }
-
-        // if(User.getUser().is_md == true){
-
-        //   formData.append('md_memo', form.memo);
-          
-
-        // }
       }
       
       const reqtoken = this.getToken();

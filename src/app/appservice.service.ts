@@ -52,6 +52,7 @@ export class AppserviceService {
   ): Observable<any> {
     const url = this.masterdomain + 'connections/';
     const formData = new FormData();
+
     formData.append('contractor', User.getUser().id);
     formData.append('company_name', formvalue.company_name);
     formData.append('connectiontype', formvalue.connectiontype);
@@ -75,14 +76,25 @@ export class AppserviceService {
     formData.append('connection_status', 'Submitted and Awaiting TM Review/Approval');
     formData.append('declined', "False");
     formData.append('tm_is_connection_approved', 'False');
-
-    return this.http.post(url,formData)
+    const reqtoken = this.getToken();
+    const headers = { 'Authorization': 'Token ' + reqtoken};
+    return this.http.post(url,formData,{headers:headers})
   }
 
+  
+  upConnections(id:any):Observable<any>{
+    const url=this.masterdomain + 'connection/approveordecline/' + id + '/';
+    const formData = new FormData();
+    formData.append('action', 'submitconnection');
+    const reqtoken = this.getToken();
+    const headers = { 'Authorization': 'Token ' + reqtoken};
+    return this.http.patch(url,formData,{headers:headers})
+  }
 
   editConnections(formvalue:any, id:any):Observable<any>{
-    const url=this.masterdomain + 'connections/'+ id +'/';
+    const url=this.masterdomain + 'connection/approveordecline/' + id + '/';
     const formData = new FormData();
+    formData.append('action', 'submitconnection');
     formData.append('company_name', formvalue.company_name);
     formData.append('connectiontype', formvalue.connectiontype);
     formData.append('capacity', formvalue.capacity);
@@ -104,11 +116,14 @@ export class AppserviceService {
     formData.append('connection_status', 'Submitted and Awaiting TM Review/Approval');
     formData.append('declined', "False");
     formData.append('tm_is_connection_approved', 'False');
-    return this.http.put(url,formData)
+    const reqtoken = this.getToken();
+    const headers = { 'Authorization': 'Token ' + reqtoken};
+    return this.http.patch(url,formData,{headers:headers})
   }
   deleteContractor(id:any):Observable<any>{
     const url=this.masterdomain + 'supplier/'+ id +'/';
     return this.http.delete(url)
+    
   }
 
   // FORM FOR REGISTRATION
@@ -602,7 +617,8 @@ addNewUser( formvalue:any
       ): Observable<any> {
         const url = this.masterdomain + 'connection/approveordecline/' + id + '/';
         const formData = new FormData();
-
+        formData.append('approval_role', 'te');
+        formData.append('action', 'Approve');
         formData.append('eval_title', form.eval_title);
         formData.append('eval_applicant', form.eval_applicant);
         formData.append('eval_dt', form.eval_dt);
@@ -643,54 +659,6 @@ addNewUser( formvalue:any
         
         formData.append('eval_pcm', form.eval_pcm);
         formData.append('eval_otherdoc', form.eval_otherdoc);
-
-        // formData.append('eval_titlepro', form.eval_titlepro);
-        // formData.append('eval_usercom', form.eval_usercom);
-        // formData.append('eval_projmaincat', form.eval_projmaincat);
-        // formData.append('eval_dtrating', form.eval_dtrating);
-        // formData.append('eval_voltlevel', form.eval_voltlevel);
-        // formData.append('eval_subhead', form.eval_subhead);
-        // formData.append('eval_voltage_level', form.eval_voltage_level);
-        // formData.append('eval_datevisit', form.eval_datevisit);
-        // formData.append('eval_specloc', form.eval_specloc);
-        // formData.append('eval_majchaexidss', form.eval_majchaexidss);
-        
-        // formData.append('eval_nameofsub', form.eval_nameofsub);
-        // formData.append('eval_rating', form.eval_rating);
-        // formData.append('eval_loading', form.eval_loading);
-        // formData.append('eval_loadpercent', form.eval_loadpercent);
-        // formData.append('eval_2yrsloadproj', form.eval_2yrsloadproj);
-        // formData.append('eval_2yrsloadprojpercent', form.eval_2yrsloadprojpercent);
-        // formData.append('eval_amtbillkwh', form.eval_amtbillkwh);
-        // formData.append('eval_amtbillnaira', form.eval_amtbillnaira);
-        // formData.append('eval_collection', form.eval_collection);
-        // formData.append('eval_collectioneff', form.eval_collectioneff);
-
-           
-        // formData.append('eval_fdrname2', form.eval_fdrname2);
-        // formData.append('eval_fdravail', form.eval_fdravail);
-        // formData.append('eval_fdrcapacity2', form.eval_fdrcapacity2);
-        // formData.append('eval_fdrtrendpeak', form.eval_fdrtrendpeak);
-        // formData.append('eval_fdrdate', form.eval_fdrdate);
-        // formData.append('eval_cumload2', form.eval_cumload2);
-        // formData.append('eval_srcfeeder2', form.eval_srcfeeder2);
-        // formData.append('eval_projcost', form.eval_projcost);
-        // formData.append('eval_sanctioncost', form.eval_sanctioncost);
-        // formData.append('eval_capcontribproj', form.eval_capcontribproj);
-        // formData.append('eval_donor', form.eval_donor);
-        // formData.append('eval_ibedc', form.eval_ibedc);
-        // formData.append('eval_aprovmbgrant', form.eval_aprovmbgrant);
-        // formData.append('eval_recmetertyp', form.eval_recmetertyp);
-        // formData.append('eval_statmeter', form.eval_statmeter);
-        // formData.append('eval_specoment2', form.eval_specoment2);
-        // formData.append('eval_custreq', form.eval_custreq);
-        // formData.append('eval_condiag', form.eval_condiag);
-        // formData.append('eval_schdiag', form.eval_schdiag);
-        // formData.append('eval_sitevform', form.eval_sitevform);
-        // formData.append('eval_projplanby', form.eval_projplanby);
-
-
-
         formData.append('te_is_connection_approved', 'True');
         formData.append('te_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
         formData.append('te_is_connection_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
@@ -703,8 +671,9 @@ addNewUser( formvalue:any
 
       request_precommissioning(id: any, form: any
         ): Observable<any> {
-          const url = this.masterdomain + 'connections/' + id + '/';
+          const url = this.masterdomain + 'connection/approveordecline/' + id + '/';
           const formData = new FormData();
+          formData.append('action', 'precomreq');
           formData.append('security_receipt', form.receipt);
           formData.append('ct_is_pre_requested', 'True');
           formData.append('ct_is_pre_requested_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
@@ -718,6 +687,7 @@ addNewUser( formvalue:any
           ): Observable<any> {
             const url = this.masterdomain + 'connection/approveordecline/' + id + '/';
             const formData = new FormData();
+            formData.append('action', 'submitprecomreq');
             formData.append('precom_project_title', form.precom_project_title);
             formData.append('precom_last_inspection_date', form.precom_last_inspection_date);
             formData.append('precom_project_objectives', form.precom_project_objectives);

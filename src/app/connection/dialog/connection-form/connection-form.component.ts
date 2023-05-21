@@ -164,6 +164,9 @@ console.log(this.connection)
         ).subscribe(
           (result) => {
             console.log(result)
+            this.portadd.upConnections(result.id).subscribe((resp)=>{
+              console.log(resp);
+            })
            
           }
     

@@ -563,23 +563,25 @@ addNewUser( formvalue:any
                 formData.append('cto_is_contractor_approved', 'True');
                 formData.append('cto_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
                 formData.append('cto_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
-                formData.append('registration_status', 'Approved By CTO. Awaiting MD Approval');
+                formData.append('registration_status', 'Registration Approval Completed');
+                formData.append('in_approval_workflow', 'False');
+                formData.append('registration_approved', 'True');
                 formData.append('cto_memo', form.memo);
 
               }
 
-              if(User.getUser().is_md == true){
-                formData.append('approval_role', 'md');
-                formData.append('md_is_contractor_approved', 'True');
-                formData.append('md_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
-                formData.append('md_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
-                formData.append('registration_status', 'Registration Approval Completed');
-                formData.append('in_approval_workflow', 'False');
-                formData.append('registration_approved', 'True');
-                formData.append('md_memo', form.memo);
+        //       if(User.getUser().is_md == true){
+        //         formData.append('approval_role', 'md');
+        //         formData.append('md_is_contractor_approved', 'True');
+        //         formData.append('md_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+        //         formData.append('md_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+        //         formData.append('registration_status', 'Registration Approval Completed');
+        //         formData.append('in_approval_workflow', 'False');
+        //         formData.append('registration_approved', 'True');
+        //         formData.append('md_memo', form.memo);
                 
 
-        }
+        // }
         
         
       }

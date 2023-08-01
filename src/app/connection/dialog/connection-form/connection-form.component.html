@@ -79,7 +79,7 @@
                 </div>
                 <div class="col-6">
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
-                        <mat-label>Licensed No</mat-label>
+                        <mat-label>Coren Licensed No</mat-label>
                         <input matInput formControlName="licensed_no" >
                         <mat-icon matSuffix>transformer</mat-icon>
                         <!-- <mat-error *ngIf="portform.get('name').hasError('')">
@@ -116,7 +116,7 @@
         <div class="row">
             <div class=" col-6">
                 <mat-form-field class="example-full-width mb-3" appearance="outline">
-                    <mat-label>Name of Company</mat-label>
+                    <mat-label>Name of Client</mat-label>
                     <input matInput formControlName="company_name" required>
                     <mat-icon matSuffix>face</mat-icon>
                     <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
@@ -150,6 +150,15 @@
                     </mat-error> -->
                 </mat-form-field>
             </div>
+            
+            <div class="col-6" *ngIf="portform.get('connectiontype')?.value === 'others'">
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Others</mat-label>
+                    <input matInput formControlName="other_connection">
+                    <mat-icon matSuffix>transformer</mat-icon>
+                </mat-form-field>
+            </div>
+            
            
         </div>
         <div class="row">
@@ -169,13 +178,13 @@
                 <mat-select formControlName="capacity" required>
                  
                     <mat-option [value]="'catd_50kva'">
-                        Category D(Not exceeding 50KVA, 11/0.400KV)
+                        Category D(Not exceeding 50KVA, 11/0.415KV)
                     </mat-option>
                     <mat-option [value]="'catc_100kva'">
-                        Category C(Not exceeding 100KVA, 11/0.400KV)
+                        Category C(Not exceeding 100KVA, 11/0.415KV)
                     </mat-option>
                     <mat-option [value]="'catb_1000kva'">
-                        Category B(C&D, Not exceeding 1000KVA, 11/0.400KV&300KVA 33/400KV)
+                        Category B(C&D, Not exceeding 1000KVA, 11/0.415KV&300KVA 33/400KV)
                     </mat-option>
                     <mat-option [value]="'cata_all'">
                         Category A(All in B,C&D PLUS 33KV,132KV,330KV & Associate)
@@ -194,11 +203,14 @@
                 <mat-select formControlName="voltage_ratio" required>
                  
                     <mat-option [value]="'elevenby400'">
-                        11KV/0.400
+                        11KV/0.415KV
                     </mat-option>
                     <mat-option [value]="'thirtythreeby400'">
-                        33KV/0.400
-                    </mat-option>    
+                        33KV/0.415KV
+                    </mat-option>  
+                    <mat-option [value]="'thirtythreebyeleven'">
+                        33KV/11KV
+                    </mat-option>  
                 </mat-select>
                 <!-- <mat-error *ngIf="proForm.get('status').hasError('required')">
                     Status is required
@@ -224,7 +236,18 @@
             <div class="col-6">
                 <mat-form-field class="example-full-width mb-3" appearance="outline">
                     <mat-label>route length</mat-label>
-                    <input matInput formControlName="route_length_km" required>
+                    <mat-select formControlName="route_length_km" required>
+                 
+                        <mat-option [value]="'1-10'">
+                            1-10
+                        </mat-option>
+                        <mat-option [value]="'10-20'">
+                            10-20
+                        </mat-option>
+                        <mat-option [value]="'over_20'">
+                            over_20
+                        </mat-option>    
+                    </mat-select>
                     <mat-icon matSuffix>route</mat-icon>
                     <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
                         Name is required
@@ -233,7 +256,7 @@
             </div>
             <div class="col-6">
                 <mat-form-field class="example-full-width mb-3" appearance="outline">
-                    <mat-label>load of premises</mat-label>
+                    <mat-label>load of premises(KWH)</mat-label>
                     <input matInput formControlName="est_load_of_premises" required>
                     <mat-icon matSuffix>transformer</mat-icon>
                     <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
@@ -317,12 +340,12 @@
             
                 <div class="col-6">
             <mat-form-field>
-                <mat-label>Upload Letter from Client</mat-label>
+                <mat-label>Upload Intoductory Letter from Client</mat-label>
                 <ngx-mat-file-input formControlName="letter_of_donation_dss" >
                    <mat-icon ngxMatFileInputIcon>backup</mat-icon>
                 </ngx-mat-file-input>
              </mat-form-field>
-             <a [href]="connection?.letter_of_donation_dss" target="_blank">View Letter of Client</a>
+             <a [href]="connection?.letter_of_donation_dss" target="_blank">View Introductory Letter from Client</a>
              </div>
              </div>
              <div class="row">
@@ -338,12 +361,12 @@
              
              <div class="col-6">
              <mat-form-field>
-                <mat-label>Upload Transformer Waranty</mat-label>
+                <mat-label>Upload Coren Certificate</mat-label>
                 <ngx-mat-file-input formControlName="transformer_waranty">
                    <mat-icon ngxMatFileInputIcon>backup</mat-icon>
                 </ngx-mat-file-input>
              </mat-form-field>
-             <a [href]="connection?.transformer_waranty" target="_blank">View Transformer Waranty</a>
+             <a [href]="connection?.transformer_waranty" target="_blank">View Coren Certificate</a>
              </div>
              </div>
              </div>

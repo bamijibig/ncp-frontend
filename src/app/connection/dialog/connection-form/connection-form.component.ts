@@ -29,6 +29,7 @@ export class ConnectionFormComponent implements OnInit {
       // contractor:new FormControl(null),
       company_name: new FormControl(''),
       connectiontype: new FormControl(''),
+      other_connection: new FormControl(''),
       capacity: new FormControl(''),
       voltage_ratio: new FormControl(null),
       route_length_km: new FormControl(null),
@@ -77,6 +78,7 @@ export class ConnectionFormComponent implements OnInit {
       this.portform.patchValue({
       company_name:this.connection.company_name,
       connectiontype: this.connection.connectiontype,
+      other_connection: this.connection.other_connection,
       capacity: this.connection.capacity,
       voltage_ratio: this.connection.voltage_ratio,
       route_length_km: this.connection.route_length_km,
@@ -110,6 +112,7 @@ export class ConnectionFormComponent implements OnInit {
     this.portform.patchValue({
     company_name:this.connection.company_name,
     connectiontype: this.connection.connectiontype,
+    other_connection:this.connection.other_connection,
     capacity: this.connection.capacity,
     voltage_ratio: this.connection.voltage_ratio,
     route_length_km: this.connection.route_length_km,

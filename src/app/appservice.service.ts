@@ -56,6 +56,7 @@ export class AppserviceService {
     formData.append('contractor', User.getUser().id);
     formData.append('company_name', formvalue.company_name);
     formData.append('connectiontype', formvalue.connectiontype);
+    formData.append('other_connection', formvalue.other_connection);
     formData.append('capacity', formvalue.capacity);
     formData.append('voltage_ratio', formvalue.voltage_ratio);
     formData.append('route_length_km', formvalue.route_length_km);
@@ -97,6 +98,7 @@ export class AppserviceService {
     formData.append('action', 'submitconnection');
     formData.append('company_name', formvalue.company_name);
     formData.append('connectiontype', formvalue.connectiontype);
+    formData.append('other_connection', formvalue.other_connection);
     formData.append('capacity', formvalue.capacity);
     formData.append('voltage_ratio', formvalue.voltage_ratio);
     formData.append('route_length_km', formvalue.route_length_km);

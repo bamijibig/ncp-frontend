@@ -74,7 +74,7 @@ export class AppserviceService {
 
 
     formData.append('in_approval_workflow', 'True');
-    formData.append('connection_status', 'Submitted and Awaiting TM Review/Approval');
+    formData.append('connection_status', 'Submitted and Awaiting TE Evaluation');
     formData.append('declined', "False");
     formData.append('tm_is_connection_approved', 'False');
     const reqtoken = this.getToken();
@@ -115,7 +115,7 @@ export class AppserviceService {
     formData.append('bh', formvalue.businesshub);
 
     formData.append('in_approval_workflow', 'True');
-    formData.append('connection_status', 'Submitted and Awaiting TM Review/Approval');
+    formData.append('connection_status', 'Submitted and Awaiting TE Evaluation');
     formData.append('declined', "False");
     formData.append('tm_is_connection_approved', 'False');
     const reqtoken = this.getToken();
@@ -535,6 +535,10 @@ addNewUser( formvalue:any
       formData.append('coren_or_nemsa_competency', formvalue.nemsa_test_cert);
       
       }
+      // if(formvalue.coren){
+      //   formData.append('coren', formvalue.coren);
+        
+      //   }
       return this.http.patch(url,formData)
     }
 
@@ -746,20 +750,20 @@ addNewUser( formvalue:any
       const formData = new FormData();
       formData.append('action', action);
       if(action == 'Approve'){
-        if(User.getUser().is_tm == true){
-          formData.append('approval_role', 'tm');
-          formData.append('tm_is_connection_approved', 'True');
-          formData.append('npd_is_connection_approved', 'False');
-          formData.append('te_is_connection_approved', 'False');
-          formData.append('cto_is_connection_approved', 'False');
-          formData.append('ct_is_pre_requested', 'False');
-          formData.append('tept_is_connection_approved', 'False');
-          formData.append('hm_is_connection_approved', 'False');
-          formData.append('tm_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
-          formData.append('tm_is_connection_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
-          formData.append('connection_status', 'Approved By TM. Awaiting TE Evaluation');
-          formData.append('tm_memo', form.memo);
-        }
+        // if(User.getUser().is_tm == true){
+        //   formData.append('approval_role', 'tm');
+        //   formData.append('tm_is_connection_approved', 'True');
+        //   formData.append('npd_is_connection_approved', 'False');
+        //   formData.append('te_is_connection_approved', 'False');
+        //   formData.append('cto_is_connection_approved', 'False');
+        //   formData.append('ct_is_pre_requested', 'False');
+        //   formData.append('tept_is_connection_approved', 'False');
+        //   formData.append('hm_is_connection_approved', 'False');
+        //   formData.append('tm_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+        //   formData.append('tm_is_connection_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+        //   formData.append('connection_status', 'Approved By TM. Awaiting TE Evaluation');
+        //   formData.append('tm_memo', form.memo);
+        // }
 
 
         if(User.getUser().is_npd == true){

@@ -111,7 +111,7 @@
             </div>
             <div class="col-6">
                 <mat-form-field class="example-full-width mb-3" appearance="outline">
-                    <mat-label>Licensed No</mat-label>
+                    <mat-label>Coren Licensed No</mat-label>
                     <input matInput formControlName="licensed_no" >
                     <mat-icon matSuffix>transformer</mat-icon>
                     <!-- <mat-error *ngIf="portform.get('name').hasError('')">
@@ -142,7 +142,7 @@
             </div> -->
 
 
-             <div class="col-12">
+             <div class="col-6">
              <mat-form-field>
                 <mat-label>Upload NEMSA Test Certificate</mat-label>
                 <ngx-mat-file-input formControlName="nemsa_test_cert" (change) = NemsaImageProcessing($event)>
@@ -151,10 +151,23 @@
              </mat-form-field>
 
              <p>
-                <a [href]="contractordetails?.coren_or_nemsa_competency" target="_blank">View NEMSA/COREN Certificate</a>
+                <a [href]="contractordetails?.coren_or_nemsa_competency" target="_blank">View NEMSA Certificate</a>
                 <!-- {{contractordetails?.coren_or_nemsa_competency}} -->
             </p>
              </div>
+             <!-- <div class="col-6">
+                <mat-form-field>
+                   <mat-label>Upload COREN Certificate</mat-label>
+                   <ngx-mat-file-input formControlName="coren" (change) = CorenImageProcessing($event)>
+                      <mat-icon ngxMatFileInputIcon>backup</mat-icon>
+                   </ngx-mat-file-input>
+                </mat-form-field>
+   
+                <p>
+                   <a [href]="contractordetails?.coren_or_nemsa_competency" target="_blank">View COREN Certificate</a>
+                   
+               </p>
+                </div> -->
              
              
              

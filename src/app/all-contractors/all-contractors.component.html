@@ -37,7 +37,7 @@
             <!-- <div class="col-12 text-right">
               <button mat-raised-button color='primary'  (click)="addNew()" >Add new Contractor</button>
           </div> -->
-          <div class="example-container mat-elevation-z8 table table-responsive">
+          <div class="example-container mat-elevation-z8 table table-responsive table-container">
               <mat-table #table [dataSource]="dataSource">
 
                 
@@ -78,14 +78,18 @@
                   <mat-cell *matCellDef="let element"> {{element?.tel_no}} </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="license">
-                  <mat-header-cell *matHeaderCellDef> License Number </mat-header-cell>
+                  <mat-header-cell *matHeaderCellDef> Coren License Number </mat-header-cell>
                   <mat-cell *matCellDef="let element"> {{element?.licensed_no}} </mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="nemsa">
-                  <mat-header-cell *matHeaderCellDef> NEMSA/COREN Certificate </mat-header-cell>
+                  <mat-header-cell *matHeaderCellDef> NEMSA Certificate </mat-header-cell>
                   <mat-cell *matCellDef="let element">  <a [href]="element?.coren_or_nemsa_competency" target="_blank">View</a> </mat-cell>
                 </ng-container>
+                <!-- <ng-container matColumnDef="coren">
+                  <mat-header-cell *matHeaderCellDef> COREN Certificate </mat-header-cell>
+                  <mat-cell *matCellDef="let element">  <a [href]="element?.coren" target="_blank">View</a> </mat-cell>
+                </ng-container> -->
 
                 <ng-container matColumnDef="status">
                   <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
@@ -178,14 +182,18 @@
                   <mat-cell *matCellDef="let element"> {{element?.tel_no}} </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="license">
-                  <mat-header-cell *matHeaderCellDef> License Number </mat-header-cell>
+                  <mat-header-cell *matHeaderCellDef> Coren License Number </mat-header-cell>
                   <mat-cell *matCellDef="let element"> {{element?.licensed_no}} </mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="nemsa">
-                  <mat-header-cell *matHeaderCellDef> NEMSA/COREN Certificate </mat-header-cell>
+                  <mat-header-cell *matHeaderCellDef> NEMSA Certificate </mat-header-cell>
                   <mat-cell *matCellDef="let element">  <a [href]="element?.coren_or_nemsa_competency" target="_blank">View</a> </mat-cell>
                 </ng-container>
+                <!-- <ng-container matColumnDef="coren">
+                  <mat-header-cell *matHeaderCellDef> COREN Certificate </mat-header-cell>
+                  <mat-cell *matCellDef="let element">  <a [href]="element?.coren" target="_blank">View</a> </mat-cell>
+                </ng-container> -->
 
                 <ng-container matColumnDef="status">
                   <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
@@ -273,14 +281,18 @@
                   <mat-cell *matCellDef="let element"> {{element?.tel_no}} </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="license">
-                  <mat-header-cell *matHeaderCellDef> License Number </mat-header-cell>
+                  <mat-header-cell *matHeaderCellDef> Coren License Number </mat-header-cell>
                   <mat-cell *matCellDef="let element"> {{element?.licensed_no}} </mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="nemsa">
-                  <mat-header-cell *matHeaderCellDef> NEMSA/COREN Certificate </mat-header-cell>
+                  <mat-header-cell *matHeaderCellDef> NEMSA Certificate </mat-header-cell>
                   <mat-cell *matCellDef="let element">  <a [href]="element?.coren_or_nemsa_competency" target="_blank">View</a> </mat-cell>
                 </ng-container>
+                <!-- <ng-container matColumnDef="coren">
+                  <mat-header-cell *matHeaderCellDef> COREN Certificate </mat-header-cell>
+                  <mat-cell *matCellDef="let element">  <a [href]="element?.coren" target="_blank">View</a> </mat-cell>
+                </ng-container> -->
 
                 <ng-container matColumnDef="status">
                   <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>

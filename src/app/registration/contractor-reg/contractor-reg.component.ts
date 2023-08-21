@@ -111,6 +111,29 @@ export class ContractorRegComponent implements OnInit {
           }
   }
   }
+  // CorenImageProcessing(event:any) {
+  //   const reader = new FileReader();
+   
+  //   if (event.target.files[0].size > 25000000) {
+  //      this.portform.patchValue({
+  //       corenFileSource: null
+  //     });
+  //     alert('File is too large. Maximum size should be 2.5MB');
+      
+  //   } 
+  //   else{
+  //         if(event.target.files && event.target.files.length) {
+  //           const [file] = event.target.files;
+  //           reader.readAsDataURL(file);
+  //           reader.onload = () => {
+  //             // this.imagepreview = reader.result as string;
+  //             this.portform.patchValue({
+  //               corenFileSource: reader.result
+  //             });
+  //           };
+  //         }
+  // }
+  // }
 
 
    

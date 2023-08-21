@@ -9,6 +9,7 @@ export class User {
     public con_address?: any,
     public contractor_name?: any,
     public coren_or_nemsa_competency?: any,
+    // public coren?: any,
     public date_joined?: any,
     public groups?: any,
     public is_active?: any,

@@ -33,7 +33,9 @@ export class ContractorRegComponent implements OnInit {
       // businesshub: new FormControl(null),   
       // region : new FormControl(null),   
      
-      nemsaFileSource: new FormControl(null),      
+      nemsaFileSource: new FormControl(null), 
+      coren: new FormControl(null), 
+      corenFileSource: new FormControl(null)    
     })
     this.portform.disable()
     // if(this.action == 'edit'){
@@ -111,29 +113,32 @@ export class ContractorRegComponent implements OnInit {
           }
   }
   }
-  // CorenImageProcessing(event:any) {
-  //   const reader = new FileReader();
-   
-  //   if (event.target.files[0].size > 25000000) {
-  //      this.portform.patchValue({
-  //       corenFileSource: null
-  //     });
-  //     alert('File is too large. Maximum size should be 2.5MB');
-      
-  //   } 
-  //   else{
-  //         if(event.target.files && event.target.files.length) {
-  //           const [file] = event.target.files;
-  //           reader.readAsDataURL(file);
-  //           reader.onload = () => {
-  //             // this.imagepreview = reader.result as string;
-  //             this.portform.patchValue({
-  //               corenFileSource: reader.result
-  //             });
-  //           };
-  //         }
-  // }
-  // }
+  
+  CorenImageProcessing(event: any) {
+    const fileInput = event.target;
+    const file = fileInput.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+
+        if (file.size > 25000000) {
+            this.portform.patchValue({
+                coren: null
+            });
+            alert('File is too large. Maximum size should be 2.5MB');
+        } else {
+            reader.readAsDataURL(file);
+            reader.onload = () => {
+                this.portform.patchValue({
+                    coren: file, // Update the form control with the file
+                    corenFileSource: reader.result
+                });
+            };
+        }
+    }
+}
+
+
 
 
    
@@ -171,6 +176,8 @@ getContractorDetails(){
         licensed_no: result.licensed_no,
         tel_no: result.tel_no,
         email: result.email,
+        // I ADDED THIS 
+        coren:result.coren 
         // region: result.businesshub,
         // businesshub:  result.businesshub,
       })

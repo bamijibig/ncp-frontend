@@ -155,19 +155,20 @@
                 <!-- {{contractordetails?.coren_or_nemsa_competency}} -->
             </p>
              </div>
-             <!-- <div class="col-6">
+             <div class="col-6">
                 <mat-form-field>
-                   <mat-label>Upload COREN Certificate</mat-label>
-                   <ngx-mat-file-input formControlName="coren" (change) = CorenImageProcessing($event)>
-                      <mat-icon ngxMatFileInputIcon>backup</mat-icon>
-                   </ngx-mat-file-input>
+                    <mat-label>Upload COREN Certificate</mat-label>
+                    <ngx-mat-file-input formControlName="coren" (change)="CorenImageProcessing($event)">
+                        <mat-icon ngxMatFileInputIcon>backup</mat-icon>
+                    </ngx-mat-file-input>
                 </mat-form-field>
-   
+            
                 <p>
-                   <a [href]="contractordetails?.coren_or_nemsa_competency" target="_blank">View COREN Certificate</a>
-                   
-               </p>
-                </div> -->
+                    <a [href]="contractordetails?.coren" target="_blank">View COREN Certificate</a>
+                    
+                </p>
+                
+                </div>
              
              
              

@@ -125,7 +125,7 @@ export class ConnectionFormComponent implements OnInit {
     letter_of_donation_dss: this.connection.letter_of_donation_dss,
     nemsa_test_cert: this.connection.nemsa_test_cert,
     transformer_waranty:this.connection.transformer_waranty,
-    transformer_test_cert: this.connection.transformer_test_cert,
+    // transformer_test_cert: this.connection.transformer_test_cert,
     businesshub: this.connection.bh?.id,
     region: this.connection.bh?.region.id,
     contractor_name: this.connection.contractor?.contractor_name,

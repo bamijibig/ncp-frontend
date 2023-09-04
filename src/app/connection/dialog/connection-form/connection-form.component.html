@@ -239,7 +239,7 @@
                     <mat-select formControlName="route_length_km" required>
                  
                         <mat-option [value]="'1-10'">
-                            1-10
+                            0-10
                         </mat-option>
                         <mat-option [value]="'10-20'">
                             10-20
@@ -256,7 +256,7 @@
             </div>
             <div class="col-6">
                 <mat-form-field class="example-full-width mb-3" appearance="outline">
-                    <mat-label>load of premises(KWH)</mat-label>
+                    <mat-label>load of premises(KW)</mat-label>
                     <input matInput formControlName="est_load_of_premises" required>
                     <mat-icon matSuffix>transformer</mat-icon>
                     <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
@@ -289,7 +289,7 @@
        
             <div class="col-6">
                 <mat-form-field class="example-full-width mb-3" appearance="outline">
-                    <mat-label>House No</mat-label>
+                    <mat-label>House No & Street Name</mat-label>
                     <input matInput formControlName="add_house_no" required>
                     <mat-icon matSuffix>house</mat-icon>
                     <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
@@ -370,13 +370,13 @@
              </div>
              </div>
              </div>
-             <mat-form-field>
+             <!-- <mat-form-field>
                 <mat-label>Upload Transformer Test Certificate</mat-label>
                 <ngx-mat-file-input formControlName = "transformer_test_cert">
                    <mat-icon ngxMatFileInputIcon>backup</mat-icon>
                 </ngx-mat-file-input>
              </mat-form-field>
-             <a [href]="connection?.transformer_test_cert" target="_blank">View Transformer Test Cert</a>
+             <a [href]="connection?.transformer_test_cert" target="_blank">View Transformer Test Cert</a> -->
             
         
         <div class="row" *ngIf="action=='edit' || action == 'add'">

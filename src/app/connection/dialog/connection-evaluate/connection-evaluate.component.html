@@ -129,16 +129,17 @@
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>Construction Work Done</mat-label>
-                        <input matInput formControlName="eval_conworkdone" >
-                        <mat-icon matSuffix>face</mat-icon>
-                        
+                        <mat-select formControlName="eval_conworkdone">
+                          <mat-option value="Yes">Yes</mat-option>
+                          <mat-option value="No">No</mat-option>
+                        </mat-select>
                     </mat-form-field>
                 </div>
                 <div class=" col-6">
                     
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
-                        <mat-label>DT Substation Name</mat-label>
+                        <mat-label>Proposed DT Substation Name</mat-label>
                         <input matInput formControlName="eval_dtsubname" >
                         <mat-icon matSuffix>face</mat-icon>
                         
@@ -165,7 +166,7 @@
                 <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
-                        <mat-label>Comment on Costruction Done</mat-label>
+                        <mat-label>Comment on Construction Done</mat-label>
                         <input matInput formControlName="eval_comentoncon" >
                         <mat-icon matSuffix>face</mat-icon>
                         

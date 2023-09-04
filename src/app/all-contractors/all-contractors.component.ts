@@ -1,6 +1,6 @@
 
 import { SelectionModel } from '@angular/cdk/collections';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { filter } from 'rxjs/internal/operators/filter';
@@ -8,6 +8,7 @@ import { AppserviceService } from 'src/app/appservice.service';
 import { AuditTrailComponent } from './audit-trail/audit-trail.component';
 import { ActionDialogComponent } from './dialog/action-dialog/action-dialog.component';
 import { AllContractorFormDialogComponent } from './dialog/all-contractor-form-dialog/all-contractor-form-dialog.component';
+// import { CdkVirtualForOf } from '@angular/cdk/scrolling';
 
 
 @Component({
@@ -16,9 +17,12 @@ import { AllContractorFormDialogComponent } from './dialog/all-contractor-form-d
   styleUrls: ['./all-contractors.component.css']
 })
 export class AllContractorsComponent implements OnInit {
- displayedColumns = ['name', 'address', 'email', 'phone', 'license','nemsa','status','approve','decline']
- displayedColumnsList = ['name', 'address', 'email', 'phone', 'license','nemsa','status','trail']
- displayedcolumnunsubmit = ['name', 'address', 'email', 'phone', 'license','nemsa','status']
+
+  // @ViewChild(CdkVirtualForOf)
+  // cdkVirtualForOf!: CdkVirtualForOf<any>;
+ displayedColumns = ['name', 'address', 'email', 'phone', 'license','nemsa','coren','status','approve','decline']
+ displayedColumnsList = ['name', 'address', 'email', 'phone', 'license','nemsa','coren','status','trail']
+ displayedcolumnunsubmit = ['name', 'address', 'email', 'phone', 'license','nemsa','coren','status']
   dataSourceUnsubmit =new MatTableDataSource<any>([])
   dataSource= new MatTableDataSource<any>([])
   dataSourceApproval= new MatTableDataSource<any>([])

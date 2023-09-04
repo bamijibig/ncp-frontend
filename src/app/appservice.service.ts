@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, fromEvent } from 'rxjs';
 import { environment } from '../environments/environment';
 import { CookieService } from 'ngx-cookie-service';
 import { finalize, tap } from 'rxjs/operators';
@@ -531,14 +531,15 @@ addNewUser( formvalue:any
       formData.append('registration_status', 'Submitted and Awaiting CTO Approval');
       formData.append('declined', "False");
       formData.append('cto_is_contractor_approved', 'False');
+      // formData.append('coren',formvalue.coren);
       if(formvalue.nemsa_test_cert){
       formData.append('coren_or_nemsa_competency', formvalue.nemsa_test_cert);
       
       }
-      // if(formvalue.coren){
-      //   formData.append('coren', formvalue.coren);
+      if(formvalue.coren){
+      formData.append('coren', formvalue.coren);
+        }
         
-      //   }
       return this.http.patch(url,formData)
     }
 

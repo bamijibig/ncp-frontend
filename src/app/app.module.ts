@@ -53,6 +53,11 @@ import { ErrorInterceptor } from './error.interceptor';
 import { SettingsComponent } from './settings/settings.component';
 import { AuditTrailComponent } from './all-contractors/audit-trail/audit-trail.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+
+
+
 
 
 @NgModule({
@@ -116,7 +121,15 @@ import { PasswordResetComponent } from './password-reset/password-reset.componen
     MatDatepickerModule,
     MatCheckboxModule,
     MatMenuModule,
-    NgxMatFileInputModule
+    NgxMatFileInputModule,
+    ScrollingModule,
+   
+    
+
+   
+    
+    
+    
 
    
   ],

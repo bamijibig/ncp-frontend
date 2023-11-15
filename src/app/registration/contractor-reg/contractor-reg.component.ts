@@ -153,7 +153,7 @@ export class ContractorRegComponent implements OnInit {
   declined_comment: any;
   declined: Boolean = false;
   contractordetails: any;
-getContractorDetails(){
+  getContractorDetails(){
     this.portadd.getContractorDetails(User.getUser().id).subscribe((result)=>{
       console.log(result);
       this.contractordetails = result;

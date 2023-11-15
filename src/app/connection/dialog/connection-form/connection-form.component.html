@@ -443,6 +443,11 @@
             <strong>TE Precomissioing Test:</strong>  {{connection?.tept_is_connection_approved_by}} Submitted 
             Precommissioing Test Form on  {{connection?.tept_is_connection_approved_date}} <br>
         </span>
+        <span *ngIf="connection?.hbo_is_connection_approved">
+            <strong>HBO Approval:</strong>  {{connection?.hbo_is_connection_approved_by}} approved
+             connection on  {{connection?.hbo_is_connection_approved_date}} <br>
+             <a [href]="connection?.hbo_memo" target="_blank"><button mat-raised-button>view Additional File</button></a><br>
+        </span>
         <span *ngIf="connection?.hm_is_connection_approved">
             <strong>HM Approval:</strong> {{connection?.hm_approved_by}} approved 
             connection on  {{connection?.hm_is_contractor_approved_date}} 

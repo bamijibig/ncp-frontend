@@ -1,4 +1,4 @@
 export const environment = {
-  hosturl: 'https://ncpapi.ibedc.com/',
-  production: true
+  hosturl: 'http://127.0.0.1:8000/',
+  production: false
 };

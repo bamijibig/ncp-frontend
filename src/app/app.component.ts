@@ -21,11 +21,11 @@ export class AppComponent implements OnInit {
   is_te: Boolean = false;
   is_npd: Boolean = false;
   is_cto: Boolean = false;
+  is_hbo: Boolean = false;
   is_hm: Boolean = false;
   is_md: Boolean = false;
-  is_hsch: Boolean = false;
+  is_hsch: Boolean = false; 
   is_superuser: Boolean = false;
-
   resetpassword: Boolean = false;
   errorreset: Boolean = false;
   errorresetemail: Boolean = false;
@@ -60,6 +60,7 @@ export class AppComponent implements OnInit {
   this.is_cto = User.getUser()?.is_cto;
   this.is_md = User.getUser()?.is_md;
   this.is_hsch = User.getUser()?.is_hsch;
+  this.is_hbo = User.getUser()?.is_hbo;
   this.is_superuser = User.getUser()?.is_superuser;
 
   }

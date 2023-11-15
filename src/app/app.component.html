@@ -93,7 +93,7 @@
             <mat-label>Confirm New Password</mat-label>
             <input type="password" matInput formControlName="ressetpassword2"required>
             <mat-icon matSuffix>vpn_key</mat-icon>
-            <!-- <mat-error *ngIf="loginForm.get('password').hasError('required')">
+             <mat-error *ngIf="loginForm.get('password').hasError('required')">
                 Password is required
            
         </mat-form-field>
@@ -259,4 +259,4 @@
 <!-- Register page ends     -->
 
 <app-contractor-layout *ngIf="is_contractor"></app-contractor-layout>
-<app-admin-layout *ngIf="is_admin || is_tm || is_superuser || is_te || is_npd || is_cto || is_md || is_hsch || is_hm"></app-admin-layout>
+<app-admin-layout *ngIf="is_admin || is_tm || is_superuser || is_te || is_npd || is_cto || is_md || is_hsch || is_hbo || is_hm"></app-admin-layout>

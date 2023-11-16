@@ -435,6 +435,11 @@
             on {{connection?.cto_is_connection_approved_date}} 
             <a [href]="connection?.cto_memo" target="_blank"><button mat-raised-button>view Additional File</button></a><br>
         </span>
+        <span *ngIf="connection?.hse_is_connection_approved">
+            <strong>HSE Approval:</strong> {{connection?.hse_approved_by}}  approved connection 
+            on {{connection?.hse_is_connection_approved_date}} 
+            <a [href]="connection?.hse_memo" target="_blank"><button mat-raised-button>view Additional File</button></a><br>
+        </span>
         <span *ngIf="connection?.ct_is_pre_requested">
             <strong>Contractor Precommissioning Request Approval:</strong> Contractor 
             requested precommissioning test on {{connection?.ct_is_pre_requested_date}} <br>

@@ -409,6 +409,9 @@ addNewUser( formvalue:any
     if(formvalue.role =='is_hbo'){
       formData.append('is_hbo', 'True');
     };
+    if(formvalue.role =='is_hse'){
+      formData.append('is_hse', 'True');
+    };
     if(formvalue.role =='is_hm'){
       formData.append('is_hm', 'True');
     };
@@ -510,6 +513,17 @@ addNewUser( formvalue:any
         //   formData.append('is_hm', 'False');
         //   formData.append('is_admin', 'False');
         // };
+        if(formvalue.role =='is_hse'){
+          formData.append('is_te', 'False');
+          formData.append('is_npd', 'False');
+          formData.append('is_tm', 'False');
+          formData.append('is_cto', 'False');
+          formData.append('is_hse', 'True');
+          formData.append('is_md', 'False');
+          formData.append('is_hm', 'False');
+          formData.append('is_hbo', 'False');
+          formData.append('is_admin', 'False');
+        };
         if(formvalue.role =='is_hbo'){
           formData.append('is_te', 'False');
           formData.append('is_npd', 'False');
@@ -802,7 +816,18 @@ addNewUser( formvalue:any
           formData.append('cto_is_connection_approved', 'True');
           formData.append('cto_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
           formData.append('cto_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
-          formData.append('connection_status', 'Approved By CTO. Kindly request pre-commissioning');
+          formData.append('connection_status', 'Approved By CTO. Awaiting HSE Approval');
+          formData.append('hse_memo', form.memo);
+
+        }
+        // HSE
+
+        if(User.getUser().is_hse == true){
+          formData.append('approval_role', 'hse');
+          formData.append('hse_is_connection_approved', 'True');
+          formData.append('hse_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+          formData.append('hse_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+          formData.append('connection_status', 'Approved By HSE. Kindly request pre-commissioning');
           formData.append('cto_memo', form.memo);
 
         }
@@ -853,6 +878,10 @@ addNewUser( formvalue:any
 
         if(User.getUser().is_cto == true){;
           formData.append('cto_memo', form.memo);
+
+        }
+        if(User.getUser().is_hse == true){
+          formData.append('hse_memo', form.memo); 
 
         }
         if(User.getUser().is_hbo == true){

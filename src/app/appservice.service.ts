@@ -66,6 +66,7 @@ export class AppserviceService {
     formData.append('add_town_or_city', formvalue.add_town_or_city);
     formData.append('add_lga', formvalue.add_lga);
     formData.append('add_state', formvalue.add_state);
+    formData.append('public_connection', formvalue.public_connection);
     formData.append('letter_of_donation_dss', formvalue.letter_of_donation_dss);
     formData.append('nemsa_test_cert', formvalue.nemsa_test_cert);
     formData.append('transformer_waranty', formvalue.transformer_waranty);
@@ -108,6 +109,7 @@ export class AppserviceService {
     formData.append('add_town_or_city', formvalue.add_town_or_city);
     formData.append('add_lga', formvalue.add_lga);
     formData.append('add_state', formvalue.add_state);
+    formData.append('public_connection', formvalue.public_connection);
     // formData.append('letter_of_donation_dss', formvalue.letter_of_donation_dss);
     // formData.append('nemsa_test_cert', formvalue.nemsaFileSource);
     // formData.append('transformer_waranty', formvalue.warrantyFileSource);

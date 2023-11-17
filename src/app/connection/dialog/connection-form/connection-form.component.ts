@@ -36,6 +36,7 @@ export class ConnectionFormComponent implements OnInit {
       est_load_of_premises: new FormControl(null),
       useofpremises: new FormControl(null),
       add_house_no: new FormControl(null),
+      public_connection: new FormControl(null),
       add_town_or_city: new FormControl(null),
       add_lga: new FormControl(null),
       add_state: new FormControl(null),    
@@ -94,7 +95,7 @@ export class ConnectionFormComponent implements OnInit {
       transformer_test_cert: this.connection.transformer_test_cert,
       businesshub: this.connection.bh?.id,
       region: this.connection.bh?.region.id,
-
+      public_connection: this.connection.public_connection,
       contractor_name: this.connection.contractor?.contractor_name,
       con_address:this.connection.contractor?.con_address,
       licensed_no: this.connection.contractor?.licensed_no,
@@ -121,7 +122,8 @@ export class ConnectionFormComponent implements OnInit {
     add_house_no: this.connection.add_house_no,
     add_town_or_city: this.connection.add_town_or_city,
     add_lga:this.connection.add_lga,
-    add_state: this.connection.add_state,    
+    add_state: this.connection.add_state, 
+    public_connection: this.connection.public_connection,   
     letter_of_donation_dss: this.connection.letter_of_donation_dss,
     nemsa_test_cert: this.connection.nemsa_test_cert,
     transformer_waranty:this.connection.transformer_waranty,
@@ -133,6 +135,8 @@ export class ConnectionFormComponent implements OnInit {
     licensed_no: this.connection.contractor?.licensed_no,
     tel_no: this.connection.contractor?.tel_no ,
     email: this.connection.contractor?.email
+    
+    
   })
 }
 console.log(this.connection)

@@ -462,8 +462,9 @@
                 <!-- <col-12>
                 <hr>
                 </col-12> -->
-                <!-- <h3>Project Details</h3>
-                <div class=" col-6">
+                <div class="col-6" *ngIf="eval_form.get('public_connection')?.value === 'true'">
+                <h3>Project Details</h3>
+                 <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>Title</mat-label>
@@ -471,7 +472,8 @@
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                </div> -->
+                </div>
+            </div>
                 <!-- <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">

@@ -48,6 +48,100 @@ export class AppserviceService {
     return this.http.get(url)
   }
 
+
+  CreatepubConnection( formvalue:any
+    ): Observable<any> {
+      const url = this.masterdomain + 'public/pubconnection/';
+      const formData = new FormData();
+      formData.append('contractor', User.getUser().id);
+      formData.append('name_sponsor', formvalue.name_sponsor);
+      formData.append('community_name', formvalue.community_name);
+      formData.append('title', formvalue.title);
+      formData.append('chairman_comm_name', formvalue.chairman_comm_name);
+      formData.append('chairman_comm_number', formvalue.chairman_comm_number);
+      formData.append('dt_capacity', formvalue.dt_capacity);
+      formData.append('voltage_level', formvalue.voltage_level);
+      formData.append('date_of_visit', formvalue.date_of_visit);
+      formData.append('no_of_customers', formvalue.no_of_customers);
+      formData.append('estimated_load', formvalue.estimated_load);
+      formData.append('estimated_cost', formvalue.estimated_cost);
+      formData.append('no_of_spans', formvalue.no_of_spans);
+      formData.append('relieftype', formvalue.relieftype);
+      formData.append('feeder_name', formvalue.feeder_name);
+      formData.append('feeder_capacity', formvalue.feeder_capacity);
+      formData.append('fdr_peakload', formvalue.fdr_peakload);
+      formData.append('load_tilldate', formvalue.load_tilldate);
+      formData.append('source_fdr', formvalue.source_fdr);
+      formData.append('powertrans', formvalue.powertrans);
+      formData.append('trans_rating', formvalue.trans_rating);
+      formData.append('expected_billing', formvalue.expected_billing);
+      formData.append('expected_gain', formvalue.expected_gain);  
+      formData.append('letter_of_donation_dss', formvalue.letter_of_donation_dss);
+      formData.append('nemsa_test_cert', formvalue.nemsa_test_cert);
+      formData.append('coren_cert', formvalue.coren_cert);
+      formData.append('intro_letter_client', formvalue.intro_letter_client);
+      formData.append('bh', formvalue.businesshub);
+  
+  
+      formData.append('in_approval_workflow', 'True');
+      formData.append('connection_status', 'Submitted and Awaiting TE Evaluation');
+      formData.append('declined', "False");
+      formData.append('tm_is_connection_approved', 'False');
+      const reqtoken = this.getToken();
+      const headers = { 'Authorization': 'Token ' + reqtoken};
+      return this.http.post(url,formData,{headers:headers})
+    }
+    upConnectionspub(id:any):Observable<any>{
+      const url=this.masterdomain + 'public/pubconnection/approveordecline/' + id + '/';
+      const formData = new FormData();
+      formData.append('action', 'submitconnection');
+      const reqtoken = this.getToken();
+      const headers = { 'Authorization': 'Token ' + reqtoken};
+      return this.http.patch(url,formData,{headers:headers})
+    }
+
+    editConnectionspub(formvalue:any, id:any):Observable<any>{
+      const url=this.masterdomain + 'public/pubconnection/approveordecline/' + id + '/';
+      const formData = new FormData();
+      formData.append('action', 'submitconnection');
+      formData.append('name_sponsor', formvalue.name_sponsor);
+      formData.append('community_name', formvalue.community_name);
+      formData.append('title', formvalue.title);
+      formData.append('chairman_comm_name', formvalue.chairman_comm_name);
+      formData.append('chairman_comm_number', formvalue.chairman_comm_number);
+      formData.append('dt_capacity', formvalue.dt_capacity);
+      formData.append('voltage_level', formvalue.voltage_level);
+      formData.append('date_of_visit', formvalue.date_of_visit);
+      formData.append('no_of_customers', formvalue.no_of_customers);
+      formData.append('estimated_load', formvalue.estimated_load);
+      formData.append('estimated_cost', formvalue.estimated_cost);
+      formData.append('no_of_spans', formvalue.no_of_spans);
+      formData.append('relieftype', formvalue.relieftype);
+      formData.append('feeder_name', formvalue.feeder_name);
+      formData.append('feeder_capacity', formvalue.feeder_capacity);
+      formData.append('fdr_peakload', formvalue.fdr_peakload);
+      formData.append('load_tilldate', formvalue.load_tilldate);
+      formData.append('source_fdr', formvalue.source_fdr);
+      formData.append('powertrans', formvalue.powertrans);
+      formData.append('trans_rating', formvalue.trans_rating);
+      formData.append('expected_billing', formvalue.expected_billing);
+      formData.append('expected_gain', formvalue.expected_gain);  
+      formData.append('letter_of_donation_dss', formvalue.letter_of_donation_dss);
+      formData.append('nemsa_test_cert', formvalue.nemsa_test_cert);
+      formData.append('coren_cert', formvalue.coren_cert);
+      formData.append('intro_letter_client', formvalue.intro_letter_client);
+      formData.append('bh', formvalue.businesshub);
+  
+      formData.append('in_approval_workflow', 'True');
+      formData.append('connection_status', 'Submitted and Awaiting TE Evaluation');
+      formData.append('declined', "False");
+      formData.append('tm_is_connection_approved', 'False');
+      const reqtoken = this.getToken();
+      const headers = { 'Authorization': 'Token ' + reqtoken};
+      return this.http.patch(url,formData,{headers:headers})
+    }
+  
+
   CreateConnection( formvalue:any
   ): Observable<any> {
     const url = this.masterdomain + 'connections/';
@@ -82,7 +176,7 @@ export class AppserviceService {
     const headers = { 'Authorization': 'Token ' + reqtoken};
     return this.http.post(url,formData,{headers:headers})
   }
-
+  
   
   upConnections(id:any):Observable<any>{
     const url=this.masterdomain + 'connection/approveordecline/' + id + '/';
@@ -656,7 +750,75 @@ addNewUser( formvalue:any
       return this.http.get(url)
     }
     
-
+    pubevaluate_connection(id: any, form: any): Observable<any> {
+        const url = this.masterdomain + 'public/pubconnection/approveordecline/' + id + '/';
+        const formData = new FormData();
+        formData.append('approval_role', 'te');
+        formData.append('action', 'Approve');
+        formData.append('eval_titlepro', form.eval_titlepro);
+        formData.append('eval_usercom', form.eval_usercom);
+        formData.append('eval_projmaincat', form.eval_projmaincat);
+        formData.append('eval_dtrating', form.eval_dtrating);
+        formData.append('eval_voltlevel', form.eval_voltlevel);
+        formData.append('eval_subhead', form.eval_subhead);
+        formData.append('eval_title', form.eval_title);
+        formData.append('eval_specloc', form.eval_specloc);
+        formData.append('eval_majchaexidss', form.eval_majchaexidss);
+        formData.append('eval_nameofsub', form.eval_nameofsub);
+        formData.append('eval_rating', form.eval_rating);
+        formData.append('eval_loading', form.eval_loading);
+        formData.append('eval_loadpercent', form.eval_loadpercent);
+        formData.append('eval_1yrloadpercentload', form.eval_1yrloadpercentload);
+        formData.append('eval_quarterlyload', form.eval_quarterlyload);
+        formData.append('eval_amtbillkwh', form.eval_amtbillkwh);
+        formData.append('eval_amtbillnaira', form.eval_amtbillnaira);
+        formData.append('eval_collection', form.eval_collection);
+        formData.append('eval_collectioneff', form.eval_collectioneff);
+        formData.append('eval_custpop', form.eval_custpop);
+        formData.append('eval_nameofextss', form.eval_nameofextss);
+        formData.append('eval_extrating', form.eval_extrating);
+        formData.append('eval_proposedloading', form.eval_proposedloading);
+        formData.append('eval_extloadpercent', form.eval_extloadpercent);
+        formData.append('eval_3monthloadproj', form.eval_3monthloadproj);
+        formData.append('eval_extprojbilling', form.eval_extprojbilling);
+        formData.append('eval_projbillingkwh', form.eval_projbillingkwh);
+        formData.append('eval_projcollection', form.eval_projcollection);
+        formData.append('eval_projcollectioneff', form.eval_projcollectioneff);
+        formData.append('eval_extcustpop', form.eval_extcustpop);
+        formData.append('eval_fdrname', form.eval_fdrname);
+        formData.append('eval_fdrcapacity', form.eval_fdrcapacity);
+        formData.append('eval_fdrtrendpeak', form.eval_fdrtrendpeak);
+        formData.append('eval_fdrsupload', form.eval_fdrsupload);
+        formData.append('eval_cumload', form.eval_cumload);
+        formData.append('eval_srcfeeder', form.eval_srcfeeder);
+        formData.append('eval_projcost', form.eval_projcost);
+        formData.append('eval_donor', form.eval_donor);
+        formData.append('eval_ibedc', form.eval_ibedc);
+        formData.append('nocustomers', form.nocustomers);
+        formData.append('expected_billcom', form.expected_billcom);
+        formData.append('expected_gaincom', form.expected_gaincom);
+        formData.append('eval_aprovmbgrant', form.eval_aprovmbgrant);
+        formData.append('eval_recmetertyp', form.eval_recmetertyp);
+        formData.append('eval_statmeter', form.eval_statmeter); 
+        formData.append('eval_custreq', form.eval_custreq);
+        formData.append('eval_blockdiag', form.eval_blockdiag);
+        formData.append('eval_schdiag', form.eval_schdiag);
+        formData.append('eval_sitevform', form.eval_sitevform);
+        formData.append('eval_projplanby', form.eval_projplanby);
+        formData.append('title', form.title);
+        formData.append('preamble', form.preamble);
+        formData.append('findings', form.findings);
+        formData.append('scopeofwork', form.scopeofwork);
+        formData.append('recommendation', form.recommendation);
+        formData.append('te_is_connection_approved', 'True');
+        formData.append('te_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+        formData.append('te_is_connection_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+        formData.append('connection_status', 'Evaluation Completed. Awaiting NP & D Approval');
+        
+        const reqtoken = this.getToken();
+        const headers = { 'Authorization': 'Token ' + reqtoken};
+        return this.http.patch(url,formData,{headers:headers})
+      }
     evaluate_connection(id: any, form: any
       ): Observable<any> {
         const url = this.masterdomain + 'connection/approveordecline/' + id + '/';
@@ -707,15 +869,64 @@ addNewUser( formvalue:any
         formData.append('te_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
         formData.append('te_is_connection_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
         formData.append('connection_status', 'Evaluation Completed. Awaiting NP & D Approval');
+
+        // RELIEF DSS START
+
+        formData.append('eval_titlepro', form.eval_titlepro);
+        formData.append('eval_usercom', form.eval_usercom);
+        formData.append('eval_projmaincat', form.eval_projmaincat);
+        formData.append('eval_dtrating', form.eval_dtrating);
+        formData.append('eval_voltlevel', form.eval_voltlevel);
+        formData.append('eval_subhead', form.eval_subhead);
+        formData.append('eval_datevisit', form.eval_datevisit);
+        formData.append('eval_specloc', form.eval_specloc);
+
+        formData.append('eval_majchaexidss', form.eval_majchaexidss);
+        formData.append('eval_nameofsub', form.eval_nameofsub);
+        formData.append('eval_rating', form.eval_rating);
+        formData.append('eval_loadpercent', form.eval_loadpercent);
+        formData.append('eval_2yrsloadproj', form.eval_2yrsloadproj);
+        formData.append('eval_2yrsloadprojpercent', form.eval_2yrsloadprojpercent);
+        formData.append('eval_amtbillkwh', form.eval_amtbillkwh);
+        formData.append('eval_amtbillnaira', form.eval_amtbillnaira);
+
+        formData.append('eval_collection', form.eval_collection);
+        formData.append('eval_collectioneff', form.eval_collectioneff);
+        formData.append('eval_fdrname2', form.eval_fdrname2);
+        formData.append('eval_fdravail', form.eval_fdravail);
+        formData.append('eval_fdrcapacity2', form.eval_fdrcapacity2);
+        formData.append('eval_fdrtrendpeak', form.eval_fdrtrendpeak);
+
+        formData.append('eval_fdrdate', form.eval_fdrdate);
+        formData.append('eval_cumload2', form.eval_cumload2);
+        formData.append('eval_srcfeeder2', form.eval_srcfeeder2);
+        formData.append('eval_projcost', form.eval_projcost);
+        formData.append('eval_sanctioncost', form.eval_sanctioncost);
+        formData.append('eval_capcontribproj', form.eval_capcontribproj);
+
+        formData.append('eval_donor', form.eval_donor);
+        formData.append('eval_ibedc', form.eval_ibedc);
+        formData.append('eval_aprovmbgrant', form.eval_aprovmbgrant);
+        formData.append('eval_recmetertyp', form.eval_recmetertyp);
+        formData.append('eval_statmeter', form.eval_statmeter);
+        formData.append('eval_specoment2', form.eval_specoment2);
+
+        formData.append('eval_custreq', form.eval_custreq);
+        formData.append('eval_condiag', form.eval_condiag);
+        formData.append('eval_schdiag', form.eval_schdiag);
+        formData.append('eval_sitevform', form.eval_sitevform);
+        formData.append('eval_projplanby', form.eval_projplanby);
+        // RELIEF DSS STOP
+
         const reqtoken = this.getToken();
         const headers = { 'Authorization': 'Token ' + reqtoken};
         return this.http.patch(url,formData,{headers:headers})
       }
     
-
-      request_precommissioning(id: any, form: any
+      // FOR PUB REQUEST PRECOM
+      pubrequest_precommissioning(id: any, form: any
         ): Observable<any> {
-          const url = this.masterdomain + 'connection/approveordecline/' + id + '/';
+          const url = this.masterdomain + 'public/pubconnection/approveordecline/' + id + '/';
           const formData = new FormData();
           formData.append('action', 'precomreq');
           formData.append('security_receipt', form.receipt);
@@ -726,7 +937,71 @@ addNewUser( formvalue:any
           const headers = { 'Authorization': 'Token ' + reqtoken};
           return this.http.patch(url,formData,{headers:headers})
         }
-    
+      request_precommissioning(id: any, form: any
+        ): Observable<any> {
+          const url = this.masterdomain + 'public/connection/approveordecline/' + id + '/';
+          const formData = new FormData();
+          formData.append('action', 'precomreq');
+          formData.append('security_receipt', form.receipt);
+          formData.append('ct_is_pre_requested', 'True');
+          formData.append('ct_is_pre_requested_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+          formData.append('connection_status', 'Pre-commissiong Requested by Contractor. Awaiting Pre-commissioning Test');
+          const reqtoken = this.getToken();
+          const headers = { 'Authorization': 'Token ' + reqtoken};
+          return this.http.patch(url,formData,{headers:headers})
+        }
+        submit_pubprecom_test(id: any, form: any
+          ): Observable<any> {
+            const url = this.masterdomain + 'public/pubconnection/approveordecline/' + id + '/';
+            const formData = new FormData();
+            formData.append('action', 'submitprecomreq');
+            formData.append('precom_project_title', form.precom_project_title);
+            formData.append('precom_last_inspection_date', form.precom_last_inspection_date);
+            formData.append('precom_project_objectives', form.precom_project_objectives);
+            formData.append('precom_supplysrc', form.precom_supplysrc);
+            formData.append('precom_fdrname3', form.precom_fdrname3);
+            formData.append('precom_peakload', form.precom_peakload);
+            formData.append('precom_dwndrpcon', form.precom_dwndrpcon);
+            formData.append('precom_distofnss', form.precom_distofnss);
+            formData.append('precom_nopoleht', form.precom_nopoleht);
+            formData.append('precom_nopolelt', form.precom_nopolelt);
+            formData.append('precom_podeptht', form.precom_podeptht);
+            formData.append('precom_podepthlh', form.precom_podepthlh);
+            formData.append('precom_sizeconduct', form.precom_sizeconduct);
+            formData.append('precom_qtyused', form.precom_qtyused);
+            formData.append('precom_wellallmetalprt', form.precom_wellallmetalprt);
+            formData.append('precom_ssfencedibedc', form.precom_ssfencedibedc);
+            formData.append('precom_wellgraveled', form.precom_wellgraveled);
+            formData.append('precom_typfence', form.precom_typfence);
+            formData.append('precom_nemsavail', form.precom_nemsavail);
+            formData.append('precom_trsfcap', form.precom_trsfcap);
+            formData.append('precom_voltratio', form.precom_voltratio);
+            formData.append('precom_make', form.precom_make);
+            formData.append('precom_sn', form.precom_sn);
+            formData.append('precom_current', form.precom_current);
+            formData.append('precom_vectorgrp', form.precom_vectorgrp);
+            formData.append('precom_impedance', form.precom_impedance);
+            formData.append('precom_yrsofman', form.precom_yrsofman);
+            formData.append('precom_cooling', form.precom_cooling);
+            formData.append('precom_cabletypsiz', form.precom_cabletypsiz);
+            formData.append('precom_fdrpillarcurr', form.precom_fdrpillarcurr);
+            formData.append('precom_icomcablesiz', form.precom_icomcablesiz);
+            formData.append('precom_uprizercable', form.precom_uprizercable);
+            formData.append('precom_nouprizercable', form.precom_nouprizercable);
+            formData.append('precom_earthresv', form.precom_earthresv);
+            formData.append('precom_pcm', form.precom_pcm);
+            formData.append('precom_others', form.precom_others);
+
+
+            formData.append('tept_is_connection_approved', 'True');
+            formData.append('tept_is_connection_approved', 'True');
+            formData.append('tept_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+            formData.append('tept_is_connection_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+            formData.append('connection_status', 'Precommissioning Test Completed. Awaiting Head Metering Approval');
+            const reqtoken = this.getToken();
+            const headers = { 'Authorization': 'Token ' + reqtoken};
+            return this.http.patch(url,formData,{headers:headers})
+          }
         submit_precom_test(id: any, form: any
           ): Observable<any> {
             const url = this.masterdomain + 'connection/approveordecline/' + id + '/';
@@ -903,6 +1178,134 @@ addNewUser( formvalue:any
       const headers = { 'Authorization': 'Token ' + reqtoken};
       return this.http.patch(url,formData,{headers:headers})
     }
+
+
+
+    // PUBLIC DSS ACTION CONNECTION 
+    pubaction_connection( action:any, id: any, form: any
+      ): Observable<any> {
+        const url = this.masterdomain + 'public/pubconnection/approveordecline/' + id + '/';
+        const formData = new FormData();
+        formData.append('action', action);
+        if(action == 'Approve'){
+          if(User.getUser().is_tm == true){
+            formData.append('approval_role', 'tm');
+            formData.append('tm_is_connection_approved', 'True');
+            formData.append('npd_is_connection_approved', 'False');
+            formData.append('te_is_connection_approved', 'False');
+            formData.append('cto_is_connection_approved', 'False');
+            formData.append('ct_is_pre_requested', 'False');
+            formData.append('tept_is_connection_approved', 'False');
+            formData.append('hbo_is_connection_approved', 'False');
+            formData.append('hm_is_connection_approved', 'False');
+            formData.append('tm_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+            formData.append('tm_is_connection_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+            formData.append('connection_status', 'Approved By TM. Awaiting TE Evaluation');
+            formData.append('tm_memo', form.memo);
+          }
+  
+  
+          if(User.getUser().is_npd == true){
+            formData.append('approval_role', 'npd');
+            formData.append('npd_is_connection_approved', 'True');
+            formData.append('npd_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+            formData.append('npd_is_connection_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+            formData.append('connection_status', 'Approved By NP & D. Awaiting Induction & CTO Approval');
+            formData.append('npd_memo', form.memo);
+  
+          }
+  
+          if(User.getUser().is_cto == true){
+            formData.append('approval_role', 'cto');
+            formData.append('cto_is_connection_approved', 'True');
+            formData.append('cto_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+            formData.append('cto_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+            formData.append('connection_status', 'Approved By CTO. Awaiting HSE Approval');
+            formData.append('hse_memo', form.memo);
+  
+          }
+          // HSE
+  
+          if(User.getUser().is_hse == true){
+            formData.append('approval_role', 'hse');
+            formData.append('hse_is_connection_approved', 'True');
+            formData.append('hse_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+            formData.append('hse_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+            formData.append('connection_status', 'Approved By HSE. Kindly request pre-commissioning');
+            formData.append('cto_memo', form.memo);
+  
+          }
+          // HBO
+          if(User.getUser().is_hbo == true){
+            formData.append('approval_role', 'hbo');
+            formData.append('hbo_is_connection_approved', 'True');
+            formData.append('hbo_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+            formData.append('hbo_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+            formData.append('connection_status', 'Approved by HBO. Awaiting HM approval');
+            formData.append('hbo_memo', form.memo);
+            
+  
+          }
+          
+          // HBO END
+  
+          if(User.getUser().is_hm == true){
+            formData.append('approval_role', 'hm');
+            formData.append('hm_is_connection_approved', 'True');
+            formData.append('hm_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+            formData.append('hm_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+            formData.append('connection_status', 'Connection Approval Completed');
+            formData.append('in_approval_workflow', 'False');
+            formData.append('connection_approved', 'True');
+            formData.append('hm_memo', form.memo);
+            
+  
+          }
+          
+          
+        }
+        if(action == 'Decline'){
+          formData.append('declined', 'True');
+          formData.append('in_approval_workflow', 'False');
+          formData.append('declined_comment', form.comment);
+          formData.append('connection_status', 'Connection Application Declined.');
+  
+          if(User.getUser().is_tm == true){
+            formData.append('tm_memo', form.memo);
+          }
+  
+  
+          if(User.getUser().is_npd == true){
+            formData.append('npd_memo', form.memo);
+  
+          }
+  
+          if(User.getUser().is_cto == true){;
+            formData.append('cto_memo', form.memo);
+  
+          }
+          if(User.getUser().is_hse == true){
+            formData.append('hse_memo', form.memo); 
+  
+          }
+          if(User.getUser().is_hbo == true){
+            formData.append('hbo_memo', form.memo);
+            
+  
+          }
+  
+          if(User.getUser().is_hm == true){
+            formData.append('hm_memo', form.memo);
+            
+  
+          }
+        }
+        
+        const reqtoken = this.getToken();
+        const headers = { 'Authorization': 'Token ' + reqtoken};
+        return this.http.patch(url,formData,{headers:headers})
+      }
+    // END ACTION
 
     resetPassword(email: any){
       const url = this.masterdomain + 'api/password_reset/';

@@ -1,0 +1,415 @@
+
+<div class="modalHeader">
+
+    <button mat-icon-button (click)="dialogRef.close()" aria-label="Close dialog">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<h3>Precomissioning Test</h3>
+
+
+<div mat-dialog-content class="mat-typography">
+
+    <form class="m-4" [formGroup]="pubprecom_form" (ngSubmit)="Execute()">
+        <div class="container-fluid">
+            
+             <div class="row">
+
+               
+
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Project Title</mat-label>
+                        <input matInput formControlName="precom_project_title" >
+                        <mat-icon matSuffix>face</mat-icon>
+                        
+                    </mat-form-field>
+                </div>
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Last Inspection Date</mat-label>
+                        <input matInput formControlName="precom_last_inspection_date" >
+                        <mat-icon matSuffix>face</mat-icon>
+                        
+                    </mat-form-field>
+                </div>
+                </div>
+                <div class="row">
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Project Objectives</mat-label>
+                        <textarea matInput formControlName="precom_project_objectives" ></textarea>
+                       
+                        
+                    </mat-form-field>
+                </div>
+
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Supply (Bulk) Source</mat-label>
+                        <input matInput formControlName="precom_supplysrc" >
+                        <mat-icon matSuffix>face</mat-icon>
+                        
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Feeder's Name</mat-label>
+                        <textarea matInput formControlName="precom_fdrname3" ></textarea>
+                       
+                        
+                    </mat-form-field>
+                </div>
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Peak Load(MW)</mat-label>
+                        <input matInput formControlName="precom_peakload" >
+                        <mat-icon matSuffix>face</mat-icon>
+                        
+                    </mat-form-field>
+                </div>
+                </div>
+                <div class="row">
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Is S/S Connection dropdown </mat-label>
+                        <textarea matInput formControlName="precom_dwndrpcon" ></textarea>
+                       
+                        
+                    </mat-form-field>
+                </div>
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Distance of new S/S to pro. Feeder</mat-label>
+                        <input matInput formControlName="precom_distofnss" >
+                        <mat-icon matSuffix>face</mat-icon>
+                        
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class=" row">
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>No of erected pole (HT)</mat-label>
+                        <textarea matInput formControlName="precom_nopoleht" ></textarea>
+                       
+                        
+                    </mat-form-field>
+                </div>
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>No of erected pole (LT)</mat-label>
+                        <input matInput formControlName="precom_nopolelt" >
+                        <mat-icon matSuffix>face</mat-icon>
+                        
+                    </mat-form-field>
+                </div>
+                <div class=" row">
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Pole Depth during erection(HT)</mat-label>
+                        <textarea matInput formControlName="precom_podeptht" ></textarea>
+                       
+                        
+                    </mat-form-field>
+                </div>
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Pole Depth during erection(LT)</mat-label>
+                        <input matInput formControlName="precom_podepthlh" >
+                        <mat-icon matSuffix>face</mat-icon>
+                        
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class=" row">
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Size of Alluminium Conductor(mm^2)</mat-label>
+                        <textarea matInput formControlName="precom_sizeconduct" ></textarea>
+                       
+                        
+                    </mat-form-field>
+                </div>
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Quantity of Alluminium Conductor(mm^2)</mat-label>
+                        <textarea matInput formControlName="precom_qtyused" ></textarea>
+                       
+                        
+                    </mat-form-field>
+                </div>
+                </div>
+                <div class=" row">
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>All Metal,well Earthed</mat-label>
+                        <textarea matInput formControlName="precom_wellallmetalprt" ></textarea>
+                       
+                        
+                    </mat-form-field>
+                </div>
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>S/S fenced to Ibedc Standard</mat-label>
+                        <textarea matInput formControlName="precom_ssfencedibedc" ></textarea>
+                       
+                        
+                    </mat-form-field>
+                </div>
+                </div>
+                <div class=" row">
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Substation Well gravelled</mat-label>
+                        <textarea matInput formControlName="precom_wellgraveled" ></textarea>
+                       
+                        
+                    </mat-form-field>
+                </div>
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Type of Fence</mat-label>
+                        <textarea matInput formControlName="precom_typfence" ></textarea>
+                       
+                        
+                    </mat-form-field>
+                </div>
+                </div>
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Nemsa Project Cert. avail.</mat-label>
+                        <textarea matInput formControlName="precom_nemsavail" ></textarea>
+                       
+                        
+                    </mat-form-field>
+                </div>
+
+             
+      
+      <div class="row">
+        <div class=" col-6">
+
+            <mat-form-field class="example-full-width mb-3" appearance="outline">
+                <mat-label>Transformer Capacity(KVA)</mat-label>
+                <textarea matInput formControlName="precom_trsfcap" ></textarea>
+               
+                
+            </mat-form-field>
+        </div>
+
+        <div class=" col-6">
+
+            <mat-form-field class="example-full-width mb-3" appearance="outline">
+                <mat-label>Voltage Ratio(KV)</mat-label>
+                <input matInput formControlName="precom_voltratio" >
+                <mat-icon matSuffix>face</mat-icon>
+                
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class=" col-6">
+
+            <mat-form-field class="example-full-width mb-3" appearance="outline">
+                <mat-label>Make</mat-label>
+                <textarea matInput formControlName="precom_make" ></textarea>
+               
+                
+            </mat-form-field>
+        </div>
+
+        <div class=" col-6">
+
+            <mat-form-field class="example-full-width mb-3" appearance="outline">
+                <mat-label>Serial No</mat-label>
+                <input matInput formControlName="precom_sn" >
+                <mat-icon matSuffix>face</mat-icon>
+                
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class=" col-6">
+
+            <mat-form-field class="example-full-width mb-3" appearance="outline">
+                <mat-label>Current(HV/LV Side)</mat-label>
+                <textarea matInput formControlName="precom_current" ></textarea>
+               
+                
+            </mat-form-field>
+        </div>
+
+        <div class=" col-6">
+
+            <mat-form-field class="example-full-width mb-3" appearance="outline">
+                <mat-label>Vector Group</mat-label>
+                <input matInput formControlName="precom_vectorgrp" >
+                <mat-icon matSuffix>face</mat-icon>
+                
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class=" col-6">
+
+            <mat-form-field class="example-full-width mb-3" appearance="outline">
+                <mat-label>% Impedance</mat-label>
+                <textarea matInput formControlName="precom_impedance" ></textarea>
+               
+                
+            </mat-form-field>
+        </div>
+
+        <div class=" col-6">
+
+            <mat-form-field class="example-full-width mb-3" appearance="outline">
+                <mat-label>Year of Man</mat-label>
+                <input matInput formControlName="precom_yrsofman" >
+                <mat-icon matSuffix>face</mat-icon>
+                
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class=" col-6">
+
+            <mat-form-field class="example-full-width mb-3" appearance="outline">
+                <mat-label>Cooling</mat-label>
+                <textarea matInput formControlName="precom_cooling" ></textarea>
+               
+                
+            </mat-form-field>
+        </div>
+
+        <div class=" col-6">
+
+            <mat-form-field class="example-full-width mb-3" appearance="outline">
+                <mat-label>Cable Size/Type</mat-label>
+                <input matInput formControlName="precom_cabletypsiz" >
+                <mat-icon matSuffix>face</mat-icon>
+                
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class=" col-6">
+
+            <mat-form-field class="example-full-width mb-3" appearance="outline">
+                <mat-label>Current of Feeder Pillar</mat-label>
+                <textarea matInput formControlName="precom_fdrpillarcurr" ></textarea>
+               
+                
+            </mat-form-field>
+        </div>
+
+        <div class=" col-6">
+
+            <mat-form-field class="example-full-width mb-3" appearance="outline">
+                <mat-label>Incomer Cable Size</mat-label>
+                <input matInput formControlName="precom_icomcablesiz" >
+                <mat-icon matSuffix>face</mat-icon>
+                
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class=" col-6">
+
+            <mat-form-field class="example-full-width mb-3" appearance="outline">
+                <mat-label>Size of Uprizer Cable</mat-label>
+                <textarea matInput formControlName="precom_uprizercable" ></textarea>   
+            </mat-form-field>
+        </div>
+
+        <div class=" col-6">
+
+            <mat-form-field class="example-full-width mb-3" appearance="outline">
+                <mat-label>No. of Uprizer Cable</mat-label>
+                <input matInput formControlName="precom_nouprizercable" >
+                <mat-icon matSuffix>face</mat-icon>
+                
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class=" col-6">
+
+            <mat-form-field class="example-full-width mb-3" appearance="outline">
+                <mat-label>Earth Resistance Value</mat-label>
+                <textarea matInput formControlName="precom_earthresv" ></textarea>
+               
+                
+            </mat-form-field>
+        </div>
+        
+        <div class=" col-6">
+    
+            <mat-form-field>
+                <mat-label>PC&M(Transformer Test)</mat-label>
+                <ngx-mat-file-input formControlName="precom_pcm">
+                   <mat-icon ngxMatFileInputIcon>backup</mat-icon>
+                </ngx-mat-file-input>
+             </mat-form-field>
+       </div>
+    </div>
+    
+    <div class="row">
+        <div class=" col-6">
+    
+            <mat-form-field>
+                <mat-label>Other Relevant Document</mat-label>
+                <ngx-mat-file-input formControlName="precom_others">
+                   <mat-icon ngxMatFileInputIcon>backup</mat-icon>
+                </ngx-mat-file-input>
+             </mat-form-field>
+       </div>
+
+        
+    </div>
+    
+                </div>
+
+
+
+
+
+
+ 
+        </div>
+       
+
+
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                <div class="example-button-row">
+                    <button mat-raised-button color="primary" type="submit"
+                       (click)="Execute()" [mat-dialog-close]="1">Submit Precomissioning Test</button>
+                </div>
+            </div>
+        </div>
+        
+</form>
+</div>

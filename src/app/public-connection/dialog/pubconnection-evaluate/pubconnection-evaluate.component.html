@@ -1,0 +1,516 @@
+    <div class="modalHeader">
+
+    <button mat-icon-button (click)="dialogRef.close()" aria-label="Close dialog">
+    <mat-icon>close</mat-icon>
+    </button>
+    </div>
+    <h3>Inspection and Survey Form</h3>
+    <h5>Summary Report for Point Load Project</h5>
+    <div mat-dialog-content class="mat-typography">
+    <form class="m-4" [formGroup]="pubeval_form" (ngSubmit)="Execute()">
+    <div class="container-fluid">
+    <col-12>
+    <hr>
+    </col-12>
+    <col-12 class="text-center">
+    <h4>Project Details</h4>
+    </col-12>
+    <col-12>
+    <hr>
+    </col-12> 
+    </div>
+    <div class="row">
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="eval_title" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_usercom</mat-label>
+    <input matInput formControlName="eval_usercom" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    </div>
+    <div class="row">
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_projmaincat</mat-label>
+    <input matInput formControlName="eval_projmaincat" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_dtrating</mat-label>
+    <input matInput formControlName="eval_dtrating" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    </div>
+
+    <div class="row">
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_voltlevel</mat-label>
+    <input matInput formControlName="eval_voltlevel" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_subhead</mat-label>
+    <input matInput formControlName="eval_subhead" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    </div>
+
+    <div class="row">
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_specloc</mat-label>
+    <input matInput formControlName="eval_specloc" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_majchaexidss</mat-label>
+    <input matInput formControlName="eval_majchaexidss" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    </div>
+
+    <div class="row">
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_nameofsub</mat-label>
+    <input matInput formControlName="eval_nameofsub" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_rating</mat-label>
+    <input matInput formControlName="eval_rating" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    </div>
+
+
+    <div class="row">
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_loading</mat-label>
+    <input matInput formControlName="eval_loading" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_loadpercent</mat-label>
+    <input matInput formControlName="eval_loadpercent" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    </div>
+    <div class="row">
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_1yrloadpercentload</mat-label>
+    <input matInput formControlName="eval_1yrloadpercentload" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_quarterlyload</mat-label>
+    <input matInput formControlName="eval_quarterlyload" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    </div>
+    <div class="row">
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_amtbillkwh</mat-label>
+    <input matInput formControlName="eval_amtbillkwh" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_amtbillnaira</mat-label>
+    <input matInput formControlName="eval_amtbillnaira" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    </div>
+    <div class="row">
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_collection</mat-label>
+    <input matInput formControlName="eval_collection" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_collectioneff</mat-label>
+    <input matInput formControlName="eval_collectioneff" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    </div>
+    <div class="row">
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_custpop</mat-label>
+    <input matInput formControlName="eval_custpop" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_nameofextss</mat-label>
+    <input matInput formControlName="eval_nameofextss" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    </div>
+    <div class="row">
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_extrating</mat-label>
+    <input matInput formControlName="eval_extrating" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>Applicant</mat-label>
+    <input matInput formControlName="eval_applicant" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+
+    </div>
+    </form>  <div class="row">
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_proposedloading</mat-label>
+    <input matInput formControlName="eval_proposedloading" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_extloadpercent</mat-label>
+    <input matInput formControlName="eval_extloadpercent" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    </div>
+    <div class="row">
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_3monthloadproj</mat-label>
+    <input matInput formControlName="eval_3monthloadproj" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_extprojbilling</mat-label>
+    <input matInput formControlName="eval_extprojbilling" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    </div>
+    <div class="row">
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_projbillingkwh</mat-label>
+    <input matInput formControlName="eval_projbillingkwh" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_projcollection</mat-label>
+    <input matInput formControlName="eval_projcollection" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    </div>
+    <div class="row">
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_projcollectioneff</mat-label>
+    <input matInput formControlName="eval_projcollectioneff" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_extcustpop</mat-label>
+    <input matInput formControlName="eval_extcustpop" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    </div>
+    <div class="row">
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_fdrname</mat-label>
+    <input matInput formControlName="eval_fdrname" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_fdrcapacity</mat-label>
+    <input matInput formControlName="eval_fdrcapacity" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    </div>
+    <div class="row">
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_fdrtrendpeak</mat-label>
+    <input matInput formControlName="eval_fdrtrendpeak" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_fdrsupload</mat-label>
+    <input matInput formControlName="eval_fdrsupload" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    </div>
+
+
+    <div class="row">
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_cumload</mat-label>
+    <input matInput formControlName="eval_cumload" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_srcfeeder</mat-label>
+    <input matInput formControlName="eval_srcfeeder" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    </div>
+
+    <div class="row">
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_projcost</mat-label>
+    <input matInput formControlName="eval_projcost" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_donor</mat-label>
+    <input matInput formControlName="eval_donor" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    </div>
+    <div class="row">
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_ibedc</mat-label>
+    <input matInput formControlName="eval_ibedc" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>nocustomers</mat-label>
+    <input matInput formControlName="nocustomers" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    </div>
+
+    <div class="row">
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>expected_billcom</mat-label>
+    <input matInput formControlName="expected_billcom" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>expected_gaincom</mat-label>
+    <input matInput formControlName="expected_gaincom" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    </div>
+    <div class="row">
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>eval_recmetertyp</mat-label>
+    <input matInput formControlName="eval_recmetertyp" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>title</mat-label>
+    <input matInput formControlName="title" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    </div>
+    <div class="row">
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>preamble</mat-label>
+    <input matInput formControlName="preamble" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>findings</mat-label>
+    <input matInput formControlName="findings" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    </div>
+    <div class="row">
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>scopeofwork</mat-label>
+    <input matInput formControlName="scopeofwork" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    <div class=" col-6">
+
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+    <mat-label>recommendation</mat-label>
+    <input matInput formControlName="recommendation" >
+    <mat-icon matSuffix>face</mat-icon>
+
+    </mat-form-field>
+    </div>
+    </div>
+
+
+
+
+    </div>

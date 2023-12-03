@@ -9,6 +9,7 @@
 || _router.url.includes('/all-contractors')
 || _router.url.includes('/manage-staff'))
 || _router.url.includes('/settings')
+|| _router.url.includes('/allpubconnection')
 ">
 
 
@@ -141,7 +142,13 @@
                                             class="mdi mdi-account-network"></i><span class="hide-menu">Contractors</span></a></li>
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                         routerLink="/allconnection/staff" aria-expanded="false"><i class="mdi mdi-border-all"></i><span
-                                class="hide-menu">Connections</span></a></li>
+                                class="hide-menu">PointLoad Connections</span></a></li>
+
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                        routerLink="/allpubconnection" aria-expanded="false"><i class="mdi mdi-border-all"></i><span
+                                class="hide-menu">Public DSS Connection</span></a></li>
+
+                    
                     <!-- <li class="sidebar-item" *ngIf="is_admin || is_superuser"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                         routerLink="/manage-staff" aria-expanded="false"><i class="mdi mdi-border-all"></i><span
                                 class="hide-menu">Manage Staff</span></a></li> -->

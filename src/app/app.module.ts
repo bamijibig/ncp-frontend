@@ -55,6 +55,13 @@ import { AuditTrailComponent } from './all-contractors/audit-trail/audit-trail.c
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { AllpubconnectionComponent } from './public-connection/allpubconnection/allpubconnection.component';
+import { pubconnectionActionComponent } from './public-connection/dialog/pubconnection-action/pubconnection-action.component';
+import { PubconnectionDeleteComponent } from './public-connection/dialog/pubconnection-delete/pubconnection-delete.component';
+import { PubconnectionEvaluateComponent } from './public-connection/dialog/pubconnection-evaluate/pubconnection-evaluate.component';
+import { PubconnectionFormComponent } from './public-connection/dialog/pubconnection-form/pubconnection-form.component';
+import { PubconnectionPrecomTestComponent } from './public-connection/dialog/pubconnection-precom-test/pubconnection-precom-test.component';
+import { PubconnectionReqPrecomComponent } from './public-connection/dialog/pubconnection-req-precom/pubconnection-req-precom.component';
 
 
 
@@ -92,6 +99,13 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     SettingsComponent,
     AuditTrailComponent,
     PasswordResetComponent,
+    AllpubconnectionComponent,
+    pubconnectionActionComponent,
+    PubconnectionDeleteComponent,
+    PubconnectionEvaluateComponent,
+    PubconnectionFormComponent,
+    PubconnectionPrecomTestComponent,
+    PubconnectionReqPrecomComponent,
     
   ],
   imports: [
@@ -106,7 +120,6 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     MatButtonModule,
     ReactiveFormsModule,
     FormsModule,
-    MatTableModule,
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,

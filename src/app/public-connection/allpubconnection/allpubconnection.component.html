@@ -1,0 +1,235 @@
+
+
+
+<div class="page-wrapper">
+    <div class="page-breadcrumb">
+        <div class="row align-items-center">
+            <div class="col-6">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0 d-flex align-items-center">
+                      <li class="breadcrumb-item"><a routerLink="/allpubconnection" class="link"><i class="mdi mdi-home-outline fs-4"></i></a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Public DSS Connections</li>
+                    </ol>
+                  </nav>
+                <h1 class="mb-0 fw-bold">Connections</h1> 
+            </div>
+            <div class="col-6">
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-fluid">
+      <mat-form-field>
+        <mat-label>Search</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+      </mat-form-field>
+        <div class="row">
+            <div class="col-lg-12">
+              <div class="col-12 text-right" *ngIf="is_contractor">
+                <button mat-raised-button color='primary'  (click)="addNew()" >Add new connection</button>
+            </div>
+
+            <mat-tab-group>
+              <mat-tab label="My Connections"> 
+                <div class="example-container mat-elevation-z8 table table-responsive">
+                  <mat-table #table [dataSource]="dataSource">
+                
+                    <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+                    <!-- id Column -->
+                    <ng-container matColumnDef="region">
+                      <mat-header-cell *matHeaderCellDef>Region </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.bh?.region.region}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="hub">
+                      <mat-header-cell *matHeaderCellDef>Business Hub</mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.bh?.businesshub}} </mat-cell>
+                    </ng-container>
+              
+                    <!-- name_sponsor column -->
+                    <ng-container matColumnDef="name_sponsor">
+                      <mat-header-cell *matHeaderCellDef> name of sponsor </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.name_sponsor}} </mat-cell>
+                    </ng-container>
+
+                       <!--community_name Column -->
+                       <ng-container matColumnDef="community_name">
+                        <mat-header-cell *matHeaderCellDef> community_name </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.community_name}} </mat-cell>
+                      </ng-container>
+                
+                
+                    
+                
+    
+
+
+                    <!-- title Column -->
+                    <ng-container matColumnDef="title">
+                      <mat-header-cell *matHeaderCellDef> title </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+                    </ng-container>
+                   
+                    <ng-container matColumnDef="chairman_comm_name">
+                      <mat-header-cell *matHeaderCellDef> chairman_comm_name </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.chairman_comm_name}} </mat-cell>
+                    </ng-container>
+                   
+                    <!-- <ng-container matColumnDef="date_of_application">
+                      <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.date_of_application | date: "mediumDate"}} </mat-cell>
+                    </ng-container> -->
+                    <ng-container matColumnDef="chairman_comm_number">
+                      <mat-header-cell *matHeaderCellDef> chairman_comm_number </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.chairman_comm_number}}  </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="dt_capacity">
+                      <mat-header-cell *matHeaderCellDef> dt_capacity </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.dt_capacity}}  </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="voltage_level">
+                      <mat-header-cell *matHeaderCellDef> voltage_level </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.voltage_level}}  </mat-cell>
+                    </ng-container>
+                     <ng-container matColumnDef="date_of_visit">
+                      <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.date_of_visit | date: "mediumDate"}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="no_of_customers">
+                      <mat-header-cell *matHeaderCellDef> no_of_customers </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.no_of_customers}}  </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="estimated_load">
+                      <mat-header-cell *matHeaderCellDef> estimated_load </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.estimated_load}}  </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="estimated_cost">
+                      <mat-header-cell *matHeaderCellDef> estimated_cost </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.estimated_cost}}  </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="no_of_spans">
+                      <mat-header-cell *matHeaderCellDef> no_of_spans </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.no_of_spans}}  </mat-cell>
+                    </ng-container> 
+                    <ng-container matColumnDef="relieftype">
+                      <mat-header-cell *matHeaderCellDef> relieftype </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.relieftype}}  </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="feeder_name">
+                      <mat-header-cell *matHeaderCellDef> feeder_name </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.feeder_name}}  </mat-cell>
+                    </ng-container> 
+                    <ng-container matColumnDef="feeder_capacity">
+                      <mat-header-cell *matHeaderCellDef> feeder_capacity </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.feeder_capacity}}  </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="fdr_peakload">
+                      <mat-header-cell *matHeaderCellDef> fdr_peakload </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.fdr_peakload}}  </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="load_tilldate">
+                      <mat-header-cell *matHeaderCellDef> load_tilldate </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.load_tilldate}}  </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="source_fdr">
+                      <mat-header-cell *matHeaderCellDef> source_fdr </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.source_fdr}}  </mat-cell>
+                    </ng-container> 
+                    <ng-container matColumnDef="powertrans">
+                      <mat-header-cell *matHeaderCellDef> powertrans </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.powertrans}}  </mat-cell>
+                    </ng-container> 
+                    <ng-container matColumnDef="trans_rating">
+                      <mat-header-cell *matHeaderCellDef> trans_rating </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.trans_rating}}  </mat-cell>
+                    </ng-container> 
+                    <ng-container matColumnDef="expected_billing">
+                      <mat-header-cell *matHeaderCellDef> expected_billing </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.expected_billing}}  </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="expected_gain">
+                      <mat-header-cell *matHeaderCellDef> expected_gain </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.expected_gain}}  </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="letter_of_donation_dss">
+                      <mat-header-cell *matHeaderCellDef> letter_of_donation_dss </mat-header-cell>
+                      <!-- <mat-cell *matCellDef="let element">  <a [href]="element?.coren" target="_blank">View</a> </mat-cell> -->
+                    </ng-container>
+                    <ng-container matColumnDef="nemsa_test_cert">
+                      <mat-header-cell *matHeaderCellDef> nemsa_test_cert </mat-header-cell>
+                      <!-- <mat-cell *matCellDef="let element">  <a [href]="element?.coren" target="_blank">View</a> </mat-cell> -->
+                    </ng-container>
+                    <ng-container matColumnDef="intro_letter_clientt">
+                      <mat-header-cell *matHeaderCellDef> intro_letter_client </mat-header-cell>
+                      <!-- <mat-cell *matCellDef="let element">  <a [href]="element?.coren" target="_blank">View</a> </mat-cell> -->
+                    </ng-container>
+                    <ng-container matColumnDef="date_of_application">
+                      <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.date_of_application | date: "mediumDate"}} </mat-cell>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="edit">
+                      <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                      <mat-cell *matCellDef="let element">
+                        <button mat-raised-button color="secondary" (click)="edit(element)" *ngIf="is_contractor && !element.in_approval_workflow">Edit</button> 
+                      </mat-cell>  
+                      </ng-container>
+                      
+
+                       
+                    <ng-container matColumnDef="view">
+                      <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                      <mat-cell *matCellDef="let element">
+                        
+                      <button mat-raised-button color="secondary" (click)="view(element)" *ngIf="is_contractor">View</button> </mat-cell>
+                    </ng-container>
+                  
+                
+                    <mat-header-row *matHeaderRowDef="displayedColumnslist"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumnslist;"></mat-row>
+                  </mat-table>
+                  <mat-paginator #paginator
+                                 [pageSize]="10"
+                                 [pageSizeOptions]="[5, 10, 20]"
+                                 [showFirstLastButtons]="true">
+                  </mat-paginator>
+                </div>
+              </mat-tab>
+
+              <mat-tab label="Request Precommissioning"> 
+                <div class="example-container mat-elevation-z8 table table-responsive">
+                  <mat-table #table [dataSource]="dataSourcePrecom">
+                
+                    <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+                   
+                    <ng-container matColumnDef="edit">
+                      <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                      <mat-cell *matCellDef="let element">
+                        <button mat-raised-button color="secondary" (click)="request(element)" *ngIf="is_contractor">Request</button>
+                      &nbsp; &nbsp; 
+                      <button mat-raised-button color="secondary" (click)="view(element)" *ngIf="is_contractor">View</button> </mat-cell>
+                    </ng-container>
+                  
+                
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                  </mat-table>
+                  <mat-paginator #paginator
+                                 [pageSize]="10"
+                                 [pageSizeOptions]="[5, 10, 20]"
+                                 [showFirstLastButtons]="true">
+                  </mat-paginator>
+                </div>
+
+              </mat-tab>
+              </mat-tab-group>
+           
+            </div>
+
+        </div>
+        
+      
+    </div>
+  
+</div>

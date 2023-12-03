@@ -10,6 +10,7 @@ import { ContractorRegComponent } from './registration/contractor-reg/contractor
 import { SettingsComponent } from './settings/settings.component';
 import { UserManagerComponent } from './user-manager/user-manager.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
+import { AllpubconnectionComponent } from './public-connection/allpubconnection/allpubconnection.component';
 
 const routes: Routes = [
 
@@ -33,6 +34,13 @@ const routes: Routes = [
     
     path: 'allconnection',
     component: AllconnectionComponent
+  },
+
+  {
+    
+    path: 'allpubconnection',
+    component:AllpubconnectionComponent
+
   },
   {
     

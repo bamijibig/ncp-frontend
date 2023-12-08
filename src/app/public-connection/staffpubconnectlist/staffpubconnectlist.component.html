@@ -1,0 +1,197 @@
+
+
+
+<div class="page-wrapper">
+    <div class="page-breadcrumb">
+        <div class="row align-items-center">
+            <div class="col-6">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0 d-flex align-items-center">
+                      <li class="breadcrumb-item"><a routerLink="/allpubconnection/staff" class="link"><i class="mdi mdi-home-outline fs-4"></i></a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Public DSS Connections</li>
+                    </ol>
+                  </nav>
+                <h1 class="mb-0 fw-bold">Public DSS Connections</h1> 
+            </div>
+            <div class="col-6">
+            </div>
+        </div>
+    </div>
+    <mat-form-field>
+      <mat-label>SEARCH</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+    </mat-form-field>
+    <div class="container-fluid">
+  
+      <mat-tab-group>
+      <mat-tab label="All Connections"> 
+          <div class="container">
+  
+         
+        <div class="row">
+          <div class="col-lg-12">
+            <!-- <div class="col-12 text-right">
+              <button mat-raised-button color='primary'  (click)="addNew()" >Add new Contractor</button>
+          </div> -->
+          <div class="example-container mat-elevation-z8 table table-responsive">
+            <mat-table #table [dataSource]="dataSource">
+          
+              <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+              <!-- id Column -->
+              <ng-container matColumnDef="community_name">
+                <mat-header-cell *matHeaderCellDef>Community Name </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.community_name}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="region">
+                <mat-header-cell *matHeaderCellDef>Region </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.bh?.region?.region}} </mat-cell>
+              </ng-container>
+             
+              <ng-container matColumnDef="hub">
+                <mat-header-cell *matHeaderCellDef>Business Hub</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.bh?.businesshub}} </mat-cell>
+              </ng-container>
+          
+              <!--businesstype Column -->
+              <ng-container matColumnDef="chairman_comm_name">
+                <mat-header-cell *matHeaderCellDef> chairman_comm_name </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.chairman_comm_name}} </mat-cell>
+              </ng-container>
+          
+          
+              <!-- value_contract column -->
+              <ng-container matColumnDef="chairman_comm_number">
+                <mat-header-cell *matHeaderCellDef> chairman_comm_number </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.chairman_comm_number}} </mat-cell>
+              </ng-container>
+          
+              <!-- company_category Column -->
+            
+            
+             
+              <ng-container matColumnDef="date_of_application">
+                <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.date_of_application | date: "mediumDate"}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="status">
+                <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.status}}  </mat-cell>
+              </ng-container> 
+              <ng-container matColumnDef="view">
+                <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  <button mat-raised-button color="secondary" (click)="view(element)">View</button> </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="eval">
+                <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  <button mat-raised-button color="secondary" (click)="viewEvaluate(element)">Eval</button> </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="test">
+                <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  <button mat-raised-button color="secondary" (click)="viewTest(element)">Test</button> </mat-cell>
+              </ng-container>
+          
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+            <mat-paginator #paginator
+                           [pageSize]="10"
+                           [pageSizeOptions]="[5, 10, 20]"
+                           [showFirstLastButtons]="true">
+            </mat-paginator>
+          </div>
+          </div>
+  
+      </div>
+    </div>
+        </mat-tab>
+        <mat-tab label="My Approvals">
+          <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <!-- <div class="col-12 text-right">
+              <button mat-raised-button color='primary'  (click)="addNew()" >Add new Contractor</button>
+          </div> -->
+          <div class="example-container mat-elevation-z8 table table-responsive">
+            <mat-table #table [dataSource]="dataSourceApproval">
+              <ng-container matColumnDef="community_name">
+                <mat-header-cell *matHeaderCellDef>Community Name </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.community_name?.contractor_name}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="region">
+                <mat-header-cell *matHeaderCellDef>Region </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.bh?.region?.region}} </mat-cell>
+              </ng-container>
+              [  , 'date_of_application','status', 'view','eval','test']
+              <ng-container matColumnDef="hub">
+                <mat-header-cell *matHeaderCellDef>Business Hub</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.bh?.businesshub}} </mat-cell>
+              </ng-container>
+          
+              <!--businesstype Column -->
+              <ng-container matColumnDef="chairman_comm_name">
+                <mat-header-cell *matHeaderCellDef> chairman_comm_name </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.chairman_comm_name}} </mat-cell>
+              </ng-container>
+          
+          
+              <!-- value_contract column -->
+              <ng-container matColumnDef="chairman_comm_number">
+                <mat-header-cell *matHeaderCellDef> chairman_comm_number </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.chairman_comm_number}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="date_of_application">
+                <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.date_of_application | date: "mediumDate"}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="status">
+                <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.connection_status}}  </mat-cell>
+              </ng-container> 
+
+              <ng-container matColumnDef="view">
+                <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  <button mat-raised-button color="secondary" (click)="view(element)">View</button>
+               
+                 </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="approve">
+                <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                <button *ngIf="!user.is_te" mat-raised-button color="secondary" (click)="approve(element)">Approve</button> 
+                <button *ngIf="user.is_te && !element.ct_is_pre_requested" mat-raised-button color="secondary" (click)="evaluate(element)">Evaluate</button>
+                <button *ngIf="user.is_te && element.ct_is_pre_requested" mat-raised-button color="secondary" (click)="submitprecom(element)"> Test</button>
+               </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="decline">
+                <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                <button *ngIf="!user.is_te" mat-raised-button color="secondary" (click)="decline(element)">Decline</button> </mat-cell>
+              </ng-container>
+            
+          
+              <mat-header-row *matHeaderRowDef="displayedColumnsList"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumnsList;"></mat-row>
+            </mat-table>
+            <mat-paginator #paginator
+                           [pageSize]="10"
+                           [pageSizeOptions]="[5, 10, 20]"
+                           [showFirstLastButtons]="true">
+            </mat-paginator>
+          </div>
+          </div>
+  
+      </div>
+    </div>
+        </mat-tab>
+      </mat-tab-group>
+
+    </div>
+  
+  </div>

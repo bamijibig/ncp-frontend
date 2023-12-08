@@ -62,7 +62,8 @@ import { PubconnectionEvaluateComponent } from './public-connection/dialog/pubco
 import { PubconnectionFormComponent } from './public-connection/dialog/pubconnection-form/pubconnection-form.component';
 import { PubconnectionPrecomTestComponent } from './public-connection/dialog/pubconnection-precom-test/pubconnection-precom-test.component';
 import { PubconnectionReqPrecomComponent } from './public-connection/dialog/pubconnection-req-precom/pubconnection-req-precom.component';
-
+import {CdkTableModule} from '@angular/cdk/table';
+import { StaffpubconnectlistComponent } from './public-connection/staffpubconnectlist/staffpubconnectlist.component';
 
 
 
@@ -106,6 +107,7 @@ import { PubconnectionReqPrecomComponent } from './public-connection/dialog/pubc
     PubconnectionFormComponent,
     PubconnectionPrecomTestComponent,
     PubconnectionReqPrecomComponent,
+    StaffpubconnectlistComponent,
     
   ],
   imports: [
@@ -136,6 +138,7 @@ import { PubconnectionReqPrecomComponent } from './public-connection/dialog/pubc
     MatMenuModule,
     NgxMatFileInputModule,
     ScrollingModule,
+    CdkTableModule
    
     
 

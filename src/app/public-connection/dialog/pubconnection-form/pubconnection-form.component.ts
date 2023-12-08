@@ -18,7 +18,10 @@ export class PubconnectionFormComponent implements OnInit {
     public dialogRef: MatDialogRef<PubconnectionFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private portadd: AppserviceService
-  ) { 
+  ) {
+    this.action = data.action;
+      this.getApprovalStatus();
+      this.getRegion(); 
     this.portform= new FormGroup({
       name_sponsor: new FormControl(''),
       community_name: new FormControl(''),
@@ -53,6 +56,7 @@ export class PubconnectionFormComponent implements OnInit {
       email: new FormControl({value: "", disabled: true}, Validators.required),
       businesshub: new FormControl(''),
       region : new FormControl(''),
+      
     })
     if(this.action == 'add'){
       
@@ -163,7 +167,7 @@ if(this.action == 'view' || this.action == 'approve'){
   submitConnections() {
     if(this.action == 'edit'){
        // Edit code below
-       this.portadd.editConnections(
+       this.portadd.editConnectionspub(
         this.portform.getRawValue(),
         this.connection.id
         ).subscribe(
@@ -202,7 +206,7 @@ if(this.action == 'view' || this.action == 'approve'){
   status: Boolean = true;
   in_approval: Boolean = true;
 getApprovalStatus(){
-  this.portadd.getApprovalStatusReg(User.getUser().id).subscribe((result)=>{
+  this.portadd.getApprovalStatusRegpub(User.getUser().id).subscribe((result)=>{
     this.status = result.registration_approved;
     this.in_approval = result.in_approval_workflow;
     this.is_contractor = result.is_contractor;

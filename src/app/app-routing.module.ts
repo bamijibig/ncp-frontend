@@ -11,6 +11,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { UserManagerComponent } from './user-manager/user-manager.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { AllpubconnectionComponent } from './public-connection/allpubconnection/allpubconnection.component';
+import { StaffpubconnectlistComponent } from './public-connection/staffpubconnectlist/staffpubconnectlist.component';
 
 const routes: Routes = [
 
@@ -47,6 +48,14 @@ const routes: Routes = [
     path: 'allconnection/staff',
     component: StaffconnectionlistComponent
   },
+
+  {
+    
+    path: 'allpubconnection/staff',
+    component: StaffpubconnectlistComponent
+  },
+
+  
   
   {
     

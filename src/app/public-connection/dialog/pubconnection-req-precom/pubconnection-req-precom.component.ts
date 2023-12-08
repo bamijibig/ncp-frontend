@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { AppserviceService } from 'src/app/appservice.service';
 
 @Component({
   selector: 'app-pubconnection-req-precom',
@@ -6,10 +9,34 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pubconnection-req-precom.component.css']
 })
 export class PubconnectionReqPrecomComponent implements OnInit {
+  id: any;
+  pubprecomform: FormGroup;
+  constructor(
+    public dialogRef: MatDialogRef<PubconnectionReqPrecomComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+   
+    private appservice:AppserviceService
+  ) { 
+    this.id = data.row?.id;
+    this.pubprecomform = new FormGroup({
+      receipt: new FormControl(''),
+  })
+}
 
-  constructor() { }
 
   ngOnInit(): void {
+  }
+  pubsubmitConnections(){};
+  Execute(){
+    this.appservice.pubrequest_precommissioning(this.id, this.pubprecomform.getRawValue()).subscribe(()=>{
+      this.appservice.showNotification(
+        'snackbar-success',
+        'Successfull',
+        'bottom',
+        'center'
+      );
+      this.dialogRef.close();
+    })
   }
 
 }

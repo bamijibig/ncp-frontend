@@ -2,14 +2,15 @@
 <!-- Dashboard structure starts -->
 <div *ngIf="(_router.url.includes('/dashboard')
 || _router.url.includes('/allconnection')
+|| _router.url.includes('/allpubconnection')
 || _router.url.includes('/contractor_reg')
 || _router.url.includes('/region')
 || _router.url.includes('/hub')
 || _router.url.includes('/all_users')
 || _router.url.includes('/all-contractors')
-|| _router.url.includes('/manage-staff'))
-|| _router.url.includes('/settings')
-|| _router.url.includes('/allpubconnection')
+|| _router.url.includes('/manage-staff')
+|| _router.url.includes('/settings'))
+
 ">
 
 
@@ -145,7 +146,7 @@
                                 class="hide-menu">PointLoad Connections</span></a></li>
 
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        routerLink="/allpubconnection" aria-expanded="false"><i class="mdi mdi-border-all"></i><span
+                        routerLink="/allpubconnection/staff" aria-expanded="false"><i class="mdi mdi-border-all"></i><span
                                 class="hide-menu">Public DSS Connection</span></a></li>
 
                     

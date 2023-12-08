@@ -26,7 +26,7 @@ export class PubconnectionEvaluateComponent implements OnInit {
       eval_voltlevel: new FormControl(data.row?.eval_voltlevel),
       eval_subhead: new FormControl(data.row?.eval_subhead),
       eval_title: new FormControl(data.row?.eval_title),
-      eval_specloc: new FormControl(data.row?.eval_specloc),
+      eval_extload: new FormControl(data.row?.eval_extload),
       eval_majchaexidss: new FormControl(data.row?.eval_majchaexidss),
       eval_nameofsub: new FormControl(data.row?.eval_nameofsub),
       eval_rating: new FormControl(data.row?.eval_rating),
@@ -62,12 +62,18 @@ export class PubconnectionEvaluateComponent implements OnInit {
       expected_billcom: new FormControl(data.row?.expected_billcom),
       expected_gaincom: new FormControl(data.row?.expected_gaincom),
       eval_recmetertyp: new FormControl(data.row?.eval_recmetertyp),
+      eval_statmeter: new FormControl(data.row?.eval_statmeter),
       title: new FormControl(data.row?.title),
       preamble: new FormControl(data.row?.preamble),
       findings: new FormControl(data.row?.findings),
       scopeofwork: new FormControl(data.row?.scopeofwork),
       recommendation: new FormControl(data.row?.recommendation),
-        
+      eval_custreq: new FormControl(data.row?.eval_custreq),
+      eval_blockdiag: new FormControl(data.row?.eval_blockdiag),
+      eval_schdiag: new FormControl(data.row?.eval_schdiag),
+      eval_sitevform: new FormControl(data.row?.eval_sitevform),
+      eval_projplanby: new FormControl(data.row?.eval_projplanby),
+     
       
     })
     if(data.action == 'view'){

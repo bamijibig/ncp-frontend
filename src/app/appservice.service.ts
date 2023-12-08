@@ -26,9 +26,28 @@ export class AppserviceService {
     const headers = { 'Authorization': 'Token ' + reqtoken};
     return this.http.get(url, {headers:headers})
   }
+  getContractorpubConnections(): Observable<any> {
+    const url = this.masterdomain + 'public/pubcontractor_connections/';
+    const reqtoken = this.getToken();
+    const headers = { 'Authorization': 'Token ' + reqtoken};
+    return this.http.get(url, {headers:headers})
+  }
+  getpubPrecomList(): Observable<any> {
+    const url = this.masterdomain + 'public/pubconnection/precommision/list/';
+    const reqtoken = this.getToken();
+    const headers = { 'Authorization': 'Token ' + reqtoken};
+    return this.http.get(url, {headers:headers})
+  }
 
   getPrecomList(): Observable<any> {
     const url = this.masterdomain + 'connection/precommision/list/';
+    const reqtoken = this.getToken();
+    const headers = { 'Authorization': 'Token ' + reqtoken};
+    return this.http.get(url, {headers:headers})
+  }
+
+  getAllStaffpubConnections(): Observable<any> {
+    const url = this.masterdomain + 'public/pubstaff_connections/';
     const reqtoken = this.getToken();
     const headers = { 'Authorization': 'Token ' + reqtoken};
     return this.http.get(url, {headers:headers})
@@ -685,6 +704,13 @@ addNewUser( formvalue:any
       const headers = { 'Authorization': 'Token ' + reqtoken};
       return this.http.get(url, {headers:headers})
     }
+
+    getMyConnectionApprovaListpub(): Observable<any> {
+      const url = this.masterdomain + 'public/list/connections/pubmyapprovals';
+      const reqtoken = this.getToken();
+      const headers = { 'Authorization': 'Token ' + reqtoken};
+      return this.http.get(url, {headers:headers})
+    }
     
     
   action( action:any, id: any, form: any
@@ -747,6 +773,10 @@ addNewUser( formvalue:any
 
     getApprovalStatusReg(id:any): Observable<any> {
       const url = this.masterdomain + 'approvalstatus/'+ id + '/';
+      return this.http.get(url)
+    }
+    getApprovalStatusRegpub(id:any): Observable<any> {
+      const url = this.masterdomain + 'public/approvalstatuspub/'+ id + '/';
       return this.http.get(url)
     }
     

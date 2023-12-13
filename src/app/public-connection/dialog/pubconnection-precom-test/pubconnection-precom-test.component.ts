@@ -66,7 +66,7 @@ export class PubconnectionPrecomTestComponent implements OnInit {
 ngOnInit(): void {
 }
 Execute(){
-  this.appservice.submit_precom_test( this.id, this.pubprecom_form.getRawValue()).subscribe(()=>{
+  this.appservice.submit_pubprecom_test( this.id, this.pubprecom_form.getRawValue()).subscribe(()=>{
     this.appservice.showNotification(
       'snackbar-success',
       'Successfull',

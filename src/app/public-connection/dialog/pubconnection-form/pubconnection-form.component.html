@@ -285,12 +285,23 @@
                 </mat-form-field>
             </div>
             <div class=" col-6">
+                
                 <mat-form-field class="example-full-width mb-3" appearance="outline">
                     <mat-label>Relief Type</mat-label>
-                    <input matInput formControlName="relieftype" required>
-                    <mat-icon matSuffix>face</mat-icon>
-                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
-                        Name is required
+                    <mat-select formControlName="relieftype" required>
+                        
+                        <mat-option [value]="'transformer installation'">
+                            Transformer installation
+                        </mat-option>
+                        <mat-option [value]="'transformer uprating'">
+                            Transformer uprating
+                        </mat-option>
+                        <mat-option [value]="'replacement'">
+                            Replacement
+                        </mat-option>
+                    </mat-select>
+                    <!-- <mat-error *ngIf="proForm.get('status').hasError('required')">
+                        Status is required
                     </mat-error> -->
                 </mat-form-field>
             </div>

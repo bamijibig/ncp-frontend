@@ -90,11 +90,23 @@
       <!-- Row 16 -->
       <div class="row">
         <div class="col-6">
+          
           <mat-form-field class="example-full-width mb-3" appearance="outline">
-            <mat-label>eval_nameofsub</mat-label>
-            <input matInput formControlName="eval_nameofsub">
-            <mat-icon matSuffix>face</mat-icon>
-          </mat-form-field>
+            <mat-label>Name of Substation</mat-label>
+            <mat-select formControlName="eval_nameofsub" required>
+                
+                <mat-option [value]="'existing substation bf relief'">
+                    Existing Substation Before Relief
+                </mat-option>
+                <mat-option [value]="'existing substation after relieve'">
+                  Existing Substation After Relief
+                </mat-option>
+                
+            </mat-select>
+            <!-- <mat-error *ngIf="proForm.get('status').hasError('required')">
+                Status is required
+            </mat-error> -->
+        </mat-form-field>
         </div>
         <div class="col-6">
           <mat-form-field class="example-full-width mb-3" appearance="outline">
@@ -104,6 +116,26 @@
           </mat-form-field>
         </div>
       </div>
+      <div class="row">
+      <div class=" col-6">
+    
+        <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Region</mat-label>
+            <input matInput formControlName="eval_region" >
+            <mat-icon matSuffix>face</mat-icon>
+            
+        </mat-form-field>
+    </div>
+    <div class=" col-6">
+
+        <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Business Hub</mat-label>
+            <input matInput formControlName="eval_bhub" >
+            <mat-icon matSuffix>face</mat-icon>
+            
+        </mat-form-field>
+    </div>
+  </div>
       
       <!-- Add more rows as needed -->
       
@@ -188,11 +220,23 @@
           </mat-form-field>
         </div>
         <div class="col-6">
+      
           <mat-form-field class="example-full-width mb-3" appearance="outline">
-            <mat-label>Nameofextss</mat-label>
-            <input matInput formControlName="eval_nameofextss">
-            <mat-icon matSuffix>face</mat-icon>
-          </mat-form-field>
+            <mat-label>Name of Substation (New extension)</mat-label>
+            <mat-select formControlName="eval_nameofextss" required>
+                
+                <mat-option [value]="'name of ss'">
+                    Name of Substation
+                </mat-option>
+                <mat-option [value]="'proposed ss'">
+                  Proposed Substation
+                </mat-option>
+                
+            </mat-select>
+            <!-- <mat-error *ngIf="proForm.get('status').hasError('required')">
+                Status is required
+            </mat-error> -->
+        </mat-form-field>
         </div>
       </div>
 

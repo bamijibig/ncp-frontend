@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit {
   is_md: Boolean = false;
   is_hsch: Boolean = false;
   is_hse: Boolean = false;
+  is_bhm: Boolean = false;
   is_hbo: Boolean = false;
   is_hm: Boolean = false;
   is_superuser: Boolean = false;
@@ -29,6 +30,7 @@ export class DashboardComponent implements OnInit {
     this.is_cto = User.getUser().is_cto;
     this.is_md = User.getUser().is_md;
     this.is_hse = User.getUser().is_hse;
+    this.is_bhm = User.getUser().is_bhm;
     this.is_hbo = User.getUser().is_hbo;
     this.is_hm = User.getUser().is_hm;
     this.is_hsch = User.getUser().is_hsch;

@@ -103,7 +103,7 @@ export class AppserviceService {
   
   
       formData.append('in_approval_workflow', 'True');
-      formData.append('connection_status', 'Submitted and Awaiting TE Evaluation');
+      formData.append('connection_status', 'Submitted and Awaiting TM Approval');
       formData.append('declined', "False");
       formData.append('tm_is_connection_approved', 'False');
       const reqtoken = this.getToken();
@@ -521,6 +521,9 @@ addNewUser( formvalue:any
     if(formvalue.role =='is_md'){
       formData.append('is_md', 'True');
     };
+    if(formvalue.role =='is_bhm'){
+      formData.append('is_bhm', 'True');
+    };
     if(formvalue.role =='is_hbo'){
       formData.append('is_hbo', 'True');
     };
@@ -559,6 +562,7 @@ addNewUser( formvalue:any
           formData.append('is_cto', 'False');
           formData.append('is_md', 'False');
           // formData.append('is_hsch', 'False');
+          formData.append('is_bhm', 'False');
           formData.append('is_hbo', 'False');
           formData.append('is_hm', 'False');
           formData.append('is_admin', 'False');
@@ -570,6 +574,7 @@ addNewUser( formvalue:any
           formData.append('is_tm', 'False');
           formData.append('is_cto', 'False');
           formData.append('is_md', 'False');
+          formData.append('is_bhm', 'False');
           formData.append('is_hbo', 'False');
           // formData.append('is_hsch', 'False');
           formData.append('is_hm', 'False');
@@ -580,6 +585,7 @@ addNewUser( formvalue:any
           formData.append('is_cto', 'False');
           formData.append('is_md', 'False');
           formData.append('is_tm', 'False');
+          formData.append('is_bhm', 'False');
           formData.append('is_hbo', 'False');
           // formData.append('is_hsch', 'False');
           formData.append('is_hm', 'False');
@@ -591,6 +597,7 @@ addNewUser( formvalue:any
           formData.append('is_cto', 'False');
           formData.append('is_md', 'False');
           formData.append('is_tm', 'False');
+          formData.append('is_bhm', 'False');
           formData.append('is_hbo', 'False');
           // formData.append('is_hsch', 'False');
           formData.append('is_hm', 'False');
@@ -602,6 +609,7 @@ addNewUser( formvalue:any
           formData.append('is_cto', 'True');
           formData.append('is_tm', 'False');
           formData.append('is_md', 'False');
+          formData.append('is_bhm', 'False');
           // formData.append('is_hsch', 'False');
           formData.append('is_hm', 'False');
           formData.append('is_admin', 'False');
@@ -613,6 +621,7 @@ addNewUser( formvalue:any
           formData.append('is_npd', 'False');
           formData.append('is_cto', 'False');
           formData.append('is_md', 'True');
+          formData.append('is_bhm', 'False');
           formData.append('is_hbo', 'False');
           formData.append('is_hm', 'False');
           // formData.append('is_hsch', 'False');
@@ -635,6 +644,7 @@ addNewUser( formvalue:any
           formData.append('is_cto', 'False');
           formData.append('is_hse', 'True');
           formData.append('is_md', 'False');
+          formData.append('is_bhm', 'False');
           formData.append('is_hm', 'False');
           formData.append('is_hbo', 'False');
           formData.append('is_admin', 'False');
@@ -645,6 +655,7 @@ addNewUser( formvalue:any
           formData.append('is_tm', 'False');
           formData.append('is_cto', 'False');
           formData.append('is_md', 'False');
+          formData.append('is_bhm', 'False');
           formData.append('is_hm', 'False');
           formData.append('is_hbo', 'True');
           formData.append('is_admin', 'False');
@@ -655,6 +666,7 @@ addNewUser( formvalue:any
           formData.append('is_tm', 'False');
           formData.append('is_cto', 'False');
           formData.append('is_md', 'False');
+          formData.append('is_bhm', 'False');
           // formData.append('is_hsch', 'False');
           formData.append('is_hbo', 'False');
           formData.append('is_hm', 'True');
@@ -1140,6 +1152,20 @@ addNewUser( formvalue:any
           formData.append('cto_memo', form.memo);
 
         }
+        // BHM
+        if(User.getUser().is_bhm == true){
+          formData.append('approval_role', 'bhm');
+          formData.append('bhm_is_connection_approved', 'True');
+          formData.append('hbo_is_connection_approved', 'False');
+          formData.append('bhm_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+          formData.append('bhm_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+          formData.append('connection_status', 'Approved by BHM. Awaiting HBO approval');
+          formData.append('bhm_memo', form.memo);
+          
+
+        }
+        
+        // BHM END
         // HBO
         if(User.getUser().is_hbo == true){
           formData.append('approval_role', 'hbo');
@@ -1191,6 +1217,11 @@ addNewUser( formvalue:any
         }
         if(User.getUser().is_hse == true){
           formData.append('hse_memo', form.memo); 
+
+        }
+        if(User.getUser().is_bhm == true){
+          formData.append('bhm_memo', form.memo);
+          
 
         }
         if(User.getUser().is_hbo == true){
@@ -1267,6 +1298,20 @@ addNewUser( formvalue:any
             formData.append('cto_memo', form.memo);
   
           }
+            // BHM
+        if(User.getUser().is_bhm == true){
+          formData.append('approval_role', 'bhm');
+          formData.append('bhm_is_connection_approved', 'True');
+          formData.append('hbo_is_connection_approved', 'False');
+          formData.append('bhm_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+          formData.append('bhm_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+          formData.append('connection_status', 'Approved by BHM. Awaiting HBO approval');
+          formData.append('bhm_memo', form.memo);
+          
+
+        }
+        
+        // BHM END
           // HBO
           if(User.getUser().is_hbo == true){
             formData.append('approval_role', 'hbo');
@@ -1318,6 +1363,11 @@ addNewUser( formvalue:any
           }
           if(User.getUser().is_hse == true){
             formData.append('hse_memo', form.memo); 
+  
+          }
+          if(User.getUser().is_bhm == true){
+            formData.append('bhm_memo', form.memo);
+            
   
           }
           if(User.getUser().is_hbo == true){

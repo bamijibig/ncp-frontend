@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
   is_npd: Boolean = false;
   is_cto: Boolean = false;
   is_hse: Boolean = false;
+  is_bhm: Boolean = false;
   is_hbo: Boolean = false;
   is_hm: Boolean = false;
   is_md: Boolean = false;
@@ -61,6 +62,7 @@ export class AppComponent implements OnInit {
   this.is_cto = User.getUser()?.is_cto;
   this.is_md = User.getUser()?.is_md;
   this.is_hsch = User.getUser()?.is_hsch;
+  this.is_bhm = User.getUser()?.is_bhm;
   this.is_hbo = User.getUser()?.is_hbo;
   this.is_hse = User.getUser()?.is_hse;
   this.is_superuser = User.getUser()?.is_superuser;

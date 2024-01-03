@@ -30,9 +30,9 @@
          
         <div class="row">
           <div class="col-lg-12">
-            <!-- <div class="col-12 text-right">
-              <button mat-raised-button color='primary'  (click)="addNew()" >Add new Contractor</button>
-          </div> -->
+            <div class="col-12 text-left">
+              <button mat-raised-button color='primary'  (click)="downloadExcel()" >download Excel</button>
+          </div>
           <div class="example-container mat-elevation-z8 table table-responsive">
             <mat-table #table [dataSource]="dataSource">
           
@@ -127,7 +127,7 @@
         <div class="row">
           <div class="col-lg-12">
             <!-- <div class="col-12 text-right">
-              <button mat-raised-button color='primary'  (click)="addNew()" >Add new Contractor</button>
+              <button mat-raised-button color='primary'  (click)="downloadExcel()" >Add new Contractor</button>
           </div> -->
           <div class="example-container mat-elevation-z8 table table-responsive">
             <mat-table #table [dataSource]="dataSourceApproval">
@@ -227,7 +227,9 @@
       </div>
     </div>
         </mat-tab>
+        
       </mat-tab-group>
+      
   
   
   

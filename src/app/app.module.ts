@@ -64,6 +64,8 @@ import { PubconnectionPrecomTestComponent } from './public-connection/dialog/pub
 import { PubconnectionReqPrecomComponent } from './public-connection/dialog/pubconnection-req-precom/pubconnection-req-precom.component';
 import {CdkTableModule} from '@angular/cdk/table';
 import { StaffpubconnectlistComponent } from './public-connection/staffpubconnectlist/staffpubconnectlist.component';
+import { ContractorRegApplicationComponent } from './registration/contractor-reg/contractor-reg-application/contractor-reg-application.component';
+import { ContractorRegDialogComponent } from './all-contractors/dialog/contractor-reg-dialog/contractor-reg-dialog.component';
 
 
 
@@ -108,6 +110,8 @@ import { StaffpubconnectlistComponent } from './public-connection/staffpubconnec
     PubconnectionPrecomTestComponent,
     PubconnectionReqPrecomComponent,
     StaffpubconnectlistComponent,
+    ContractorRegApplicationComponent,
+    ContractorRegDialogComponent,
     
   ],
   imports: [

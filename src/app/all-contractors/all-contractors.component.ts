@@ -8,6 +8,9 @@ import { AppserviceService } from 'src/app/appservice.service';
 import { AuditTrailComponent } from './audit-trail/audit-trail.component';
 import { ActionDialogComponent } from './dialog/action-dialog/action-dialog.component';
 import { AllContractorFormDialogComponent } from './dialog/all-contractor-form-dialog/all-contractor-form-dialog.component';
+import * as XLSX from 'xlsx';
+import { ContractorRegComponent } from '../registration/contractor-reg/contractor-reg.component';
+import { ContractorRegDialogComponent } from './dialog/contractor-reg-dialog/contractor-reg-dialog.component';
 // import { CdkVirtualForOf } from '@angular/cdk/scrolling';
 
 
@@ -21,11 +24,12 @@ export class AllContractorsComponent implements OnInit {
   // @ViewChild(CdkVirtualForOf)
   // cdkVirtualForOf!: CdkVirtualForOf<any>;
  displayedColumns = ['name', 'address', 'email', 'phone', 'license','nemsa','coren','status','approve','decline']
- displayedColumnsList = ['name', 'address', 'email', 'phone', 'license','nemsa','coren','status','trail']
+ displayedColumnsList = ['name', 'address', 'phone', 'license','nemsa','coren','status','view','trail']
  displayedcolumnunsubmit = ['name', 'address', 'email', 'phone', 'license','nemsa','coren','status']
   dataSourceUnsubmit =new MatTableDataSource<any>([])
   dataSource= new MatTableDataSource<any>([])
   dataSourceApproval= new MatTableDataSource<any>([])
+  downloadcont=[]
   selection = new SelectionModel<any>(true, [])
 
   portals:any;
@@ -104,7 +108,29 @@ export class AllContractorsComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+  downloadExcel(){
+    /* generate worksheet */
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.downloadcont);
+  
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+  
+      /* save to file */
+      XLSX.writeFile(wb, 'Contractor.xlsx');
+  }
 
+  view(rowedited: any){
+    const dialogRef = this.dialog.open(ContractorRegDialogComponent, {
+      width: '100%',
+      // height: '90%',
+      data:  {
+        action: 'view',
+        row: rowedited
+      }
+    });
+  
+  }
 //   addNew(){
 //     const dialogRef = this.dialog.open(AllContractorFormDialogComponent, {
 //       width: '100%',

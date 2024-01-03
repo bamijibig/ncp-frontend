@@ -13,6 +13,8 @@ export class PubconnectionFormComponent implements OnInit {
   action: any;
   portform: FormGroup;
   connection: any;
+  status: Boolean = true;
+  in_approval: Boolean = true;
   is_contractor: Boolean = User.getUser().is_contractor;
   constructor(
     public dialogRef: MatDialogRef<PubconnectionFormComponent>,
@@ -203,8 +205,7 @@ if(this.action == 'view' || this.action == 'approve'){
   confirmAdd(){
 
   }
-  status: Boolean = true;
-  in_approval: Boolean = true;
+
 getApprovalStatus(){
   this.portadd.getApprovalStatusRegpub(User.getUser().id).subscribe((result)=>{
     this.status = result.registration_approved;

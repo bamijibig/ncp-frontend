@@ -7,6 +7,7 @@ import { PubconnectionFormComponent } from '../dialog/pubconnection-form/pubconn
 import { pubconnectionActionComponent } from '../dialog/pubconnection-action/pubconnection-action.component';
 import { PubconnectionEvaluateComponent } from '../dialog/pubconnection-evaluate/pubconnection-evaluate.component';
 import { PubconnectionPrecomTestComponent } from '../dialog/pubconnection-precom-test/pubconnection-precom-test.component';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-staffpubconnectlist',
@@ -21,6 +22,7 @@ export class StaffpubconnectlistComponent implements OnInit {
 //  ['contractor_name','region','hub', 'company_name', 'connectiontype', 'date_of_application','status', 'view','approve', 'decline']
   dataSource= new MatTableDataSource<any>([])
   dataSourceApproval= new MatTableDataSource<any>([])
+  download_data=[]
   // selection = new SelectionModel<any>(true, [])
   user: any = User.getUser()
   portals:any;
@@ -38,6 +40,7 @@ export class StaffpubconnectlistComponent implements OnInit {
     this.api.getAllStaffpubConnections().subscribe(
       (resp) => {
         this.dataSource.data = resp;
+        this.download_data=resp;
         console.log(resp);
   
       },
@@ -142,6 +145,17 @@ export class StaffpubconnectlistComponent implements OnInit {
         row: rowedited
       }
     });
+  }
+  downloadExcel(){
+    /* generate worksheet */
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.download_data);
+  
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+  
+      /* save to file */
+      XLSX.writeFile(wb, 'publicDss.xlsx');
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

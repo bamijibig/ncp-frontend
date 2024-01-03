@@ -10,6 +10,7 @@ import { AppserviceService } from 'src/app/appservice.service';
 })
 export class PubconnectionPrecomTestComponent implements OnInit {
   id: any;
+  precomconnection:any;
   pubprecom_form: FormGroup;
   constructor(
     public dialogRef: MatDialogRef<PubconnectionPrecomTestComponent>,
@@ -17,6 +18,7 @@ export class PubconnectionPrecomTestComponent implements OnInit {
    
     private appservice:AppserviceService
   ) { 
+    this.precomconnection=data.row;
     this.id = data.row?.id;
     this.pubprecom_form = new FormGroup({
       precom_project_title: new FormControl(data.row?.precom_project_title),

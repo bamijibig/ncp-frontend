@@ -221,21 +221,11 @@
         </div>
         <div class="col-6">
       
-          <mat-form-field class="example-full-width mb-3" appearance="outline">
-            <mat-label>Name of Substation (New extension)</mat-label>
-            <mat-select formControlName="eval_nameofextss" required>
-                
-                <mat-option [value]="'name of ss'">
-                    Name of Substation
-                </mat-option>
-                <mat-option [value]="'proposed ss'">
-                  Proposed Substation
-                </mat-option>
-                
-            </mat-select>
-            <!-- <mat-error *ngIf="proForm.get('status').hasError('required')">
-                Status is required
-            </mat-error> -->
+          
+        <mat-form-field class="example-full-width mb-3" appearance="outline">
+          <mat-label>Name of Substation (New extension)</mat-label>
+          <input matInput formControlName="eval_nameofextss">
+          <mat-icon matSuffix>face</mat-icon>
         </mat-form-field>
         </div>
       </div>
@@ -495,6 +485,7 @@
                <mat-icon ngxMatFileInputIcon>backup</mat-icon>
             </ngx-mat-file-input>
          </mat-form-field>
+         <a [href]="evalconnection?.eval_custreq" target="_blank">View Customer Request Letter</a>
         </div>
       </div>
       <div class="row">
@@ -506,6 +497,7 @@
                <mat-icon ngxMatFileInputIcon>backup</mat-icon>
             </ngx-mat-file-input>
          </mat-form-field>
+         <a [href]="evalconnection?.eval_blockdiag" target="_blank">View Block Diagram</a>
         </div>
         <div class="col-6">
           <mat-form-field>
@@ -514,6 +506,7 @@
                <mat-icon ngxMatFileInputIcon>backup</mat-icon>
             </ngx-mat-file-input>
          </mat-form-field>
+         <a [href]="evalconnection?.eval_schdiag" target="_blank">View Schematic Diagram</a>
           
         </div>
       </div>
@@ -525,6 +518,7 @@
                <mat-icon ngxMatFileInputIcon>backup</mat-icon>
             </ngx-mat-file-input>
          </mat-form-field>
+         <a [href]="evalconnection?.eval_sitevform" target="_blank">View site visit form</a>
         </div>
         <div class="col-6">
           <mat-form-field class="example-full-width mb-3" appearance="outline">

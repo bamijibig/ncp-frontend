@@ -10,6 +10,7 @@ import { AppserviceService } from 'src/app/appservice.service';
 })
 export class PubconnectionEvaluateComponent implements OnInit {
   id: any;
+  evalconnection:any;
  pubeval_form: FormGroup;
   constructor(
     public dialogRef: MatDialogRef<PubconnectionEvaluateComponent>,
@@ -17,6 +18,7 @@ export class PubconnectionEvaluateComponent implements OnInit {
    
     private appservice:AppserviceService
   ) { 
+    this.evalconnection=data.row;
     this.id = data.row?.id;
     this.pubeval_form= new FormGroup({
       eval_titlepro: new FormControl(data.row?.eval_titlepro),

@@ -16,7 +16,7 @@ export class ContractorRegComponent implements OnInit {
   portform: FormGroup;
   connection: any;
   constructor(
- 
+    
     private portadd: AppserviceService,
     private snackBar: MatSnackBar,
     ) {
@@ -37,23 +37,11 @@ export class ContractorRegComponent implements OnInit {
       coren: new FormControl(null), 
       corenFileSource: new FormControl(null)    
     })
+   
+  
     this.portform.disable()
-    // if(this.action == 'edit'){
-    //   // this.connection = data.row;
-    //   this.portform.patchValue({
     
-    //   contractor_name:this.connection.contractor_name,
-    //   con_address: this.connection.con_address,
-    //   licensed_no: this.connection.licensed_no,
-    //   tel_no: this.connection.tel_no,
-    //   email: this.connection.email,
-    //   // reg_date: this.connection.reg_date,
-    //   // nemsa_test_cert: this.connection.nemsa_test_cert,
-     
-
-    // })
- 
-  // }
+   
 
   this.getContractorDetails();
     }
@@ -66,6 +54,8 @@ export class ContractorRegComponent implements OnInit {
         panelClass: colorName,
       });
     }
+
+  
 
 
   submitReg() {
@@ -168,6 +158,22 @@ export class ContractorRegComponent implements OnInit {
       else {
         this.portform.disable()
       };
+    //   if(this.action == 'view'){
+    //     // this.connection = data.row;
+    //     this.portform.patchValue({
+      
+    //     contractor_name:this.connection.contractor_name,
+    //     con_address: this.connection.con_address,
+    //     licensed_no: this.connection.licensed_no,
+    //     tel_no: this.connection.tel_no,
+    //     email: this.connection.email,
+    //     // reg_date: this.connection.reg_date,
+    //     // nemsa_test_cert: this.connection.nemsa_test_cert,
+       
+  
+    //   })
+    // }
+      
       this.portform.patchValue({
 
         // username: result.username,

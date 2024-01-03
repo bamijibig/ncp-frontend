@@ -1,0 +1,179 @@
+
+<div class="modalHeader">
+
+    <button mat-icon-button (click)="dialogRef.close()" aria-label="Close dialog">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<div mat-dialog-content>
+    <div class="page-wrapper">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    
+    
+    
+    <div  class="mat-typography">
+    
+        <form class="m-4" [formGroup]="portform" (ngSubmit)="submitReg()">
+            <div class="container-fluid">
+            <div class="row">
+                <div class=" col-12">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Name of Contractor</mat-label>
+                        <input matInput formControlName="contractor_name" >
+                        <mat-icon matSuffix>face</mat-icon>
+                        <!-- <mat-error *ngIf="portform.get('name').hasError('')">
+                            Name is 
+                        </mat-error> -->
+                    </mat-form-field>
+                </div>
+               
+               
+            </div>
+    
+     
+            <div class="row">
+               
+                <div class="col-6">
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput formControlName="email" >
+                        <mat-icon matSuffix>transformer</mat-icon>
+                        <!-- <mat-error *ngIf="portform.get('name').hasError('')">
+                            Name is 
+                        </mat-error> -->
+                    </mat-form-field>
+                </div>
+                <div class=" col-6">
+    
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Phone Number</mat-label>
+                        <input matInput formControlName="tel_no">
+                        <mat-icon matSuffix>face</mat-icon>
+                        <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
+                            Name is required
+                        </mat-error> -->
+                    </mat-form-field>
+                </div>
+               
+               
+            </div>
+    
+            <div class="row">
+                <div class=" col-6">
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Address</mat-label>
+                        <input matInput formControlName="con_address" >
+                        <mat-icon matSuffix>transformer</mat-icon>
+                        <!-- <mat-error *ngIf="portform.get('name').hasError('')">
+                            Name is 
+                        </mat-error> -->
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Coren Licensed No</mat-label>
+                        <input matInput formControlName="licensed_no" >
+                        <mat-icon matSuffix>transformer</mat-icon>
+                        <!-- <mat-error *ngIf="portform.get('name').hasError('')">
+                            Name is 
+                        </mat-error> -->
+                    </mat-form-field>
+                </div>
+    
+                <!-- <div class="row">
+                    <div class="col-6">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Select Region</mat-label>
+                            <mat-select formControlName="region" required (selectionChange)="getHub($event)">
+                                <mat-option *ngFor="let section of regions" [value]="section.id"> {{section.region}} </mat-option>
+                           
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-6">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Select Business Hub</mat-label>
+                            <mat-select formControlName="businesshub" required>
+                                <mat-option *ngFor="let section of hub" [value]="section.id"> {{section.businesshub}} </mat-option>
+                          
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div> -->
+    
+    
+                 <div class="col-6">
+                 <mat-form-field>
+                    <mat-label>Upload NEMSA Test Certificate</mat-label>
+                    <ngx-mat-file-input formControlName="nemsa_test_cert">
+                       <mat-icon ngxMatFileInputIcon>backup</mat-icon>
+                    </ngx-mat-file-input>
+                 </mat-form-field>
+    
+                 <p>
+                    <a [href]="mydata?.coren_or_nemsa_competency" target="_blank">View NEMSA Certificate</a>
+                    <!-- {{contractordetails?.coren_or_nemsa_competency}} -->
+                </p>
+                 </div>
+                 <div class="col-6">
+                    <mat-form-field>
+                        <mat-label>Upload COREN Certificate</mat-label>
+                        <ngx-mat-file-input formControlName="coren">
+                            <mat-icon ngxMatFileInputIcon>backup</mat-icon>
+                        </ngx-mat-file-input>
+                    </mat-form-field>
+                
+                    <p>
+                        <a [href]="mydata?.coren" target="_blank">View COREN Certificate</a>
+                        
+                    </p>
+                    
+                    </div>
+                 
+                 
+                 
+                
+                 </div>
+                 
+                 
+                <!-- <div class="col-12 my-5" *ngIf="!status">
+                    
+    
+                
+                 <h3><strong>STATUS:</strong> Yet to be Submitted</h3> 
+                </div> -->
+                <!-- <div class="col-12 my-5" *ngIf="status">
+    
+                
+                    <h3><strong>STATUS:</strong> {{status}} </h3> 
+                    <h3 *ngIf="declined">{{declined_comment}}</h3>
+                   </div> -->
+                <!-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2" *ngIf="!in_approval_workflow">
+                    <div class="example-button-row">
+                    
+                            <button mat-raised-button color="primary" type="submit"
+                            >Update Record & Submit for Approval</button>
+                        
+                    </div>
+                </div> -->
+            
+        </div>
+            </form>
+    </div>
+                </div>
+    
+            </div>
+            
+          
+        </div>
+      
+    </div>
+    
+    
+</div>
+

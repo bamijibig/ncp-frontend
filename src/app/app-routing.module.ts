@@ -12,6 +12,7 @@ import { UserManagerComponent } from './user-manager/user-manager.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { AllpubconnectionComponent } from './public-connection/allpubconnection/allpubconnection.component';
 import { StaffpubconnectlistComponent } from './public-connection/staffpubconnectlist/staffpubconnectlist.component';
+import { ContractorRegApplicationComponent } from './registration/contractor-reg/contractor-reg-application/contractor-reg-application.component';
 
 const routes: Routes = [
 
@@ -60,7 +61,7 @@ const routes: Routes = [
   {
     
     path: 'contractor_reg',
-    component: ContractorRegComponent
+    component: ContractorRegApplicationComponent
   },
   {
     path: 'region',

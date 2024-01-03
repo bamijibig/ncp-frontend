@@ -35,11 +35,11 @@
          
         <div class="row">
           <div class="col-lg-12">
-            <!-- <div class="col-12 text-right">
-              <button mat-raised-button color='primary'  (click)="addNew()" >Add new Contractor</button>
-          </div> -->
+            <div class="col-12 text-right">
+              <button mat-raised-button color='primary'  (click)="downloadExcel()" >Download</button>
+          </div>
           <div class="example-container mat-elevation-z8 table table-responsive table-container">
-            <cdk-virtual-scroll-viewport itemSize="48" class="example-viewport">
+            <!-- <cdk-virtual-scroll-viewport itemSize="48" class="example-viewport"> -->
               <div style="overflow-x: auto;">
               <mat-table #table [dataSource]="dataSource">
 
@@ -72,10 +72,10 @@
                 </ng-container>
             
                 <!-- company_category Column -->
-                <ng-container matColumnDef="email">
+                <!-- <ng-container matColumnDef="email">
                   <mat-header-cell *matHeaderCellDef class="wide-header"> Email</mat-header-cell>
                   <mat-cell *matCellDef="let element" class="wide-cell"> {{element?.email}} </mat-cell>
-                </ng-container>
+                </ng-container> -->
                 <ng-container matColumnDef="phone">
                   <mat-header-cell *matHeaderCellDef class="wide-header"> Phone </mat-header-cell>
                   <mat-cell *matCellDef="let element" class="wide-cell"> {{element?.tel_no}} </mat-cell>
@@ -102,7 +102,11 @@
                     <span *ngIf="!element.registration_status">Unsubmitted </span>
                   </mat-cell>
                 </ng-container>
-          
+                <ng-container matColumnDef="view">
+                  <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                  <mat-cell *matCellDef="let element">
+                    <button mat-raised-button color="secondary" (click)="view(element)">View</button> </mat-cell>
+                </ng-container>
               
                 <ng-container matColumnDef="trail">
                   <mat-header-cell *matHeaderCellDef> </mat-header-cell>
@@ -124,7 +128,7 @@
                 </tr>
               </mat-table>
             </div>
-            </cdk-virtual-scroll-viewport>
+            <!-- </cdk-virtual-scroll-viewport> -->
               <mat-paginator #paginator
                              [pageSize]="10"
                              [pageSizeOptions]="[5, 10, 20]"
@@ -209,7 +213,7 @@
                   </mat-cell>
                 </ng-container>
           
-              
+                
                 <ng-container matColumnDef="trail">
                   <mat-header-cell *matHeaderCellDef> </mat-header-cell>
                   <mat-cell *matCellDef="let element">

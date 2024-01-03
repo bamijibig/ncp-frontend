@@ -11,12 +11,14 @@ import { AppserviceService } from 'src/app/appservice.service';
 export class ConnectionPrecomTestComponent implements OnInit {
 
   id: any;
+  precomconnection:any;
   precom_form: FormGroup;
   constructor( public dialogRef: MatDialogRef<ConnectionPrecomTestComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
    
     private appservice:AppserviceService
   ) { 
+    this.precomconnection=data.row;
     this.id = data.row?.id;
     this.precom_form = new FormGroup({
       precom_project_title: new FormControl(data.row?.precom_project_title),

@@ -95,7 +95,7 @@ export class ConnectionFormComponent implements OnInit {
       transformer_test_cert: this.connection.transformer_test_cert,
       businesshub: this.connection.bh?.id,
       region: this.connection.bh?.region.id,
-      public_connection: this.connection.public_connection,
+      
       contractor_name: this.connection.contractor?.contractor_name,
       con_address:this.connection.contractor?.con_address,
       licensed_no: this.connection.contractor?.licensed_no,

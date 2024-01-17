@@ -13,7 +13,7 @@ import { RegionFormDialogComponent } from './dialog/region-form-dialog/region-fo
 })
 export class RegionComponent implements OnInit {
 
- displayedColumns = ['name', 'location', 'manager', 'tmanager',  'email', 'phone','edit']
+ displayedColumns = ['name', 'manager', 'tmanager',  'email', 'phone','edit']
   dataSource= new MatTableDataSource<any>([])
   selection = new SelectionModel<any>(true, [])
 

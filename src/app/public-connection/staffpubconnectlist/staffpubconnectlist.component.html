@@ -56,15 +56,15 @@
               </ng-container>
           
               <!--businesstype Column -->
-              <ng-container matColumnDef="chairman_comm_name">
+              <!-- <ng-container matColumnDef="chairman_comm_name">
                 <mat-header-cell *matHeaderCellDef> chairman_comm_name </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.chairman_comm_name}} </mat-cell>
-              </ng-container>
+              </ng-container> -->
           
           
               <!-- value_contract column -->
               <ng-container matColumnDef="chairman_comm_number">
-                <mat-header-cell *matHeaderCellDef> chairman_comm_number </mat-header-cell>
+                <mat-header-cell *matHeaderCellDef> chairman number </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.chairman_comm_number}} </mat-cell>
               </ng-container>
           
@@ -72,10 +72,10 @@
             
             
              
-              <ng-container matColumnDef="date_of_application">
+              <!-- <ng-container matColumnDef="date_of_application">
                 <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.date_of_application | date: "mediumDate"}} </mat-cell>
-              </ng-container>
+              </ng-container> -->
               <ng-container matColumnDef="status">
                 <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.connection_status}}  </mat-cell>
@@ -127,28 +127,28 @@
                 <mat-header-cell *matHeaderCellDef>Region </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.bh?.region?.region}} </mat-cell>
               </ng-container>
-              [  , 'date_of_application','status', 'view','eval','test']
+              
               <ng-container matColumnDef="hub">
                 <mat-header-cell *matHeaderCellDef>Business Hub</mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.bh?.businesshub}} </mat-cell>
               </ng-container>
           
               <!--businesstype Column -->
-              <ng-container matColumnDef="chairman_comm_name">
+              <!-- <ng-container matColumnDef="chairman_comm_name">
                 <mat-header-cell *matHeaderCellDef> chairman_comm_name </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.chairman_comm_name}} </mat-cell>
-              </ng-container>
+              </ng-container> -->
           
           
               <!-- value_contract column -->
               <ng-container matColumnDef="chairman_comm_number">
-                <mat-header-cell *matHeaderCellDef> chairman_comm_number </mat-header-cell>
+                <mat-header-cell *matHeaderCellDef> chairman Number </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.chairman_comm_number}} </mat-cell>
               </ng-container>
-              <ng-container matColumnDef="date_of_application">
+              <!-- <ng-container matColumnDef="date_of_application">
                 <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.date_of_application | date: "mediumDate"}} </mat-cell>
-              </ng-container>
+              </ng-container> -->
 
               <ng-container matColumnDef="status">
                 <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>

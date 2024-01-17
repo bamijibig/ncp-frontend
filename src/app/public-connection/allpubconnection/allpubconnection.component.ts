@@ -16,8 +16,8 @@ import { PubconnectionReqPrecomComponent } from '../dialog/pubconnection-req-pre
   styleUrls: ['./allpubconnection.component.css']
 })
 export class AllpubconnectionComponent implements OnInit {
-  displayedColumns = [ 'community_name','community_name', 'chairman_comm_number', 'chairman_comm_name', 'date_of_application','status','edit']
-  displayedColumnslist = [ 'region','hub','name_sponsor','community_name','chairman_comm_name', 'chairman_comm_number','status','edit' ]
+  displayedColumns = [ 'community_name','community_name', 'chairman_comm_number', 'date_of_application','status','edit']
+  displayedColumnslist = [ 'region','hub','name_sponsor','community_name', 'chairman_comm_number','status','edit' ]
   // ,'title','dt_capacity','voltage_level','date_of_visit','no_of_customers','estimated_load','estimated_cost','no_of_spans','relieftype','feeder_name','feeder_capacity','fdr_peakload','load_tilldate','source_fdr','powertrans','trans_rating','expected_billing','expected_gain','letter_of_donation_dss','nemsa_test_cert','intro_letter_client','date_of_application']
     
   dataSource= new MatTableDataSource<any>([])

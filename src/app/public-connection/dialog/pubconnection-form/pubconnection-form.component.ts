@@ -32,6 +32,7 @@ export class PubconnectionFormComponent implements OnInit {
       chairman_comm_number: new FormControl(''),
       dt_capacity: new FormControl(''),
       voltage_level: new FormControl(''),
+      
       date_of_visit: new FormControl(''),
       no_of_customers: new FormControl(''),
       estimated_load: new FormControl(''),

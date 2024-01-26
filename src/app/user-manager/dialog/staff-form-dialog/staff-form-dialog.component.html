@@ -35,8 +35,22 @@
                    
                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
                         <mat-form-field class="example-full-width" appearance="outline">
-                          <mat-label>Job Title</mat-label>
-                          <input matInput formControlName="jobtitle">
+                           <mat-label>Job Title</mat-label>
+                           <mat-select formControlName="job_title" required>
+                            <!-- <mat-option *ngFor="let section of sectionavailable" [value]="section.id"> {{section.title}} </mat-option> -->
+                              <mat-option [value]="'Administrator'">Administrator</mat-option>
+                              <mat-option [value]="'CTO'">CTO</mat-option>
+                              <mat-option [value]="'Network Administrator'">Network Administrator</mat-option>
+                              <mat-option [value]="'Regional Head'">Regional Head</mat-option>
+                              <mat-option [value]="'Technical Manager'">Technical Manager</mat-option>
+                              <mat-option [value]="'Technical Engineer'">Technical Engineer</mat-option>
+                              <mat-option [value]="'BusinessHub Manager'">BusinessHub Manager</mat-option>
+                              <mat-option [value]="'Health&Safety'">Health&Safety</mat-option>
+                              <mat-option [value]="'Head Billing'">Head Billing</mat-option>
+                              <mat-option [value]="'Head Metering'">Head Metering</mat-option>
+                            
+                            
+                          </mat-select>
                         </mat-form-field>
                       </div>
                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">

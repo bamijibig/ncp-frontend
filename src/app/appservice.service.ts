@@ -7,7 +7,7 @@ import { finalize, tap } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from './globalservice/global-service.service';
 import {formatDate} from '@angular/common';
-
+import { MatNativeDateModule } from '@angular/material/core';
 @Injectable({
   providedIn: 'root'
 })
@@ -80,6 +80,13 @@ export class AppserviceService {
       formData.append('chairman_comm_number', formvalue.chairman_comm_number);
       formData.append('dt_capacity', formvalue.dt_capacity);
       formData.append('voltage_level', formvalue.voltage_level);
+      
+      // const dateOfVisit = new Date('date_of_visit');
+      // formData.append('date_of_visit', formatDate(dateOfVisit, 'MM-dd-yyyy', 'en'));
+      
+      // formData.append('date_of_visit', formatDate('date_of_visit', 'yyyy-MM-dd', 'en'));
+
+      // formData.append('date_of_visit',formatDate(('date_of_visit') 'yyyy-MM-dd', 'en'));
       formData.append('date_of_visit', formvalue.date_of_visit);
       formData.append('no_of_customers', formvalue.no_of_customers);
       formData.append('estimated_load', formvalue.estimated_load);
@@ -500,7 +507,7 @@ addNewUser( formvalue:any
     formData.append('password', formvalue.password);
     formData.append('first_name',formvalue.first_name);
     formData.append('last_name', formvalue.last_name);
-    formData.append('job_title', formvalue.jobtitle);
+    formData.append('job_title', formvalue.job_title);
     formData.append('role', formvalue.role);
     if(formvalue.role =='is_tm'){
       formData.append('is_tm', 'True');
@@ -552,7 +559,7 @@ addNewUser( formvalue:any
         formData.append('staff_type', formvalue.stafftype);
         formData.append('region', formvalue.region);
         formData.append('businesshub', formvalue.businesshub);
-        formData.append('job_title', formvalue.jobtitle);
+        formData.append('job_title', formvalue.job_title);
         formData.append('role', formvalue.role);
         if(formvalue.role =='is_tm'){
           formData.append('is_tm', 'True');
@@ -1038,7 +1045,7 @@ addNewUser( formvalue:any
             formData.append('tept_is_connection_approved', 'True');
             formData.append('tept_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
             formData.append('tept_is_connection_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
-            formData.append('connection_status', 'Precommissioning Test Completed. Awaiting Head Metering Approval');
+            formData.append('connection_status', 'Precommissioning Test Completed. Awaiting Business Hub manager Approval');
             const reqtoken = this.getToken();
             const headers = { 'Authorization': 'Token ' + reqtoken};
             return this.http.patch(url,formData,{headers:headers})

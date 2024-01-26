@@ -226,14 +226,22 @@
             
             <div class="row">
                 <div class=" col-6">
-                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <!-- <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>Date of Site Visit</mat-label>
                         <input matInput formControlName="date_of_visit" >
-                        <mat-icon matSuffix>transformer</mat-icon>
+                        <mat-icon matSuffix>transformer</mat-icon> -->
                         <!-- <mat-error *ngIf="portform.get('name').hasError('')">
                             Name is 
                         </mat-error> -->
-                    </mat-form-field>
+                    <!-- </mat-form-field> -->
+
+                    <mat-form-field>
+                        <mat-label>Date of Site Visit</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="date_of_visit">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+                      
                 </div>
                 <div class="col-6">
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
@@ -431,7 +439,7 @@
                     <mat-icon ngxMatFileInputIcon>backup</mat-icon>
                 </ngx-mat-file-input>
                 </mat-form-field>
-                <a [href]="connection?.letter_of_donation_dss" target="_blank">letter_of_donation_dss</a>
+                <a *ngIf="connection?.letter_of_donation_dss" [href]="connection?.letter_of_donation_dss" target="_blank">letter_of_donation_dss</a>
             </div>
             
             <div class="col-6">
@@ -441,7 +449,7 @@
                    <mat-icon ngxMatFileInputIcon>backup</mat-icon>
                 </ngx-mat-file-input>
              </mat-form-field>
-             <a [href]="connection?.nemsa_test_cert" target="_blank">nemsa_test_cert</a>
+             <a *ngIf="connection?.nemsa_test_cert" [href]="connection?.nemsa_test_cert" target="_blank">nemsa_test_cert</a>
              </div>
              </div>
              <div class="row">
@@ -452,7 +460,7 @@
                    <mat-icon ngxMatFileInputIcon>backup</mat-icon>
                 </ngx-mat-file-input>
              </mat-form-field>
-             <a [href]="connection?.coren_cert" target="_blank">coren_cert</a>
+             <a *ngIf="connection?.coren_cert" [href]="connection?.coren_cert" target="_blank">coren_cert</a>
              </div>
              
              <div class="col-6">
@@ -462,7 +470,7 @@
                    <mat-icon ngxMatFileInputIcon>backup</mat-icon>
                 </ngx-mat-file-input>
              </mat-form-field>
-             <a [href]="connection?.intro_letter_client" target="_blank">intro_letter_client</a>
+             <a *ngIf="connection?.intro_letter_client" [href]="connection?.intro_letter_client" target="_blank">intro_letter_client</a>
              </div>
              </div>
              </div>
@@ -515,7 +523,7 @@
             <strong>TM Approval:</strong> {{connection?.tm_is_connection_approved_by}} approved connection on 
             {{connection?.tm_is_connection_approved_date
             }} 
-            <a [href]="connection?.tm_memo" target="_blank"><button mat-raised-button>view Additional File</button></a><br>
+            <a *ngIf="connection?.tm_memo" [href]="connection?.tm_memo" target="_blank"><button mat-raised-button>view Additional File</button></a><br>
         </span>
         <span *ngIf="connection?.te_is_connection_approved">
             <strong>TE Evaluation:</strong> {{connection?.te_is_connection_approved_by}} Submitted Evaluation Form on
@@ -524,17 +532,17 @@
         <span *ngIf="connection?.npd_is_connection_approved">
             <strong>NP & D Approval:</strong> {{connection?.npd_is_connection_approved_by}} approved connection
              on {{connection?.npd_is_connection_approved_date}} 
-             <a [href]="connection?.npd_memo" target="_blank"><button mat-raised-button>view Additional File</button></a><br>
+             <a *ngIf="connection?.npd_memo" [href]="connection?.npd_memo" target="_blank"><button mat-raised-button>view Additional File</button></a><br>
         </span>
         <span *ngIf="connection?.cto_is_connection_approved">
             <strong>CTO Approval:</strong> {{connection?.cto_approved_by}}  approved connection 
             on {{connection?.cto_is_connection_approved_date}} 
-            <a [href]="connection?.cto_memo" target="_blank"><button mat-raised-button>view Additional File</button></a><br>
+            <a *ngIf="connection?.cto_memo" [href]="connection?.cto_memo" target="_blank"><button mat-raised-button>view Additional File</button></a><br>
         </span>
         <span *ngIf="connection?.hse_is_connection_approved">
             <strong>HSE Approval:</strong> {{connection?.hse_approved_by}}  approved connection 
             on {{connection?.hse_is_connection_approved_date}} 
-            <a [href]="connection?.hse_memo" target="_blank"><button mat-raised-button>view Additional File</button></a><br>
+            <a *ngIf="connection?.hse_memo" [href]="connection?.hse_memo" target="_blank"><button mat-raised-button>view Additional File</button></a><br>
         </span>
         <span *ngIf="connection?.ct_is_pre_requested">
             <strong>Contractor Precommissioning Request Approval:</strong> Contractor 
@@ -547,12 +555,12 @@
         <span *ngIf="connection?.hbo_is_connection_approved">
             <strong>HBO Approval:</strong>  {{connection?.hbo_is_connection_approved_by}} approved
              connection on  {{connection?.hbo_is_connection_approved_date}} <br>
-             <a [href]="connection?.hbo_memo" target="_blank"><button mat-raised-button>view Additional File</button></a><br>
+             <a *ngIf="connection?.hbo_memo" [href]="connection?.hbo_memo" target="_blank"><button mat-raised-button>view Additional File</button></a><br>
         </span>
         <span *ngIf="connection?.hm_is_connection_approved">
             <strong>HM Approval:</strong> {{connection?.hm_approved_by}} approved 
             connection on  {{connection?.hm_is_contractor_approved_date}} 
-            <a [href]="connection?.hm_memo" target="_blank"><button mat-raised-button>view Additional File</button></a><br>
+            <a *ngIf="connection?.hm_memo" [href]="connection?.hm_memo" target="_blank"><button mat-raised-button>view Additional File</button></a><br>
         </span>
     
         </p>

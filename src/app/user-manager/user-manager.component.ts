@@ -14,7 +14,7 @@ import { StaffFormDialogComponent } from './dialog/staff-form-dialog/staff-form-
 })
 export class UserManagerComponent implements OnInit {
 
- displayedColumns = ['name','jobtitle', 'email', 'phone','edit']
+ displayedColumns = ['name','job_title', 'email', 'phone','edit']
   dataSource= new MatTableDataSource<any>([])
   selection = new SelectionModel<any>(true, [])
 

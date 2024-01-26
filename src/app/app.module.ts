@@ -66,7 +66,7 @@ import {CdkTableModule} from '@angular/cdk/table';
 import { StaffpubconnectlistComponent } from './public-connection/staffpubconnectlist/staffpubconnectlist.component';
 import { ContractorRegApplicationComponent } from './registration/contractor-reg/contractor-reg-application/contractor-reg-application.component';
 import { ContractorRegDialogComponent } from './all-contractors/dialog/contractor-reg-dialog/contractor-reg-dialog.component';
-
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 
@@ -142,7 +142,8 @@ import { ContractorRegDialogComponent } from './all-contractors/dialog/contracto
     MatMenuModule,
     NgxMatFileInputModule,
     ScrollingModule,
-    CdkTableModule
+    CdkTableModule,
+    MatNativeDateModule
    
     
 

@@ -153,7 +153,22 @@ viewEvaluate(rowedited: any){
   });
 
 }
-
+hasDataeval(element: any): boolean {
+  // Customize this logic based on your form structure and data presence check
+  return (
+    element &&
+    element.eval_title !== null // Add other relevant checks for form fields
+    // Add additional conditions as needed for other form fields
+  );
+}
+hasDataprecom(relement: any): boolean {
+  // Customize this logic based on your form structure and data presence check
+  return (
+    relement &&
+    relement.precom_peakload !== null && relement.precom_typfence !== null // Add other relevant checks for form fields
+    // Add additional conditions as needed for other form fields
+  );
+}
 viewTest(rowedited: any){
   const dialogRef = this.dialog.open(ConnectionPrecomTestComponent, {
     width: '100%',

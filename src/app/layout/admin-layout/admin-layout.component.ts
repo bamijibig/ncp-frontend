@@ -13,7 +13,7 @@ export class AdminLayoutComponent implements OnInit {
   is_superuser = User.getUser().is_superuser;
   loggedinuser = User.getUser().first_name + " " + User.getUser().last_name
   userrole = User.getUser().role
-  jobtitle = User.getUser().job_title
+  job_title = User.getUser().job_title
   constructor(
     public _router: Router,
     private appService:AppserviceService

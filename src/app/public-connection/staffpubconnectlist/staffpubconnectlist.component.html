@@ -67,7 +67,10 @@
                 <mat-header-cell *matHeaderCellDef> chairman number </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.chairman_comm_number}} </mat-cell>
               </ng-container>
-          
+              <ng-container matColumnDef="date_of_visit">
+                <mat-header-cell *matHeaderCellDef> Date Visit </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.date_of_visit}} </mat-cell>
+              </ng-container>
               <!-- company_category Column -->
             
             
@@ -83,17 +86,17 @@
               <ng-container matColumnDef="view">
                 <mat-header-cell *matHeaderCellDef> </mat-header-cell>
                 <mat-cell *matCellDef="let element">
-                  <button mat-raised-button color="secondary" (click)="view(element)">View</button> </mat-cell>
+                  <button mat-raised-button color="secondary" *ngIf="hasData(element)" (click)="view(element)">View</button> </mat-cell>
               </ng-container>
               <ng-container matColumnDef="eval">
                 <mat-header-cell *matHeaderCellDef> </mat-header-cell>
                 <mat-cell *matCellDef="let element">
-                  <button mat-raised-button color="secondary" (click)="viewEvaluate(element)">Eval</button> </mat-cell>
+                  <button mat-raised-button color="secondary" *ngIf="hasDataeval(element)"  (click)="viewEvaluate(element)">Eval</button> </mat-cell>
               </ng-container>
               <ng-container matColumnDef="test">
                 <mat-header-cell *matHeaderCellDef> </mat-header-cell>
                 <mat-cell *matCellDef="let element">
-                  <button mat-raised-button color="secondary" (click)="viewTest(element)">Test</button> </mat-cell>
+                  <button mat-raised-button color="secondary" *ngIf="hasDataprecom(element)" (click)="viewTest(element)">Test</button> </mat-cell>
               </ng-container>
           
               <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

@@ -26,6 +26,7 @@
     "html2pdf.js": "^0.10.1",
     "mat-table-exporter": "^10.2.4",
     "ngx-cookie-service": "^14.0.1",
+    "ngx-datepicker": "^0.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "xlsx": "^0.18.5",

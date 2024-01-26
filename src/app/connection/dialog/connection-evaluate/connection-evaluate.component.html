@@ -102,11 +102,17 @@
                 <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
-                        <mat-label>Date of site Visit</mat-label>
+                        <!-- <mat-label>Date of site Visit</mat-label>
                         <input matInput formControlName="eval_site_visit_date" >
-                        <mat-icon matSuffix>face</mat-icon>
+                        <mat-icon matSuffix>face</mat-icon> -->
+                        <mat-label>Date of Site Visit</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="eval_site_visit_date">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+
                         
                     </mat-form-field>
+                    
                 </div>
                 <div class=" col-6">
     

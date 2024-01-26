@@ -57,6 +57,16 @@ export class StaffpubconnectlistComponent implements OnInit {
       (error) => { console.error(error); }
     );
   }
+  hasData(element: any): boolean {
+    // Customize this logic based on your form structure and data presence check
+    return (
+      element &&
+      element.name_sponsor !== null // Add other relevant checks for form fields
+      // Add additional conditions as needed for other form fields
+    );
+  }
+  
+  
   view(rowedited: any){
     const dialogRef = this.dialog.open(PubconnectionFormComponent, {
       width: '100%',
@@ -98,6 +108,14 @@ export class StaffpubconnectlistComponent implements OnInit {
       this.getMyApprovalspub();
     })
   }
+  hasDataeval(element: any): boolean {
+    // Customize this logic based on your form structure and data presence check
+    return (
+      element &&
+      element.eval_usercom !== null // Add other relevant checks for form fields
+      // Add additional conditions as needed for other form fields
+    );
+  }
   evaluate(rowedited: any){
     const dialogRef = this.dialog.open(PubconnectionEvaluateComponent, {
       width: '100%',
@@ -135,6 +153,14 @@ export class StaffpubconnectlistComponent implements OnInit {
       }
     });
   
+  }
+  hasDataprecom(element: any): boolean {
+    // Customize this logic based on your form structure and data presence check
+    return (
+      element &&
+      element.precom_peakload !== null && element.precom_dwndrpcon !== null // Add other relevant checks for form fields
+      // Add additional conditions as needed for other form fields
+    );
   }
   viewTest(rowedited: any){
     const dialogRef = this.dialog.open(PubconnectionPrecomTestComponent, {

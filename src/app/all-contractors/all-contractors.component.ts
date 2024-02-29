@@ -23,9 +23,9 @@ export class AllContractorsComponent implements OnInit {
 
   // @ViewChild(CdkVirtualForOf)
   // cdkVirtualForOf!: CdkVirtualForOf<any>;
- displayedColumns = ['name', 'address', 'email', 'phone', 'license','nemsa','coren','status','approve','decline']
- displayedColumnsList = ['name', 'address', 'phone', 'license','nemsa','coren','status','view','trail']
- displayedcolumnunsubmit = ['name', 'address', 'email', 'phone', 'license','nemsa','coren','status']
+ displayedColumns = ['name','license','email','status','approve','decline']
+ displayedColumnsList = ['name','license','nemsa','coren','status','view','trail']
+ displayedcolumnunsubmit = ['name', 'email','status']
   dataSourceUnsubmit =new MatTableDataSource<any>([])
   dataSource= new MatTableDataSource<any>([])
   dataSourceApproval= new MatTableDataSource<any>([])

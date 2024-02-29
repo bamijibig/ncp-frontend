@@ -212,6 +212,13 @@
                     <!-- <span *ngIf="!element.registration_status">Unsubmitted </span> -->
                   </mat-cell>
                 </ng-container>
+                <ng-container matColumnDef="view">
+                  <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                  <mat-cell *matCellDef="let element">
+                    <button mat-raised-button color="secondary" (click)="view(element)">View</button>
+                 
+                   </mat-cell>
+                </ng-container>
           
                 
                 <ng-container matColumnDef="trail">

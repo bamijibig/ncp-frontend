@@ -1144,7 +1144,7 @@ addNewUser( formvalue:any
           formData.append('cto_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
           formData.append('cto_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
           formData.append('connection_status', 'Approved By CTO. Awaiting HSE Approval');
-          formData.append('hse_memo', form.memo);
+          formData.append('cto_memo', form.memo);
 
         }
         // HSE
@@ -1155,14 +1155,14 @@ addNewUser( formvalue:any
           formData.append('hse_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
           formData.append('hse_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
           formData.append('connection_status', 'Approved By HSE. Kindly request pre-commissioning');
-          formData.append('cto_memo', form.memo);
+          formData.append('hse_memo', form.memo);
 
         }
         // BHM
         if(User.getUser().is_bhm == true){
           formData.append('approval_role', 'bhm');
           formData.append('bhm_is_connection_approved', 'True');
-          formData.append('hbo_is_connection_approved', 'False');
+          formData.append('bhm_is_connection_approved', 'False');
           formData.append('bhm_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
           formData.append('bhm_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
           formData.append('connection_status', 'Approved by BHM. Awaiting HBO approval');
@@ -1301,7 +1301,7 @@ addNewUser( formvalue:any
             formData.append('hse_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
             formData.append('hse_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
             formData.append('connection_status', 'Approved By HSE. Kindly request pre-commissioning');
-            formData.append('cto_memo', form.memo);
+            formData.append('hse_memo', form.memo);
   
           }
             // BHM

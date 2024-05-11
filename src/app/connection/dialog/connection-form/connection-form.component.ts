@@ -5,7 +5,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TitleStrategy } from '@angular/router';
 import { User } from 'src/app/globalservice/global-service.service';
 import { AppserviceService } from '../../../appservice.service';
-
+import * as moment from 'moment';
 @Component({
   selector: 'app-connection-form',
   templateUrl: './connection-form.component.html',
@@ -24,6 +24,7 @@ export class ConnectionFormComponent implements OnInit {
       this.action = data.action;
       this.getApprovalStatus();
       this.getRegion();
+      this.checkCorenDate();
       
     this.portform = new FormGroup({
       // contractor:new FormControl(null),
@@ -204,9 +205,22 @@ getApprovalStatus(){
   })
 }
 
+corenexpired = false;
 
+checkCorenDate(){
+  if(User.getUser().corenissued){
+    const corenissued =  User.getUser().corenissued;
+    const issuedplusayear = moment(corenissued).add(1,'year');
+    if(issuedplusayear.isBefore(moment(), 'day')){
+     this.corenexpired = true;
+     console.log(this.corenexpired)
+    }
+  }
+  else {
+    this.corenexpired = true;
+  }
 
-
+}
 
 regions: any = [];
 hub: any = [];

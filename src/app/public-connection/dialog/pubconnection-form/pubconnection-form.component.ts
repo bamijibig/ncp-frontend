@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { AppserviceService } from 'src/app/appservice.service';
 import { User } from 'src/app/globalservice/global-service.service';
-
+import * as moment from 'moment';
 @Component({
   selector: 'app-pubconnection-form',
   templateUrl: './pubconnection-form.component.html',
@@ -34,12 +34,12 @@ export class PubconnectionFormComponent implements OnInit {
       voltage_level: new FormControl(''),
       
       date_of_visit: new FormControl(''),
-      no_of_customers: new FormControl(''),
+      // no_of_customers: new FormControl(''),
       estimated_load: new FormControl(''),
       estimated_cost: new FormControl(''),
       no_of_spans: new FormControl(''),
       relieftype: new FormControl(''),
-      feeder_name: new FormControl(''),
+      // feeder_name: new FormControl(''),
       feeder_capacity: new FormControl(''),
       fdr_peakload: new FormControl(''),
       load_tilldate: new FormControl(''),
@@ -84,13 +84,13 @@ export class PubconnectionFormComponent implements OnInit {
     dt_capacity: this.connection.dt_capacity,
     voltage_level: this.connection.voltage_level,
     date_of_visit: this.connection.date_of_visit,
-    no_of_customers: this.connection.no_of_customers,
+    // no_of_customers: this.connection.no_of_customers,
     estimated_load: this.connection.estimated_load,
     estimated_cost:this.connection.estimated_cost,
     
     no_of_spans: this.connection.no_of_spans,    
     relieftype: this.connection.relieftype,
-    feeder_name: this.connection.feeder_name,
+    // feeder_name: this.connection.feeder_name,
     feeder_capacity:this.connection.feeder_capacity,
     fdr_peakload: this.connection.fdr_peakload,
 
@@ -138,12 +138,12 @@ if(this.action == 'view' || this.action == 'approve'){
   dt_capacity: this.connection.dt_capacity,
   voltage_level: this.connection.voltage_level,
   date_of_visit: this.connection.date_of_visit,
-  no_of_customers: this.connection.no_of_customers,
+  // no_of_customers: this.connection.no_of_customers,
   estimated_load: this.connection.estimated_load,
   estimated_cost:this.connection.estimated_cost,
   no_of_spans: this.connection.no_of_spans,    
   relieftype: this.connection.relieftype,
-  feeder_name: this.connection.feeder_name,
+  // feeder_name: this.connection.feeder_name,
   feeder_capacity:this.connection.feeder_capacity,
   fdr_peakload: this.connection.fdr_peakload,
   load_tilldate: this.connection.load_tilldate,    
@@ -200,6 +200,16 @@ if(this.action == 'view' || this.action == 'approve'){
     }
     
   }
+  
+corenexpired = false;
+
+checkCorenDate(){
+ const corenissued =  User.getUser().corenissued;
+ const issuedplusayear = moment(corenissued).add(1,'year');
+ if(issuedplusayear.isBefore(moment(), 'day')){
+  this.corenexpired = true;
+ }
+}
   ngOnInit(): void {
   }
 

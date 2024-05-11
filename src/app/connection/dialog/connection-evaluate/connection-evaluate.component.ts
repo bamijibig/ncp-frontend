@@ -28,11 +28,11 @@ eval_form: FormGroup;
       eval_voltage_level: new FormControl(data.row?.eval_voltage_level),
       eval_estimated_load: new FormControl(data.row?.eval_estimated_load),
       eval_site_visit_date: new FormControl(data.row?.eval_site_visit_date),
-      eval_new4upgrade: new FormControl(data.row?.eval_new4upgrade),
+      // eval_new4upgrade: new FormControl(data.row?.eval_new4upgrade),
       eval_conworkdone: new FormControl(data.row?.eval_conworkdone),
       eval_dtsubname: new FormControl(data.row?.eval_dtsubname),
-      eval_region: new FormControl(data.row?.eval_region),
-      eval_bhub: new FormControl(data.row?.eval_bhub),
+      // eval_region: new FormControl(data.row?.eval_region),
+      // eval_bhub: new FormControl(data.row?.eval_bhub),
       eval_comentoncon: new FormControl(data.row?.eval_comentoncon),
       eval_fdrname: new FormControl(data.row?.eval_fdrname),
       eval_fdrcapacity: new FormControl(data.row?.eval_fdrcapacity),
@@ -54,6 +54,7 @@ eval_form: FormGroup;
       eval_scopework: new FormControl(data.row?.eval_scopework),
       eval_recom: new FormControl(data.row?.eval_recom),
       eval_pcm: new FormControl(data.row?.eval_pcm),
+      eval_sglinediagram: new FormControl(data.row?.eval_sglinediagram),
       eval_otherdoc: new FormControl(data.row?.eval_otherdoc),
       
       

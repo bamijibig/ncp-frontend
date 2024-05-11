@@ -33,8 +33,8 @@ export class PubconnectionEvaluateComponent implements OnInit {
       eval_nameofsub: new FormControl(data.row?.eval_nameofsub),
       eval_rating: new FormControl(data.row?.eval_rating),
       
-      eval_region: new FormControl(data.row?.eval_region),
-      eval_bhub: new FormControl(data.row?.eval_bhub),
+      // eval_region: new FormControl(data.row?.eval_region),
+      // eval_bhub: new FormControl(data.row?.eval_bhub),
       eval_loading: new FormControl(data.row?.eval_loading),
       eval_loadpercent: new FormControl(data.row?.eval_loadpercent),
       eval_1yrloadpercentload: new FormControl(data.row?.eval_1yrloadpercentload),

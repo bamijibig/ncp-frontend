@@ -114,7 +114,7 @@
                     </mat-form-field>
                     
                 </div>
-                <div class=" col-6">
+                <!-- <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>For Upgrade, Specify New Load</mat-label>
@@ -122,7 +122,7 @@
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                </div>
+                </div> -->
                 <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
@@ -143,7 +143,7 @@
                         
                     </mat-form-field>
                 </div>
-                <div class=" col-6">
+                <!-- <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>Region</mat-label>
@@ -160,7 +160,7 @@
                         <mat-icon matSuffix>face</mat-icon>
                         
                     </mat-form-field>
-                </div>
+                </div> -->
                 <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
@@ -407,13 +407,23 @@
                  <div class=" col-6">
     
                         <mat-form-field>
-                            <mat-label>PC&M(Transformer Test)</mat-label>
+                            <mat-label>Summary Report Sheet</mat-label>
                             <ngx-mat-file-input formControlName="eval_pcm">
                                <mat-icon ngxMatFileInputIcon>backup</mat-icon>
                             </ngx-mat-file-input>
                          </mat-form-field>
-                         <a [href]="evalconnection?.eval_pcm" target="_blank">View Transformer Test</a>
+                         <a [href]="evalconnection?.eval_pcm" target="_blank">View Summary Report Sheet</a>
                    </div> 
+                   <div class=" col-6">
+    
+                    <mat-form-field>
+                        <mat-label>Single Line Diagram</mat-label>
+                        <ngx-mat-file-input formControlName="eval_sglinediagram">
+                           <mat-icon ngxMatFileInputIcon>backup</mat-icon>
+                        </ngx-mat-file-input>
+                     </mat-form-field>
+                     <a [href]="evalconnection?.eval_sglinediagram" target="_blank">View Single line Diagram</a>
+                    </div> 
                    <div class=" col-6">
     
                     <mat-form-field>

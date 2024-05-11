@@ -11,6 +11,15 @@
     </button>
 </div>
 
+
+<div class="text-center" *ngIf="corenexpired && is_contractor">
+    <h2><strong>
+        You cannot create an application for new connection because your Coren certificate has expired. Kindly update your profile with the most recent Coren certificate
+      
+    </strong>
+    </h2>
+</div>
+
 <div class="text-center" *ngIf="(!status || in_approval) && is_contractor">
     <h2><strong>
         You cannot create an application for new connection because your registration as a contractor is not yet approved. Kindly update your profile and submit
@@ -19,7 +28,7 @@
     </h2>
 </div>
 
-<div mat-dialog-content class="mat-typography" *ngIf="(status && !in_approval) || !is_contractor">
+<div mat-dialog-content class="mat-typography" *ngIf="(status && !in_approval && !corenexpired) || !is_contractor">
 
     <form class="m-4" [formGroup]="portform" (ngSubmit)="submitConnections()">
         <div class="container-fluid">
@@ -243,16 +252,14 @@
                       </mat-form-field>
                       
                 </div>
-                <div class="col-6">
+                <!-- <div class="col-6">
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>No of Customers</mat-label>
                         <input matInput formControlName="no_of_customers" >
                         <mat-icon matSuffix>transformer</mat-icon>
-                        <!-- <mat-error *ngIf="portform.get('name').hasError('')">
-                            Name is 
-                        </mat-error> -->
+                     
                     </mat-form-field>
-                </div>
+                </div> -->
                 
                  </div>
                  
@@ -271,7 +278,7 @@
     
                     <div class="col-6">
                         <mat-form-field class="example-full-width mb-3" appearance="outline">
-                            <mat-label>Estimated Cost</mat-label>
+                            <mat-label>Cost Of Production</mat-label>
                             <input matInput formControlName="estimated_cost" >
                             <mat-icon matSuffix>transformer</mat-icon>
                             <!-- <mat-error *ngIf="portform.get('name').hasError('')">
@@ -295,17 +302,26 @@
             <div class=" col-6">
                 
                 <mat-form-field class="example-full-width mb-3" appearance="outline">
-                    <mat-label>Relief Type</mat-label>
+                    <mat-label>Type</mat-label>
                     <mat-select formControlName="relieftype" required>
                         
-                        <mat-option [value]="'transformer installation'">
-                            Transformer installation
+                        <mat-option [value]="'relief'">
+                            Relief
                         </mat-option>
-                        <mat-option [value]="'transformer uprating'">
-                            Transformer uprating
+                        <mat-option [value]="'operating'">
+                            Operating
                         </mat-option>
                         <mat-option [value]="'replacement'">
                             Replacement
+                        </mat-option>
+                        <mat-option [value]="'new extension'">
+                            New Extension
+                        </mat-option>
+                        <mat-option [value]="'realignment'">
+                            Realignment
+                        </mat-option>
+                        <mat-option [value]="'relocation'">
+                            Relocation
                         </mat-option>
                     </mat-select>
                     <!-- <mat-error *ngIf="proForm.get('status').hasError('required')">
@@ -317,16 +333,14 @@
            
         </div>
         <div class="row">
-            <div class=" col-6">
+            <!-- <div class=" col-6">
                 <mat-form-field class="example-full-width mb-3" appearance="outline">
                     <mat-label>Feeder Name</mat-label>
                     <input matInput formControlName="feeder_name" required>
                     <mat-icon matSuffix>face</mat-icon>
-                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
-                        Name is required
-                    </mat-error> -->
+                   
                 </mat-form-field>
-            </div>
+            </div> -->
             
             <div class=" col-6">
                 <mat-form-field class="example-full-width mb-3" appearance="outline">

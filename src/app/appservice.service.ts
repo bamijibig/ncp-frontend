@@ -8,6 +8,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from './globalservice/global-service.service';
 import {formatDate} from '@angular/common';
 import { MatNativeDateModule } from '@angular/material/core';
+// import { DatePipe } from '@angular/common';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,7 +18,8 @@ export class AppserviceService {
   constructor(
     private http: HttpClient,
     private snackBar: MatSnackBar,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    // private datePipe: DatePipe
     ) { }
 
   getContractorConnections(): Observable<any> {
@@ -88,12 +90,12 @@ export class AppserviceService {
 
       // formData.append('date_of_visit',formatDate(('date_of_visit') 'yyyy-MM-dd', 'en'));
       formData.append('date_of_visit', formvalue.date_of_visit);
-      formData.append('no_of_customers', formvalue.no_of_customers);
+      // formData.append('no_of_customers', formvalue.no_of_customers);
       formData.append('estimated_load', formvalue.estimated_load);
       formData.append('estimated_cost', formvalue.estimated_cost);
       formData.append('no_of_spans', formvalue.no_of_spans);
       formData.append('relieftype', formvalue.relieftype);
-      formData.append('feeder_name', formvalue.feeder_name);
+      // formData.append('feeder_name', formvalue.feeder_name);
       formData.append('feeder_capacity', formvalue.feeder_capacity);
       formData.append('fdr_peakload', formvalue.fdr_peakload);
       formData.append('load_tilldate', formvalue.load_tilldate);
@@ -138,12 +140,12 @@ export class AppserviceService {
       formData.append('dt_capacity', formvalue.dt_capacity);
       formData.append('voltage_level', formvalue.voltage_level);
       formData.append('date_of_visit', formvalue.date_of_visit);
-      formData.append('no_of_customers', formvalue.no_of_customers);
+      // formData.append('no_of_customers', formvalue.no_of_customers);
       formData.append('estimated_load', formvalue.estimated_load);
       formData.append('estimated_cost', formvalue.estimated_cost);
       formData.append('no_of_spans', formvalue.no_of_spans);
       formData.append('relieftype', formvalue.relieftype);
-      formData.append('feeder_name', formvalue.feeder_name);
+      // formData.append('feeder_name', formvalue.feeder_name);
       formData.append('feeder_capacity', formvalue.feeder_capacity);
       formData.append('fdr_peakload', formvalue.fdr_peakload);
       formData.append('load_tilldate', formvalue.load_tilldate);
@@ -690,6 +692,18 @@ addNewUser( formvalue:any
       formData.append('contractor_name', formvalue.contractor_name);
       formData.append('con_address', formvalue.con_address);
       formData.append('licensed_no', formvalue.licensed_no);
+     
+      // formData.append('corenissued', formvalue.corenissued);
+      // formData.append(
+      //   'corenissued',
+      //   this.datePipe.transform(formvalue.corenissued, 'yyyy-MM-ddTHH:mm:ss') || '' // Fallback to empty string if transform fails
+      // );
+      // formData.append('corenexpired', formvalue.corenexpired);
+      // formData.append(
+      //   'corenexpired',
+      //   this.datePipe.transform(formvalue.corenexpired, 'yyyy-MM-ddTHH:mm:ss') || ''
+      // );
+  
       formData.append('tel_no', formvalue.tel_no);
       formData.append('email', formvalue.email);
       formData.append('in_approval_workflow', 'True');
@@ -697,6 +711,7 @@ addNewUser( formvalue:any
       formData.append('registration_status', 'Submitted and Awaiting CTO Approval');
       formData.append('declined', "False");
       formData.append('cto_is_contractor_approved', 'False');
+      formData.append('corenissued', formvalue.corenissued);
       // formData.append('coren',formvalue.coren);
       if(formvalue.nemsa_test_cert){
       formData.append('coren_or_nemsa_competency', formvalue.nemsa_test_cert);
@@ -881,11 +896,11 @@ addNewUser( formvalue:any
         formData.append('te_is_connection_approved', form.eval_site_visit_date);
         
         formData.append('eval_site_visit_date', form.eval_site_visit_date);
-        formData.append('eval_new4upgrade', form.eval_new4upgrade);
+        // formData.append('eval_new4upgrade', form.eval_new4upgrade);
         formData.append('eval_conworkdone', form.eval_conworkdone);
         formData.append('eval_dtsubname', form.eval_dtsubname);
-        formData.append('eval_region', form.eval_region);
-        formData.append('eval_bhub', form.eval_bhub);
+        // formData.append('eval_region', form.eval_region);
+        // formData.append('eval_bhub', form.eval_bhub);
         
         formData.append('eval_comentoncon', form.eval_comentoncon);
         formData.append('eval_fdrname', form.eval_fdrname);
@@ -912,6 +927,7 @@ addNewUser( formvalue:any
         formData.append('eval_recom', form.eval_recom);
         
         formData.append('eval_pcm', form.eval_pcm);
+        formData.append('eval_sglinediagram', form.eval_sglinediagram);
         formData.append('eval_otherdoc', form.eval_otherdoc);
         formData.append('te_is_connection_approved', 'True');
         formData.append('te_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
@@ -987,7 +1003,7 @@ addNewUser( formvalue:any
         }
       request_precommissioning(id: any, form: any
         ): Observable<any> {
-          const url = this.masterdomain + 'public/connection/approveordecline/' + id + '/';
+          const url = this.masterdomain + 'connection/approveordecline/' + id + '/';
           const formData = new FormData();
           formData.append('action', 'precomreq');
           formData.append('security_receipt', form.receipt);

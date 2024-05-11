@@ -15,7 +15,7 @@
 
                 <mat-form-field class="example-full-width mb-3" appearance="outline">
                     <mat-label>Name of Contractor</mat-label>
-                    <input matInput formControlName="contractor_name" >
+                    <input matInput formControlName="contractor_name">
                     <mat-icon matSuffix>face</mat-icon>
                     <!-- <mat-error *ngIf="portform.get('name').hasError('')">
                         Name is 
@@ -105,6 +105,33 @@
                     </mat-error> -->
                 </mat-form-field>
             </div>
+            <div class="col-6">
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>COREN Issued Date</mat-label>
+                    <input matInput type = "date" formControlName="corenissued">
+                     </mat-form-field>
+            </div>
+            <!-- your-component.component.html -->
+        <!-- <div class="row">
+            <div class="col-6">
+            <mat-form-field class="example-full-width mb-3" appearance="outline">
+                <mat-label>COREN Issued Date</mat-label>
+                <input matInput [matDatepicker]="issuedDatepicker" formControlName="corenissued">
+                <mat-datepicker-toggle matSuffix [for]="issuedDatepicker"></mat-datepicker-toggle>
+                <mat-datepicker #issuedDatepicker></mat-datepicker>
+            </mat-form-field>
+            </div>
+        
+            <div class="col-6">
+            <mat-form-field class="example-full-width mb-3" appearance="outline">
+                <mat-label>COREN Expired Date</mat-label>
+                <input matInput [matDatepicker]="expiredDatepicker" formControlName="corenexpired">
+                <mat-datepicker-toggle matSuffix [for]="expiredDatepicker"></mat-datepicker-toggle>
+                <mat-datepicker #expiredDatepicker></mat-datepicker>
+            </mat-form-field>
+            </div>
+        </div> -->
+  
 
             <!-- <div class="row">
                 <div class="col-6">

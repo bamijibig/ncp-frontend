@@ -29,6 +29,8 @@ export class ContractorRegComponent implements OnInit {
       licensed_no: new FormControl(''),
       tel_no: new FormControl(null),
       email: new FormControl(null),
+      corenissued: new FormControl(null),
+      // corenexpired: new FormControl(null),
       nemsa_test_cert: new FormControl(null),    
       // businesshub: new FormControl(null),   
       // region : new FormControl(null),   
@@ -104,6 +106,15 @@ export class ContractorRegComponent implements OnInit {
   }
   }
   
+  // checkDate(){
+  //   console.log(this.portform.get('corenissued').value)
+  //   const corendate = this.portform.get('corenissued').value
+  //   const today = new Date()
+
+  //   if((corendate - today) <365){
+
+  //   }
+  // }
   CorenImageProcessing(event: any) {
     const fileInput = event.target;
     const file = fileInput.files[0];

@@ -29,6 +29,8 @@ export class ContractorRegDialogComponent implements OnInit {
       contractor_name: new FormControl({value: '', disabled: true}),
       con_address: new FormControl({value: '', disabled: true}),
       licensed_no: new FormControl({value: '', disabled: true}),
+      corenissued: new FormControl({value: '', disabled: true}),
+      // corenexpired: new FormControl({value: '', disabled: true}),
       tel_no: new FormControl({value: '', disabled: true}),
       email: new FormControl({value: '', disabled: true}),
       nemsa_test_cert: new FormControl({value: '', disabled: true}),    
@@ -48,6 +50,8 @@ export class ContractorRegDialogComponent implements OnInit {
       contractor_name:data.row.contractor_name,
       con_address: data.row.con_address,
       licensed_no: data.row.licensed_no,
+      corenissued: data.row.corenissued,
+      // corenexpired: data.row.corenexpired,
       tel_no: data.row.tel_no,
       email: data.row.email,
       // I ADDED THIS 

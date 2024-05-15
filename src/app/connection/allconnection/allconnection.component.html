@@ -37,6 +37,11 @@
                     <!--- Note that these columns can be defined in any order.
                   The actual rendered columns are set as a property on the row definition" -->
                     <!-- id Column -->
+                    <ng-container matColumnDef="id">
+                      <mat-header-cell *matHeaderCellDef>ID </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+                    </ng-container>
+
                     <ng-container matColumnDef="region">
                       <mat-header-cell *matHeaderCellDef>Region </mat-header-cell>
                       <mat-cell *matCellDef="let element"> {{element.bh?.region.region}} </mat-cell>
@@ -118,6 +123,10 @@
                     <!--- Note that these columns can be defined in any order.
                   The actual rendered columns are set as a property on the row definition" -->
                     <!-- id Column -->
+                    <ng-container matColumnDef="id">
+                      <mat-header-cell *matHeaderCellDef>ID </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+                    </ng-container>
                     <ng-container matColumnDef="region">
                       <mat-header-cell *matHeaderCellDef>Region </mat-header-cell>
                       <mat-cell *matCellDef="let element"> {{element.bh?.region.region}} </mat-cell>

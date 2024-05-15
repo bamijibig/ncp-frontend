@@ -15,10 +15,10 @@ import * as XLSX from 'xlsx';
   styleUrls: ['./staffpubconnectlist.component.css']
 })
 export class StaffpubconnectlistComponent implements OnInit {
-  displayedColumns = [ 'region','hub','community_name', 'chairman_comm_number','status', 'view','eval','test']
+  displayedColumns = [ 'id','region','hub','community_name', 'chairman_comm_number','status', 'view','eval','test']
   // ['contractor_name','region','hub', 'company_name', 'connectiontype', 'capacity', 'useofpremises','date_of_application', 'status', 'view','eval','test']
   
- displayedColumnsList = [ 'region','hub','community_name', 'chairman_comm_number', 'status', 'view','approve', 'decline']
+ displayedColumnsList = [ 'id','region','hub','community_name', 'chairman_comm_number', 'status', 'view','approve', 'decline']
 //  ['contractor_name','region','hub', 'company_name', 'connectiontype', 'date_of_application','status', 'view','approve', 'decline']
   dataSource= new MatTableDataSource<any>([])
   dataSourceApproval= new MatTableDataSource<any>([])

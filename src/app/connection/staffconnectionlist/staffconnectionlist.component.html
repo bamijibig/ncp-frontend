@@ -39,6 +39,10 @@
               <!--- Note that these columns can be defined in any order.
             The actual rendered columns are set as a property on the row definition" -->
               <!-- id Column -->
+              <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+              </ng-container>
               <ng-container matColumnDef="contractor_name">
                 <mat-header-cell *matHeaderCellDef>Contractor Name </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.contractor?.contractor_name}} </mat-cell>
@@ -148,6 +152,11 @@
               <!--- Note that these columns can be defined in any order.
             The actual rendered columns are set as a property on the row definition" -->
               <!-- id Column -->
+              <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+              </ng-container>
+
               <ng-container matColumnDef="contractor_name">
                 <mat-header-cell *matHeaderCellDef>Contractor Name </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.contractor?.contractor_name}} </mat-cell>

@@ -208,19 +208,13 @@ getApprovalStatus(){
 corenexpired = false;
 
 checkCorenDate(){
-  if(User.getUser().corenissued){
-    const corenissued =  User.getUser().corenissued;
-    const issuedplusayear = moment(corenissued).add(1,'year');
-    if(issuedplusayear.isBefore(moment(), 'day')){
-     this.corenexpired = true;
-     console.log(this.corenexpired)
-    }
-  }
-  else {
-    this.corenexpired = true;
-  }
-
+ const corenissued =  User.getUser().corenissued;
+ const issuedplusayear = moment(corenissued).add(1,'year');
+ if(issuedplusayear.isBefore(moment(), 'day')){
+  this.corenexpired = true;
+ }
 }
+
 
 regions: any = [];
 hub: any = [];

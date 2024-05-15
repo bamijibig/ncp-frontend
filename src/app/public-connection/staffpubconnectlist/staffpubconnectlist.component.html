@@ -37,7 +37,10 @@
           </div>
           <div class="example-container mat-elevation-z8 table table-responsive">
             <mat-table #table [dataSource]="dataSource">
-          
+              <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+              </ng-container>
               <!--- Note that these columns can be defined in any order.
             The actual rendered columns are set as a property on the row definition" -->
               <!-- id Column -->
@@ -122,6 +125,10 @@
           </div> -->
           <div class="example-container mat-elevation-z8 table table-responsive">
             <mat-table #table [dataSource]="dataSourceApproval">
+              <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+              </ng-container>
               <ng-container matColumnDef="community_name">
                 <mat-header-cell *matHeaderCellDef>Community Name </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.community_name}} </mat-cell>

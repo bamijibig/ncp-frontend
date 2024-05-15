@@ -37,6 +37,10 @@
               <div class="scrollable-table-container">
                 <div class="scroll-indicator">
                 <mat-table  [dataSource]="dataSource" class="example-table">
+                  <ng-container matColumnDef="id">
+                    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+                  </ng-container>
                   <ng-container matColumnDef="region">
                     <mat-header-cell *matHeaderCellDef >Region </mat-header-cell>
                     <mat-cell *matCellDef="let element" > {{element.bh?.region.region}} </mat-cell>
@@ -109,7 +113,7 @@
                     <mat-header-cell *matHeaderCellDef > feeder_name </mat-header-cell>
                     <mat-cell *matCellDef="let element" > {{element.feeder_name}}  </mat-cell>
                   </ng-container>  -->
-                  <ng-container matColumnDef="feeder_capacity">
+                  <!-- <ng-container matColumnDef="feeder_capacity">
                     <mat-header-cell *matHeaderCellDef > feeder_capacity </mat-header-cell>
                     <mat-cell *matCellDef="let element" > {{element.feeder_capacity}}  </mat-cell>
                   </ng-container>
@@ -140,7 +144,7 @@
                   <ng-container matColumnDef="expected_gain">
                     <mat-header-cell *matHeaderCellDef > expected_gain </mat-header-cell>
                     <mat-cell *matCellDef="let element" > {{element.expected_gain}}  </mat-cell>
-                  </ng-container>
+                  </ng-container> -->
                   <ng-container matColumnDef="letter_of_donation_dss">
                     <mat-header-cell *matHeaderCellDef > letter_of_donation_dss </mat-header-cell>
                     <!-- <mat-cell *matCellDef="let element" >  <a [href]="element?.coren" target="_blank">View</a> </mat-cell> -->
@@ -198,7 +202,10 @@
             
                   <!-- name_sponsor column -->
                  
-
+                  <ng-container matColumnDef="id">
+                    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+                  </ng-container>
                       <!--community_name Column -->
                       <ng-container matColumnDef="community_name">
                       <mat-header-cell *matHeaderCellDef > Community name </mat-header-cell>

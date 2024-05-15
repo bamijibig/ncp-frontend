@@ -233,8 +233,8 @@
             </div> -->
             
             
-            <div class="row">
-                <div class=" col-6">
+         
+                <!-- <div class=" col-6"> -->
                     <!-- <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>Date of Site Visit</mat-label>
                         <input matInput formControlName="date_of_visit" >
@@ -244,14 +244,14 @@
                         </mat-error> -->
                     <!-- </mat-form-field> -->
 
-                    <mat-form-field>
+                    <!-- <mat-form-field>
                         <mat-label>Date of Site Visit</mat-label>
                         <input matInput [matDatepicker]="picker" formControlName="date_of_visit">
                         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                       </mat-form-field>
                       
-                </div>
+                </div> -->
                 <!-- <div class="col-6">
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
                         <mat-label>No of Customers</mat-label>
@@ -260,10 +260,10 @@
                      
                     </mat-form-field>
                 </div> -->
-                
-                 </div>
+                <div class="row">
                  
-                 <div class="row">
+                 
+                 
                     <div class=" col-6">
                         <mat-form-field class="example-full-width mb-3" appearance="outline">
                             <mat-label>Estimated Load</mat-label>
@@ -275,10 +275,10 @@
                         </mat-form-field>
                     </div>
                    
-    
+               
                     <div class="col-6">
                         <mat-form-field class="example-full-width mb-3" appearance="outline">
-                            <mat-label>Cost Of Production</mat-label>
+                            <mat-label>Cost Of Project</mat-label>
                             <input matInput formControlName="estimated_cost" >
                             <mat-icon matSuffix>transformer</mat-icon>
                             <!-- <mat-error *ngIf="portform.get('name').hasError('')">
@@ -286,8 +286,9 @@
                             </mat-error> -->
                         </mat-form-field>
                     </div>
+                    </div>
                     
-                     </div>        
+                             
         <div class="row">
             <div class=" col-6">
                 <mat-form-field class="example-full-width mb-3" appearance="outline">
@@ -299,6 +300,8 @@
                     </mat-error> -->
                 </mat-form-field>
             </div>
+            
+        
             <div class=" col-6">
                 
                 <mat-form-field class="example-full-width mb-3" appearance="outline">
@@ -329,10 +332,11 @@
                     </mat-error> -->
                 </mat-form-field>
             </div>
+            </div>
             
            
-        </div>
-        <div class="row">
+        
+        <!-- <div class="row"> -->
             <!-- <div class=" col-6">
                 <mat-form-field class="example-full-width mb-3" appearance="outline">
                     <mat-label>Feeder Name</mat-label>
@@ -342,28 +346,24 @@
                 </mat-form-field>
             </div> -->
             
-            <div class=" col-6">
+            <!-- <div class=" col-6">
                 <mat-form-field class="example-full-width mb-3" appearance="outline">
                     <mat-label>Feeder Capacity(MW)</mat-label>
                     <input matInput formControlName="feeder_capacity" required>
                     <mat-icon matSuffix>face</mat-icon>
-                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
-                        Name is required
-                    </mat-error> -->
+                    
                 </mat-form-field>
             </div>
             
            
-        </div>
-        <div class="row">
+        </div> -->
+        <!-- <div class="row">
             <div class=" col-6">
                 <mat-form-field class="example-full-width mb-3" appearance="outline">
                     <mat-label>Feeder Peak Load</mat-label>
                     <input matInput formControlName="fdr_peakload" required>
                     <mat-icon matSuffix>face</mat-icon>
-                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
-                        Name is required
-                    </mat-error> -->
+                    
                 </mat-form-field>
             </div>
             <div class=" col-6">
@@ -371,23 +371,19 @@
                     <mat-label>Load Till Date(MW)</mat-label>
                     <input matInput formControlName="load_tilldate" required>
                     <mat-icon matSuffix>face</mat-icon>
-                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
-                        Name is required
-                    </mat-error> -->
+                    
                 </mat-form-field>
             </div>
             
            
-        </div>
-        <div class="row">
+        </div> -->
+        <!-- <div class="row">
             <div class=" col-6">
                 <mat-form-field class="example-full-width mb-3" appearance="outline">
                     <mat-label>Source to Feeder</mat-label>
                     <input matInput formControlName="source_fdr" required>
                     <mat-icon matSuffix>face</mat-icon>
-                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
-                        Name is required
-                    </mat-error> -->
+                   
                 </mat-form-field>
             </div>
             <div class=" col-6">
@@ -395,23 +391,19 @@
                     <mat-label>Power Transformer</mat-label>
                     <input matInput formControlName="powertrans" required>
                     <mat-icon matSuffix>face</mat-icon>
-                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
-                        Name is required
-                    </mat-error> -->
+                  
                 </mat-form-field>
             </div>
             
            
-        </div>
-        <div class="row">
+        </div> -->
+        <!-- <div class="row">
             <div class=" col-6">
                 <mat-form-field class="example-full-width mb-3" appearance="outline">
                     <mat-label>Transformer Rating</mat-label>
                     <input matInput formControlName="trans_rating" required>
                     <mat-icon matSuffix>face</mat-icon>
-                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
-                        Name is required
-                    </mat-error> -->
+                  
                 </mat-form-field>
             </div>
             <div class=" col-6">
@@ -419,34 +411,30 @@
                     <mat-label>Expected Billing</mat-label>
                     <input matInput formControlName="expected_billing" required>
                     <mat-icon matSuffix>face</mat-icon>
-                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
-                        Name is required
-                    </mat-error> -->
+                    
                 </mat-form-field>
             </div>
             
            
-        </div>
+        </div> -->
       
   
-            <div class="row">
+            <!-- <div class="row"> -->
            
-            <div class="col-6">
+            <!-- <div class="col-6">
                 <mat-form-field class="example-full-width mb-3" appearance="outline">
                     <mat-label>Expected Gain</mat-label>
                     <input matInput formControlName="expected_gain" required>
                     <mat-icon matSuffix>transformer</mat-icon>
-                    <!-- <mat-error *ngIf="portform.get('name').hasError('required')">
-                        Name is required
-                    </mat-error> -->
+                
                 </mat-form-field>
             </div>
-            </div>
+            </div> -->
            
               
-            <div class="row">
+            <!-- <div class="row"> -->
             
-            <div class="col-6">
+            <!-- <div class="col-6">
             <mat-form-field>
                 <mat-label>Letter of Donation DSS</mat-label>
                 <ngx-mat-file-input formControlName="letter_of_donation_dss" >
@@ -454,19 +442,20 @@
                 </ngx-mat-file-input>
                 </mat-form-field>
                 <a *ngIf="connection?.letter_of_donation_dss" [href]="connection?.letter_of_donation_dss" target="_blank">letter_of_donation_dss</a>
-            </div>
-            
+            </div> -->
+        <div class="row">
             <div class="col-6">
             <mat-form-field>
-                <mat-label>Nemsa Test Certificate</mat-label>
-                <ngx-mat-file-input formControlName="nemsa_test_cert" >
+                <mat-label>Nemsa Competency Certificate</mat-label>
+                <ngx-mat-file-input formControlName="nemsa_comp_cert" >
                    <mat-icon ngxMatFileInputIcon>backup</mat-icon>
                 </ngx-mat-file-input>
              </mat-form-field>
-             <a *ngIf="connection?.nemsa_test_cert" [href]="connection?.nemsa_test_cert" target="_blank">nemsa_test_cert</a>
+             <a *ngIf="connection?.nemsa_test_cert" [href]="connection?.nemsa_comp_cert" target="_blank">Nemsa competency Certificate</a>
              </div>
-             </div>
-             <div class="row">
+             
+             
+            
              <div class="col-6">
              <mat-form-field>
                 <mat-label>Coren Certificate</mat-label>
@@ -476,18 +465,21 @@
              </mat-form-field>
              <a *ngIf="connection?.coren_cert" [href]="connection?.coren_cert" target="_blank">coren_cert</a>
              </div>
+             </div>
+            
              
              <div class="col-6">
              <mat-form-field>
-                <mat-label>Intro Letter Client</mat-label>
+                <mat-label>Introductory Letter from Client</mat-label>
                 <ngx-mat-file-input formControlName="intro_letter_client">
                    <mat-icon ngxMatFileInputIcon>backup</mat-icon>
                 </ngx-mat-file-input>
              </mat-form-field>
-             <a *ngIf="connection?.intro_letter_client" [href]="connection?.intro_letter_client" target="_blank">intro_letter_client</a>
+             <a *ngIf="connection?.intro_letter_client" [href]="connection?.intro_letter_client" target="_blank">Introductory letter from client</a>
              </div>
              </div>
-             </div>
+             
+            
              <!-- <mat-form-field>
                 <mat-label>Upload Transformer Test Certificate</mat-label>
                 <ngx-mat-file-input formControlName = "transformer_test_cert">

@@ -67,6 +67,7 @@ import { StaffpubconnectlistComponent } from './public-connection/staffpubconnec
 import { ContractorRegApplicationComponent } from './registration/contractor-reg/contractor-reg-application/contractor-reg-application.component';
 import { ContractorRegDialogComponent } from './all-contractors/dialog/contractor-reg-dialog/contractor-reg-dialog.component';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ConnectionCompCommisionComponent } from './connection/dialog/connection-comp-commision/connection-comp-commision.component';
 
 
 
@@ -112,6 +113,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     StaffpubconnectlistComponent,
     ContractorRegApplicationComponent,
     ContractorRegDialogComponent,
+    ConnectionCompCommisionComponent,
     
   ],
   imports: [

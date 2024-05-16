@@ -114,13 +114,13 @@
               <ng-container matColumnDef="eval">
                 <mat-header-cell *matHeaderCellDef> </mat-header-cell>
                 <mat-cell *matCellDef="let element">
-                  <button *ngIf="user.is_te && !element.ct_is_pre_requested && hasDataeval(element)" mat-raised-button color="secondary" (click)="viewEvaluate(element)">Eval</button>
+                  <button *ngIf="hasDataeval(element)" mat-raised-button color="secondary" (click)="viewEvaluate(element)">Eval</button>
                 </mat-cell>
               </ng-container>
               <ng-container matColumnDef="test">
                 <mat-header-cell *matHeaderCellDef> </mat-header-cell>
                 <mat-cell *matCellDef="let element">
-                  <button *ngIf="user.is_te && element.ct_is_pre_requested && hasDataprecom(element)" mat-raised-button color="secondary" (click)="viewTest(element)">Test</button>
+                  <button *ngIf="element.ct_is_pre_requested && hasDataprecom(element)" mat-raised-button color="secondary" (click)="viewTest(element)">Test</button>
                 </mat-cell>
               </ng-container>
               

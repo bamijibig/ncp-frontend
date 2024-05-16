@@ -188,6 +188,88 @@
                 </div>
 
               </mat-tab>
+
+
+              <mat-tab label="Complete commissioning"> 
+                <div class="example-container mat-elevation-z8 table table-responsive">
+                  <mat-table #table [dataSource]="dataSourcecom">
+                
+                    <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+                    <!-- id Column -->
+                    <ng-container matColumnDef="id">
+                      <mat-header-cell *matHeaderCellDef>ID </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="region">
+                      <mat-header-cell *matHeaderCellDef>Region </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.bh?.region.region}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="hub">
+                      <mat-header-cell *matHeaderCellDef>Business Hub</mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.bh?.businesshub}} </mat-cell>
+                    </ng-container>
+                
+                    <!--businesstype Column -->
+                    <ng-container matColumnDef="businesstype">
+                      <mat-header-cell *matHeaderCellDef> Business Type </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.businesstype}} </mat-cell>
+                    </ng-container>
+                
+                
+                    <!-- value_contract column -->
+                    <ng-container matColumnDef="company_name">
+                      <mat-header-cell *matHeaderCellDef> Company Name </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.company_name}} </mat-cell>
+                    </ng-container>
+                
+                    <!-- company_category Column -->
+                    <ng-container matColumnDef="connectiontype">
+                      <mat-header-cell *matHeaderCellDef> Connection Type </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.connectiontype}} </mat-cell>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="useofpremises">
+                      <mat-header-cell *matHeaderCellDef> Use of Premise </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.useofpremises}} </mat-cell>
+                    </ng-container>
+                   
+                    <ng-container matColumnDef="date_of_application">
+                      <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.date_of_application | date: "mediumDate"}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="status">
+                      <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.connection_status}}  </mat-cell>
+                    </ng-container> 
+                    <ng-container matColumnDef="view">
+                      <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                      <mat-cell *matCellDef="let element">
+                        <!-- <button mat-raised-button color="secondary" (click)="request(element)" *ngIf="is_contractor">Request</button>
+                      &nbsp; &nbsp;  -->
+                      <button mat-raised-button color="secondary" (click)="view(element)" *ngIf="is_contractor">View</button>
+                      </mat-cell>
+                    </ng-container>
+                  
+                    <ng-container matColumnDef="complete">
+                      <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                      <mat-cell *matCellDef="let element">
+                        <!-- <button mat-raised-button color="secondary" (click)="request(element)" *ngIf="is_contractor">Request</button>
+                      &nbsp; &nbsp;  -->
+                      
+                      <button mat-raised-button color="secondary" (click)="complete(element)" *ngIf="is_contractor">Commisioned</button> </mat-cell>
+                    </ng-container>
+                    <mat-header-row *matHeaderRowDef="displayedColumnsComm"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumnsComm;"></mat-row>
+                  </mat-table>
+                  <mat-paginator #paginator
+                                 [pageSize]="10"
+                                 [pageSizeOptions]="[5, 10, 20]"
+                                 [showFirstLastButtons]="true">
+                  </mat-paginator>
+                </div>
+
+              </mat-tab>
               </mat-tab-group>
            
             </div>

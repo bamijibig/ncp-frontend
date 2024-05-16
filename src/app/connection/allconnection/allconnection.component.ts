@@ -7,6 +7,7 @@ import { User } from 'src/app/globalservice/global-service.service';
 import { port } from 'src/app/port';
 import { ConnectionFormComponent } from '../dialog/connection-form/connection-form.component';
 import { ConnectionReqPrecomComponent } from '../dialog/connection-req-precom/connection-req-precom.component';
+import { ConnectionCompCommisionComponent } from '../dialog/connection-comp-commision/connection-comp-commision.component';
 
 @Component({
   selector: 'app-allconnection',
@@ -18,8 +19,12 @@ export class AllconnectionComponent implements OnInit {
  displayedColumns = ['id','region','hub', 'company_name', 'connectiontype','useofpremises','date_of_application','status','edit']
  displayedColumnslist = ['id','region','hub', 'company_name', 'connectiontype','useofpremises','date_of_application','status','view','edit']
    
+ displayedColumnsComm = ['id','region','hub', 'company_name', 'connectiontype','useofpremises','date_of_application','status','view','complete']
+
  dataSource= new MatTableDataSource<any>([])
   dataSourcePrecom= new MatTableDataSource<any>([])
+  dataSourcecom= new MatTableDataSource<any>([])
+  
   selection = new SelectionModel<any>(true, [])
   is_contractor = User.getUser().is_contractor
   portals:any;
@@ -31,6 +36,7 @@ export class AllconnectionComponent implements OnInit {
   ngOnInit(): void {
     this.consumeapi();
     this.getPrecommissioningList();
+    this.getcontractcom();
 }
 
   consumeapi() {
@@ -54,7 +60,16 @@ export class AllconnectionComponent implements OnInit {
       (error) => { console.error(error); }
     );
   }
+  getcontractcom() {
+    this.api.getconcommision().subscribe(
+      (resp) => {
+        this.dataSourcecom.data = resp;
+        console.log(resp);
 
+      },
+      (error) => { console.error(error); }
+    );
+  }
 
   addNew(){
     const dialogRef = this.dialog.open(ConnectionFormComponent, {
@@ -102,6 +117,21 @@ export class AllconnectionComponent implements OnInit {
 
   request(row:any){
     const dialogRef = this.dialog.open(ConnectionReqPrecomComponent, {
+      // width: '100%',
+      // height: '90%',
+      data: {
+        row: row
+      }
+    });
+    dialogRef.afterClosed().subscribe((result)=>{
+      this.consumeapi();
+      this.getPrecommissioningList();
+    })
+  
+
+  }
+  complete(row:any){
+    const dialogRef = this.dialog.open(ConnectionCompCommisionComponent, {
       // width: '100%',
       // height: '90%',
       data: {

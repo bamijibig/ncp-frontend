@@ -4,22 +4,21 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { AppserviceService } from 'src/app/appservice.service';
 
 @Component({
-  selector: 'app-connection-comp-commision',
-  templateUrl: './connection-comp-commision.component.html',
-  styleUrls: ['./connection-comp-commision.component.css']
+  selector: 'app-pubconnection-comp-commision',
+  templateUrl: './pubconnection-comp-commision.component.html',
+  styleUrls: ['./pubconnection-comp-commision.component.css']
 })
-export class ConnectionCompCommisionComponent implements OnInit {
-  id: any;
-  comform!: FormGroup;
+export class PubconnectionCompCommisionComponent implements OnInit {
+  id:any;
+  pubcomform!: FormGroup
   constructor(
-    public dialogRef: MatDialogRef<ConnectionCompCommisionComponent>,
+    public dialogRef: MatDialogRef<PubconnectionCompCommisionComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
    
     private appservice:AppserviceService
   ) { 
-    this.id = data.row?.id;
-    
-    this.comform = new FormGroup({
+    this.id=data.row?.id;
+    this.pubcomform = new FormGroup({
       projsignedoff: new FormControl(false),
       inspbynemsa: new FormControl(false),
       nemsatestcert: new FormControl(''),
@@ -35,7 +34,7 @@ export class ConnectionCompCommisionComponent implements OnInit {
   submitConnections(){};
   
   Execute(){
-    this.appservice.complete_commissioning(this.id, this.comform.getRawValue()).subscribe(()=>{
+    this.appservice.complete_pubcommissioning(this.id, this.pubcomform.getRawValue()).subscribe(()=>{
       this.appservice.showNotification(
         'snackbar-success',
         'Successfull',
@@ -46,4 +45,3 @@ export class ConnectionCompCommisionComponent implements OnInit {
     })
   }
 }
- 

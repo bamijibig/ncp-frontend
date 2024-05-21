@@ -54,6 +54,12 @@ export class AppserviceService {
     const headers = { 'Authorization': 'Token ' + reqtoken};
     return this.http.get(url, {headers:headers})
   }
+  getpubconcommision(): Observable<any> {
+    const url = this.masterdomain + 'public/pubconnection/commision/list/';
+    const reqtoken = this.getToken();
+    const headers = { 'Authorization': 'Token ' + reqtoken};
+    return this.http.get(url, {headers:headers})
+  }
 
   getAllStaffpubConnections(): Observable<any> {
     const url = this.masterdomain + 'public/pubstaff_connections/';
@@ -1021,6 +1027,7 @@ addNewUser( formvalue:any
           const headers = { 'Authorization': 'Token ' + reqtoken};
           return this.http.patch(url,formData,{headers:headers})
         }
+        
 
         complete_commissioning(id: any, form: any
         ): Observable<any> {
@@ -1030,11 +1037,11 @@ addNewUser( formvalue:any
           formData.append('action', 'complete');
           formData.append('projsignedoff', form.projsignedoff);
           formData.append('inspbynemsa', form.inspbynemsa);
-          formData.append('compdate', form.compdate);
+          formData.append('compdate', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
           formData.append('comprojcert', form.comprojcert);
           formData.append('nemsatestcert', form.nemsatestcert);
           formData.append('letterofdonation', form.letterofdonation);
-          formData.append('ct_is_completed', form.ct_is_completed);
+          // formData.append('ct_is_completed', form.ct_is_completed);
           formData.append('ct_is_done', 'True');
 
           formData.append('ct_is_completed_date', form.ct_is_completed_date);
@@ -1044,6 +1051,31 @@ addNewUser( formvalue:any
           const headers = { 'Authorization': 'Token ' + reqtoken};
           return this.http.patch(url,formData,{headers:headers})
         }
+
+        complete_pubcommissioning(id: any, form: any
+        ): Observable<any> {
+          const url = this.masterdomain + 'public/pubconnection/approveordecline/' + id + '/';
+          const formData = new FormData();
+       
+          formData.append('action', 'complete');
+          formData.append('projsignedoff', form.projsignedoff);
+          formData.append('inspbynemsa', form.inspbynemsa);
+          formData.append('compdate', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+          formData.append('comprojcert', form.comprojcert);
+          formData.append('nemsatestcert', form.nemsatestcert);
+          formData.append('letterofdonation', form.letterofdonation);
+          // formData.append('ct_is_completed', form.ct_is_completed);
+          formData.append('ct_is_done', 'True');
+
+          formData.append('ct_is_completed_date', form.ct_is_completed_date);
+          
+          formData.append('connection_status', 'commisioning of project completed');
+          const reqtoken = this.getToken();
+          const headers = { 'Authorization': 'Token ' + reqtoken};
+          return this.http.patch(url,formData,{headers:headers})
+        }
+
+        
         submit_pubprecom_test(id: any, form: any
           ): Observable<any> {
             const url = this.masterdomain + 'public/pubconnection/approveordecline/' + id + '/';
@@ -1189,7 +1221,7 @@ addNewUser( formvalue:any
           formData.append('cto_is_connection_approved', 'True');
           formData.append('cto_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
           formData.append('cto_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
-          formData.append('connection_status', 'Approved By CTO. Awaiting HSE Approval');
+          formData.append('connection_status', 'Approved By CTO. Kindly request pre-commissioning and approval');
           formData.append('cto_memo', form.memo);
 
         }
@@ -1410,6 +1442,7 @@ addNewUser( formvalue:any
   
           if(User.getUser().is_npd == true){
             formData.append('npd_memo', form.memo);
+            
   
           }
   

@@ -335,7 +335,59 @@
               </div>
 
             </mat-tab>
+            <mat-tab label="Complete commissioning"> 
+              <div class="example-container mat-elevation-z8 table table-responsive">
+                <mat-table #table [dataSource]="dataSourcecom">
+                 
+            
+                  <!-- name_sponsor column -->
+                 
+                  <ng-container matColumnDef="region">
+                    <mat-header-cell *matHeaderCellDef> Region </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.region}} </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="hub">
+                    <mat-header-cell *matHeaderCellDef >Hub</mat-header-cell>
+                    <mat-cell *matCellDef="let element" > {{element.bh?.businesshub}} </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="community_name">
+                    <mat-header-cell *matHeaderCellDef >community</mat-header-cell>
+                    <mat-cell *matCellDef="let element" > {{element.community_name}} </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="chairman_comm_number">
+                    <mat-header-cell *matHeaderCellDef >Chairman no</mat-header-cell>
+                    <mat-cell *matCellDef="let element" > {{element.chairman_comm_number}} </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="view">
+                    <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      
+                    <button mat-raised-button color="secondary" (click)="view(element)" *ngIf="is_contractor">View</button> </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="complete">
+                    <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      <!-- <button mat-raised-button color="secondary" (click)="request(element)" *ngIf="is_contractor">Request</button>
+                    &nbsp; &nbsp;  -->
+                    
+                    <button mat-raised-button color="secondary" (click)="complete(element)" *ngIf="is_contractor">Commisioned</button>
+                   </mat-cell>
+                  </ng-container>
+                
+                  <mat-header-row *matHeaderRowDef="displayedColumncom"></mat-header-row>
+                  <mat-row *matRowDef="let row; columns: displayedColumncom;"></mat-row>
+                </mat-table>
+                <mat-paginator #paginator
+                                [pageSize]="10"
+                                [pageSizeOptions]="[5, 10, 20]"
+                                [showFirstLastButtons]="true">
+                </mat-paginator>
+              </div>
+
+            </mat-tab>
             </mat-tab-group>
     </div>
     </div>
     </div>
+    </div>
+    

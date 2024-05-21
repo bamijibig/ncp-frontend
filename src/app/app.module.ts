@@ -68,6 +68,7 @@ import { ContractorRegApplicationComponent } from './registration/contractor-reg
 import { ContractorRegDialogComponent } from './all-contractors/dialog/contractor-reg-dialog/contractor-reg-dialog.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ConnectionCompCommisionComponent } from './connection/dialog/connection-comp-commision/connection-comp-commision.component';
+import { PubconnectionCompCommisionComponent } from './public-connection/dialog/pubconnection-comp-commision/pubconnection-comp-commision.component';
 
 
 
@@ -114,6 +115,7 @@ import { ConnectionCompCommisionComponent } from './connection/dialog/connection
     ContractorRegApplicationComponent,
     ContractorRegDialogComponent,
     ConnectionCompCommisionComponent,
+    PubconnectionCompCommisionComponent,
     
   ],
   imports: [

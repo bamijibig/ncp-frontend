@@ -9,6 +9,7 @@ import { PubconnectionFormComponent } from '../dialog/pubconnection-form/pubconn
 import { MatTableModule } from '@angular/material/table';
 import {CdkTableModule} from '@angular/cdk/table';
 import { PubconnectionReqPrecomComponent } from '../dialog/pubconnection-req-precom/pubconnection-req-precom.component';
+import { PubconnectionCompCommisionComponent } from '../dialog/pubconnection-comp-commision/pubconnection-comp-commision.component';
 
 @Component({
   selector: 'app-allpubconnection',
@@ -17,11 +18,15 @@ import { PubconnectionReqPrecomComponent } from '../dialog/pubconnection-req-pre
 })
 export class AllpubconnectionComponent implements OnInit {
   displayedColumns = [ 'id','community_name','community_name', 'chairman_comm_number', 'date_of_application','status','edit']
-  displayedColumnslist = ['id', 'region','hub','name_sponsor','community_name', 'chairman_comm_number','status','edit' ]
+  displayedColumnslist = ['id', 'region','hub','name_sponsor','community_name', 'chairman_comm_number','status','edit']
+  displayedColumncom = ['region','hub','community_name', 'chairman_comm_number','view','complete']
+
   // ,'title','dt_capacity','voltage_level','date_of_visit','no_of_customers','estimated_load','estimated_cost','no_of_spans','relieftype','feeder_name','feeder_capacity','fdr_peakload','load_tilldate','source_fdr','powertrans','trans_rating','expected_billing','expected_gain','letter_of_donation_dss','nemsa_test_cert','intro_letter_client','date_of_application']
     
   dataSource= new MatTableDataSource<any>([])
-   dataSourcePrecom= new MatTableDataSource<any>([])
+  dataSourcePrecom= new MatTableDataSource<any>([])
+
+  dataSourcecom = new MatTableDataSource<any>([]);
   //  selection = new SelectionModel<any>(true, [])
    is_contractor = User.getUser().is_contractor
    portals:any;
@@ -39,6 +44,7 @@ export class AllpubconnectionComponent implements OnInit {
   ngOnInit(): void {
     this.consumepubapi();
     this.getPrecommissioningpubList();
+    this.getpubcontractcom();
   }
   consumepubapi() {
     this.api.getContractorpubConnections().subscribe(
@@ -59,6 +65,16 @@ export class AllpubconnectionComponent implements OnInit {
       (error) => {
         console.error(error);
       }
+    );
+  }
+  getpubcontractcom() {
+    this.api.getpubconcommision().subscribe(
+      (resp) => {
+        this.dataSourcecom.data = resp;
+        console.log(resp);
+
+      },
+      (error) => { console.error(error); }
     );
   }
 
@@ -103,6 +119,8 @@ export class AllpubconnectionComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       this.consumepubapi();
       this.getPrecommissioningpubList();
+      
+    
     });
   }
 
@@ -117,7 +135,22 @@ export class AllpubconnectionComponent implements OnInit {
       this.getPrecommissioningpubList();
     });
   }
+ 
+  complete(row:any){
+    const dialogRef = this.dialog.open(PubconnectionCompCommisionComponent, {
+      // width: '100%',
+      // height: '90%',
+      data: {
+        row: row
+      }
+    });
+    dialogRef.afterClosed().subscribe((result)=>{
+      this.consumepubapi();
+      this.getPrecommissioningpubList();
+    })
+  
 
+  }
   
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

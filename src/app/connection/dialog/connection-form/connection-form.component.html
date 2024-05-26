@@ -19,15 +19,21 @@
     </h2>
 </div>
 
-<div class="text-center" *ngIf="corenexpired && is_contractor">
+<!-- <div class="text-center" *ngIf="corenexpired && is_contractor">
     <h2><strong>
         You cannot create an application for new connection because your Coren certificate has expired. Kindly update your profile with the most recent Coren certificate
       
     </strong>
     </h2>
-</div>
-
-<div mat-dialog-content class="mat-typography" *ngIf="(status && !in_approval && !corenexpired) || !is_contractor">
+</div> -->
+<div class="text-center" *ngIf="corenexpired && is_contractor">
+    <h2><strong>
+      You cannot create an application for a new connection because your Coren certificate has expired. Kindly update your profile with the most recent Coren certificate.
+    </strong></h2>
+  </div>
+  
+  <div mat-dialog-content class="mat-typography" *ngIf="(status && !in_approval && !corenexpired) || !is_contractor">
+<!-- <div mat-dialog-content class="mat-typography" *ngIf="(status && !in_approval && !corenexpired) || !is_contractor"> -->
 
     <form class="m-4" [formGroup]="portform" (ngSubmit)="submitConnections()">
         <div class="container-fluid">
@@ -367,6 +373,10 @@
                    <mat-icon ngxMatFileInputIcon>backup</mat-icon>
                 </ngx-mat-file-input>
              </mat-form-field>
+             <div style="margin-top: 10px; color: red; font-weight: bold;">
+                Uploading of expired cert will render this application invalid.
+              </div>
+            
              <a *ngIf="connection?.nemsa_test_cert" [href]="connection?.nemsa_test_cert" target="_blank">View NEMSA Competency Certificate</a>
              </div>
              

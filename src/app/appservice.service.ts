@@ -897,7 +897,7 @@ addNewUser( formvalue:any
       }
     evaluate_connection(id: any, form: any
       ): Observable<any> {
-        const url = this.masterdomain + 'connection/approveordecline/' + id + '/';
+        const url = this.masterdomain + 'connection/approveordeclinete/' + id + '/';
         const formData = new FormData();
         formData.append('approval_role', 'te');
         formData.append('action', 'Approve');
@@ -906,7 +906,7 @@ addNewUser( formvalue:any
         formData.append('eval_dt', form.eval_dt);
         formData.append('eval_voltage_level', form.eval_voltage_level);
         formData.append('eval_estimated_load', form.eval_estimated_load);
-        formData.append('te_is_connection_approved', form.eval_site_visit_date);
+        // formData.append('te_is_connection_approved', form.eval_site_visit_date);
         
         formData.append('eval_site_visit_date', form.eval_site_visit_date);
         // formData.append('eval_new4upgrade', form.eval_new4upgrade);
@@ -1009,7 +1009,7 @@ addNewUser( formvalue:any
           formData.append('security_receipt', form.receipt);
           formData.append('ct_is_pre_requested', 'True');
           formData.append('ct_is_pre_requested_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
-          formData.append('connection_status', 'Pre-commissiong Requested by Contractor. Awaiting Pre-commissioning Test');
+          formData.append('connection_status', 'Awaiting Pre commissioning Test');
           const reqtoken = this.getToken();
           const headers = { 'Authorization': 'Token ' + reqtoken};
           return this.http.patch(url,formData,{headers:headers})
@@ -1022,7 +1022,7 @@ addNewUser( formvalue:any
           formData.append('security_receipt', form.receipt);
           formData.append('ct_is_pre_requested', 'True');
           formData.append('ct_is_pre_requested_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
-          formData.append('connection_status', 'Pre-commissiong Requested by Contractor. Awaiting Pre-commissioning Test');
+          formData.append('connection_status', 'Awaiting Pre-commissioning Test');
           const reqtoken = this.getToken();
           const headers = { 'Authorization': 'Token ' + reqtoken};
           return this.http.patch(url,formData,{headers:headers})
@@ -1183,152 +1183,165 @@ addNewUser( formvalue:any
             return this.http.patch(url,formData,{headers:headers})
           }
         
-  action_connection( action:any, id: any, form: any
-    ): Observable<any> {
-      const url = this.masterdomain + 'connection/approveordecline/' + id + '/';
-      const formData = new FormData();
-      formData.append('action', action);
-      if(action == 'Approve'){
-        if(User.getUser().is_tm == true){
-          formData.append('approval_role', 'tm');
-          formData.append('tm_is_connection_approved', 'True');
-          formData.append('npd_is_connection_approved', 'False');
-          formData.append('te_is_connection_approved', 'False');
-          formData.append('cto_is_connection_approved', 'False');
-          formData.append('ct_is_pre_requested', 'False');
-          formData.append('tept_is_connection_approved', 'False');
-          formData.append('hbo_is_connection_approved', 'False');
-          formData.append('hm_is_connection_approved', 'False');
-          formData.append('tm_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
-          formData.append('tm_is_connection_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
-          formData.append('connection_status', 'Approved By TM. Awaiting TE Evaluation');
-          formData.append('tm_memo', form.memo);
-        }
+  // action_connection( action:any, id: any, form: any
+  //   ): Observable<any> {
+  //     const url = this.masterdomain + 'connection/approveordecline/' + id + '/';
+  //     const formData = new FormData();
+  //     formData.append('action', action);
+  //     if(action == 'Approve'){
+  //       if(User.getUser().is_tm == true){
+  //         formData.append('approval_role', 'tm');
+  //         formData.append('tm_is_connection_approved', 'True');
+  //         formData.append('npd_is_connection_approved', 'False');
+  //         formData.append('te_is_connection_approved', 'False');
+  //         formData.append('cto_is_connection_approved', 'False');
+  //         formData.append('ct_is_pre_requested', 'False');
+  //         formData.append('tept_is_connection_approved', 'False');
+  //         formData.append('hbo_is_connection_approved', 'False');
+  //         formData.append('hm_is_connection_approved', 'False');
+  //         formData.append('tm_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+  //         formData.append('tm_is_connection_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+  //         formData.append('connection_status', 'Approved By TM. Awaiting TE Evaluation');
+  //         formData.append('tm_memo', form.memo);
+  //       }
 
 
-        if(User.getUser().is_npd == true){
-          formData.append('approval_role', 'npd');
-          formData.append('npd_is_connection_approved', 'True');
-          formData.append('npd_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
-          formData.append('npd_is_connection_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
-          formData.append('connection_status', 'Approved By NP & D. Awaiting Induction & CTO Approval');
-          formData.append('npd_memo', form.memo);
+  //       if(User.getUser().is_npd == true){
+  //         formData.append('approval_role', 'npd');
+  //         formData.append('npd_is_connection_approved', 'True');
+  //         formData.append('npd_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+  //         formData.append('npd_is_connection_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+  //         formData.append('connection_status', 'Approved By NP & D. Awaiting Induction & CTO Approval');
+  //         formData.append('npd_memo', form.memo);
 
-        }
+  //       }
 
-        if(User.getUser().is_cto == true){
-          formData.append('approval_role', 'cto');
-          formData.append('cto_is_connection_approved', 'True');
-          formData.append('cto_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
-          formData.append('cto_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
-          formData.append('connection_status', 'Approved By CTO. Kindly request pre-commissioning and approval');
-          formData.append('cto_memo', form.memo);
+  //       if(User.getUser().is_cto == true){
+  //         formData.append('approval_role', 'cto');
+  //         formData.append('cto_is_connection_approved', 'True');
+  //         formData.append('cto_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+  //         formData.append('cto_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+  //         formData.append('connection_status', 'Approved By CTO. Kindly request pre-commissioning and approval');
+  //         formData.append('cto_memo', form.memo);
 
-        }
-        // HSE
+  //       }
+  //       // HSE
 
-        if(User.getUser().is_hse == true){
-          formData.append('approval_role', 'hse');
-          formData.append('hse_is_connection_approved', 'True');
-          formData.append('hse_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
-          formData.append('hse_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
-          formData.append('connection_status', 'Approved By HSE. Kindly request pre-commissioning');
-          formData.append('hse_memo', form.memo);
+  //       if(User.getUser().is_hse == true){
+  //         formData.append('approval_role', 'hse');
+  //         formData.append('hse_is_connection_approved', 'True');
+  //         formData.append('hse_is_connection_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+  //         formData.append('hse_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+  //         formData.append('connection_status', 'Approved By HSE. Kindly request pre-commissioning');
+  //         formData.append('hse_memo', form.memo);
 
-        }
-        // BHM
-        if(User.getUser().is_bhm == true){
-          formData.append('approval_role', 'bhm');
-          formData.append('bhm_is_connection_approved', 'True');
-          formData.append('bhm_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
-          formData.append('bhm_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
-          formData.append('connection_status', 'Approved by BHM. Awaiting HBO approval');
-          formData.append('bhm_memo', form.memo);
+  //       }
+  //       // BHM
+  //       if(User.getUser().is_bhm == true){
+  //         formData.append('approval_role', 'bhm');
+  //         formData.append('bhm_is_connection_approved', 'True');
+  //         formData.append('bhm_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+  //         formData.append('bhm_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+  //         formData.append('connection_status', 'Approved by BHM. Awaiting HBO approval');
+  //         formData.append('bhm_memo', form.memo);
           
 
-        }
+  //       }
         
-        // BHM END
-        // HBO
-        if(User.getUser().is_hbo == true){
-          formData.append('approval_role', 'hbo');
-          formData.append('hbo_is_connection_approved', 'True');
-          formData.append('hbo_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
-          formData.append('hbo_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
-          formData.append('connection_status', 'Approved by HBO. Awaiting HM approval');
-          formData.append('hbo_memo', form.memo);
+  //       // BHM END
+  //       // HBO
+  //       if(User.getUser().is_hbo == true){
+  //         formData.append('approval_role', 'hbo');
+  //         formData.append('hbo_is_connection_approved', 'True');
+  //         formData.append('hbo_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+  //         formData.append('hbo_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+  //         formData.append('connection_status', 'Approved by HBO. Awaiting HM approval');
+  //         formData.append('hbo_memo', form.memo);
           
 
-        }
+  //       }
         
-        // HBO END
+  //       // HBO END
 
-        if(User.getUser().is_hm == true){
-          formData.append('approval_role', 'hm');
-          formData.append('hm_is_connection_approved', 'True');
-          formData.append('hm_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
-          formData.append('hm_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
-          formData.append('connection_status', 'Connection Approval Completed');
-          formData.append('in_approval_workflow', 'False');
-          formData.append('connection_approved', 'True');
-          formData.append('hm_memo', form.memo);
+  //       if(User.getUser().is_hm == true){
+  //         formData.append('approval_role', 'hm');
+  //         formData.append('hm_is_connection_approved', 'True');
+  //         formData.append('hm_is_contractor_approved_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
+  //         formData.append('hm_approved_by', User.getUser().first_name + " " + User.getUser().last_name);
+  //         formData.append('connection_status', 'Connection Approval Completed');
+  //         formData.append('in_approval_workflow', 'False');
+  //         formData.append('connection_approved', 'True');
+  //         formData.append('hm_memo', form.memo);
           
 
-        }
+  //       }
         
         
-      }
-      if(action == 'Decline'){
-        if(User.getUser().is_npd == false){
-          formData.append('declined', 'True');
-          formData.append('in_approval_workflow', 'False');
-          formData.append('declined_comment', form.comment);
-          formData.append('connection_status', 'Connection Application Declined.');
+  //     }
+  //     if(action == 'Decline'){
+  //       if(User.getUser().is_npd == false){
+  //         formData.append('declined', 'True');
+  //         formData.append('in_approval_workflow', 'False');
+  //         formData.append('declined_comment', form.comment);
+  //         formData.append('connection_status', 'Connection Application Declined.');
   
-        }
+  //       }
         
-        if(User.getUser().is_tm == true){
-          formData.append('tm_memo', form.memo);
-        }
+  //       if(User.getUser().is_tm == true){
+  //         formData.append('tm_memo', form.memo);
+  //       }
 
 
-        if(User.getUser().is_npd == true){
-          formData.append('npd_memo', form.memo);
-          formData.append('te_is_connection_approved','False')
-          formData.append('connection_status', 'Connection Application Declined by NPD.');
+  //       if(User.getUser().is_npd == true){
+  //         formData.append('npd_memo', form.memo);
+  //         formData.append('te_is_connection_approved','False')
+  //         formData.append('connection_status', 'Connection Application Declined by NPD.');
 
-        }
+  //       }
 
-        if(User.getUser().is_cto == true){;
-          formData.append('cto_memo', form.memo);
+  //       if(User.getUser().is_cto == true){;
+  //         formData.append('cto_memo', form.memo);
 
-        }
-        if(User.getUser().is_hse == true){
-          formData.append('hse_memo', form.memo); 
+  //       }
+  //       if(User.getUser().is_hse == true){
+  //         formData.append('hse_memo', form.memo); 
 
-        }
-        if(User.getUser().is_bhm == true){
-          formData.append('bhm_memo', form.memo);
+  //       }
+  //       if(User.getUser().is_bhm == true){
+  //         formData.append('bhm_memo', form.memo);
           
 
-        }
-        if(User.getUser().is_hbo == true){
-          formData.append('hbo_memo', form.memo);
+  //       }
+  //       if(User.getUser().is_hbo == true){
+  //         formData.append('hbo_memo', form.memo);
           
 
-        }
+  //       }
 
-        if(User.getUser().is_hm == true){
-          formData.append('hm_memo', form.memo);
+  //       if(User.getUser().is_hm == true){
+  //         formData.append('hm_memo', form.memo);
           
 
-        }
-      }
+  //       }
+  //     }
       
-      const reqtoken = this.getToken();
-      const headers = { 'Authorization': 'Token ' + reqtoken};
-      return this.http.patch(url,formData,{headers:headers})
-    }
+  //     const reqtoken = this.getToken();
+  //     const headers = { 'Authorization': 'Token ' + reqtoken};
+  //     return this.http.patch(url,formData,{headers:headers})
+  //   }
+  action_connection(action: any, id: any, form: any): Observable<any> {
+    const url = this.masterdomain + 'connection/approveordecline/' + id + '/';
+    const formData = new FormData();
+    formData.append('action', action);
+    formData.append('memo', form.memo || '');
+    formData.append('comment', form.comment || '');
+
+    const reqtoken = this.getToken();
+    const headers = { 'Authorization': 'Token ' + reqtoken };
+
+    return this.http.patch(url, formData, { headers });
+  }
+  
 
 
 

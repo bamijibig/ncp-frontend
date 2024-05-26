@@ -134,7 +134,7 @@
                 </div> -->
     
     
-                 <div class="col-6">
+                 <!-- <div class="col-6">
                  <mat-form-field>
                     <mat-label>Upload NEMSA Test Certificate</mat-label>
                     <ngx-mat-file-input formControlName="nemsa_test_cert">
@@ -144,9 +144,28 @@
     
                  <p>
                     <a [href]="mydata?.coren_or_nemsa_competency" target="_blank">View NEMSA Certificate</a>
-                    <!-- {{contractordetails?.coren_or_nemsa_competency}} -->
+                     {{contractordetails?.coren_or_nemsa_competency}} 
                 </p>
-                 </div>
+                 </div> -->
+                 <div class="col-6">
+                    <mat-form-field>
+                      <mat-label>Upload NEMSA Test Certificate</mat-label>
+                      <ngx-mat-file-input formControlName="nemsa_test_cert">
+                        <mat-icon ngxMatFileInputIcon>backup</mat-icon>
+                        <div style="margin-top: 10px; color: red; font-weight: bold;">
+                            Uploading of expired cert will render this application invalid.
+                          </div>
+                      </ngx-mat-file-input>
+                    </mat-form-field>
+                  
+                    <p>
+                      <a [href]="mydata?.coren_or_nemsa_competency" target="_blank">View NEMSA Certificate</a>
+                      <!-- {{contractordetails?.coren_or_nemsa_competency}} -->
+                    </p>
+                    
+                    
+                  </div>
+                  
                  <div class="col-6">
                     <mat-form-field>
                         <mat-label>Upload COREN Certificate</mat-label>

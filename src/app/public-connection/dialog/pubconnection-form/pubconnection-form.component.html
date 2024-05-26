@@ -451,6 +451,10 @@
                    <mat-icon ngxMatFileInputIcon>backup</mat-icon>
                 </ngx-mat-file-input>
              </mat-form-field>
+             <div style="margin-top: 10px; color: red; font-weight: bold;">
+                Uploading of expired certificate will render this application invalid.
+              </div>
+            
              <a *ngIf="connection?.nemsa_test_cert" [href]="connection?.nemsa_comp_cert" target="_blank">Nemsa competency Certificate</a>
              </div>
              

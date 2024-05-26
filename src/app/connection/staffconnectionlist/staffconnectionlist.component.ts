@@ -20,7 +20,7 @@ import * as html2pdf from 'html2pdf.js';
   styleUrls: ['./staffconnectionlist.component.css']
 })
 export class StaffconnectionlistComponent implements OnInit {
-
+  showButtons: boolean = false;
 //  displayedColumns = ['name', 'address', 'email', 'phone', 'license','status','action']
  
  displayedColumns = ['id','contractor_name','region','hub', 'company_name', 'date_of_application', 'status', 'view','eval','test']
@@ -79,7 +79,10 @@ view(rowedited: any){
   // })
 }
 
-
+refresh(){
+  this.consumeapi();
+  this.getMyApprovals();
+}
 
 approve(rowedited: any){
   const dialogRef = this.dialog.open(ConnectionActionComponent, {
@@ -94,6 +97,10 @@ approve(rowedited: any){
     this.consumeapi();
     this.getMyApprovals();
   })
+}
+toggleButtons() {
+  this.showButtons = !this.showButtons;
+  
 }
 
 decline(rowedited: any){

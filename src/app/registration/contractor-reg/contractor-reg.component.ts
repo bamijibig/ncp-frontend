@@ -5,6 +5,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from 'src/app/globalservice/global-service.service';
 import { AppserviceService } from '../../appservice.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-contractor-reg',
@@ -30,6 +31,7 @@ export class ContractorRegComponent implements OnInit {
       tel_no: new FormControl(null),
       email: new FormControl(null),
       corenissued: new FormControl(null),
+      
       // corenexpired: new FormControl(null),
       nemsa_test_cert: new FormControl(null),    
       // businesshub: new FormControl(null),   
@@ -61,7 +63,12 @@ export class ContractorRegComponent implements OnInit {
 
 
   submitReg() {
- 
+    if (this.portform.valid) {
+      const formValue = this.portform.value;
+      formValue.corenissued = moment(formValue.corenissued).format('YYYY-MM-DD');
+      // Send the formValue to the backend using your preferred method (e.g., HttpClient)
+      console.log('Submitting:', formValue);
+    }
        this.portadd.updateContractorRegistration(
         this.portform.getRawValue(),
         User.getUser().id

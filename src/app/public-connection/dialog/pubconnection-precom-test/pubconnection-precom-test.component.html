@@ -95,7 +95,7 @@
                 <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
-                        <mat-label>Distance of new S/S to pro. Feeder</mat-label>
+                        <mat-label>Distance of new S/S to proposed Feeder</mat-label>
                         <input matInput formControlName="precom_distofnss" >
                         <mat-icon matSuffix>face</mat-icon>
                         
@@ -125,7 +125,7 @@
                 <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
-                        <mat-label>Pole Depth during erection(HT)</mat-label>
+                        <mat-label>Pole Depth during erection-HT(ft)</mat-label>
                         <textarea matInput formControlName="precom_podeptht" ></textarea>
                        
                         
@@ -134,7 +134,7 @@
                 <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
-                        <mat-label>Pole Depth during erection(LT)</mat-label>
+                        <mat-label>Pole Depth during erection-LT(ft)</mat-label>
                         <input matInput formControlName="precom_podepthlh" >
                         <mat-icon matSuffix>face</mat-icon>
                         
@@ -154,7 +154,7 @@
                 <div class=" col-6">
     
                     <mat-form-field class="example-full-width mb-3" appearance="outline">
-                        <mat-label>Quantity of Alluminium Conductor(mm^2)</mat-label>
+                        <mat-label>Quantity of Alluminium Conductor(m)</mat-label>
                         <textarea matInput formControlName="precom_qtyused" ></textarea>
                        
                         
@@ -259,7 +259,7 @@
         <div class=" col-6">
 
             <mat-form-field class="example-full-width mb-3" appearance="outline">
-                <mat-label>Current(HV/LV Side)</mat-label>
+                <mat-label>HV/LV (A)</mat-label>
                 <textarea matInput formControlName="precom_current" ></textarea>
                
                 
@@ -311,43 +311,57 @@
         <div class=" col-6">
 
             <mat-form-field class="example-full-width mb-3" appearance="outline">
-                <mat-label>Cable Size/Type</mat-label>
+                <mat-label>Cable Size(mm^2)</mat-label>
                 <input matInput formControlName="precom_cabletypsiz" >
                 <mat-icon matSuffix>face</mat-icon>
                 
             </mat-form-field>
         </div>
+       
     </div>
     <div class="row">
         <div class=" col-6">
 
             <mat-form-field class="example-full-width mb-3" appearance="outline">
-                <mat-label>Current of Feeder Pillar</mat-label>
+                <mat-label>Cable Type</mat-label>
+                <input matInput formControlName="precom_cabletype" >
+                <mat-icon matSuffix>face</mat-icon>
+                
+            </mat-form-field>
+        </div>
+        <div class=" col-6">
+
+            <mat-form-field class="example-full-width mb-3" appearance="outline">
+                <mat-label>Rating of Feeder Pillar(A)</mat-label>
                 <textarea matInput formControlName="precom_fdrpillarcurr" ></textarea>
                
                 
             </mat-form-field>
         </div>
 
-        <div class=" col-6">
-
-            <mat-form-field class="example-full-width mb-3" appearance="outline">
-                <mat-label>Incomer Cable Size</mat-label>
-                <input matInput formControlName="precom_icomcablesiz" >
-                <mat-icon matSuffix>face</mat-icon>
-                
-            </mat-form-field>
-        </div>
+       
     </div>
     <div class="row">
         <div class=" col-6">
 
             <mat-form-field class="example-full-width mb-3" appearance="outline">
-                <mat-label>Size of Uprizer Cable</mat-label>
+                <mat-label>Incomer Cable Size(mm^2)</mat-label>
+                <input matInput formControlName="precom_icomcablesiz" >
+                <mat-icon matSuffix>face</mat-icon>
+                
+            </mat-form-field>
+        </div>
+        <div class=" col-6">
+
+            <mat-form-field class="example-full-width mb-3" appearance="outline">
+                <mat-label>Size of Uprizer Cable(mm^2)</mat-label>
                 <textarea matInput formControlName="precom_uprizercable" ></textarea>   
             </mat-form-field>
         </div>
 
+        
+    </div>
+    <div class="row">
         <div class=" col-6">
 
             <mat-form-field class="example-full-width mb-3" appearance="outline">
@@ -357,18 +371,20 @@
                 
             </mat-form-field>
         </div>
-    </div>
-    <div class="row">
         <div class=" col-6">
 
             <mat-form-field class="example-full-width mb-3" appearance="outline">
-                <mat-label>Earth Resistance Value</mat-label>
+                <mat-label>Earth Resistance Value(ohms)</mat-label>
                 <textarea matInput formControlName="precom_earthresv" ></textarea>
                
                 
             </mat-form-field>
         </div>
         
+        
+    </div>
+    
+    <div class="row">
         <div class=" col-6">
     
             <mat-form-field>
@@ -380,9 +396,6 @@
              
              <a [href]="precomconnection?.precom_pcm" target="_blank">View Precomission PCM </a>
        </div>
-    </div>
-    
-    <div class="row">
         <div class=" col-6">
     
             <mat-form-field>

@@ -52,6 +52,8 @@ export class ConnectionPrecomTestComponent implements OnInit {
       precom_yrsofman: new FormControl(data.row?.precom_yrsofman),
       precom_cooling: new FormControl(data.row?.precom_cooling),
       precom_cabletypsiz: new FormControl(data.row?.precom_cabletypsiz),
+      
+      precom_cabletype: new FormControl(data.row?.precom_cabletype),
       precom_fdrpillarcurr: new FormControl(data.row?.precom_fdrpillarcurr),
       precom_icomcablesiz: new FormControl(data.row?.precom_icomcablesiz),
       precom_uprizercable: new FormControl(data.row?.precom_uprizercable),

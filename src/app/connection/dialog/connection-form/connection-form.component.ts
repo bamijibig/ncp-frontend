@@ -1,5 +1,5 @@
 
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit,ChangeDetectorRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TitleStrategy } from '@angular/router';
@@ -15,16 +15,17 @@ export class ConnectionFormComponent implements OnInit {
  action: any;
   portform: FormGroup;
   connection: any;
+  corenexpired = true;
   is_contractor: Boolean = User.getUser().is_contractor;
   constructor(
     public dialogRef: MatDialogRef<ConnectionFormComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public data: any, private cdRef:ChangeDetectorRef,
     private portadd: AppserviceService
     ) {
       this.action = data.action;
       this.getApprovalStatus();
       this.getRegion();
-      this.checkCorenDate();
+      // this.checkCorenDate();
       
     this.portform = new FormGroup({
       // contractor:new FormControl(null),
@@ -187,7 +188,7 @@ console.log(this.connection)
 
 
   ngOnInit(): void {
-    
+    this.checkCorenDate();
   }
 
 
@@ -205,26 +206,37 @@ getApprovalStatus(){
   })
 }
 
- corenexpired = false;
 
-// checkCorenDate(){
-//  const corenissued =  User.getUser().corenissued;
-//  const issuedplusayear = moment(corenissued).add(1,'year');
-//  if(issuedplusayear.isBefore(moment(), 'day')){
-//   this.corenexpired = true;
-//  }
+
+
+// checkCorenDate() {
+//   const corenissued = User.getUser().corenissued;
+//   const issuedplusayear = moment(corenissued).add(1, 'year');
+//   if (issuedplusayear.isBefore(moment(), 'day')) {
+//     this.corenexpired = true;
+//   } else {
+//     this.corenexpired = false;
+//   }
+//   this.cdRef.detectChanges();
 // }
 checkCorenDate() {
-  const corenissued = User.getUser().corenissued;
-  const issuedplusayear = moment(corenissued).add(1, 'year');
-  if (issuedplusayear.isBefore(moment(), 'day')) {
+  // Simulate fetching the user and corenissued date from backend
+  const corenissued = User.getUser().corenissued;  // Example date, replace with actual fetch logic
+
+  // Parse the date string to a Date object
+  const corenIssuedDate = new Date(corenissued);
+  // Add one year to the issue date
+  const issuedPlusAYear = new Date(corenIssuedDate.setFullYear(corenIssuedDate.getFullYear() + 1));
+
+  // Check if the current date is after the issuedPlusAYear date
+  if (issuedPlusAYear < new Date()) {
     this.corenexpired = true;
   } else {
     this.corenexpired = false;
   }
+
+  this.cdRef.detectChanges();
 }
-
-
 regions: any = [];
 hub: any = [];
 getRegion() {

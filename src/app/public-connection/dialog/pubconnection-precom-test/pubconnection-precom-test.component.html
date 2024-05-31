@@ -225,13 +225,30 @@
         </div>
 
         <div class=" col-6">
-
             <mat-form-field class="example-full-width mb-3" appearance="outline">
+                <mat-label>voltage Ratio</mat-label>
+                <mat-select formControlName="precom_voltratio" required>
+                 
+                    <mat-option [value]="'elevenby400'">
+                        11KV/0.415KV
+                    </mat-option>
+                    <mat-option [value]="'thirtythreeby400'">
+                        33KV/0.415KV
+                    </mat-option>  
+                    <mat-option [value]="'thirtythreebyeleven'">
+                        33KV/11KV
+                    </mat-option>  
+                </mat-select>
+                <!-- <mat-error *ngIf="proForm.get('status').hasError('required')">
+                    Status is required
+                </mat-error> -->
+            </mat-form-field>
+            <!-- <mat-form-field class="example-full-width mb-3" appearance="outline">
                 <mat-label>Voltage Ratio(KV)</mat-label>
                 <input matInput formControlName="precom_voltratio" >
                 <mat-icon matSuffix>face</mat-icon>
                 
-            </mat-form-field>
+            </mat-form-field> -->
         </div>
     </div>
     <div class="row">

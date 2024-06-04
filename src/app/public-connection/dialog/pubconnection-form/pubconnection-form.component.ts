@@ -210,6 +210,20 @@ checkCorenDate(){
   this.corenexpired = true;
  }
 }
+checkCorenDate2() {
+  // Simulate fetching the user and corenissued date from backend
+  const corenissued = User.getUser().corenissued;  // Example date, replace with actual fetch logic
+
+  // Parse the date string to a Date object
+  const corenIssuedDate = new Date(corenissued);
+  // Add one year to the issue date
+  // const issuedPlusAYear = new Date(corenIssuedDate.setFullYear(corenIssuedDate.getFullYear() + 1));
+
+  // Check if the current date is after the issuedPlusAYear date
+  const today = new Date();
+  return corenIssuedDate <= new Date()
+}
+
   ngOnInit(): void {
   }
 

@@ -10,6 +10,7 @@ import { AppserviceService } from 'src/app/appservice.service';
 })
 export class PubconnectionCompCommisionComponent implements OnInit {
   id:any;
+  pubcomget:any;
   pubcomform!: FormGroup
   constructor(
     public dialogRef: MatDialogRef<PubconnectionCompCommisionComponent>,
@@ -17,6 +18,7 @@ export class PubconnectionCompCommisionComponent implements OnInit {
    
     private appservice:AppserviceService
   ) { 
+    this.pubcomget=data.row;
     this.id=data.row?.id;
     this.pubcomform = new FormGroup({
       projsignedoff: new FormControl(false),
@@ -27,6 +29,19 @@ export class PubconnectionCompCommisionComponent implements OnInit {
       ct_is_completed_date: new FormControl(''),
  
     });
+    if(data.action == 'view'){
+      this.pubcomform.disable();
+      this.pubcomform.patchValue({
+        projsignedoff:this.pubcomget.projsignedoff,
+        inspbynemsa:this.pubcomget.inspbynemsa,
+        nemsatestcert:this.pubcomget.nemsatestcert,
+        letterofdonation:this.pubcomget.letterofdonation,
+        comprojcert:this.pubcomget.comprojcert,
+        ct_is_completed_date:this.pubcomget.ct_is_completed_date
+    
+
+      })
+    };
   }
 
   ngOnInit(): void {

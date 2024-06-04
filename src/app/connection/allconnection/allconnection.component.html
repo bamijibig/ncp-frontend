@@ -91,12 +91,12 @@
                       <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
                       <mat-cell *matCellDef="let element"> {{element.connection_status}}  </mat-cell>
                     </ng-container> 
-                    <ng-container matColumnDef="edit">
+                    <!-- <ng-container matColumnDef="edit">
                       <mat-header-cell *matHeaderCellDef> </mat-header-cell>
                       <mat-cell *matCellDef="let element">
                         <button mat-raised-button color="secondary" (click)="edit(element)" *ngIf="is_contractor && !element.in_approval_workflow">Edit</button> 
                       </mat-cell>  
-                      </ng-container>
+                      </ng-container> -->
                     <ng-container matColumnDef="view">
                       <mat-header-cell *matHeaderCellDef> </mat-header-cell>
                       <mat-cell *matCellDef="let element">
@@ -108,11 +108,10 @@
                     <mat-header-row *matHeaderRowDef="displayedColumnslist"></mat-header-row>
                     <mat-row *matRowDef="let row; columns: displayedColumnslist;"></mat-row>
                   </mat-table>
-                  <mat-paginator #paginator
-                                 [pageSize]="10"
-                                 [pageSizeOptions]="[5, 10, 20]"
-                                 [showFirstLastButtons]="true">
-                  </mat-paginator>
+                  <mat-paginator #paginator [length]="dataSource.data.length"
+                  [pageIndex]="0" [pageSize]="10"
+                  [pageSizeOptions]="[5, 10, 25, 100]">
+   </mat-paginator>
                 </div>
               </mat-tab>
 
@@ -180,7 +179,7 @@
                     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
                     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
                   </mat-table>
-                  <mat-paginator #paginator
+                  <mat-paginator #paginatorPrecom
                                  [pageSize]="10"
                                  [pageSizeOptions]="[5, 10, 20]"
                                  [showFirstLastButtons]="true">
@@ -262,7 +261,7 @@
                     <mat-header-row *matHeaderRowDef="displayedColumnsComm"></mat-header-row>
                     <mat-row *matRowDef="let row; columns: displayedColumnsComm;"></mat-row>
                   </mat-table>
-                  <mat-paginator #paginator
+                  <mat-paginator #paginatorCom
                                  [pageSize]="10"
                                  [pageSizeOptions]="[5, 10, 20]"
                                  [showFirstLastButtons]="true">

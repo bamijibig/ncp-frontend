@@ -26,13 +26,15 @@
     </strong>
     </h2>
 </div> -->
-<div class="text-center" *ngIf="corenexpired && is_contractor">
+
+<div class="text-center" *ngIf="checkCorenDate2() && is_contractor">
+<!-- <div class="text-center" *ngIf="corenexpired && is_contractor"> -->
     <h2><strong>
       You cannot create an application for a new connection because your Coren certificate has expired. Kindly update your profile with the most recent Coren certificate.
     </strong></h2>
   </div>
   
-  <div mat-dialog-content class="mat-typography" *ngIf="(status && !in_approval && !corenexpired) || !is_contractor">
+  <div mat-dialog-content class="mat-typography" *ngIf="(status && !in_approval && !checkCorenDate2()) || !is_contractor">
 <!-- <div mat-dialog-content class="mat-typography" *ngIf="(status && !in_approval && !corenexpired) || !is_contractor"> -->
 
     <form class="m-4" [formGroup]="portform" (ngSubmit)="submitConnections()">

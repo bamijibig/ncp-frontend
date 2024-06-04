@@ -122,7 +122,7 @@ export class AppserviceService {
       formData.append('coren_cert', formvalue.coren_cert);
       formData.append('intro_letter_client', formvalue.intro_letter_client);
       formData.append('bh', formvalue.businesshub);
-  
+      formData.append('date_of_application', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
   
       formData.append('in_approval_workflow', 'True');
       formData.append('connection_status', 'Submitted and Awaiting TM Approval');
@@ -206,7 +206,7 @@ export class AppserviceService {
     formData.append('transformer_waranty', formvalue.transformer_waranty);
     formData.append('transformer_test_cert', formvalue.transformer_test_cert);
     formData.append('bh', formvalue.businesshub);
-
+    formData.append('date_of_application', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
 
     formData.append('in_approval_workflow', 'True');
     formData.append('connection_status', 'Submitted and Awaiting TM Approval');
@@ -713,6 +713,7 @@ addNewUser( formvalue:any
       formData.append('declined', "False");
       formData.append('cto_is_contractor_approved', 'False');
       formData.append('corenissued', formvalue.corenissued);
+      formData.append('reg_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
       // formData.append('coren',formvalue.coren);
       if(formvalue.nemsa_test_cert){
       formData.append('coren_or_nemsa_competency', formvalue.nemsa_test_cert);
@@ -994,7 +995,7 @@ addNewUser( formvalue:any
           const url = this.masterdomain + 'public/pubconnection/approveordeclinepre/' + id + '/';
           const formData = new FormData();
           formData.append('action', 'precomreq');
-          formData.append('security_receipt', form.receipt);
+          formData.append('security_receipt', form.security_receipt);
           formData.append('ct_is_pre_requested', 'True');
           formData.append('ct_is_pre_requested_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
           formData.append('connection_status', 'Awaiting Pre commissioning Test');
@@ -1007,7 +1008,7 @@ addNewUser( formvalue:any
           const url = this.masterdomain + 'connection/approveordeclinereq/' + id + '/';
           const formData = new FormData();
           formData.append('action', 'precomreq');
-          formData.append('security_receipt', form.receipt);
+          formData.append('security_receipt', form.security_receipt);
           formData.append('ct_is_pre_requested', 'True');
           formData.append('ct_is_pre_requested_date', formatDate(new Date(), 'yyyy-MM-dd', 'en'));
           formData.append('connection_status', 'Awaiting Pre-commissioning Test');

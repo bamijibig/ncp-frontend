@@ -12,16 +12,24 @@ export class ConnectionReqPrecomComponent implements OnInit {
 
   id: any;
   precomform: FormGroup;
+  preqform:any;
   constructor( public dialogRef: MatDialogRef<ConnectionReqPrecomComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
    
     private appservice:AppserviceService
   ) { 
+    this.preqform=data.row;
     this.id = data.row?.id;
     this.precomform = new FormGroup({
-      receipt: new FormControl(''),
-    });
+      security_receipt: new FormControl(''),
+    })
+    if(data.action == 'view'){
+      this.precomform.disable();
+    };
   }
+
+  
+  
 
   ngOnInit(): void {
   }

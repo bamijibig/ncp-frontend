@@ -62,6 +62,10 @@ eval_form: FormGroup;
     })
     if(data.action == 'view'){
       this.eval_form.disable();
+      this.eval_form.patchValue({
+        eval_site_visit_date:data.row?.eval_datevisit,
+
+      })
     };
   }
 

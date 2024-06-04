@@ -15,7 +15,7 @@ export class ConnectionFormComponent implements OnInit {
  action: any;
   portform: FormGroup;
   connection: any;
-  corenexpired = true;
+  corenexpired = false;
   is_contractor: Boolean = User.getUser().is_contractor;
   constructor(
     public dialogRef: MatDialogRef<ConnectionFormComponent>,
@@ -207,18 +207,6 @@ getApprovalStatus(){
 }
 
 
-
-
-// checkCorenDate() {
-//   const corenissued = User.getUser().corenissued;
-//   const issuedplusayear = moment(corenissued).add(1, 'year');
-//   if (issuedplusayear.isBefore(moment(), 'day')) {
-//     this.corenexpired = true;
-//   } else {
-//     this.corenexpired = false;
-//   }
-//   this.cdRef.detectChanges();
-// }
 checkCorenDate() {
   // Simulate fetching the user and corenissued date from backend
   const corenissued = User.getUser().corenissued;  // Example date, replace with actual fetch logic
@@ -226,10 +214,11 @@ checkCorenDate() {
   // Parse the date string to a Date object
   const corenIssuedDate = new Date(corenissued);
   // Add one year to the issue date
-  const issuedPlusAYear = new Date(corenIssuedDate.setFullYear(corenIssuedDate.getFullYear() + 1));
+  // const issuedPlusAYear = new Date(corenIssuedDate.setFullYear(corenIssuedDate.getFullYear() + 1));
 
   // Check if the current date is after the issuedPlusAYear date
-  if (issuedPlusAYear < new Date()) {
+  const today = new Date();
+  if (corenIssuedDate <= new Date()) {
     this.corenexpired = true;
   } else {
     this.corenexpired = false;
@@ -237,6 +226,22 @@ checkCorenDate() {
 
   this.cdRef.detectChanges();
 }
+
+
+checkCorenDate2() {
+  // Simulate fetching the user and corenissued date from backend
+  const corenissued = User.getUser().corenissued;  // Example date, replace with actual fetch logic
+
+  // Parse the date string to a Date object
+  const corenIssuedDate = new Date(corenissued);
+  // Add one year to the issue date
+  // const issuedPlusAYear = new Date(corenIssuedDate.setFullYear(corenIssuedDate.getFullYear() + 1));
+
+  // Check if the current date is after the issuedPlusAYear date
+  const today = new Date();
+  return corenIssuedDate <= new Date()
+}
+
 regions: any = [];
 hub: any = [];
 getRegion() {

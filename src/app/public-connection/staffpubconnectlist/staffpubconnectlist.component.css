@@ -1,0 +1,8 @@
+.example-container {
+    overflow: auto;
+  }
+  
+  .table-wrapper {
+    display: inline-block;
+    min-width: 100%;
+  }

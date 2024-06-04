@@ -200,6 +200,7 @@ export class ContractorRegComponent implements OnInit {
         licensed_no: result.licensed_no,
         tel_no: result.tel_no,
         email: result.email,
+        corenissued:result.corenissued,
         // I ADDED THIS 
         coren:result.coren 
         // region: result.businesshub,

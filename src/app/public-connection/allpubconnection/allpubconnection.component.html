@@ -109,42 +109,7 @@
                     <mat-header-cell *matHeaderCellDef > relieftype </mat-header-cell>
                     <mat-cell *matCellDef="let element" > {{element.relieftype}}  </mat-cell>
                   </ng-container>
-                  <!-- <ng-container matColumnDef="feeder_name">
-                    <mat-header-cell *matHeaderCellDef > feeder_name </mat-header-cell>
-                    <mat-cell *matCellDef="let element" > {{element.feeder_name}}  </mat-cell>
-                  </ng-container>  -->
-                  <!-- <ng-container matColumnDef="feeder_capacity">
-                    <mat-header-cell *matHeaderCellDef > feeder_capacity </mat-header-cell>
-                    <mat-cell *matCellDef="let element" > {{element.feeder_capacity}}  </mat-cell>
-                  </ng-container>
-                  <ng-container matColumnDef="fdr_peakload">
-                    <mat-header-cell *matHeaderCellDef > fdr_peakload </mat-header-cell>
-                    <mat-cell *matCellDef="let element" > {{element.fdr_peakload}}  </mat-cell>
-                  </ng-container>
-                  <ng-container matColumnDef="load_tilldate">
-                    <mat-header-cell *matHeaderCellDef > load_tilldate </mat-header-cell>
-                    <mat-cell *matCellDef="let element" > {{element.load_tilldate}}  </mat-cell>
-                  </ng-container>
-                  <ng-container matColumnDef="source_fdr">
-                    <mat-header-cell *matHeaderCellDef > source_fdr </mat-header-cell>
-                    <mat-cell *matCellDef="let element" > {{element.source_fdr}}  </mat-cell>
-                  </ng-container> 
-                  <ng-container matColumnDef="powertrans">
-                    <mat-header-cell *matHeaderCellDef > powertrans </mat-header-cell>
-                    <mat-cell *matCellDef="let element" > {{element.powertrans}}  </mat-cell>
-                  </ng-container> 
-                  <ng-container matColumnDef="trans_rating">
-                    <mat-header-cell *matHeaderCellDef > trans_rating </mat-header-cell>
-                    <mat-cell *matCellDef="let element" > {{element.trans_rating}}  </mat-cell>
-                  </ng-container> 
-                  <ng-container matColumnDef="expected_billing">
-                    <mat-header-cell *matHeaderCellDef > expected_billing </mat-header-cell>
-                    <mat-cell *matCellDef="let element" > {{element.expected_billing}}  </mat-cell>
-                  </ng-container>
-                  <ng-container matColumnDef="expected_gain">
-                    <mat-header-cell *matHeaderCellDef > expected_gain </mat-header-cell>
-                    <mat-cell *matCellDef="let element" > {{element.expected_gain}}  </mat-cell>
-                  </ng-container> -->
+                
                   <ng-container matColumnDef="letter_of_donation_dss">
                     <mat-header-cell *matHeaderCellDef > letter_of_donation_dss </mat-header-cell>
                     <!-- <mat-cell *matCellDef="let element" >  <a [href]="element?.coren" target="_blank">View</a> </mat-cell> -->
@@ -166,19 +131,24 @@
                     <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
                     <mat-cell *matCellDef="let element"> {{element.connection_status}}  </mat-cell>
                   </ng-container> 
-                  <ng-container matColumnDef="edit">
+                  <!-- <ng-container matColumnDef="edit">
                     <mat-header-cell *matHeaderCellDef> </mat-header-cell>
                     <mat-cell *matCellDef="let element">
                       <button mat-raised-button color="secondary" (click)="edit(element)" *ngIf="is_contractor && !element.in_approval_workflow">Edit</button> 
                     </mat-cell>  
-                    </ng-container>
+                    </ng-container> -->
+                  <!-- <ng-container matColumnDef="view">
+                    <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      
+                    <button mat-raised-button color="secondary" (click)="view(element)" *ngIf="is_contractor">View</button> </mat-cell>
+                  </ng-container> -->
                   <ng-container matColumnDef="view">
                     <mat-header-cell *matHeaderCellDef> </mat-header-cell>
                     <mat-cell *matCellDef="let element">
                       
                     <button mat-raised-button color="secondary" (click)="view(element)" *ngIf="is_contractor">View</button> </mat-cell>
                   </ng-container>
-                
               
                   <mat-header-row *matHeaderRowDef="displayedColumnslist"></mat-header-row>
                   <mat-row *matRowDef="let row; columns: displayedColumnslist;"></mat-row>
@@ -316,13 +286,13 @@
                     <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
                     <mat-cell *matCellDef="let element"> {{element.connection_status}}  </mat-cell>
                   </ng-container>           
-                  <ng-container matColumnDef="edit">
+                  <!-- <ng-container matColumnDef="edit">
                     <mat-header-cell *matHeaderCellDef> </mat-header-cell>
                     <mat-cell *matCellDef="let element">
                       <button mat-raised-button color="secondary" (click)="request(element)" *ngIf="is_contractor">Request</button>
                     &nbsp; &nbsp; 
                     <button mat-raised-button color="secondary" (click)="view(element)" *ngIf="is_contractor">View</button> </mat-cell>
-                  </ng-container>
+                  </ng-container> -->
                 
                   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
                   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

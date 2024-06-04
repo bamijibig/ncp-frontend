@@ -3,24 +3,31 @@
     overflow-x: auto;
     width: 100%; /* Set an appropriate width */
   }
-  .example-viewport {
-    height: 300px; /* Set the desired height */
-    width: 100%;
+  .example-container {
+    overflow: auto;
   }
+  
+  .table-wrapper {
+    display: inline-block;
+    min-width: 100%;
+  }
+  /* .example-viewport {
+    height: 300px; 
+    width: 100%;
+  } */
   /* Add space between header and data cells */
-.wide-header {
-  padding-right: 20px; /* Adjust the padding as needed */
-}
+/* .wide-header {
+  padding-right: 20px;
+} */
 
-.wide-cell {
-  padding-left: 20px; /* Adjust the padding as needed */
-}
+/* .wide-cell {
+  padding-left: 20px;
+} */
 
 /* Ensure content is not cut off */
-.cell-content {
-  white-space: nowrap; /* Prevent text from wrapping */
-  overflow: hidden; /* Hide overflow */
-  text-overflow: ellipsis; /* Display ellipsis (...) for overflowing text */
-  /* max-width: 200px; Adjust the maximum width as needed */
-  /* You can remove max-width if you want the column to expand as needed */
-}
+/* .cell-content {
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+
+} */

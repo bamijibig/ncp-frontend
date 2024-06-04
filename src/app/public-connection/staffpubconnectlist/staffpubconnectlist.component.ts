@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { AppserviceService } from 'src/app/appservice.service';
@@ -8,14 +8,17 @@ import { pubconnectionActionComponent } from '../dialog/pubconnection-action/pub
 import { PubconnectionEvaluateComponent } from '../dialog/pubconnection-evaluate/pubconnection-evaluate.component';
 import { PubconnectionPrecomTestComponent } from '../dialog/pubconnection-precom-test/pubconnection-precom-test.component';
 import * as XLSX from 'xlsx';
+import { PubconnectionReqPrecomComponent } from '../dialog/pubconnection-req-precom/pubconnection-req-precom.component';
+import { PubconnectionCompCommisionComponent } from '../dialog/pubconnection-comp-commision/pubconnection-comp-commision.component';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-staffpubconnectlist',
   templateUrl: './staffpubconnectlist.component.html',
   styleUrls: ['./staffpubconnectlist.component.css']
 })
-export class StaffpubconnectlistComponent implements OnInit {
-  displayedColumns = [ 'id','region','hub','community_name', 'chairman_comm_number','status', 'view','eval','test']
+export class StaffpubconnectlistComponent implements OnInit,AfterViewInit {
+  displayedColumns = [ 'id','region','hub','community_name','status', 'view','eval','test','preqcom','commission']
   // ['contractor_name','region','hub', 'company_name', 'connectiontype', 'capacity', 'useofpremises','date_of_application', 'status', 'view','eval','test']
   
  displayedColumnsList = [ 'id','region','hub','community_name', 'chairman_comm_number', 'status', 'view','approve', 'decline']
@@ -27,10 +30,19 @@ export class StaffpubconnectlistComponent implements OnInit {
   user: any = User.getUser()
   portals:any;
   title = 'eportal';
+  @ViewChild('paginator') paginator!: MatPaginator;
+  @ViewChild('paginatorApproval') paginatorApproval!: MatPaginator;
+  // @ViewChild('paginatorCom') paginatorCom!: MatPaginator;
+
   constructor(
     private api: AppserviceService,
     private dialog: MatDialog
   ) { }
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSourceApproval.paginator = this.paginatorApproval;
+    // this.dataSourcecom.paginator = this.paginatorCom;
+  }
   
   ngOnInit(): void {
     this.consumepubapi();
@@ -172,6 +184,29 @@ export class StaffpubconnectlistComponent implements OnInit {
       }
     });
   }
+  // for pre request form
+viewPreq(rowedited: any){
+  const dialogRef = this.dialog.open(PubconnectionReqPrecomComponent, {
+    width: '100%',
+    // height: '90%',
+    data: {
+      action: 'view',
+      row: rowedited
+    }
+  });
+}
+
+// for commission
+viewCommission(rowedited: any){
+  const dialogRef = this.dialog.open(PubconnectionCompCommisionComponent, {
+    width: '100%',
+    // height: '90%',
+    data: {
+      action: 'view',
+      row: rowedited
+    }
+  });
+}
   downloadExcel(){
     /* generate worksheet */
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.download_data);
@@ -189,6 +224,14 @@ export class StaffpubconnectlistComponent implements OnInit {
   
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
+    }
+  }
+  applyFilterApp(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSourceApproval.filter = filterValue.trim().toLowerCase();
+  
+    if (this.dataSourceApproval.paginator) {
+      this.dataSourceApproval.paginator.firstPage();
     }
   }
 

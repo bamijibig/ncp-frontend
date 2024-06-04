@@ -11,16 +11,21 @@ import { AppserviceService } from 'src/app/appservice.service';
 export class PubconnectionReqPrecomComponent implements OnInit {
   id: any;
   pubprecomform: FormGroup;
+  pubpreqform:any;
   constructor(
     public dialogRef: MatDialogRef<PubconnectionReqPrecomComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
    
     private appservice:AppserviceService
   ) { 
+    this.pubpreqform=data.row;
     this.id = data.row?.id;
     this.pubprecomform = new FormGroup({
       receipt: new FormControl(''),
   })
+  if(data.action == 'view'){
+    this.pubprecomform.disable();
+  };
 }
 
 

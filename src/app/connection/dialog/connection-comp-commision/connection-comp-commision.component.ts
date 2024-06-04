@@ -10,6 +10,7 @@ import { AppserviceService } from 'src/app/appservice.service';
 })
 export class ConnectionCompCommisionComponent implements OnInit {
   id: any;
+  comformget:any;
   comform!: FormGroup;
   constructor(
     public dialogRef: MatDialogRef<ConnectionCompCommisionComponent>,
@@ -17,6 +18,7 @@ export class ConnectionCompCommisionComponent implements OnInit {
    
     private appservice:AppserviceService
   ) { 
+    this.comformget=data.row;
     this.id = data.row?.id;
     
     this.comform = new FormGroup({
@@ -28,6 +30,19 @@ export class ConnectionCompCommisionComponent implements OnInit {
       ct_is_completed_date: new FormControl(''),
  
     });
+    if(data.action == 'view'){
+      this.comform.disable();
+      this.comform.patchValue({
+        projsignedoff:this.comformget.projsignedoff,
+        inspbynemsa:this.comformget.inspbynemsa,
+        nemsatestcert:this.comformget.nemsatestcert,
+        letterofdonation:this.comformget.letterofdonation,
+        comprojcert:this.comformget.comprojcert,
+        ct_is_completed_date:this.comformget.ct_is_completed_date
+    
+
+      })
+    };
   }
 
   ngOnInit(): void {

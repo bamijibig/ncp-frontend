@@ -1,5 +1,5 @@
 import { SelectionModel } from '@angular/cdk/collections';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { AppserviceService } from 'src/app/appservice.service';
@@ -10,6 +10,9 @@ import { ConnectionFormComponent } from '../dialog/connection-form/connection-fo
 import { ConnectionPrecomTestComponent } from '../dialog/connection-precom-test/connection-precom-test.component';
 import * as XLSX from 'xlsx';
 import * as html2pdf from 'html2pdf.js';
+import { ConnectionReqPrecomComponent } from '../dialog/connection-req-precom/connection-req-precom.component';
+import { ConnectionCompCommisionComponent } from '../dialog/connection-comp-commision/connection-comp-commision.component';
+import { MatPaginator } from '@angular/material/paginator';
 
 // import { ActionDialogComponent } from './dialog/action-dialog/action-dialog.component';
 // import { AllContractorFormDialogComponent } from './dialog/all-contractor-form-dialog/all-contractor-form-dialog.component';
@@ -17,15 +20,16 @@ import * as html2pdf from 'html2pdf.js';
 @Component({
   selector: 'app-staffconnectionlist',
   templateUrl: './staffconnectionlist.component.html',
-  styleUrls: ['./staffconnectionlist.component.css']
+  styleUrls: ['./staffconnectionlist.component.css'],
+
 })
-export class StaffconnectionlistComponent implements OnInit {
+export class StaffconnectionlistComponent implements OnInit,AfterViewInit {
   showButtons: boolean = false;
 //  displayedColumns = ['name', 'address', 'email', 'phone', 'license','status','action']
  
- displayedColumns = ['id','contractor_name','region','hub', 'company_name', 'date_of_application', 'status', 'view','eval','test']
+ displayedColumns = ['id','region','hub', 'company_name', 'date_of_application', 'status', 'view','eval','test','preqcom','commission']
   
- displayedColumnsList = ['id','contractor_name','region','hub', 'company_name',  'date_of_application','status', 'view','approve', 'decline']
+ displayedColumnsList = ['id','region','hub', 'company_name',  'date_of_application','status', 'view','approve', 'decline']
   dataSource= new MatTableDataSource<any>([])
   dataSourceApproval= new MatTableDataSource<any>([])
   downloadcon_data=[]
@@ -33,9 +37,16 @@ export class StaffconnectionlistComponent implements OnInit {
   user: any = User.getUser()
   portals:any;
   title = 'eportal';
+  @ViewChild('paginator') paginator!: MatPaginator;
+  @ViewChild('paginatorApproval') paginatorApproval!: MatPaginator;
   constructor(
     private api: AppserviceService,
     private dialog: MatDialog) { this.consumeapi();
+    }
+    ngAfterViewInit() {
+      this.dataSource.paginator = this.paginator;
+      this.dataSourceApproval.paginator = this.paginatorApproval;
+      // this.dataSourcecom.paginator = this.paginatorCom;
     }
   ngOnInit(): void {
     this.consumeapi();
@@ -186,6 +197,29 @@ viewTest(rowedited: any){
     }
   });
 }
+// for pre request form
+viewPreq(rowedited: any){
+  const dialogRef = this.dialog.open(ConnectionReqPrecomComponent, {
+    width: '100%',
+    // height: '90%',
+    data: {
+      action: 'view',
+      row: rowedited
+    }
+  });
+}
+
+// for commission
+viewCommission(rowedited: any){
+  const dialogRef = this.dialog.open(ConnectionCompCommisionComponent, {
+    width: '100%',
+    // height: '90%',
+    data: {
+      action: 'view',
+      row: rowedited
+    }
+  });
+}
 
 downloadExcel(){
   /* generate worksheet */
@@ -205,6 +239,18 @@ applyFilter(event: Event) {
   if (this.dataSource.paginator) {
     this.dataSource.paginator.firstPage();
   }
+
+  
+}
+applyFilterApp(event: Event) {
+  const filterValue = (event.target as HTMLInputElement).value;
+  this.dataSourceApproval.filter = filterValue.trim().toLowerCase();
+
+  if (this.dataSourceApproval.paginator) {
+    this.dataSourceApproval.paginator.firstPage();
+  }
+
+  
 }
 
 

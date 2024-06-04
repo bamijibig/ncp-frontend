@@ -108,6 +108,22 @@ export class AllContractorsComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+  applyFilterNot(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSourceUnsubmit.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSourceUnsubmit.paginator) {
+      this.dataSourceUnsubmit.paginator.firstPage();
+    }
+  }
+  applyFilterApp(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSourceApproval.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSourceApproval.paginator) {
+      this.dataSourceApproval.paginator.firstPage();
+    }
+  }
   downloadExcel(){
     /* generate worksheet */
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.downloadcont);

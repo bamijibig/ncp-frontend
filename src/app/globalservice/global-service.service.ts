@@ -33,6 +33,7 @@ export class User {
     public tel_no?: any,
     public user_permissions?: any,
     public job_title?: any,
+    public corenissued?: any,
 
   ) {}
 
@@ -71,6 +72,7 @@ export class User {
       data.tel_no,
       data.user_permissions,  
       data.job_title,  
+      data.corenissued,  
         );
   }
 

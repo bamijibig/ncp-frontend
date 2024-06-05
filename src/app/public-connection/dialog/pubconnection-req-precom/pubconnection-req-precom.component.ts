@@ -21,7 +21,7 @@ export class PubconnectionReqPrecomComponent implements OnInit {
     this.pubpreqform=data.row;
     this.id = data.row?.id;
     this.pubprecomform = new FormGroup({
-      receipt: new FormControl(''),
+      security_receipt: new FormControl(''),
   })
   if(data.action == 'view'){
     this.pubprecomform.disable();

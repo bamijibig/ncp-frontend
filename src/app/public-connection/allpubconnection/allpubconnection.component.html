@@ -286,13 +286,13 @@
                     <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
                     <mat-cell *matCellDef="let element"> {{element.connection_status}}  </mat-cell>
                   </ng-container>           
-                  <!-- <ng-container matColumnDef="edit">
+                  <ng-container matColumnDef="edit">
                     <mat-header-cell *matHeaderCellDef> </mat-header-cell>
                     <mat-cell *matCellDef="let element">
                       <button mat-raised-button color="secondary" (click)="request(element)" *ngIf="is_contractor">Request</button>
                     &nbsp; &nbsp; 
                     <button mat-raised-button color="secondary" (click)="view(element)" *ngIf="is_contractor">View</button> </mat-cell>
-                  </ng-container> -->
+                  </ng-container>
                 
                   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
                   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

@@ -15,7 +15,7 @@ import { MatPaginator } from '@angular/material/paginator';
   styleUrls: ['./allpubconnection.component.css']
 })
 export class AllpubconnectionComponent implements OnInit, AfterViewInit {
-  displayedColumns = ['id', 'community_name', 'chairman_comm_number', 'date_of_application', 'status'];
+  displayedColumns = ['id', 'community_name', 'chairman_comm_number', 'date_of_application', 'status','edit'];
   displayedColumnslist = ['id', 'region', 'hub', 'name_sponsor', 'community_name', 'chairman_comm_number', 'status'];
   displayedColumncom = ['region', 'hub', 'community_name', 'chairman_comm_number', 'view', 'complete'];
 
